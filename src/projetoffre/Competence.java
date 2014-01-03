@@ -16,7 +16,7 @@ public class Competence {
     //attributs
     String nomComp;
     boolean obligatoire;
-//    ArrayList<MotClef> lstmots;
+   ArrayList<MotClef> lstmots;
 
     public String getNomComp() {
         return nomComp;
@@ -30,6 +30,8 @@ public class Competence {
     public Competence(String nomComp, boolean oblig) {
         this.nomComp = nomComp;
         this.obligatoire = oblig;
-//        this.lstmots = new ArrayList();
+       this.lstmots = new ArrayList();
     }
+    
+    
 }

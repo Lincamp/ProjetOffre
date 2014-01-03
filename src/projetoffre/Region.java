@@ -7,6 +7,8 @@
 package projetoffre;
 
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  *
@@ -15,18 +17,24 @@ import java.util.ArrayList;
 public class Region {
     //attributs
     String regnom;
+    Set<String> regassocie;
     ArrayList<Offre> lstoffs;
-    ArrayList<Region> lstregs;
+    // ArrayList<regassocie> lstregs;
+    
 
     public String getRegnom() {
         return regnom;
     }
 
-    public Region(String regnom) {
+    public Region(String regnom,Set<String> regassocie) {
         this.regnom = regnom;
         this.lstoffs = new ArrayList(); 
-        this.lstregs = new ArrayList();
+          regassocie= new HashSet<String>();
+        this.regassocie = regassocie;
+//        this.lstregs = new ArrayList();
     }
     
+   
+     
     
 }

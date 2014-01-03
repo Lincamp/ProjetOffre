@@ -16,4 +16,11 @@ public class Stage extends Offre {
     //methodes
        public Stage() {
     }
+
+//héritage
+public double scoreStage (double scoreCompetences, int scoreGeographique){
+    double scoreStage =0;
+        scoreStage = scoreCompetences + scoreGeographique;
+        return scoreStage;
+}
 }

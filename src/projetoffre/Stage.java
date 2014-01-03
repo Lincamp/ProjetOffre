@@ -16,7 +16,7 @@ public class Stage extends Offre {
     public Stage() {
     }
 
-//héritage
+    //héritage
     public double scoreStage(double scoreCompetences, int scoreGeographique) {
         double scoreStage = 0;
         scoreStage = scoreCompetences + scoreGeographique;

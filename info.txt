@@ -1,0 +1,11 @@
+m_titre;m_region;m_exp;m_salMin;m_salMax
+chef;null;2;300;500
+engineer;java.lang.String;3;100;500
+v_titre;v_region;v_exp;v_salMin;v_salMax
+soft;java.lang.String;2;200;300
+jTextField1;java.lang.String;2;4;5;Java:1|Python:0
+software;Tour;1;2000;2500;Program:0
+sss;Toulouse;3;2000;3000;BD:0
+employe;Paris;1;200;300;Rapport:0
+projet;Toulouse;1;2;3;Program:1|BD:0
+ssss;Paris;1;2;5;Program:1|BD:0

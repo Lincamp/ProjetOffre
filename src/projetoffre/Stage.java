@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package projetoffre;
 
 /**
@@ -12,15 +11,15 @@ package projetoffre;
  */
 public class Stage extends Offre {
     //attributs
-    
+
     //methodes
-       public Stage() {
+    public Stage() {
     }
 
 //héritage
-public double scoreStage (double scoreCompetences, int scoreGeographique){
-    double scoreStage =0;
+    public double scoreStage(double scoreCompetences, int scoreGeographique) {
+        double scoreStage = 0;
         scoreStage = scoreCompetences + scoreGeographique;
         return scoreStage;
-}
+    }
 }

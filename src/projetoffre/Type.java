@@ -12,7 +12,7 @@ package projetoffre;
  */
 public class Type {
     //attributs
-    boolean offretype;
+    boolean m_offretype;
     
     //methode;
 //    public int poid(){

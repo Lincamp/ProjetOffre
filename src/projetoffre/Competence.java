@@ -3,9 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package projetoffre;
- 
+
 import java.util.ArrayList;
 
 /**
@@ -14,24 +13,22 @@ import java.util.ArrayList;
  */
 public class Competence {
     //attributs
-    String nomComp;
-    boolean obligatoire;
-   ArrayList<MotClef> lstmots;
+
+    String m_nomComp;
+    boolean m_obligatoire;
+    ArrayList<MotClef> m_lstmots;
 
     public String getNomComp() {
-        return nomComp;
+        return m_nomComp;
     }
 
     public boolean isObligatoire() {
-        return obligatoire;
+        return m_obligatoire;
     }
 
-    
     public Competence(String nomComp, boolean oblig) {
-        this.nomComp = nomComp;
-        this.obligatoire = oblig;
-       this.lstmots = new ArrayList();
+        this.m_nomComp = nomComp;
+        this.m_obligatoire = oblig;
+        this.m_lstmots = new ArrayList();
     }
-    
-    
 }

@@ -12,12 +12,12 @@ package projetoffre;
  */
 public class Engregistrer {
     //attributs
-    boolean offretype;
-    String titre;
-    String region;
-    int exp;
-    String comp;
-    boolean comptype;
-    int salmin;
-    int salmax;    
+    boolean m_offretype;
+    String m_titre;
+    String m_region;
+    int m_exp;
+    String m_comp;
+    boolean m_comptype;
+    int m_salmin;
+    int m_salmax;    
 }

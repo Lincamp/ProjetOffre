@@ -12,15 +12,14 @@ package projetoffre;
  */
 public class MotClef {
     //attributs
-    String libelle;
+    String m_libelle;
     
     //methodes
     public String getLibelle() {
-        return libelle;
+        return m_libelle;
     }
 
     public MotClef(String libelle) {
-        this.libelle = libelle;
+        this.m_libelle = libelle;
     }
-    
 }

@@ -35,7 +35,7 @@ import projetoffre.Region;
 //exp, salaire int only
 public class PanelSaisie extends javax.swing.JPanel {
 
-    private EnregComp enregComp;
+    private EnregComp m_enregComp;
     boolean m_offreType;
     String m_titre;
     String m_region;
@@ -52,7 +52,7 @@ public class PanelSaisie extends javax.swing.JPanel {
      */
     public PanelSaisie() {
         initComponents();
-        enregComp = new EnregComp();
+        m_enregComp = new EnregComp();
         m_lstcomps = new ArrayList();
         m_setComp = new HashSet<String>();
         initRegionList();
@@ -886,11 +886,11 @@ public class PanelSaisie extends javax.swing.JPanel {
             m_setComp.add(nomC); 
             System.out.println("m_setComp ;" + m_setComp);
                System.out.println("m_setComp size ;" + m_setComp.size());
-            enregComp.ajouterComp(nomC, optOblig.isSelected());
+            m_enregComp.ajouterComp(nomC, optOblig.isSelected());
         }
-        System.out.println(enregComp.getSize());
-        int compsSize = enregComp.getSize();
-        m_lstcomps = enregComp.getComps();
+        System.out.println(m_enregComp.getSize());
+        int compsSize = m_enregComp.getSize();
+        m_lstcomps = m_enregComp.getComps();
 
         Object[][] m_compContent = new Object[compsSize][2];
         for (int i = 0; i < compsSize; i++) {

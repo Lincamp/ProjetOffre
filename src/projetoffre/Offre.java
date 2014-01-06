@@ -13,10 +13,9 @@ import java.util.ArrayList;
  */
 public abstract class Offre {
     //attribut
-
-    String titre;
-    String region;
-    ArrayList<Competence> lstcomps;
+    String m_titre;
+    String m_region;
+    ArrayList<Competence> m_lstcomps;
 
     //methodes
     public int scoreGeographique(Region regChercher, ArrayList<Region> lstregTrouve) {
@@ -26,8 +25,8 @@ public abstract class Offre {
             if (regChercher.getRegnom().equals(lstregTrouve.get(i).getRegnom())) {
                 scoreGeographique = 10;
             } else {
-                for (int j = 0; j < regChercher.regassocie.size(); j++) {
-                    if (regChercher.regassocie.toString().equals(lstregTrouve.get(j).getRegnom())) {
+                for (int j = 0; j < regChercher.m_regassocie.size(); j++) {
+                    if (regChercher.m_regassocie.toString().equals(lstregTrouve.get(j).getRegnom())) {
                         scoreGeographique = 5;
                     } else {
                         scoreGeographique = 0;
@@ -48,21 +47,21 @@ public abstract class Offre {
 
             sommePoids = 0;
             nbMotClefChercher = 0;
-            for (int j = 0; j < lstOffreTrouve.get(i).lstcomps.size(); j++) {
+            for (int j = 0; j < lstOffreTrouve.get(i).m_lstcomps.size(); j++) {
                 for (int p = 0; p < lstCompsCherche.size(); p++) {
-                    if (lstOffreTrouve.get(i).lstcomps.get(j).getNomComp().equals(lstCompsCherche.get(p).getNomComp())) {
+                    if (lstOffreTrouve.get(i).m_lstcomps.get(j).getNomComp().equals(lstCompsCherche.get(p).getNomComp())) {
                         poidsMotClef = 0;
-                        if (lstOffreTrouve.get(i).lstcomps.get(j).isObligatoire()) {
-                            poidsMotClef = lstOffreTrouve.get(i).lstcomps.get(j).lstmots.size() * 1;
+                        if (lstOffreTrouve.get(i).m_lstcomps.get(j).isObligatoire()) {
+                            poidsMotClef = lstOffreTrouve.get(i).m_lstcomps.get(j).m_lstmots.size() * 1;
                             System.out.println("v1_poidsMotClef : " + poidsMotClef);
                         } else {
-                            poidsMotClef = lstOffreTrouve.get(i).lstcomps.get(j).lstmots.size() * 0.5;
+                            poidsMotClef = lstOffreTrouve.get(i).m_lstcomps.get(j).m_lstmots.size() * 0.5;
                             System.out.println("v0.5_poidsMotClef : " + poidsMotClef);
                         }
                         sommePoids = sommePoids + poidsMotClef;
                     }
                 }
-                nbMotClefChercher = nbMotClefChercher + lstOffreTrouve.get(i).lstcomps.get(j).lstmots.size();
+                nbMotClefChercher = nbMotClefChercher + lstOffreTrouve.get(i).m_lstcomps.get(j).m_lstmots.size();
                 System.out.println("v_sommePoids : " + sommePoids);
                 System.out.println("v_nbMotClefChercher : " + nbMotClefChercher);
             }
@@ -71,6 +70,5 @@ public abstract class Offre {
         }
         return scoreCompetences;
     }
-    
 //   public abstract double score(); /!\   on doit regarder le cour avec l'exemple du loto pour le gagnant !!!! à finir !!!!
 }

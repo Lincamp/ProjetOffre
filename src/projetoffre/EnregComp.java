@@ -15,7 +15,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class EnregComp {
   //attributs
-    private ArrayList<Competence> lstcomps;
+    private ArrayList<Competence> m_lstcomps;
     private int m_size;
 //    Object[][] m_compContent;
 
@@ -23,7 +23,7 @@ public class EnregComp {
      * Constructeur forçant une initialisation aux valeurs par défaut.
      */
     public EnregComp() {
-        lstcomps = new ArrayList<>();
+        m_lstcomps = new ArrayList<>();
 //        m_compContent = new Object[m_size][2];
         init();
     }
@@ -32,21 +32,21 @@ public class EnregComp {
      * Méthode interne de remise à zéro.
      */
     private void init() {
-        lstcomps.clear();
+        m_lstcomps.clear();
         m_size = 0;       
     } 
 
     public ArrayList<Competence> getComps() {
-        return lstcomps;
+        return m_lstcomps;
     }
     
     public void ajouterComp(String nomC, boolean oblig) {        
-        lstcomps.add(new Competence(nomC,oblig));
+        m_lstcomps.add(new Competence(nomC,oblig));
         m_size++;      
     }
     
     public void retirerComp(Competence comp) {       
-        lstcomps.remove(comp);
+        m_lstcomps.remove(comp);
         m_size--;
     }
     

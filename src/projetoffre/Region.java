@@ -16,25 +16,20 @@ import java.util.Set;
  */
 public class Region {
     //attributs
-    String regnom;
-    Set<String> regassocie;
-    ArrayList<Offre> lstoffs;
+    String m_regnom;
+    Set<String> m_regassocie;
+    ArrayList<Offre> m_lstoffs;
     // ArrayList<regassocie> lstregs;
     
-
     public String getRegnom() {
-        return regnom;
+        return m_regnom;
     }
 
-    public Region(String regnom,Set<String> regassocie) {
-        this.regnom = regnom;
-        this.lstoffs = new ArrayList(); 
-          regassocie= new HashSet<String>();
-        this.regassocie = regassocie;
+    public Region(String regnom, Set<String> regassocie) {
+        this.m_regnom = regnom;
+        this.m_lstoffs = new ArrayList(); 
+        regassocie = new HashSet<String>();
+        this.m_regassocie = regassocie;
 //        this.lstregs = new ArrayList();
     }
-    
-   
-     
-    
 }

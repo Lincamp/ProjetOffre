@@ -66,46 +66,46 @@ public class FileOperation {
         }
     }
     
-     public void enrgFile(String v_titre, String v_region,int v_exp,int v_salMin,int v_salMax, ArrayList<Competence> c){
-        try {
-            int compsSize = c.size();
-            System.out.println("size"+ c.size());
-            System.out.println(c);
-            String compstr = "";
-  
-            //for(Competence comp:c)
-            for(int i = 0; i < compsSize; i++){                
-                compstr += c.get(i).getNomComp() + m_compTypeDelim;
-                  System.out.println("compstr :" + compstr);
-                if(c.get(i).isObligatoire()) {
-                    compstr += "1";
-                }
-                else {
-                    compstr += "0";
-                }
-                if(i < compsSize - 1){
-                    compstr += m_compDelim;
-                }
-            }
-            String content = v_titre + m_itemDelim + 
-                    v_region + m_itemDelim + 
-                    v_exp + m_itemDelim + 
-                    v_salMin + m_itemDelim + 
-                    v_salMax + m_itemDelim + compstr;
-            File file = new File("info.txt");
-            // if file doesnt exists, then create it
-            if (!file.exists()) {
-                file.createNewFile();
-            }
-            FileWriter fw = new FileWriter(file.getAbsoluteFile(), true);
-            BufferedWriter bw = new BufferedWriter(fw);
-            bw.write(content);
-            bw.newLine();
-            bw.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
+//     public void enrgFile(String v_titre, String v_region,int v_exp,int v_salMin,int v_salMax, ArrayList<Competence> c){
+//        try {
+//            int compsSize = c.size();
+//            System.out.println("size"+ c.size());
+//            System.out.println(c);
+//            String compstr = "";
+//  
+//            //for(Competence comp:c)
+//            for(int i = 0; i < compsSize; i++){                
+//                compstr += c.get(i).getNomComp() + m_compTypeDelim;
+//                  System.out.println("compstr :" + compstr);
+//                if(c.get(i).isObligatoire()) {
+//                    compstr += "1";
+//                }
+//                else {
+//                    compstr += "0";
+//                }
+//                if(i < compsSize - 1){
+//                    compstr += m_compDelim;
+//                }
+//            }
+//            String content = v_titre + m_itemDelim + 
+//                    v_region + m_itemDelim + 
+//                    v_exp + m_itemDelim + 
+//                    v_salMin + m_itemDelim + 
+//                    v_salMax + m_itemDelim + compstr;
+//            File file = new File("info.txt");
+//            // if file doesnt exists, then create it
+//            if (!file.exists()) {
+//                file.createNewFile();
+//            }
+//            FileWriter fw = new FileWriter(file.getAbsoluteFile(), true);
+//            BufferedWriter bw = new BufferedWriter(fw);
+//            bw.write(content);
+//            bw.newLine();
+//            bw.close();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//    }
 
     public void separateFields() {
         String str = "emploi;engineer;paris;2;2000;3000;Program/obligatoire|BD/souhaitee";

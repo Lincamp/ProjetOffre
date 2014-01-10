@@ -41,7 +41,7 @@ public class EnregComp {
     }
     
     public void ajouterComp(String nomC, boolean oblig) {        
-        m_lstcomps.add(new Competence(nomC,oblig));
+       // m_lstcomps.add(new Competence(nomC,oblig));
         m_size++;      
     }
     

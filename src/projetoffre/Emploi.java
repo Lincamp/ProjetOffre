@@ -6,6 +6,7 @@
 package projetoffre;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  *
@@ -31,16 +32,29 @@ public class Emploi extends Offre {
         return m_salairemax;
     }
 
-    public Emploi(String titreemp, String regemp, int experience, int salairemin, int salairemax, ArrayList<Competence> c) {
-        this.m_titre = titreemp;
-        this.m_region = regemp;
-        this.m_experience = experience;
-        this.m_salairemin = salairemin;
-        this.m_salairemax = salairemax;
-        this.m_lstcomps = c;
+//        public Emploi(String titreemp, String regemp){
+//            this.m_titre = titreemp;
+//            this.m_region = regemp;
+//            this.m_experience = experience;  ArrayList<Competence> c, HashMap<Competence, CompType> tblComps
+//            this.m_salairemin = salairemin;
+//            this.m_salairemax = salairemax;
+//            this.m_lstcomps = c;
+//            this.m_tblComps = tblComps;
+           // int experience, int salairemin, int salairemax,
+            
+       // }
+
+    public Emploi(int m_experience, int m_salairemin, int m_salairemax, String titre, String region) {
+        super(titre, region);
+        this.m_experience = m_experience;
+        this.m_salairemin = m_salairemin;
+        this.m_salairemax = m_salairemax;
     }
+        
+        
 
     public double scoreSalaire(int salaireChercher, ArrayList<Emploi> lstEmploiTrouve) {
+        //calculer pour chaque emploi
         double scoreSalaire = 0;
 
         for (int i = 0; i < lstEmploiTrouve.size(); i++) {
@@ -52,9 +66,16 @@ public class Emploi extends Offre {
         return scoreSalaire; // ici on affiche que le dernier résultat, on doit faire en sorte qu'il affiche tous les résultats dans l'interface !!!! 
     }
 
-    public double scoreEmploi(double scoreCompetences, int scoreGeographique, double scoreSalaire) {
+//    public double scoreEmploi(double scoreCompetences, int scoreGeographique, double scoreSalaire) {
+//        double scoreEmploi = 0;
+//        scoreEmploi = scoreCompetences + scoreGeographique + scoreSalaire;
+//        return scoreEmploi;
+//    }
+    
+   public double scoreTotal(double scoreCompetences, int scoreGeographique, double scoreSalaire ){
         double scoreEmploi = 0;
         scoreEmploi = scoreCompetences + scoreGeographique + scoreSalaire;
         return scoreEmploi;
     }
+    
 }

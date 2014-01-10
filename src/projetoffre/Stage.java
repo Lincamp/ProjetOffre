@@ -13,8 +13,14 @@ public class Stage extends Offre {
     //attributs
 
     //methodes
-    public Stage() {
+//    public Stage() {
+//    }
+
+    public Stage(String titre, String region) {
+        super(titre, region);
     }
+    
+    
 
     //héritage
     public double scoreStage(double scoreCompetences, int scoreGeographique) {

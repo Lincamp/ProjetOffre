@@ -73,8 +73,9 @@ public class PanelSaisie extends javax.swing.JPanel {
             while ((sCurrentLine = br.readLine()) != null) {              
                 System.out.println("##### " + sCurrentLine + "\t#####");
                 Region reg = new Region(sCurrentLine);
-                comboBoxItems.add(sCurrentLine);
-                comboBoxItems.add(reg);
+                
+                comboBoxItems.add(reg.getRegnom());
+                //comboBoxItems.add(reg);
             }
             DefaultComboBoxModel model = new DefaultComboBoxModel(comboBoxItems);
             cmbReg.setModel(model);

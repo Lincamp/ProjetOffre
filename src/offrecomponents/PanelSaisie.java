@@ -601,7 +601,7 @@ public class PanelSaisie extends javax.swing.JPanel {
             jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel21Layout.createSequentialGroup()
                 .addComponent(btnAjouter)
-                .addGap(0, 23, Short.MAX_VALUE))
+                .addGap(0, 27, Short.MAX_VALUE))
         );
 
         jPanel18.add(jPanel21);

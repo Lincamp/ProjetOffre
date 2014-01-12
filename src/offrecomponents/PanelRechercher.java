@@ -3,57 +3,21 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package offrecomponents;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Set;
-import java.util.Vector;
-import javax.swing.DefaultComboBoxModel;
-import javax.swing.table.DefaultTableModel;
-import projetoffre.Competence;
-import projetoffre.Emploi;
-import projetoffre.EnregComp;
-import projetoffre.FileOperation;
-import projetoffre.Offre;
-import projetoffre.Region;
+package offrecomponents;
 
 /**
  *
  * @author Doro
  */
-// TODO do not allow delimiter in input text 
-// avoid duplicate when ajouter nouveau offre
-// comptence qu'une fois
-//exp, salaire int only
 public class PanelRechercher extends javax.swing.JPanel {
 
-    private EnregComp m_enregComp;
-    boolean m_offreType;
-    String m_titre;
-    String m_region;
-    int m_exp;
-    String m_comp;
-    boolean m_compType;
-    int m_salMin;
-    int m_salMax;
-    ArrayList<Competence> m_lstcomps;
-    Set<String> m_setComp;
-
     /**
-     * Creates new form PanelSaisie
+     * Creates new form PanelRechercher
      */
-
-
- 
+    public PanelRechercher() {
+        initComponents();
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -64,56 +28,6 @@ public class PanelRechercher extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        grpOffreType = new javax.swing.ButtonGroup();
-        grpCompType = new javax.swing.ButtonGroup();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jPanel22 = new javax.swing.JPanel();
-        jPanel23 = new javax.swing.JPanel();
-        jPanel24 = new javax.swing.JPanel();
-        optEmploi1 = new javax.swing.JRadioButton();
-        optStage1 = new javax.swing.JRadioButton();
-        jPanel25 = new javax.swing.JPanel();
-        jPanel26 = new javax.swing.JPanel();
-        jPanel27 = new javax.swing.JPanel();
-        jLabel9 = new javax.swing.JLabel();
-        txtTitre1 = new javax.swing.JTextField();
-        jPanel28 = new javax.swing.JPanel();
-        jLabel10 = new javax.swing.JLabel();
-        cmbReg1 = new javax.swing.JComboBox();
-        jPanel29 = new javax.swing.JPanel();
-        jLabel11 = new javax.swing.JLabel();
-        txtExp1 = new javax.swing.JTextField();
-        jLabel12 = new javax.swing.JLabel();
-        jPanel30 = new javax.swing.JPanel();
-        jLabel13 = new javax.swing.JLabel();
-        txtSalmin1 = new javax.swing.JTextField();
-        jPanel31 = new javax.swing.JPanel();
-        jLabel14 = new javax.swing.JLabel();
-        txtSalmax1 = new javax.swing.JTextField();
-        jPanel32 = new javax.swing.JPanel();
-        jPanel33 = new javax.swing.JPanel();
-        jPanel34 = new javax.swing.JPanel();
-        jPanel35 = new javax.swing.JPanel();
-        jLabel15 = new javax.swing.JLabel();
-        cmbComp1 = new javax.swing.JComboBox();
-        jPanel36 = new javax.swing.JPanel();
-        optOblig1 = new javax.swing.JRadioButton();
-        optSouh1 = new javax.swing.JRadioButton();
-        jPanel37 = new javax.swing.JPanel();
-        btnAjouter1 = new javax.swing.JButton();
-        jPanel38 = new javax.swing.JPanel();
-        jPanel39 = new javax.swing.JPanel();
-        jPanel40 = new javax.swing.JPanel();
-        jLabel16 = new javax.swing.JLabel();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        tblComp1 = new javax.swing.JTable();
-        jPanel41 = new javax.swing.JPanel();
-        btnSup1 = new javax.swing.JButton();
-        jPanel42 = new javax.swing.JPanel();
-        jPanel43 = new javax.swing.JPanel();
-        btnEnreg1 = new javax.swing.JButton();
-        btnRAZ1 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         optEmploi = new javax.swing.JRadioButton();
@@ -125,10 +39,11 @@ public class PanelRechercher extends javax.swing.JPanel {
         cmbReg = new javax.swing.JComboBox();
         jPanel7 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
-        chbProxim = new javax.swing.JCheckBox();
+        jCheckBox1 = new javax.swing.JCheckBox();
         jPanel9 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
-        txtSalesp = new javax.swing.JTextField();
+        txtSalmin = new javax.swing.JTextField();
+        jPanel10 = new javax.swing.JPanel();
         jPanel15 = new javax.swing.JPanel();
         jPanel16 = new javax.swing.JPanel();
         jPanel18 = new javax.swing.JPanel();
@@ -137,278 +52,24 @@ public class PanelRechercher extends javax.swing.JPanel {
         cmbComp = new javax.swing.JComboBox();
         jPanel21 = new javax.swing.JPanel();
         btnAjouter = new javax.swing.JButton();
+        jPanel5 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
         jPanel13 = new javax.swing.JPanel();
         jPanel14 = new javax.swing.JPanel();
         jPanel17 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
-        jScrollPane2 = new javax.swing.JScrollPane();
+        jScrollPane1 = new javax.swing.JScrollPane();
         jList1 = new javax.swing.JList();
         btnSup = new javax.swing.JButton();
-        jPanel11 = new javax.swing.JPanel();
-        jPanel12 = new javax.swing.JPanel();
-        btnReche = new javax.swing.JButton();
-        btnRAZ = new javax.swing.JButton();
-        jPanel10 = new javax.swing.JPanel();
-        lblErreur = new javax.swing.JLabel();
-        jPanel8 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jPanel5 = new javax.swing.JPanel();
-        jScrollPane4 = new javax.swing.JScrollPane();
-        tblRes = new javax.swing.JTable();
-
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane1.setViewportView(jTable1);
-
-        jPanel24.setLayout(new java.awt.GridLayout(1, 0, 50, 0));
-
-        grpOffreType.add(optEmploi1);
-        optEmploi1.setText("Emploi");
-        optEmploi1.setToolTipText("");
-        optEmploi1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                optEmploi1ActionPerformed(evt);
-            }
-        });
-        jPanel24.add(optEmploi1);
-
-        grpOffreType.add(optStage1);
-        optStage1.setText("Stage");
-        jPanel24.add(optStage1);
-
-        jPanel23.add(jPanel24);
-
-        jPanel26.setLayout(new java.awt.GridLayout(5, 0));
-
-        jPanel27.setLayout(new java.awt.GridLayout(1, 0));
-
-        jLabel9.setText("Titre :");
-        jPanel27.add(jLabel9);
-
-        txtTitre1.setText("jTextField1");
-        txtTitre1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtTitre1ActionPerformed(evt);
-            }
-        });
-        jPanel27.add(txtTitre1);
-
-        jPanel26.add(jPanel27);
-
-        jPanel28.setLayout(new java.awt.GridLayout(1, 0));
-
-        jLabel10.setText("Region :");
-        jPanel28.add(jLabel10);
-
-        cmbReg1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        cmbReg1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmbReg1ActionPerformed(evt);
-            }
-        });
-        jPanel28.add(cmbReg1);
-
-        jPanel26.add(jPanel28);
-
-        jPanel29.setLayout(new java.awt.GridLayout(1, 0, 50, 0));
-
-        jLabel11.setText("Expérience :");
-        jPanel29.add(jLabel11);
-
-        txtExp1.setText("jTextField3");
-        jPanel29.add(txtExp1);
-
-        jLabel12.setText("   ans");
-        jPanel29.add(jLabel12);
-
-        jPanel26.add(jPanel29);
-
-        jPanel30.setLayout(new java.awt.GridLayout(1, 0));
-
-        jLabel13.setText("Salaire Min :");
-        jPanel30.add(jLabel13);
-
-        txtSalmin1.setText("jTextField4");
-        txtSalmin1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtSalmin1ActionPerformed(evt);
-            }
-        });
-        jPanel30.add(txtSalmin1);
-
-        jPanel26.add(jPanel30);
-
-        jPanel31.setLayout(new java.awt.GridLayout(1, 0));
-
-        jLabel14.setText("Salaire Max :");
-        jPanel31.add(jLabel14);
-
-        txtSalmax1.setText("jTextField5");
-        jPanel31.add(txtSalmax1);
-
-        jPanel26.add(jPanel31);
-
-        jPanel25.add(jPanel26);
-
-        jPanel33.setLayout(new java.awt.GridLayout(1, 1));
-
-        jPanel34.setLayout(new java.awt.GridLayout(3, 0));
-
-        jPanel35.setLayout(new java.awt.GridLayout(1, 0));
-
-        jLabel15.setText("Compétence :");
-        jPanel35.add(jLabel15);
-
-        cmbComp1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel35.add(cmbComp1);
-
-        jPanel34.add(jPanel35);
-
-        jPanel36.setLayout(new java.awt.GridLayout(2, 0));
-
-        grpCompType.add(optOblig1);
-        optOblig1.setText("obligatoire");
-        optOblig1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                optOblig1ActionPerformed(evt);
-            }
-        });
-        jPanel36.add(optOblig1);
-
-        grpCompType.add(optSouh1);
-        optSouh1.setText("souhaitée");
-        optSouh1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                optSouh1ActionPerformed(evt);
-            }
-        });
-        jPanel36.add(optSouh1);
-
-        jPanel34.add(jPanel36);
-
-        btnAjouter1.setText("Ajouter");
-
-        javax.swing.GroupLayout jPanel37Layout = new javax.swing.GroupLayout(jPanel37);
-        jPanel37.setLayout(jPanel37Layout);
-        jPanel37Layout.setHorizontalGroup(
-            jPanel37Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel37Layout.createSequentialGroup()
-                .addGap(38, 38, 38)
-                .addComponent(btnAjouter1)
-                .addContainerGap(106, Short.MAX_VALUE))
-        );
-        jPanel37Layout.setVerticalGroup(
-            jPanel37Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel37Layout.createSequentialGroup()
-                .addComponent(btnAjouter1)
-                .addGap(0, 23, Short.MAX_VALUE))
-        );
-
-        jPanel34.add(jPanel37);
-
-        jPanel33.add(jPanel34);
-
-        jPanel32.add(jPanel33);
-
-        jPanel39.setLayout(new java.awt.GridLayout(2, 0));
-
-        jLabel16.setText("Compétence choisis :");
-
-        tblComp1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane3.setViewportView(tblComp1);
-
-        javax.swing.GroupLayout jPanel40Layout = new javax.swing.GroupLayout(jPanel40);
-        jPanel40.setLayout(jPanel40Layout);
-        jPanel40Layout.setHorizontalGroup(
-            jPanel40Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel40Layout.createSequentialGroup()
-                .addContainerGap(66, Short.MAX_VALUE)
-                .addGroup(jPanel40Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel16)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 420, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(25, 25, 25))
-        );
-        jPanel40Layout.setVerticalGroup(
-            jPanel40Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel40Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel16)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        jPanel39.add(jPanel40);
-
-        btnSup1.setText("Supprimer");
-        jPanel41.add(btnSup1);
-
-        jPanel39.add(jPanel41);
-
-        jPanel38.add(jPanel39);
-
-        jPanel43.setLayout(new java.awt.GridLayout(1, 0, 50, 0));
-
-        btnEnreg1.setText("Enregistrer");
-        btnEnreg1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEnreg1ActionPerformed(evt);
-            }
-        });
-        jPanel43.add(btnEnreg1);
-
-        btnRAZ1.setText("RAZ");
-        jPanel43.add(btnRAZ1);
-
-        jPanel42.add(jPanel43);
-
-        javax.swing.GroupLayout jPanel22Layout = new javax.swing.GroupLayout(jPanel22);
-        jPanel22.setLayout(jPanel22Layout);
-        jPanel22Layout.setHorizontalGroup(
-            jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel23, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanel25, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanel32, javax.swing.GroupLayout.DEFAULT_SIZE, 541, Short.MAX_VALUE)
-            .addComponent(jPanel38, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanel42, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        jPanel22Layout.setVerticalGroup(
-            jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel22Layout.createSequentialGroup()
-                .addComponent(jPanel23, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel25, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel32, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel38, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel42, javax.swing.GroupLayout.DEFAULT_SIZE, 41, Short.MAX_VALUE)
-                .addContainerGap())
-        );
+        jPanel20 = new javax.swing.JPanel();
+        jPanel22 = new javax.swing.JPanel();
+        jPanel23 = new javax.swing.JPanel();
+        jLabel9 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tblComp = new javax.swing.JTable();
 
         jPanel2.setLayout(new java.awt.GridLayout(1, 0, 50, 0));
 
-        grpOffreType.add(optEmploi);
         optEmploi.setText("Emploi");
         optEmploi.setToolTipText("");
         optEmploi.addActionListener(new java.awt.event.ActionListener() {
@@ -418,7 +79,6 @@ public class PanelRechercher extends javax.swing.JPanel {
         });
         jPanel2.add(optEmploi);
 
-        grpOffreType.add(optStage);
         optStage.setText("Stage");
         jPanel2.add(optStage);
 
@@ -426,7 +86,7 @@ public class PanelRechercher extends javax.swing.JPanel {
 
         jPanel4.setLayout(new java.awt.GridLayout(5, 0));
 
-        jPanel6.setLayout(new java.awt.GridLayout(1, 0));
+        jPanel6.setLayout(new java.awt.GridLayout());
 
         jLabel2.setText("Region :");
         jPanel6.add(jLabel2);
@@ -443,28 +103,36 @@ public class PanelRechercher extends javax.swing.JPanel {
 
         jPanel7.setLayout(new java.awt.GridLayout(1, 0, 50, 0));
 
-        jLabel3.setText("     ");
+        jLabel3.setText("    ");
         jPanel7.add(jLabel3);
 
-        chbProxim.setText("région proximité inclus");
-        jPanel7.add(chbProxim);
+        jCheckBox1.setText("région proximité inclus");
+        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox1ActionPerformed(evt);
+            }
+        });
+        jPanel7.add(jCheckBox1);
 
         jPanel4.add(jPanel7);
 
-        jPanel9.setLayout(new java.awt.GridLayout(1, 0));
+        jPanel9.setLayout(new java.awt.GridLayout());
 
         jLabel5.setText("Salaire espéré :");
         jPanel9.add(jLabel5);
 
-        txtSalesp.setText("jTextField4");
-        txtSalesp.addActionListener(new java.awt.event.ActionListener() {
+        txtSalmin.setText("jTextField4");
+        txtSalmin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtSalespActionPerformed(evt);
+                txtSalminActionPerformed(evt);
             }
         });
-        jPanel9.add(txtSalesp);
+        jPanel9.add(txtSalmin);
 
         jPanel4.add(jPanel9);
+
+        jPanel10.setLayout(new java.awt.GridLayout());
+        jPanel4.add(jPanel10);
 
         jPanel3.add(jPanel4);
 
@@ -472,7 +140,7 @@ public class PanelRechercher extends javax.swing.JPanel {
 
         jPanel18.setLayout(new java.awt.GridLayout(3, 0));
 
-        jPanel19.setLayout(new java.awt.GridLayout(1, 0));
+        jPanel19.setLayout(new java.awt.GridLayout());
 
         jLabel8.setText("Compétence :");
         jPanel19.add(jLabel8);
@@ -511,6 +179,9 @@ public class PanelRechercher extends javax.swing.JPanel {
 
         jPanel15.add(jPanel16);
 
+        jLabel1.setText("Erreur");
+        jPanel5.add(jLabel1);
+
         jPanel14.setLayout(new java.awt.GridLayout(2, 0));
 
         jLabel7.setText("Compétence choisis :");
@@ -520,7 +191,7 @@ public class PanelRechercher extends javax.swing.JPanel {
             public int getSize() { return strings.length; }
             public Object getElementAt(int i) { return strings[i]; }
         });
-        jScrollPane2.setViewportView(jList1);
+        jScrollPane1.setViewportView(jList1);
 
         btnSup.setText("Supprimer");
 
@@ -533,10 +204,10 @@ public class PanelRechercher extends javax.swing.JPanel {
                 .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel7)
                     .addGroup(jPanel17Layout.createSequentialGroup()
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(33, 33, 33)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
                         .addComponent(btnSup)))
-                .addGap(144, 144, 144))
+                .addGap(130, 130, 130))
         );
         jPanel17Layout.setVerticalGroup(
             jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -545,7 +216,7 @@ public class PanelRechercher extends javax.swing.JPanel {
                 .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnSup)))
         );
 
@@ -553,29 +224,11 @@ public class PanelRechercher extends javax.swing.JPanel {
 
         jPanel13.add(jPanel14);
 
-        jPanel12.setLayout(new java.awt.GridLayout(1, 0, 50, 0));
+        jPanel22.setLayout(new java.awt.GridLayout(2, 0));
 
-        btnReche.setLabel("Rechercher");
-        btnReche.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRecheActionPerformed(evt);
-            }
-        });
-        jPanel12.add(btnReche);
-        btnReche.getAccessibleContext().setAccessibleName("Rechercher");
+        jLabel9.setText("Résultats :");
 
-        btnRAZ.setText("RAZ");
-        jPanel12.add(btnRAZ);
-
-        jPanel11.add(jPanel12);
-
-        lblErreur.setText("jLabel4");
-        jPanel10.add(lblErreur);
-
-        jLabel1.setText("Résultats :");
-        jPanel8.add(jLabel1);
-
-        tblRes.setModel(new javax.swing.table.DefaultTableModel(
+        tblComp.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
                 {null, null, null, null, null},
@@ -586,47 +239,65 @@ public class PanelRechercher extends javax.swing.JPanel {
                 "Titre", "Score Total", "Score Competence", "Score Salaire", "Region"
             }
         ));
-        tblRes.setCellSelectionEnabled(true);
-        jScrollPane4.setViewportView(tblRes);
-        tblRes.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
+        tblComp.setCellSelectionEnabled(true);
+        jScrollPane2.setViewportView(tblComp);
+        tblComp.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
 
-        jPanel5.add(jScrollPane4);
+        javax.swing.GroupLayout jPanel23Layout = new javax.swing.GroupLayout(jPanel23);
+        jPanel23.setLayout(jPanel23Layout);
+        jPanel23Layout.setHorizontalGroup(
+            jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel23Layout.createSequentialGroup()
+                .addContainerGap(66, Short.MAX_VALUE)
+                .addGroup(jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel9)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 420, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(25, 25, 25))
+        );
+        jPanel23Layout.setVerticalGroup(
+            jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel23Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel9)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jPanel22.add(jPanel23);
+
+        jPanel20.add(jPanel22);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanel13, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 583, Short.MAX_VALUE)
-            .addComponent(jPanel11, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel10, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jPanel15, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
+            .addComponent(jPanel13, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 557, Short.MAX_VALUE)
+            .addComponent(jPanel20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel15, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel15, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(119, Short.MAX_VALUE))
+                .addComponent(jPanel20, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -634,46 +305,17 @@ public class PanelRechercher extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_optEmploiActionPerformed
 
-    private void btnRecheActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRecheActionPerformed
-        // TODO add your handling code here:
-     
-    }//GEN-LAST:event_btnRecheActionPerformed
-
     private void cmbRegActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbRegActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cmbRegActionPerformed
 
-    private void txtSalespActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSalespActionPerformed
+    private void txtSalminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSalminActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtSalespActionPerformed
+    }//GEN-LAST:event_txtSalminActionPerformed
 
-    private void optEmploi1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optEmploi1ActionPerformed
+    private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_optEmploi1ActionPerformed
-
-    private void txtTitre1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTitre1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtTitre1ActionPerformed
-
-    private void cmbReg1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbReg1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cmbReg1ActionPerformed
-
-    private void txtSalmin1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSalmin1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtSalmin1ActionPerformed
-
-    private void optOblig1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optOblig1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_optOblig1ActionPerformed
-
-    private void optSouh1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optSouh1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_optSouh1ActionPerformed
-
-    private void btnEnreg1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnreg1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnEnreg1ActionPerformed
+    }//GEN-LAST:event_jCheckBox1ActionPerformed
 
     private void btnAjouterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAjouterActionPerformed
         // TODO add your handling code here:
@@ -683,28 +325,11 @@ public class PanelRechercher extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAjouter;
-    private javax.swing.JButton btnAjouter1;
-    private javax.swing.JButton btnEnreg1;
-    private javax.swing.JButton btnRAZ;
-    private javax.swing.JButton btnRAZ1;
-    private javax.swing.JButton btnReche;
     private javax.swing.JButton btnSup;
-    private javax.swing.JButton btnSup1;
-    private javax.swing.JCheckBox chbProxim;
     private javax.swing.JComboBox cmbComp;
-    private javax.swing.JComboBox cmbComp1;
     private javax.swing.JComboBox cmbReg;
-    private javax.swing.JComboBox cmbReg1;
-    private javax.swing.ButtonGroup grpCompType;
-    private javax.swing.ButtonGroup grpOffreType;
+    private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
@@ -714,8 +339,6 @@ public class PanelRechercher extends javax.swing.JPanel {
     private javax.swing.JList jList1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
-    private javax.swing.JPanel jPanel11;
-    private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel14;
     private javax.swing.JPanel jPanel15;
@@ -724,56 +347,21 @@ public class PanelRechercher extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel18;
     private javax.swing.JPanel jPanel19;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel20;
     private javax.swing.JPanel jPanel21;
     private javax.swing.JPanel jPanel22;
     private javax.swing.JPanel jPanel23;
-    private javax.swing.JPanel jPanel24;
-    private javax.swing.JPanel jPanel25;
-    private javax.swing.JPanel jPanel26;
-    private javax.swing.JPanel jPanel27;
-    private javax.swing.JPanel jPanel28;
-    private javax.swing.JPanel jPanel29;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel30;
-    private javax.swing.JPanel jPanel31;
-    private javax.swing.JPanel jPanel32;
-    private javax.swing.JPanel jPanel33;
-    private javax.swing.JPanel jPanel34;
-    private javax.swing.JPanel jPanel35;
-    private javax.swing.JPanel jPanel36;
-    private javax.swing.JPanel jPanel37;
-    private javax.swing.JPanel jPanel38;
-    private javax.swing.JPanel jPanel39;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel40;
-    private javax.swing.JPanel jPanel41;
-    private javax.swing.JPanel jPanel42;
-    private javax.swing.JPanel jPanel43;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
-    private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JLabel lblErreur;
     private javax.swing.JRadioButton optEmploi;
-    private javax.swing.JRadioButton optEmploi1;
-    private javax.swing.JRadioButton optOblig1;
-    private javax.swing.JRadioButton optSouh1;
     private javax.swing.JRadioButton optStage;
-    private javax.swing.JRadioButton optStage1;
-    private javax.swing.JTable tblComp1;
-    private javax.swing.JTable tblRes;
-    private javax.swing.JTextField txtExp1;
-    private javax.swing.JTextField txtSalesp;
-    private javax.swing.JTextField txtSalmax1;
-    private javax.swing.JTextField txtSalmin1;
-    private javax.swing.JTextField txtTitre1;
+    private javax.swing.JTable tblComp;
+    private javax.swing.JTextField txtSalmin;
     // End of variables declaration//GEN-END:variables
-
-    
 }

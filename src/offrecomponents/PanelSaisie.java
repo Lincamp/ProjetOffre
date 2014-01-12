@@ -23,6 +23,7 @@ import projetoffre.Competence;
 import projetoffre.Emploi;
 import projetoffre.EnregComp;
 import projetoffre.FileOperation;
+import projetoffre.Offre;
 import projetoffre.Region;
 
 /**
@@ -54,8 +55,13 @@ public class PanelSaisie extends javax.swing.JPanel {
         initComponents();
         m_enregComp = new EnregComp();
         m_lstcomps = new ArrayList();
-        m_setComp = new HashSet<String>();
+        m_setComp = new HashSet<String>();  
+        
+//        Region reg = new Region();
+//        DefaultComboBoxModel model = reg.getRegionListModel();
+//        cmbReg.setModel(model);
         initRegionList();
+        
         initCompList();
     }
 
@@ -64,10 +70,11 @@ public class PanelSaisie extends javax.swing.JPanel {
 
         try (BufferedReader br = new BufferedReader(new FileReader("data/regionlist.txt"))) {
             String sCurrentLine;
-            while ((sCurrentLine = br.readLine()) != null) {
-                System.out.println(sCurrentLine);
+            while ((sCurrentLine = br.readLine()) != null) {              
+                System.out.println("##### " + sCurrentLine + "\t#####");
+                Region reg = new Region(sCurrentLine);
                 comboBoxItems.add(sCurrentLine);
-
+                comboBoxItems.add(reg);
             }
             DefaultComboBoxModel model = new DefaultComboBoxModel(comboBoxItems);
             cmbReg.setModel(model);
@@ -717,7 +724,7 @@ public class PanelSaisie extends javax.swing.JPanel {
 
                // Emploi emp = new Emploi(m_titre, m_region, m_exp, m_salMin, m_salMax, m_lstcomps);
                 FileOperation fileout = new FileOperation();
-                fileout.enrgFile(m_titre, m_region, m_exp, m_salMin, m_salMax, m_lstcomps);
+//                fileout.enrgFile(m_titre, m_region, m_exp, m_salMin, m_salMax, m_lstcomps);
             } else {
 
             }
@@ -895,7 +902,7 @@ public class PanelSaisie extends javax.swing.JPanel {
         Object[][] m_compContent = new Object[compsSize][2];
         for (int i = 0; i < compsSize; i++) {
             m_compContent[i][0] = m_lstcomps.get(i).getNomComp();
-            m_compContent[i][1] = m_lstcomps.get(i).isObligatoire();
+//            m_compContent[i][1] = m_lstcomps.get(i).isObligatoire();
         }
 
         //m_lstcomps = enregComp.getComps();      

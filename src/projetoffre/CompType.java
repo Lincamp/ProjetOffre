@@ -13,7 +13,7 @@ package projetoffre;
 public class CompType {
     String m_libType;
 
-    public String getM_libType() {
+    public String getLibType() {
         return m_libType;
     }
   

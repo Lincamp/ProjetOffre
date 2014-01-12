@@ -71,9 +71,8 @@ public class PanelSaisie extends javax.swing.JPanel {
         try (BufferedReader br = new BufferedReader(new FileReader("data/regionlist.txt"))) {
             String sCurrentLine;
             while ((sCurrentLine = br.readLine()) != null) {              
-                System.out.println("##### " + sCurrentLine + "\t#####");
+                System.out.println("#####" + sCurrentLine + "\t#####line from regionlist.txt");
                 Region reg = new Region(sCurrentLine);
-                
                 comboBoxItems.add(reg.getRegnom());
                 //comboBoxItems.add(reg);
             }

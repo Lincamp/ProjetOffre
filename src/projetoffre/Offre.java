@@ -37,7 +37,7 @@ public abstract class Offre {
 
     }
 
-    public String getM_region() {
+    public String getRegion() {
         return m_region;
     }
     
@@ -65,14 +65,14 @@ public abstract class Offre {
 
                 System.out.println("Competence egale : " + (setIterComps == lstCompsCherche.get(p)));
                 if (setIterComps == lstCompsCherche.get(p)) {
-                    if (offreTrouve.m_tblComps.get(lstCompsCherche.get(p)).getM_libType().equals(ctoblig.getM_libType())) {
+                    if (offreTrouve.m_tblComps.get(lstCompsCherche.get(p)).getLibType().equals(ctoblig.getLibType())) {
                         poidsMotClef = setIterComps.nbMotClef() * 1;
-                        System.out.println(offreTrouve.m_tblComps.get(lstCompsCherche.get(p)).getM_libType());
+                        System.out.println(offreTrouve.m_tblComps.get(lstCompsCherche.get(p)).getLibType());
                         System.out.println(setIterComps.nbMotClef());
                         System.out.println("v1_poidsMotClef : " + poidsMotClef);
                     } else {
                         poidsMotClef = setIterComps.nbMotClef() * 0.5;
-                        System.out.println(offreTrouve.m_tblComps.get(lstCompsCherche.get(p)).getM_libType());
+                        System.out.println(offreTrouve.m_tblComps.get(lstCompsCherche.get(p)).getLibType());
                         System.out.println(setIterComps.nbMotClef());
                         System.out.println("v0.5_poidsMotClef : " + poidsMotClef);
                     }
@@ -110,13 +110,13 @@ public abstract class Offre {
         int scoreGeographique;
         boolean r;
             scoreGeographique = 0;
-            if (this.getM_region().equals(regChercher.getRegnom())) {
+            if (this.getRegion().equals(regChercher.getRegnom())) {
                 scoreGeographique = 10;
             } else {
                 int j = 0;
                 r=true;
                 while(j < regChercher.m_regassocie.size() && r == true) {
-                    if (this.getM_region().equals(regChercher.m_regassocie.toString())) {
+                    if (this.getRegion().equals(regChercher.m_regassocie.toString())) {
                         scoreGeographique = 5;
                         r = false;
                     } else {

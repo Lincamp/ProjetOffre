@@ -14,6 +14,7 @@ public class Type {
     //attributs
     boolean m_offretype;
     
+    
     //methode;
 //    public int poid(){
 //        

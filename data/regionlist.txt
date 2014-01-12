@@ -1,3 +1,4 @@
-Paris
-Toulouse
-Tour
+Paris:Tour;Reims
+Toulouse:Carcassonne
+Tour:
+Bordeux

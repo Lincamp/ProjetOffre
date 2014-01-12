@@ -27,21 +27,46 @@ public class Region {
     private static boolean m_inited;
     private static Vector m_comboBoxItems = new Vector();
     static final char m_regionDelim = ':';
-    static final char m_procheDelim = ';';
-    
-    // ArrayList<regassocie> lstregs;
+    static final String m_procheDelim = ";";
 
+    // ArrayList<regassocie> lstregs;
     public Region() {
+        m_regassocie = new HashSet<String>();
         m_inited = false;
         m_comboBoxItems = new Vector();
 //        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     public Region(String fileStr) {
-        
+        m_regassocie = new HashSet<String>();
+        int pos;
+        String procheStr;
 
+        if (fileStr.length() > 0) {
+            pos = fileStr.indexOf(m_regionDelim);
+            
+            // No region proche
+            if (pos == -1) {
+                this.m_regnom = fileStr;                        
+                        } 
+            else
+            {
+                this.m_regnom = fileStr.substring(0, pos);
+                procheStr = fileStr.substring(pos + 1);
+ 
+                System.out.println("=====================================");
+                for (String regProche: procheStr.split(m_procheDelim)){
+                    System.out.println("proche of " + m_regnom + ":" + regProche);
+                    this.m_regassocie.add(regProche);
+                } 
+                System.out.println("=====================================");
+            }
+        } 
+        else {
+            
+        }
     }
-    
+
     public String getRegnom() {
         return m_regnom;
     }

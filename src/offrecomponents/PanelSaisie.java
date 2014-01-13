@@ -14,11 +14,15 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Map;
 import java.util.Set;
 import java.util.Vector;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.table.DefaultTableModel;
+import projetoffre.CompType;
 import projetoffre.Competence;
 import projetoffre.Emploi;
 import projetoffre.EnregComp;
@@ -45,7 +49,8 @@ public class PanelSaisie extends javax.swing.JPanel {
     boolean m_compType;
     int m_salMin;
     int m_salMax;
-    ArrayList<Competence> m_lstcomps;
+    //ArrayList<Competence> m_lstcomps;
+    HashMap<Competence, CompType> m_tblComps;
     Set<String> m_setComp;
 
     /**
@@ -54,7 +59,8 @@ public class PanelSaisie extends javax.swing.JPanel {
     public PanelSaisie() {
         initComponents();
         m_enregComp = new EnregComp();
-        m_lstcomps = new ArrayList();
+        //m_lstcomps = new ArrayList();
+        this.m_tblComps = new HashMap();
         m_setComp = new HashSet<String>();  
         
 //        Region reg = new Region();
@@ -891,23 +897,44 @@ public class PanelSaisie extends javax.swing.JPanel {
    
         if (!m_setComp.contains(nomC)) {
             m_setComp.add(nomC); 
-            System.out.println("m_setComp ;" + m_setComp);
-               System.out.println("m_setComp size ;" + m_setComp.size());
-            m_enregComp.ajouterComp(nomC, optOblig.isSelected());
+            System.out.println("m_setComp :" + m_setComp);
+            System.out.println("m_setComp size :" + m_setComp.size());
+            
+            Competence comp = new Competence(nomC);
+            CompType compType = new CompType("souhaitee");
+            if(optOblig.isSelected())
+            {
+                compType.setLibType("obligatoir");
+            }
+            
+            m_enregComp.ajouterComp(comp, compType);
         }
         System.out.println(m_enregComp.getSize());
         int compsSize = m_enregComp.getSize();
-        m_lstcomps = m_enregComp.getComps();
-
+        m_tblComps = m_enregComp.getComps();
+        
         Object[][] m_compContent = new Object[compsSize][2];
-        for (int i = 0; i < compsSize; i++) {
-            m_compContent[i][0] = m_lstcomps.get(i).getNomComp();
+        
+        int i = 0;
+        
+        Iterator iter = m_tblComps.keySet().iterator();
+        while(iter.hasNext()) {
+            Competence key = (Competence)iter.next();
+            m_compContent[i][0] = key.getNomComp(); 
+            m_compContent[i][1] = m_tblComps.get(key).getLibType();
+            System.out.println("key,val: " + m_compContent[i][0] + "," + m_compContent[i][1]);
+            i++;
+        }     
+        
+
+//        for (int i = 0; i < compsSize; i++) {
+//            m_compContent[i][0] = m_tblComps.get(i).getNomComp();
 //            m_compContent[i][1] = m_lstcomps.get(i).isObligatoire();
-        }
+//        }
 
         //m_lstcomps = enregComp.getComps();      
         String[] columnNames = {"Competence", "Type"};
-//        Object[][] data = enregComp.getCompContent();
+        //Object[][] data = enregComp.getCompContent();
         DefaultTableModel model = new DefaultTableModel(m_compContent, columnNames);
         tblComp.setModel(model);
     }

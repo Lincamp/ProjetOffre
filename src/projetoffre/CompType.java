@@ -16,6 +16,10 @@ public class CompType {
     public String getLibType() {
         return m_libType;
     }
+
+    public void setLibType(String m_libType) {
+        this.m_libType = m_libType;
+    }
   
 
     public CompType(String libType) {

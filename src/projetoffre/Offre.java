@@ -20,7 +20,7 @@ public abstract class Offre {
 
     String m_titre;
     String m_region;
-    ArrayList<Competence> m_lstcomps;
+//    ArrayList<Competence> m_lstcomps;
     HashMap<Competence, CompType> m_tblComps;
     CompType ctoblig = new CompType("obligatoir");
     CompType ctsouh = new CompType("souhaitee");
@@ -32,7 +32,7 @@ public abstract class Offre {
     public Offre(String titre, String region) {
         this.m_titre = titre;
         this.m_region = region;
-        this.m_lstcomps = new ArrayList();
+//        this.m_lstcomps = new ArrayList();
         this.m_tblComps = new HashMap();
 
     }

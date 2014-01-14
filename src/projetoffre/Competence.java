@@ -14,29 +14,29 @@ import java.util.Objects;
  */
 public class Competence {
     //attributs
-
     String m_nomComp;
-   // boolean m_obligatoire;
-    ArrayList<MotClef> m_lstmots;
+    // l'arrayList contient tous les mots clefs pour une compétence
+    ArrayList<MotClef> m_lstmots; 
 
+    
+    //On récupère le m_nomComp (qui contient le nom de la compétence)
     public String getNomComp() {
         return m_nomComp;
     }
 
-//    public boolean isObligatoire() {
-//        return m_obligatoire;
-//    }
-    
+    //Création du constructeur Competence
     public Competence(String nomComp) {
+        //On définit une nouvelle conpétence ainsi qu'une liste contenant tous les mots clefs pour cette compétence
         this.m_nomComp = nomComp;
-       // this.m_obligatoire = oblig;, boolean oblig
         this.m_lstmots = new ArrayList();
     }
     
+    //On recupère le nombre de mot clef associé à cette compétence
     int nbMotClef (){
         return this.m_lstmots.size();
     }
 
+    //Création du hashCode (de facon automatique)
     @Override
     public int hashCode() {
         int hash = 5;

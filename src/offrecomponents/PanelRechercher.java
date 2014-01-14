@@ -67,6 +67,10 @@ public class PanelRechercher extends javax.swing.JPanel {
         jLabel9 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblComp = new javax.swing.JTable();
+        jPanel11 = new javax.swing.JPanel();
+        jPanel12 = new javax.swing.JPanel();
+        btnRech = new javax.swing.JButton();
+        btnRAZ = new javax.swing.JButton();
 
         jPanel2.setLayout(new java.awt.GridLayout(1, 0, 50, 0));
 
@@ -86,7 +90,7 @@ public class PanelRechercher extends javax.swing.JPanel {
 
         jPanel4.setLayout(new java.awt.GridLayout(5, 0));
 
-        jPanel6.setLayout(new java.awt.GridLayout());
+        jPanel6.setLayout(new java.awt.GridLayout(1, 0));
 
         jLabel2.setText("Region :");
         jPanel6.add(jLabel2);
@@ -116,7 +120,7 @@ public class PanelRechercher extends javax.swing.JPanel {
 
         jPanel4.add(jPanel7);
 
-        jPanel9.setLayout(new java.awt.GridLayout());
+        jPanel9.setLayout(new java.awt.GridLayout(1, 0));
 
         jLabel5.setText("Salaire espéré :");
         jPanel9.add(jLabel5);
@@ -131,7 +135,7 @@ public class PanelRechercher extends javax.swing.JPanel {
 
         jPanel4.add(jPanel9);
 
-        jPanel10.setLayout(new java.awt.GridLayout());
+        jPanel10.setLayout(new java.awt.GridLayout(1, 0));
         jPanel4.add(jPanel10);
 
         jPanel3.add(jPanel4);
@@ -140,7 +144,7 @@ public class PanelRechercher extends javax.swing.JPanel {
 
         jPanel18.setLayout(new java.awt.GridLayout(3, 0));
 
-        jPanel19.setLayout(new java.awt.GridLayout());
+        jPanel19.setLayout(new java.awt.GridLayout(1, 0));
 
         jLabel8.setText("Compétence :");
         jPanel19.add(jLabel8);
@@ -268,6 +272,21 @@ public class PanelRechercher extends javax.swing.JPanel {
 
         jPanel20.add(jPanel22);
 
+        jPanel12.setLayout(new java.awt.GridLayout(1, 0, 50, 0));
+
+        btnRech.setText("Rechercher");
+        btnRech.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRechActionPerformed(evt);
+            }
+        });
+        jPanel12.add(btnRech);
+
+        btnRAZ.setText("RAZ");
+        jPanel12.add(btnRAZ);
+
+        jPanel11.add(jPanel12);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -275,17 +294,18 @@ public class PanelRechercher extends javax.swing.JPanel {
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jPanel15, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jPanel5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addComponent(jPanel13, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 557, Short.MAX_VALUE)
+            .addComponent(jPanel20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
-            .addComponent(jPanel13, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 557, Short.MAX_VALUE)
-            .addComponent(jPanel20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel11, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -296,8 +316,9 @@ public class PanelRechercher extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel20, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel20, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -322,9 +343,40 @@ public class PanelRechercher extends javax.swing.JPanel {
      
     }//GEN-LAST:event_btnAjouterActionPerformed
 
+    private void btnRechActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRechActionPerformed
+        // TODO add your handling code here:
+//        if (optEmploi.isSelected() || optStage.isSelected()) {
+//            m_offreType = optEmploi.isSelected();
+//            m_titre = txtTitre.getText();
+//            if (m_offreType) {
+//                m_region = cmbReg.getSelectedItem().toString();
+//                m_exp = Integer.parseInt(txtExp.getText());
+//                m_salMin = Integer.parseInt(txtSalmin.getText());
+//                m_salMax = Integer.parseInt(txtSalmax.getText());
+//
+//                // Emploi emp = new Emploi(m_titre, m_region, m_exp, m_salMin, m_salMax, m_lstcomps);
+//                FileOperation fileout = new FileOperation();
+//                //                fileout.enrgFile(m_titre, m_region, m_exp, m_salMin, m_salMax, m_lstcomps);
+//            } else {
+//
+//            }
+//        } else {
+//            //TODO
+//        }
+
+        //            FileOperation fileout = new FileOperation();
+        //            fileout.readFile();
+        //            fileout.separateFields();
+        //        if(optOblig.isSelected()){
+            //            fileout.writeFile();
+            //        }
+    }//GEN-LAST:event_btnRechActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAjouter;
+    private javax.swing.JButton btnRAZ;
+    private javax.swing.JButton btnRech;
     private javax.swing.JButton btnSup;
     private javax.swing.JComboBox cmbComp;
     private javax.swing.JComboBox cmbReg;
@@ -339,6 +391,8 @@ public class PanelRechercher extends javax.swing.JPanel {
     private javax.swing.JList jList1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
+    private javax.swing.JPanel jPanel11;
+    private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel14;
     private javax.swing.JPanel jPanel15;

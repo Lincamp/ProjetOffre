@@ -55,6 +55,7 @@ public class OffreFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jButton1 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         panelSaisie1 = new offrecomponents.PanelSaisie();
         panelRechercher1 = new offrecomponents.PanelRechercher();
@@ -62,6 +63,8 @@ public class OffreFrame extends javax.swing.JFrame {
         jMenu1 = new javax.swing.JMenu();
         mnuoptSaisie = new javax.swing.JRadioButtonMenuItem();
         mnuoptRechercher = new javax.swing.JRadioButtonMenuItem();
+
+        jButton1.setText("jButton1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -158,6 +161,7 @@ public class OffreFrame extends javax.swing.JFrame {
 //    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;

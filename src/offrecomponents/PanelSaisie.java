@@ -179,7 +179,6 @@ public class PanelSaisie extends javax.swing.JPanel {
         jPanel7 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         txtExp = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
         jPanel9 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         txtSalmin = new javax.swing.JTextField();
@@ -510,16 +509,13 @@ public class PanelSaisie extends javax.swing.JPanel {
 
         jPanel4.add(jPanel6);
 
-        jPanel7.setLayout(new java.awt.GridLayout(1, 0, 50, 0));
+        jPanel7.setLayout(new java.awt.GridLayout());
 
         jLabel3.setText("Expérience :");
         jPanel7.add(jLabel3);
 
         txtExp.setText("jTextField3");
         jPanel7.add(txtExp);
-
-        jLabel4.setText("   ans");
-        jPanel7.add(jLabel4);
 
         jPanel4.add(jPanel7);
 
@@ -658,6 +654,11 @@ public class PanelSaisie extends javax.swing.JPanel {
         jPanel14.add(jPanel17);
 
         btnSup.setText("Supprimer");
+        btnSup.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSupActionPerformed(evt);
+            }
+        });
         jPanel8.add(btnSup);
 
         jPanel14.add(jPanel8);
@@ -696,12 +697,11 @@ public class PanelSaisie extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel15, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel15, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel11, javax.swing.GroupLayout.DEFAULT_SIZE, 41, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jPanel11, javax.swing.GroupLayout.DEFAULT_SIZE, 41, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -792,6 +792,11 @@ public class PanelSaisie extends javax.swing.JPanel {
         afficherNoyauFonctionnel();
     }//GEN-LAST:event_btnAjouterActionPerformed
 
+    private void btnSupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSupActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_btnSupActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAjouter;
@@ -818,7 +823,6 @@ public class PanelSaisie extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;

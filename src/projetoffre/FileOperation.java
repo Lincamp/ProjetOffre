@@ -11,7 +11,6 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 
@@ -69,7 +68,7 @@ public class FileOperation {
         }
     }
 
-    public void enrgFile(String v_titre, String v_region, int v_exp, int v_salMin, int v_salMax, HashMap<Competence, CompType> tblComps) {
+    public void enrgOffre(String v_titre, String v_region, int v_exp, int v_salMin, int v_salMax, HashMap<Competence, CompType> tblComps) {
         try {
             int compsSize = tblComps.size();
             System.out.println("size" + tblComps.size());

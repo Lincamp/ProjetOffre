@@ -724,7 +724,7 @@ public class PanelSaisie extends javax.swing.JPanel {
 
                 // Emploi emp = new Emploi(m_titre, m_region, m_exp, m_salMin, m_salMax, m_lstcomps);
                 FileOperation fileout = new FileOperation();
-                fileout.enrgFile(m_titre, m_region, m_exp, m_salMin, m_salMax, m_tblComps);
+                fileout.enrgOffre(m_titre, m_region, m_exp, m_salMin, m_salMax, m_tblComps);
             } else {
 
             }

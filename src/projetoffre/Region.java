@@ -5,14 +5,9 @@
  */
 package projetoffre;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
-import java.util.Vector;
-import javax.swing.DefaultComboBoxModel;
 
 /**
  *
@@ -28,9 +23,8 @@ public class Region {
     // Set contient le nom de toutes les régions associées a cette région, ce qui permet d'éviter la redondance d'information
     Set<String> m_regassocie;
     ArrayList<Offre> m_lstoffs;
-    private static boolean m_inited;
-    private static Vector m_comboBoxItems = new Vector();
-    // le ":" permet de séparer une région aux régions associées
+//    private static boolean m_inited;
+//    private static Vector m_comboBoxItems = new Vector();
     static final char m_regionDelim = ':';
     // les ";" permettent de séparer les régions associées entre elles
     static final String m_procheDelim = ";";
@@ -39,9 +33,6 @@ public class Region {
     // Création d
     public Region() {
         m_regassocie = new HashSet<String>();
-        m_inited = false;
-        m_comboBoxItems = new Vector();
-//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     // Création du constructeur Region 
     // Le "String fileStr" permet de récupérer toutes les lignes contenus dans un dossier texte (regionlist.txt)
@@ -68,8 +59,7 @@ public class Region {
                 System.out.println("=====================================");
                 // On récupère tous les carractères séparés par les ";", puis on les place dans la variable "regProche". On réitère l'opération jusqu'a la fin de la ligne
                 for (String regProche: procheStr.split(m_procheDelim)){
-                    System.out.println("proche of " + m_regnom + ":" + regProche);
-                    // On ajoute la région proche trouvée dans Set<String> m_regassocie
+                    System.out.println("proche of " + m_regnom + ":" + regProche + " (region.java)");
                     this.m_regassocie.add(regProche);
                 } 
                 System.out.println("=====================================");
@@ -92,26 +82,25 @@ public class Region {
 //        this.lstregs = new ArrayList();
     }
 
-    // Ici on initialise DefaultComboBoxModel pour alimenter la comboBox région.
-    public DefaultComboBoxModel getRegionListModel() {
-        DefaultComboBoxModel model = new DefaultComboBoxModel(m_comboBoxItems);
-        return model;
-    }
+//    public DefaultComboBoxModel getRegionListModel() {
+//        DefaultComboBoxModel model = new DefaultComboBoxModel(m_comboBoxItems);
+//        return model;
+//    }
 
-    private void initRegionList() {
-        if (!m_inited) {
-            try (BufferedReader br = new BufferedReader(new FileReader("data/regionlist.txt"))) {
-                String sCurrentLine;
-                while ((sCurrentLine = br.readLine()) != null) {
-                    System.out.println("##### " + sCurrentLine + "\t#####");
-                    m_comboBoxItems.add(sCurrentLine);
-                }
-                m_inited = true;
-            } catch (IOException ee) {
-                ee.printStackTrace();
-            }
-        }
-    }
+//    private void initRegionList() {
+//        if (!m_inited) {
+//            try (BufferedReader br = new BufferedReader(new FileReader("data/regionlist.txt"))) {
+//                String sCurrentLine;
+//                while ((sCurrentLine = br.readLine()) != null) {
+//                    System.out.println("##### " + sCurrentLine + "\t#####");
+//                    m_comboBoxItems.add(sCurrentLine);
+//                }
+//                m_inited = true;
+//            } catch (IOException ee) {
+//                ee.printStackTrace();
+//            }
+//        }
+//    }
 
 //    private void initRegionList() {
 //        Vector comboBoxItems = new Vector();

@@ -9,3 +9,7 @@ sss;Toulouse;3;2000;3000;BD:0
 employe;Paris;1;200;300;Rapport:0
 projet;Toulouse;1;2;3;Program:1|BD:0
 ssss;Paris;1;2;5;Program:1|BD:0
+superman;Paris;3;4;5;Program:obligatoirBD:souhaitee
+spiderman;Toulouse;3;4000;5000;Program:souhaitee|Rapport:souhaitee
+hellokitty;Paris;2;2000;8000;Program:obligatoir|BD:obligatoir
+hellokitty;Paris;2;2000;8000;Program:obligatoir|BD:obligatoir

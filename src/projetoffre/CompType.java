@@ -12,8 +12,7 @@ package projetoffre;
  */
 //On crée la classe CompType
 public class CompType {
-    //Création de l'attribut libType (représente le nom de type de competence)
-    String m_libType;
+    private String m_libType;
 
     
     //On récupère le m_libType

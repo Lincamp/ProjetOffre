@@ -27,7 +27,7 @@ import projetoffre.Competence;
 import projetoffre.Emploi;
 import projetoffre.EnregComp;
 import projetoffre.FileOperation;
-import projetoffre.NoyauFonctionnel;
+import projetoffre.noyaufonctionnel.RegionNoyauFonctionnel;
 import projetoffre.Offre;
 import projetoffre.Region;
 
@@ -41,7 +41,7 @@ import projetoffre.Region;
 //exp, salaire int only
 public class PanelSaisie extends javax.swing.JPanel {
 
-    private NoyauFonctionnel m_nf;
+    private RegionNoyauFonctionnel m_regFonc;
     private EnregComp m_enregComp;
     boolean m_offreType;
     String m_titre;
@@ -59,7 +59,7 @@ public class PanelSaisie extends javax.swing.JPanel {
      * Creates new form PanelSaisie
      */
     public PanelSaisie() {
-        m_nf = new NoyauFonctionnel();
+        m_regFonc = new RegionNoyauFonctionnel();
 
         initComponents();
         m_enregComp = new EnregComp();
@@ -77,7 +77,7 @@ public class PanelSaisie extends javax.swing.JPanel {
 
     private void initRegionList() {
 //        Vector comboBoxItems = new Vector();
-        Vector comboBoxItems = m_nf.getRegVecNom();
+        Vector comboBoxItems = m_regFonc.getRegVecNom();
 
         DefaultComboBoxModel model = new DefaultComboBoxModel(comboBoxItems);
         cmbReg.setModel(model);

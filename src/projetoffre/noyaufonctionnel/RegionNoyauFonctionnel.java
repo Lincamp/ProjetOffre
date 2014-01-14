@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package projetoffre;
+package projetoffre.noyaufonctionnel;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -11,12 +11,13 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Vector;
 import javax.swing.DefaultComboBoxModel;
+import projetoffre.Region;
 
 /**
  *
  * @author Doro
  */
-public class NoyauFonctionnel {
+public class RegionNoyauFonctionnel {
 //    private ArrayList<Action> lstActions;
 //    private ArrayList<Jour> lstJours;
 //    private HashMap<String, Portefeuille> lstPortefeuilles;
@@ -27,7 +28,7 @@ public class NoyauFonctionnel {
     static final char m_regionDelim = ':';
     static final String m_procheDelim = ";";
 
-    public NoyauFonctionnel() {
+    public RegionNoyauFonctionnel() {
         this.m_regInit = false;
         this.m_regVecNom = new Vector();
         this.m_tblRegions = new HashMap<>();

@@ -908,7 +908,7 @@ public class PanelSaisie extends javax.swing.JPanel {
             CompType compType = new CompType("souhaitee");
             if(optOblig.isSelected())
             {
-                compType.setLibType("obligatoir");
+                compType.setLibType("obligatoire");
             }
             
             m_enregComp.ajouterComp(comp, compType);

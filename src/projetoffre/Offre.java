@@ -15,31 +15,39 @@ import java.util.Set;
  *
  * @author Doro
  */
-public abstract class Offre {
-    //attribut
 
+// Création de la classe Offre
+public abstract class Offre {
+    //Création des attributs
     String m_titre;
     String m_region;
-//    ArrayList<Competence> m_lstcomps;
-    HashMap<Competence, CompType> m_tblComps;
-    CompType ctoblig = new CompType("obligatoir");
-    CompType ctsouh = new CompType("souhaitee");
-//    Set setComp = m_tblComps.entrySet();
-//    Iterator q = setComp.iterator();
-//    
+    
 
-    //methodes ArrayList<Competence> c, HashMap<Competence, CompType> tblComps
+    // Création de HashMap (Compétence est la cléf et CompType représente la valeur)
+    HashMap<Competence, CompType> m_tblComps;
+    // Création des 2 types de compétences (obligatoire ou souhaitée)
+    CompType ctoblig = new CompType("obligatoire");
+    CompType ctsouh = new CompType("souhaitee");
+    
+
+   //Création du constructeur Offre
     public Offre(String titre, String region) {
+        // On définit un nouveau titre, une nouvelle région et les compétences demandées ainisi que le type de compétence
         this.m_titre = titre;
         this.m_region = region;
-//        this.m_lstcomps = new ArrayList();
         this.m_tblComps = new HashMap();
 
     }
 
+    // Création des méthodes get (on récupère la région et le titre de l'offre)
     public String getRegion() {
         return m_region;
     }
+
+    public String getM_titre() {
+        return m_titre;
+    }
+    
     
     
     

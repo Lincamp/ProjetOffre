@@ -18,45 +18,58 @@ import javax.swing.DefaultComboBoxModel;
  *
  * @author Doro
  */
+
+// Création de la classe Region
 public class Region {
 
-    //attributs
+    //Création des attributs
     String m_regnom;
+    
+    // Set contient le nom de toutes les régions associées a cette région, ce qui permet d'éviter la redondance d'information
     Set<String> m_regassocie;
     ArrayList<Offre> m_lstoffs;
     private static boolean m_inited;
     private static Vector m_comboBoxItems = new Vector();
+    // le ":" permet de séparer une région aux régions associées
     static final char m_regionDelim = ':';
+    // les ";" permettent de séparer les régions associées entre elles
     static final String m_procheDelim = ";";
 
-    // ArrayList<regassocie> lstregs;
+   
+    // Création d
     public Region() {
         m_regassocie = new HashSet<String>();
         m_inited = false;
         m_comboBoxItems = new Vector();
 //        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
+    // Création du constructeur Region 
+    // Le "String fileStr" permet de récupérer toutes les lignes contenus dans un dossier texte (regionlist.txt)
     public Region(String fileStr) {
         m_regassocie = new HashSet<String>();
         int pos;
         String procheStr;
-
+        // On vérifie si le nombre de carractère de cette ligne est suppérireur à 0
         if (fileStr.length() > 0) {
+            // On trouve ou se situe les ":" 
             pos = fileStr.indexOf(m_regionDelim);
             
-            // No region proche
+            // Si on ne trouve pas les ":" on récupère tous les carractères se situant avant les ":" et on les met dans la variable "m_regnom"
             if (pos == -1) {
                 this.m_regnom = fileStr;                        
                         } 
             else
             {
+                // Si on trouve les ":" alors on récupère tous les carractères se situant avant les ":" et on les met dans la variable "m_regnom"
                 this.m_regnom = fileStr.substring(0, pos);
+                // Tous les carractères se situant apres les ":" représentent les régions proches, ils sont mit dans la variable "procheStr"
                 procheStr = fileStr.substring(pos + 1);
  
                 System.out.println("=====================================");
+                // On récupère tous les carractères séparés par les ";", puis on les place dans la variable "regProche". On réitère l'opération jusqu'a la fin de la ligne
                 for (String regProche: procheStr.split(m_procheDelim)){
                     System.out.println("proche of " + m_regnom + ":" + regProche);
+                    // On ajoute la région proche trouvée dans Set<String> m_regassocie
                     this.m_regassocie.add(regProche);
                 } 
                 System.out.println("=====================================");
@@ -66,7 +79,7 @@ public class Region {
             
         }
     }
-
+    // Création de la méthode get (récupère le nom de la région)
     public String getRegnom() {
         return m_regnom;
     }
@@ -79,6 +92,7 @@ public class Region {
 //        this.lstregs = new ArrayList();
     }
 
+    // Ici on initialise DefaultComboBoxModel pour alimenter la comboBox région.
     public DefaultComboBoxModel getRegionListModel() {
         DefaultComboBoxModel model = new DefaultComboBoxModel(m_comboBoxItems);
         return model;

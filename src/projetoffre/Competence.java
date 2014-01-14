@@ -15,7 +15,7 @@ import java.util.Objects;
 public class Competence {
     //attributs
 
-    String m_nomComp;
+    private String m_nomComp;
    // boolean m_obligatoire;
     ArrayList<MotClef> m_lstmots;
 

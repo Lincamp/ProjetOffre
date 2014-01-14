@@ -10,6 +10,9 @@ package projetoffre;
  *
  * @author Doro
  */
+
+// If the file is not needed, delete it
+
 public class Type {
     //attributs
     boolean m_offretype;

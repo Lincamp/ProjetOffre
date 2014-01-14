@@ -2,3 +2,4 @@ Paris:Tour;Reims
 Toulouse:Carcassonne
 Tour:
 Bordeux
+Toulouse:Carcassonne

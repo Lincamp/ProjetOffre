@@ -11,7 +11,7 @@ package projetoffre;
  * @author Doro
  */
 public class CompType {
-    String m_libType;
+    private String m_libType;
 
     public String getLibType() {
         return m_libType;

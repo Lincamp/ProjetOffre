@@ -19,21 +19,20 @@ import javax.swing.DefaultComboBoxModel;
  * @author Doro
  */
 public class Region {
-
     //attributs
     String m_regnom;
     Set<String> m_regassocie;
     ArrayList<Offre> m_lstoffs;
-    private static boolean m_inited;
-    private static Vector m_comboBoxItems = new Vector();
+//    private static boolean m_inited;
+//    private static Vector m_comboBoxItems = new Vector();
     static final char m_regionDelim = ':';
     static final String m_procheDelim = ";";
 
     // ArrayList<regassocie> lstregs;
     public Region() {
         m_regassocie = new HashSet<String>();
-        m_inited = false;
-        m_comboBoxItems = new Vector();
+//        m_inited = false;
+//        m_comboBoxItems = new Vector();
 //        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -56,7 +55,7 @@ public class Region {
  
                 System.out.println("=====================================");
                 for (String regProche: procheStr.split(m_procheDelim)){
-                    System.out.println("proche of " + m_regnom + ":" + regProche);
+                    System.out.println("proche of " + m_regnom + ":" + regProche + " (region.java)");
                     this.m_regassocie.add(regProche);
                 } 
                 System.out.println("=====================================");
@@ -79,25 +78,25 @@ public class Region {
 //        this.lstregs = new ArrayList();
     }
 
-    public DefaultComboBoxModel getRegionListModel() {
-        DefaultComboBoxModel model = new DefaultComboBoxModel(m_comboBoxItems);
-        return model;
-    }
+//    public DefaultComboBoxModel getRegionListModel() {
+//        DefaultComboBoxModel model = new DefaultComboBoxModel(m_comboBoxItems);
+//        return model;
+//    }
 
-    private void initRegionList() {
-        if (!m_inited) {
-            try (BufferedReader br = new BufferedReader(new FileReader("data/regionlist.txt"))) {
-                String sCurrentLine;
-                while ((sCurrentLine = br.readLine()) != null) {
-                    System.out.println("##### " + sCurrentLine + "\t#####");
-                    m_comboBoxItems.add(sCurrentLine);
-                }
-                m_inited = true;
-            } catch (IOException ee) {
-                ee.printStackTrace();
-            }
-        }
-    }
+//    private void initRegionList() {
+//        if (!m_inited) {
+//            try (BufferedReader br = new BufferedReader(new FileReader("data/regionlist.txt"))) {
+//                String sCurrentLine;
+//                while ((sCurrentLine = br.readLine()) != null) {
+//                    System.out.println("##### " + sCurrentLine + "\t#####");
+//                    m_comboBoxItems.add(sCurrentLine);
+//                }
+//                m_inited = true;
+//            } catch (IOException ee) {
+//                ee.printStackTrace();
+//            }
+//        }
+//    }
 
 //    private void initRegionList() {
 //        Vector comboBoxItems = new Vector();

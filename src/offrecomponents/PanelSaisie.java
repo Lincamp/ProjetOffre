@@ -27,6 +27,7 @@ import projetoffre.Competence;
 import projetoffre.Emploi;
 import projetoffre.EnregComp;
 import projetoffre.FileOperation;
+import projetoffre.NoyauFonctionnel;
 import projetoffre.Offre;
 import projetoffre.Region;
 
@@ -40,6 +41,7 @@ import projetoffre.Region;
 //exp, salaire int only
 public class PanelSaisie extends javax.swing.JPanel {
 
+    private NoyauFonctionnel m_nf;
     private EnregComp m_enregComp;
     boolean m_offreType;
     String m_titre;
@@ -57,36 +59,28 @@ public class PanelSaisie extends javax.swing.JPanel {
      * Creates new form PanelSaisie
      */
     public PanelSaisie() {
+        m_nf = new NoyauFonctionnel();
+
         initComponents();
         m_enregComp = new EnregComp();
         //m_lstcomps = new ArrayList();
         this.m_tblComps = new HashMap();
-        m_setComp = new HashSet<String>();  
-        
+        m_setComp = new HashSet<String>();
+
 //        Region reg = new Region();
 //        DefaultComboBoxModel model = reg.getRegionListModel();
 //        cmbReg.setModel(model);
         initRegionList();
-        
+
         initCompList();
     }
 
     private void initRegionList() {
-        Vector comboBoxItems = new Vector();
+//        Vector comboBoxItems = new Vector();
+        Vector comboBoxItems = m_nf.getRegVecNom();
 
-        try (BufferedReader br = new BufferedReader(new FileReader("data/regionlist.txt"))) {
-            String sCurrentLine;
-            while ((sCurrentLine = br.readLine()) != null) {              
-                System.out.println("#####" + sCurrentLine + "\t#####line from regionlist.txt");
-                Region reg = new Region(sCurrentLine);
-                comboBoxItems.add(reg.getRegnom());
-                //comboBoxItems.add(reg);
-            }
-            DefaultComboBoxModel model = new DefaultComboBoxModel(comboBoxItems);
-            cmbReg.setModel(model);
-        } catch (IOException ee) {
-            ee.printStackTrace();
-        }
+        DefaultComboBoxModel model = new DefaultComboBoxModel(comboBoxItems);
+        cmbReg.setModel(model);
     }
 
     private void initCompList() {
@@ -728,7 +722,7 @@ public class PanelSaisie extends javax.swing.JPanel {
                 m_salMin = Integer.parseInt(txtSalmin.getText());
                 m_salMax = Integer.parseInt(txtSalmax.getText());
 
-               // Emploi emp = new Emploi(m_titre, m_region, m_exp, m_salMin, m_salMax, m_lstcomps);
+                // Emploi emp = new Emploi(m_titre, m_region, m_exp, m_salMin, m_salMax, m_lstcomps);
                 FileOperation fileout = new FileOperation();
                 fileout.enrgFile(m_titre, m_region, m_exp, m_salMin, m_salMax, m_tblComps);
             } else {
@@ -794,7 +788,7 @@ public class PanelSaisie extends javax.swing.JPanel {
 
     private void btnSupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSupActionPerformed
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_btnSupActionPerformed
 
 
@@ -898,44 +892,41 @@ public class PanelSaisie extends javax.swing.JPanel {
     private void afficherNoyauFonctionnel() {
         String nomC;
         nomC = cmbComp.getSelectedItem().toString();
-   
+
         if (!m_setComp.contains(nomC)) {
-            m_setComp.add(nomC); 
+            m_setComp.add(nomC);
             System.out.println("m_setComp :" + m_setComp);
             System.out.println("m_setComp size :" + m_setComp.size());
-            
+
             Competence comp = new Competence(nomC);
             CompType compType = new CompType("souhaitee");
-            if(optOblig.isSelected())
-            {
+            if (optOblig.isSelected()) {
                 compType.setLibType("obligatoir");
             }
-            
+
             m_enregComp.ajouterComp(comp, compType);
         }
         System.out.println(m_enregComp.getSize());
         int compsSize = m_enregComp.getSize();
         m_tblComps = m_enregComp.getComps();
-        
+
         Object[][] m_compContent = new Object[compsSize][2];
-        
+
         int i = 0;
-        
+
         Iterator iter = m_tblComps.keySet().iterator();
-        while(iter.hasNext()) {
-            Competence key = (Competence)iter.next();
-            m_compContent[i][0] = key.getNomComp(); 
+        while (iter.hasNext()) {
+            Competence key = (Competence) iter.next();
+            m_compContent[i][0] = key.getNomComp();
             m_compContent[i][1] = m_tblComps.get(key).getLibType();
             System.out.println("key,val: " + m_compContent[i][0] + "," + m_compContent[i][1]);
             i++;
-        }     
-        
+        }
 
 //        for (int i = 0; i < compsSize; i++) {
 //            m_compContent[i][0] = m_tblComps.get(i).getNomComp();
 //            m_compContent[i][1] = m_lstcomps.get(i).isObligatoire();
 //        }
-
         //m_lstcomps = enregComp.getComps();      
         String[] columnNames = {"Competence", "Type"};
         //Object[][] data = enregComp.getCompContent();

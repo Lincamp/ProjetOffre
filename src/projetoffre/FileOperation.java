@@ -20,10 +20,10 @@ import java.util.Iterator;
  * @author Doro
  */
 public class FileOperation {
-
     static final char m_itemDelim = ';';
     static final char m_compDelim = '|';
     static final char m_compTypeDelim = ':';
+    static final String m_offreList = "data/offrelist.txt";
     //attributs
     String v_titre;
     String v_region;
@@ -108,7 +108,8 @@ public class FileOperation {
                     + v_exp + m_itemDelim
                     + v_salMin + m_itemDelim
                     + v_salMax + m_itemDelim + compstr;
-            File file = new File("data/info.txt");
+            
+            File file = new File(m_offreList);
             // if file doesnt exists, then create it
             if (!file.exists()) {
                 file.createNewFile();

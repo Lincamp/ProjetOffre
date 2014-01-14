@@ -17,10 +17,10 @@ import javax.swing.DefaultComboBoxModel;
  * @author Doro
  */
 public class NoyauFonctionnel {
-
 //    private ArrayList<Action> lstActions;
 //    private ArrayList<Jour> lstJours;
 //    private HashMap<String, Portefeuille> lstPortefeuilles;
+
     private static Vector m_regVecNom;
     private static HashMap<String, Region> m_tblRegions;
     private static boolean m_regInit;
@@ -58,12 +58,13 @@ public class NoyauFonctionnel {
                 while ((sCurrentLine = br.readLine()) != null) {
                     System.out.println("#####" + sCurrentLine + "\t#####line from regionlist.txt (Nayau)");
                     Region reg = new Region(sCurrentLine);
+                    String regnom = reg.getRegnom();
 
                     // avoid duplicates
-                    if (!m_tblRegions.containsKey(sCurrentLine)) {
-                        m_regVecNom.add(reg.getRegnom());
+                    if (!m_tblRegions.containsKey(regnom)) {
+                        m_regVecNom.add(regnom);
                     }
-                    m_tblRegions.put(sCurrentLine, reg);
+                    m_tblRegions.put(regnom, reg);
 
                     System.out.println("regTbl size:" + m_tblRegions.size() + " (Noyau)");
                     System.out.println("regVec size:" + m_regVecNom.size() + " (Noyau)");
@@ -74,6 +75,8 @@ public class NoyauFonctionnel {
             } catch (IOException ee) {
                 ee.printStackTrace();
             }
+
+            System.out.println("region map:" + m_tblRegions + " (Noyau)");
         }
     }
 //    public Jour creerJour(int annee, int noJour) {

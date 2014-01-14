@@ -5,14 +5,9 @@
  */
 package projetoffre;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
-import java.util.Vector;
-import javax.swing.DefaultComboBoxModel;
 
 /**
  *
@@ -31,9 +26,6 @@ public class Region {
     // ArrayList<regassocie> lstregs;
     public Region() {
         m_regassocie = new HashSet<String>();
-//        m_inited = false;
-//        m_comboBoxItems = new Vector();
-//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     public Region(String fileStr) {

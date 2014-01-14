@@ -10,18 +10,23 @@ package projetoffre;
  *
  * @author Doro
  */
+//On crée la classe CompType
 public class CompType {
+    //Création de l'attribut libType (représente le nom de type de competence)
     String m_libType;
 
+    
+    //On récupère le m_libType
     public String getLibType() {
         return m_libType;
     }
 
+    
     public void setLibType(String m_libType) {
         this.m_libType = m_libType;
     }
   
-
+// On crée le constructeur CompType
     public CompType(String libType) {
         this.m_libType = libType;
     }

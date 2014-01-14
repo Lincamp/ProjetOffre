@@ -12,14 +12,15 @@ import java.util.HashMap;
  *
  * @author Doro
  */
-public class Emploi extends Offre {
-    //attributs
 
+//Création de la classe Emploi
+public class Emploi extends Offre {
+    //Création des attributs
     int m_experience;
     int m_salairemin;
     int m_salairemax;
 
-    //methodes
+    //Création des methodes get (pour récupérer l'expérience, le salaireMin et le salaireMax pour un emploi)
     public int getExperience() {
         return m_experience;
     }
@@ -32,19 +33,10 @@ public class Emploi extends Offre {
         return m_salairemax;
     }
 
-//        public Emploi(String titreemp, String regemp){
-//            this.m_titre = titreemp;
-//            this.m_region = regemp;
-//            this.m_experience = experience;  ArrayList<Competence> c, HashMap<Competence, CompType> tblComps
-//            this.m_salairemin = salairemin;
-//            this.m_salairemax = salairemax;
-//            this.m_lstcomps = c;
-//            this.m_tblComps = tblComps;
-           // int experience, int salairemin, int salairemax,
-            
-       // }
 
+    // Création du constructeur Emploi
     public Emploi(int m_experience, int m_salairemin, int m_salairemax, String titre, String region) {
+        //On définit une nouvelle expérience, un nouveau salaireMin, un nouveau salaireMax ainsi qu'un titre et une région
         super(titre, region);
         this.m_experience = m_experience;
         this.m_salairemin = m_salairemin;
@@ -52,30 +44,21 @@ public class Emploi extends Offre {
     }
         
         
-
-    public double scoreSalaire(int salaireChercher, ArrayList<Emploi> lstEmploiTrouve) {
-        //calculer pour chaque emploi
-        double scoreSalaire = 0;
-
-        for (int i = 0; i < lstEmploiTrouve.size(); i++) {
-            scoreSalaire = 0;
-            scoreSalaire = 5 - ((salaireChercher - lstEmploiTrouve.get(i).getSalairemax()) / 1000);
+    //Création d'une méthode pour pouvoir calculer le score du Salaire
+    public double scoreSalaire(int salaireChercher) {
+       //On initialise le scoreSalaire à 0
+        double scoreSalaire = 0;        
+            scoreSalaire = 5 - ((salaireChercher - this.getSalairemax()) / 1000);
             System.out.println("score Salaire1 : " + scoreSalaire);
-            return scoreSalaire;
-        }
-        return scoreSalaire; // ici on affiche que le dernier résultat, on doit faire en sorte qu'il affiche tous les résultats dans l'interface !!!! 
+            return scoreSalaire;       
+        
     }
-
-//    public double scoreEmploi(double scoreCompetences, int scoreGeographique, double scoreSalaire) {
-//        double scoreEmploi = 0;
-//        scoreEmploi = scoreCompetences + scoreGeographique + scoreSalaire;
-//        return scoreEmploi;
-//    }
     
+   //Création d'une méthode pour pouvoir calculer le score total
    public double scoreTotal(double scoreCompetences, int scoreGeographique, double scoreSalaire ){
+       //On initialise le scoreEmploi à 0
         double scoreEmploi = 0;
         scoreEmploi = scoreCompetences + scoreGeographique + scoreSalaire;
         return scoreEmploi;
-    }
-    
+    }   
 }

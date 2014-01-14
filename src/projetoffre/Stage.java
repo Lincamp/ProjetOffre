@@ -9,6 +9,8 @@ package projetoffre;
  *
  * @author Doro
  */
+
+//Création de la classe Stage
 public class Stage extends Offre {
     //attributs
 
@@ -16,6 +18,8 @@ public class Stage extends Offre {
 //    public Stage() {
 //    }
 
+    
+    // Création 
     public Stage(String titre, String region) {
         super(titre, region);
     }

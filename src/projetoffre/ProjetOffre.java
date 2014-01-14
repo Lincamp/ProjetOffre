@@ -81,6 +81,7 @@ public class ProjetOffre {
         e1.m_tblComps.put(c1,ctoblig);
         e1.m_tblComps.put(c2,ctsouh);
         e1.m_tblComps.put(c3,ctoblig);
+        e1.scoreSalaire(20000);
         
 //        CompType ctoblig = new CompType("obligeatoir");
 //        CompType ctsouh = new CompType("souhaitee"); 
@@ -95,6 +96,8 @@ public class ProjetOffre {
         
         System.out.println("score CompetenceHash : " + e1.scoreCompetencesHash(e1,lstCherche ));
         //System.out.println("score Competence : " + e1.scoreCompetences(lstEmp, lstCherche));
+        
+        
 
     }
 }

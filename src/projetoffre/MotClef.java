@@ -10,16 +10,20 @@ package projetoffre;
  *
  * @author Doro
  */
+
+//Création de la classe MotClef
 public class MotClef {
-    //attributs
+    //Création de l'attribut m_libelle (contient le mot clef)
     String m_libelle;
     
-    //methodes
+    //Création de la methode get (récupère les libellés des mots clefs)
     public String getLibelle() {
         return m_libelle;
     }
 
+    //Création du  constructeur MotClef
     public MotClef(String libelle) {
+        //On définit un nouveau libellé
         this.m_libelle = libelle;
     }
 }

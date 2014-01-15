@@ -7,10 +7,8 @@ package projetoffre.noyaufonctionnel;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Vector;
-import javax.swing.DefaultComboBoxModel;
 import projetoffre.Region;
 
 /**
@@ -22,16 +20,17 @@ public class RegionNoyauFonctionnel {
 //    private ArrayList<Jour> lstJours;
 //    private HashMap<String, Portefeuille> lstPortefeuilles;
 
-    private static Vector m_regVecNom;
-    private static HashMap<String, Region> m_tblRegions;
-    private static boolean m_regInit;
+    private static Vector m_regVecNom = new Vector();
+    private static HashMap<String, Region> m_tblRegions = new HashMap<>();
+    private static boolean m_regInit = false;
     static final char m_regionDelim = ':';
     static final String m_procheDelim = ";";
 
     public RegionNoyauFonctionnel() {
-        this.m_regInit = false;
-        this.m_regVecNom = new Vector();
-        this.m_tblRegions = new HashMap<>();
+        //this.m_regInit = false;
+        //this.m_regVecNom = new Vector();
+        //this.m_tblRegions = new HashMap<>();
+        
 //        this.lstActions = new ArrayList<>();
 //        this.lstJours = new ArrayList<>();
 //        this.lstPortefeuilles = new HashMap<>();

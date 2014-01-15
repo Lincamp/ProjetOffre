@@ -5,31 +5,18 @@
  */
 package offrecomponents;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
-import java.util.Map;
 import java.util.Set;
 import java.util.Vector;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.table.DefaultTableModel;
 import projetoffre.CompType;
 import projetoffre.Competence;
-import projetoffre.Emploi;
 import projetoffre.EnregComp;
 import projetoffre.FileOperation;
 import projetoffre.noyaufonctionnel.RegionNoyauFonctionnel;
-import projetoffre.Offre;
-import projetoffre.Region;
 import projetoffre.noyaufonctionnel.ComptNoyauFonctionnel;
 
 /**
@@ -43,6 +30,7 @@ import projetoffre.noyaufonctionnel.ComptNoyauFonctionnel;
 public class PanelSaisie extends javax.swing.JPanel {
 
     private RegionNoyauFonctionnel m_regFonc;
+//    private RegionNoyauFonctionnel m_regFonc1;
     private ComptNoyauFonctionnel m_compFonc;
     private EnregComp m_enregComp;
     boolean m_offreType;
@@ -62,6 +50,8 @@ public class PanelSaisie extends javax.swing.JPanel {
      */
     public PanelSaisie() {
         m_regFonc = new RegionNoyauFonctionnel();
+//                m_regFonc1 = new RegionNoyauFonctionnel();
+
         m_compFonc = new ComptNoyauFonctionnel();
         initComponents();
         m_enregComp = new EnregComp();

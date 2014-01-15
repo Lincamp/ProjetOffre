@@ -25,7 +25,6 @@
             </MenuItem>
             <MenuItem class="javax.swing.JRadioButtonMenuItem" name="mnuoptRechercher">
               <Properties>
-                <Property name="selected" type="boolean" value="true"/>
                 <Property name="text" type="java.lang.String" value="Rechercher"/>
               </Properties>
               <Events>

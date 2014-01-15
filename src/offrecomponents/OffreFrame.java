@@ -83,7 +83,6 @@ public class OffreFrame extends javax.swing.JFrame {
         });
         jMenu1.add(mnuoptSaisie);
 
-        mnuoptRechercher.setSelected(true);
         mnuoptRechercher.setText("Rechercher");
         mnuoptRechercher.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

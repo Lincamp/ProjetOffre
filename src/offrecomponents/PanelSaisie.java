@@ -438,6 +438,7 @@ public class PanelSaisie extends javax.swing.JPanel {
         jPanel2.setLayout(new java.awt.GridLayout(1, 0, 50, 0));
 
         grpOffreType.add(optEmploi);
+        optEmploi.setSelected(true);
         optEmploi.setText("Emploi");
         optEmploi.setToolTipText("");
         optEmploi.addActionListener(new java.awt.event.ActionListener() {
@@ -552,6 +553,7 @@ public class PanelSaisie extends javax.swing.JPanel {
         jPanel20.add(optOblig);
 
         grpCompType.add(optSouh);
+        optSouh.setSelected(true);
         optSouh.setText("souhaitée");
         optSouh.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

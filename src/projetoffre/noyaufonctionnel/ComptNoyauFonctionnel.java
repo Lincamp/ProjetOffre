@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package projetoffre.noyaufonctionnel;
 
 import java.io.BufferedReader;
@@ -20,16 +19,17 @@ import projetoffre.MotClef;
  * @author Doro
  */
 public class ComptNoyauFonctionnel {
-    
+
     private static Vector m_comptVecNom;
     public static HashMap<String, Competence> m_tblCompts;
     public static ArrayList<MotClef> m_lstMotClefs;
     private static boolean m_comptInit;
-     private static boolean m_motclefInit;
+    private static boolean m_motclefInit;
     static final char m_regionDelim = ':';
     static final String m_procheDelim = ";";
 
     public ComptNoyauFonctionnel() {
+        // Needs correction, move to the declaration part.
         this.m_comptInit = false;
         this.m_motclefInit = false;
         this.m_comptVecNom = new Vector();
@@ -40,12 +40,11 @@ public class ComptNoyauFonctionnel {
 
     public static ArrayList<MotClef> getLstMotClefs() {
         return m_lstMotClefs;
-    }      
+    }
 
     private void init() {
         creerTblCompetence();
     }
-
 
     public static Vector getComptVecNom() {
         return m_comptVecNom;
@@ -54,16 +53,16 @@ public class ComptNoyauFonctionnel {
     public static HashMap<String, Competence> getTblCompetences() {
         return m_tblCompts;
     }
-    
-    private void creerMotClef(){
-         if (!m_motclefInit) {
+
+    private void creerMotClef() {
+        if (!m_motclefInit) {
             try (BufferedReader br = new BufferedReader(new FileReader("data/motcleflist.txt"))) {
                 String sCurrentLine;
-                 m_lstMotClefs.clear();
+                m_lstMotClefs.clear();
 //                m_tblCompts.clear();
                 while ((sCurrentLine = br.readLine()) != null) {
                     System.out.println("#####" + sCurrentLine + "\t#####line from motcleflist.txt (Nayau)");
-                    MotClef mot = new MotClef(sCurrentLine);  
+                    MotClef mot = new MotClef(sCurrentLine);
                     m_lstMotClefs.add(mot);
                 }
                 m_motclefInit = true; //on doit le vérifier ou non?             
@@ -73,7 +72,6 @@ public class ComptNoyauFonctionnel {
             System.out.println("motclef list:" + m_lstMotClefs + " (Noyau)");
         }
     }
-    
 
     private void creerTblCompetence() {
         if (!m_comptInit) {

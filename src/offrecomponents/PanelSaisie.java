@@ -909,6 +909,8 @@ public class PanelSaisie extends javax.swing.JPanel implements View {
             }
 
             m_enregComp.ajouterComp(comp, compType);
+            m_offre.ajouterComp(comp, compType);
+            
             
         }
         System.out.println(m_enregComp.getSize());

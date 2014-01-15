@@ -16,7 +16,7 @@ import java.util.Set;
  */
 
 // Création de la classe Offre
-public abstract class Offre {
+public  abstract class Offre {
     //Création des attributs
     String m_titre;
     String m_region;   
@@ -45,7 +45,7 @@ public abstract class Offre {
         return m_titre;
     }
     
-    public abstract double scoreTotal(OffreType offreType);
+   public abstract double scoreTotal(OffreType offreType);
     
     public void ajouterComp(Competence comp, CompType compType) {       
         m_tblComps.put(comp, compType);      

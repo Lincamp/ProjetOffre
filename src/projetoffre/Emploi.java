@@ -37,9 +37,9 @@ public class Emploi extends Offre {
         super();
     }
     
-        public void ajouterComp(Competence comp, CompType compType) {       
-        m_tblComps.put(comp, compType);      
-    }
+//        public void ajouterComp(Competence comp, CompType compType) {       
+//        m_tblComps.put(comp, compType);      
+//    }
 
 
     

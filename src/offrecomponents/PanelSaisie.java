@@ -45,6 +45,7 @@ public class PanelSaisie extends javax.swing.JPanel {
     HashMap<Competence, CompType> m_tblComps;
     Set<String> m_setComp;
 
+    private boolean m_enregistrerPossible;    
     /**
      * Creates new form PanelSaisie
      */
@@ -925,5 +926,11 @@ public class PanelSaisie extends javax.swing.JPanel {
         //Object[][] data = enregComp.getCompContent();
         DefaultTableModel model = new DefaultTableModel(m_compContent, columnNames);
         tblComp.setModel(model);
+    }
+    
+    public void activerEnregistrer(boolean b) {
+        btnEnreg.setEnabled(b);
+        m_enregistrerPossible = b;
+//        lblErreur.setVisible(!b);
     }
 }

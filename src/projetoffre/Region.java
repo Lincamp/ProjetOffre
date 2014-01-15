@@ -25,6 +25,7 @@ public class Region {
     ArrayList<Offre> m_lstoffs;
 //    private static boolean m_inited;
 //    private static Vector m_comboBoxItems = new Vector();
+    // les ":" permett de séparer la région définit des régions associées
     static final char m_regionDelim = ':';
     // les ";" permettent de séparer les régions associées entre elles
     static final String m_procheDelim = ";";

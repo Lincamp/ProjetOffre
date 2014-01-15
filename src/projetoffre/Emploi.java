@@ -45,20 +45,44 @@ public class Emploi extends Offre {
         
         
     //Création d'une méthode pour pouvoir calculer le score du Salaire
-    public double scoreSalaire(int salaireChercher) {
+    public double scoreSalaire(OffreType offreType) {
        //On initialise le scoreSalaire à 0
         double scoreSalaire = 0;        
-            scoreSalaire = 5 - ((salaireChercher - this.getSalairemax()) / 1000);
+            scoreSalaire = 5 - ((offreType.getSalaireEspere() - this.getSalairemax()) / 1000);
             System.out.println("score Salaire1 : " + scoreSalaire);
             return scoreSalaire;       
         
     }
     
    //Création d'une méthode pour pouvoir calculer le score total
-   public double scoreTotal(double scoreCompetences, int scoreGeographique, double scoreSalaire ){
-       //On initialise le scoreEmploi à 0
-        double scoreEmploi = 0;
-        scoreEmploi = scoreCompetences + scoreGeographique + scoreSalaire;
-        return scoreEmploi;
-    }   
+//   public double scoreEmploi(double scoreCompetences, int scoreGeographique, double scoreSalaire ){
+//       //On initialise le scoreEmploi à 0
+//        double scoreEmploi = 0;
+//        scoreEmploi = scoreCompetences + scoreGeographique + scoreSalaire;
+//        return scoreEmploi;
+//    }   
+//
+//        public double scoreTotal(OffreType offreType, Emploi emploiTrouve) {
+//        //To change body of generated methods, choose Tools | Templates.
+//        double scoreEmploi = 0;
+//        double scoreCompetences = emploiTrouve.scoreCompetencesHash(emploiTrouve, offreType.getLstComps());
+//        int scoreGeographique = emploiTrouve.scoreGeographique(offreType.getReg());
+//        double scoreSalaire = emploiTrouve.scoreSalaire(offreType.getSalaireEspere());        
+//        scoreEmploi = scoreCompetences + scoreGeographique + scoreSalaire;
+//        return scoreEmploi;           
+//    }
+
+    @Override
+    // Ici on a l'héritage de la classe parente (offre), qui nous permet de calculer le score total d'emploi selon les données sasies par lutilisateur
+    //( en fonction de la région, du salaire espéré, et des compétences choisis)
+    public double scoreTotal(OffreType offreType) {
+       //To change body of generated methods, choose Tools | Templates.       
+        // On initialise scoreEmploi à 0
+        double scoreEmploi = 0;           
+        scoreEmploi = this.scoreGeographique(offreType) + this.scoreSalaire(offreType) + this.scoreCompetencesHash(offreType.getLstComps());
+        return scoreEmploi;  
+    }
+   
+   
+   
 }

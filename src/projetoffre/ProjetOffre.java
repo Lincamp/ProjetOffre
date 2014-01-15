@@ -40,8 +40,8 @@ public class ProjetOffre {
 ////      System.out.println("score Salaire : " + e1.scoreSalaire(s1, lstEmp));
 //    
 //    
-          
-        
+
+        // On détermine des mots clefs
         MotClef m1 = new MotClef("Java");
         MotClef m2 = new MotClef("VB");
         MotClef m3 = new MotClef("C++");
@@ -54,38 +54,47 @@ public class ProjetOffre {
 //        Competence c1 = new Competence("Programmation", true);
 //        Competence c2 = new Competence("SI", false);
 //        Competence c3 = new Competence("web", true);
-         Competence c1 = new Competence("Programmation");
-         Competence c2 = new Competence("SI");
-         Competence c3 = new Competence("web");     
-         
-         CompType ctoblig = new CompType("obligatoir");
-         CompType ctsouh = new CompType("souhaitee"); 
-       // ArrayList<Competence> lstComp;
+
+
+        // On crée 3 compétences 
+        Competence c1 = new Competence("Programmation");
+        Competence c2 = new Competence("SI");
+        Competence c3 = new Competence("web");
+
+
+        // On crée les types de compétences (obligatoire et souhaité)
+        CompType ctoblig = new CompType("obligatoire");
+        CompType ctsouh = new CompType("souhaitee");
+        // ArrayList<Competence> lstComp;
 //        lstComp = new ArrayList();
 //        lstComp.add(c3);
 //        lstComp.add(c2);
 //        lstComp.add(c1);
+
+        //On associe des mots clefs à des compétences 
         c1.m_lstmots.add(m2);
         c1.m_lstmots.add(m1);
         c1.m_lstmots.add(m3);
-       // c1.m_lstmots.add(m7);
-       c2.m_lstmots.add(m5);
-       c2.m_lstmots.add(m6);
+        c2.m_lstmots.add(m5);
+        c2.m_lstmots.add(m6);
         c3.m_lstmots.add(m4);
-       c3.m_lstmots.add(m7);
-        
-        
+        c3.m_lstmots.add(m7);
 
-        Emploi e1 = new Emploi(5, 20000, 25000,"blabla", "blablaLand" );
-        Emploi e2 = new Emploi(5, 21110, 27000,"blablas", "blablaLands");
-        e1.m_tblComps.put(c1,ctoblig);
-        e1.m_tblComps.put(c2,ctsouh);
-        e1.m_tblComps.put(c3,ctoblig);
-        e1.scoreSalaire(20000);
-        
-//        CompType ctoblig = new CompType("obligeatoir");
+
+        // On crée 2 emplois 
+        Emploi e1 = new Emploi(5, 20000, 25000, "blabla", "blablaLand");
+        Emploi e2 = new Emploi(5, 21110, 27000, "blablas", "blablaLands");
+        // On associe des compétences et des types de compétences aux 2 emplois créés
+        e1.m_tblComps.put(c1, ctoblig);
+        e1.m_tblComps.put(c2, ctsouh);
+        e1.m_tblComps.put(c3, ctoblig);
+        // e2.m_tblComps.put(c2, ctoblig); 
+        // e2.m_tblComps.put(c3, ctsouh);
+//        e1.scoreSalaire(20000);
+
+//        CompType ctoblig = new CompType("obligeatoire");
 //        CompType ctsouh = new CompType("souhaitee"); 
-        
+
         ArrayList lstEmp, lstCherche;
         lstEmp = new ArrayList();
         lstCherche = new ArrayList();
@@ -93,11 +102,11 @@ public class ProjetOffre {
         //lstEmp.add(e2);
         lstCherche.add(c1);
         lstCherche.add(c2);
-        
-        System.out.println("score CompetenceHash : " + e1.scoreCompetencesHash(e1,lstCherche ));
+
+//        System.out.println("score CompetenceHash : " + e1.scoreCompetencesHash(e1,lstCherche ));
         //System.out.println("score Competence : " + e1.scoreCompetences(lstEmp, lstCherche));
-        
-        
+
+
 
     }
 }

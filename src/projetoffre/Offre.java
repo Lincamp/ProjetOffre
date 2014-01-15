@@ -19,9 +19,7 @@ import java.util.Set;
 public abstract class Offre {
     //Création des attributs
     String m_titre;
-    String m_region;
-    
-
+    String m_region;   
     // Création de HashMap (Compétence est la cléf et CompType représente la valeur)
     HashMap<Competence, CompType> m_tblComps;
     // Création des 2 types de compétences (obligatoire ou souhaitée)
@@ -48,6 +46,13 @@ public abstract class Offre {
     }
     
     public abstract double scoreTotal(OffreType offreType);
+    
+    public void ajouterComp(Competence comp, CompType compType) {       
+        m_tblComps.put(comp, compType);      
+    }
+
+    public Offre() {
+    }
     
        
 

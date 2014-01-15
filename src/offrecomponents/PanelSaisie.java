@@ -14,10 +14,14 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.table.DefaultTableModel;
 import projetoffre.CompType;
 import projetoffre.Competence;
+import projetoffre.Emploi;
 import projetoffre.EnregComp;
 import projetoffre.FileOperation;
+import projetoffre.Offre;
+import projetoffre.Stage;
 import projetoffre.noyaufonctionnel.RegionNoyauFonctionnel;
 import projetoffre.noyaufonctionnel.ComptNoyauFonctionnel;
+import view.View;
 
 /**
  *
@@ -27,12 +31,13 @@ import projetoffre.noyaufonctionnel.ComptNoyauFonctionnel;
 // avoid duplicate when ajouter nouveau offre
 // comptence qu'une fois
 //exp, salaire int only
-public class PanelSaisie extends javax.swing.JPanel {
+public class PanelSaisie extends javax.swing.JPanel implements View {
 
     private RegionNoyauFonctionnel m_regFonc;
 //    private RegionNoyauFonctionnel m_regFonc1;
     private ComptNoyauFonctionnel m_compFonc;
     private EnregComp m_enregComp;
+    private Offre m_offre;
     boolean m_offreType;
     String m_titre;
     String m_region;
@@ -59,7 +64,9 @@ public class PanelSaisie extends javax.swing.JPanel {
         //m_lstcomps = new ArrayList();
         this.m_tblComps = new HashMap();
         m_setComp = new HashSet<String>();
-
+        
+        Offre offre = new Emploi();
+      System.out.println("offreGetClass" + offre.getClass());
 //        Region reg = new Region();
 //        DefaultComboBoxModel model = reg.getRegionListModel();
 //        cmbReg.setModel(model);
@@ -706,6 +713,7 @@ public class PanelSaisie extends javax.swing.JPanel {
             m_offreType = optEmploi.isSelected();
             m_titre = txtTitre.getText();
             if (m_offreType) {
+                m_offre = new Emploi();
                 m_region = cmbReg.getSelectedItem().toString();
                 m_exp = Integer.parseInt(txtExp.getText());
                 m_salMin = Integer.parseInt(txtSalmin.getText());
@@ -715,7 +723,7 @@ public class PanelSaisie extends javax.swing.JPanel {
                 FileOperation fileout = new FileOperation();
                 fileout.enrgOffre(m_titre, m_region, m_exp, m_salMin, m_salMax, m_tblComps);
             } else {
-
+                m_offre = new Stage();
             }
         } else {
             //TODO
@@ -773,6 +781,8 @@ public class PanelSaisie extends javax.swing.JPanel {
     private void btnAjouterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAjouterActionPerformed
         // TODO add your handling code here:
         afficherNoyauFonctionnel();
+        Offre offre = new Emploi();
+        System.out.println("offreGetClass" + offre.getClass());
     }//GEN-LAST:event_btnAjouterActionPerformed
 
     private void btnSupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSupActionPerformed
@@ -899,6 +909,7 @@ public class PanelSaisie extends javax.swing.JPanel {
             }
 
             m_enregComp.ajouterComp(comp, compType);
+            
         }
         System.out.println(m_enregComp.getSize());
         int compsSize = m_enregComp.getSize();
@@ -932,5 +943,10 @@ public class PanelSaisie extends javax.swing.JPanel {
         btnEnreg.setEnabled(b);
         m_enregistrerPossible = b;
 //        lblErreur.setVisible(!b);
+    }
+
+    @Override
+    public void modelChanged() {
+         //To change body of generated methods, choose Tools | Templates.
     }
 }

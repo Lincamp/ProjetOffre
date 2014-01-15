@@ -33,7 +33,17 @@ public class Emploi extends Offre {
         return m_salairemax;
     }
 
+    public Emploi() {
+        super();
+    }
+    
+        public void ajouterComp(Competence comp, CompType compType) {       
+        m_tblComps.put(comp, compType);      
+    }
 
+
+    
+    
     // Création du constructeur Emploi
     public Emploi(int m_experience, int m_salairemin, int m_salairemax, String titre, String region) {
         //On définit une nouvelle expérience, un nouveau salaireMin, un nouveau salaireMax ainsi qu'un titre et une région

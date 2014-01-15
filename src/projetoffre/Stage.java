@@ -23,6 +23,13 @@ public class Stage extends Offre {
     public Stage(String titre, String region) {
         super(titre, region);
     }
+
+    public Stage() {
+    }
+    
+        public void ajouterComp(Competence comp, CompType compType) {       
+        m_tblComps.put(comp, compType);      
+    }
     
     
 

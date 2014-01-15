@@ -17,12 +17,13 @@ import projetoffre.Competence;
 import projetoffre.EnregCompRech;
 import projetoffre.noyaufonctionnel.ComptNoyauFonctionnel;
 import projetoffre.noyaufonctionnel.RegionNoyauFonctionnel;
+import view.View;
 
 /**
  *
  * @author Doro
  */
-public class PanelRechercher extends javax.swing.JPanel {
+public class PanelRechercher extends javax.swing.JPanel implements View {
     private RegionNoyauFonctionnel m_regFonc;
     private ComptNoyauFonctionnel m_compFonc;
     Set<String> m_setComp;
@@ -117,6 +118,7 @@ public class PanelRechercher extends javax.swing.JPanel {
 
         jPanel2.setLayout(new java.awt.GridLayout(1, 0, 50, 0));
 
+        optEmploi.setSelected(true);
         optEmploi.setText("Emploi");
         optEmploi.setToolTipText("");
         optEmploi.addActionListener(new java.awt.event.ActionListener() {
@@ -168,7 +170,6 @@ public class PanelRechercher extends javax.swing.JPanel {
         jLabel5.setText("Salaire espéré :");
         jPanel9.add(jLabel5);
 
-        txtSalmin.setText("jTextField4");
         txtSalmin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtSalminActionPerformed(evt);
@@ -467,6 +468,11 @@ public class PanelRechercher extends javax.swing.JPanel {
                 
         }
 
+    }
+
+    @Override
+    public void modelChanged() {
+        //To change body of generated methods, choose Tools | Templates.
     }
 
 

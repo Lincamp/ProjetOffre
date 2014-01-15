@@ -20,12 +20,18 @@ public class RegionNoyauFonctionnel {
 //    private ArrayList<Jour> lstJours;
 //    private HashMap<String, Portefeuille> lstPortefeuilles;
 
-    private static Vector m_regVecNom = new Vector();
-    private static HashMap<String, Region> m_tblRegions = new HashMap<>();
-    private static boolean m_regInit = false;
+    private static final Vector m_regVecNom;
+    private static final HashMap<String, Region> m_tblRegions;
+    private static boolean m_regInit;
     static final char m_regionDelim = ':';
     static final String m_procheDelim = ";";
 
+    static {
+        m_regInit = false;
+        m_regVecNom = new Vector();
+        m_tblRegions = new HashMap<>();        
+    }
+    
     public RegionNoyauFonctionnel() {
         //this.m_regInit = false;
         //this.m_regVecNom = new Vector();

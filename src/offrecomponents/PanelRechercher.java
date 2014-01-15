@@ -6,18 +6,61 @@
 
 package offrecomponents;
 
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+import java.util.Vector;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.DefaultListModel;
+import projetoffre.Competence;
+import projetoffre.EnregCompRech;
+import projetoffre.noyaufonctionnel.ComptNoyauFonctionnel;
+import projetoffre.noyaufonctionnel.RegionNoyauFonctionnel;
+
 /**
  *
  * @author Doro
  */
 public class PanelRechercher extends javax.swing.JPanel {
-
+    private RegionNoyauFonctionnel m_regFonc;
+    private ComptNoyauFonctionnel m_compFonc;
+    Set<String> m_setComp;
+    ArrayList<Competence> m_lstCompRechs;
+    EnregCompRech m_enregCompRech;
+       DefaultListModel listModel;
+    
     /**
      * Creates new form PanelRechercher
      */
     public PanelRechercher() {
         initComponents();
+        m_regFonc = new RegionNoyauFonctionnel();
+        m_compFonc = new ComptNoyauFonctionnel();
+        m_lstCompRechs = new ArrayList();
+         m_setComp = new HashSet<String>();
+         m_enregCompRech = new EnregCompRech();
+         listModel = new DefaultListModel();
+          initRegionList();
+        initCompList();
     }
+    
+       private void initRegionList() {
+//        Vector comboBoxItems = new Vector();
+        Vector comboBoxItems = m_regFonc.getRegVecNom();       
+        DefaultComboBoxModel model = new DefaultComboBoxModel(comboBoxItems);
+        cmbReg.setModel(model);
+       
+    }
+    
+
+    private void initCompList() {
+        Vector cmbCompItems = m_compFonc.getComptVecNom();       
+        DefaultComboBoxModel compModel = new DefaultComboBoxModel(cmbCompItems);
+        cmbComp.setModel(compModel);     
+    }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -59,7 +102,7 @@ public class PanelRechercher extends javax.swing.JPanel {
         jPanel17 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList();
+        jlstCompRech = new javax.swing.JList();
         btnSup = new javax.swing.JButton();
         jPanel20 = new javax.swing.JPanel();
         jPanel22 = new javax.swing.JPanel();
@@ -190,14 +233,19 @@ public class PanelRechercher extends javax.swing.JPanel {
 
         jLabel7.setText("Compétence choisis :");
 
-        jList1.setModel(new javax.swing.AbstractListModel() {
+        jlstCompRech.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public Object getElementAt(int i) { return strings[i]; }
         });
-        jScrollPane1.setViewportView(jList1);
+        jScrollPane1.setViewportView(jlstCompRech);
 
         btnSup.setText("Supprimer");
+        btnSup.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSupActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel17Layout = new javax.swing.GroupLayout(jPanel17);
         jPanel17.setLayout(jPanel17Layout);
@@ -340,37 +388,22 @@ public class PanelRechercher extends javax.swing.JPanel {
 
     private void btnAjouterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAjouterActionPerformed
         // TODO add your handling code here:
-     
+       afficherCompChercher();
     }//GEN-LAST:event_btnAjouterActionPerformed
 
     private void btnRechActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRechActionPerformed
         // TODO add your handling code here:
-//        if (optEmploi.isSelected() || optStage.isSelected()) {
-//            m_offreType = optEmploi.isSelected();
-//            m_titre = txtTitre.getText();
-//            if (m_offreType) {
-//                m_region = cmbReg.getSelectedItem().toString();
-//                m_exp = Integer.parseInt(txtExp.getText());
-//                m_salMin = Integer.parseInt(txtSalmin.getText());
-//                m_salMax = Integer.parseInt(txtSalmax.getText());
-//
-//                // Emploi emp = new Emploi(m_titre, m_region, m_exp, m_salMin, m_salMax, m_lstcomps);
-//                FileOperation fileout = new FileOperation();
-//                //                fileout.enrgFile(m_titre, m_region, m_exp, m_salMin, m_salMax, m_lstcomps);
-//            } else {
-//
-//            }
-//        } else {
-//            //TODO
-//        }
 
-        //            FileOperation fileout = new FileOperation();
-        //            fileout.readFile();
-        //            fileout.separateFields();
-        //        if(optOblig.isSelected()){
-            //            fileout.writeFile();
-            //        }
     }//GEN-LAST:event_btnRechActionPerformed
+
+    private void btnSupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSupActionPerformed
+        // TODO add your handling code here:
+//       List<Competence> lstComps = jlstCompRech.getSelectedValuesList();
+//       for(Competence comp:lstComps){
+//          m_enregCompRech.retirerComp(comp);        
+//       }
+        
+    }//GEN-LAST:event_btnSupActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -388,7 +421,6 @@ public class PanelRechercher extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JList jList1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
@@ -413,9 +445,30 @@ public class PanelRechercher extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JList jlstCompRech;
     private javax.swing.JRadioButton optEmploi;
     private javax.swing.JRadioButton optStage;
     private javax.swing.JTable tblComp;
     private javax.swing.JTextField txtSalmin;
     // End of variables declaration//GEN-END:variables
+
+    private void afficherCompChercher() {
+        String nomC;        
+        nomC = cmbComp.getSelectedItem().toString();    
+        
+        if (!m_setComp.contains(nomC)) {
+            m_setComp.add(nomC);
+            System.out.println("m_setComp chercher :" + m_setComp + "(PanelRechercher)");
+            System.out.println("m_setComp size :" + m_setComp.size() + "(PanelRechercher)");
+           // m_lstCompRechs.add(m_compFonc.m_tblCompts.get(nomC));
+            m_enregCompRech.ajouterComp(m_compFonc.m_tblCompts.get(nomC));        
+            listModel.addElement(nomC);
+            jlstCompRech.setModel(listModel);           
+                
+        }
+
+    }
+
+
+
 }

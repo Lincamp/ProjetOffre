@@ -1,0 +1,7 @@
+Java
+PHP
+ORACLE
+C
+BD
+HTML
+VB

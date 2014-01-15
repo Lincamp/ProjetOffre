@@ -7,32 +7,36 @@ package projetoffre;
 
 import java.util.ArrayList;
 import java.util.Objects;
+import projetoffre.noyaufonctionnel.ComptNoyauFonctionnel;
 
 /**
  *
  * @author Doro
  */
 public class Competence {
+
     //attributs
+    private ComptNoyauFonctionnel m_comptFonc;
     String m_nomComp;
     // l'arrayList contient tous les mots clefs pour une compétence
-    ArrayList<MotClef> m_lstmots; 
+    ArrayList<MotClef> m_lstmots;
+    static final char m_compDelim = ':';
+    // les ";" permettent de séparer les régions associées entre elles
+    static final String m_motclefDelim = ";";
 
-    
     //On récupère le m_nomComp (qui contient le nom de la compétence)
     public String getNomComp() {
         return m_nomComp;
     }
+    
+    public Competence(){
+        m_comptFonc = new ComptNoyauFonctionnel();
+    }      
+       
 
     //Création du constructeur Competence
-    public Competence(String nomComp) {
-        //On définit une nouvelle conpétence ainsi qu'une liste contenant tous les mots clefs pour cette compétence
-        this.m_nomComp = nomComp;
-        this.m_lstmots = new ArrayList();
-    }
-    
     //On recupère le nombre de mot clef associé à cette compétence
-    int nbMotClef (){
+    int nbMotClef() {
         return this.m_lstmots.size();
     }
 
@@ -62,7 +66,40 @@ public class Competence {
         }
         return true;
     }
-    
-    
-    
+
+    public Competence(String fileStr) {
+        this.m_lstmots = new ArrayList();   
+        int pos;
+        String compStr;
+        // On vérifie si le nombre de carractère de cette ligne est suppérireur à 0
+        if (fileStr.length() > 0) {
+            // On trouve ou se situe les ":" 
+            pos = fileStr.indexOf(m_compDelim);
+
+            // Si on ne trouve pas les ":" on récupère tous les carractères se situant avant les ":" et on les met dans la variable "m_regnom"
+            if (pos == -1) {
+                this.m_nomComp = fileStr;
+            } 
+            else {
+                // Si on trouve les ":" alors on récupère tous les carractères se situant avant les ":" et on les met dans la variable "m_regnom"
+                this.m_nomComp = fileStr.substring(0, pos);
+                // Tous les carractères se situant apres les ":" représentent les régions proches, ils sont mit dans la variable "compStr"
+                compStr = fileStr.substring(pos + 1);
+
+                System.out.println("=====================================");
+                // On récupère tous les carractères séparés par les ";", puis on les place dans la variable "regProche". On réitère l'opération jusqu'a la fin de la ligne
+                for (String motClefs : compStr.split(m_motclefDelim)) {
+                    for (int i = 0; i < m_comptFonc.getLstMotClefs().size(); i++) {
+                        if (motClefs == m_comptFonc.getLstMotClefs().get(i).getLibelle()) {
+                            this.m_lstmots.add(m_comptFonc.getLstMotClefs().get(i));
+                        }
+                    }
+                    System.out.println("motclef " + m_nomComp + ":" + motClefs + " (competence.java)");
+                }
+                System.out.println("=====================================");
+            }
+        } else {
+        }
+    }
+
 }

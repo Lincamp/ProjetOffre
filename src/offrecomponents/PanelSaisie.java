@@ -30,6 +30,7 @@ import projetoffre.FileOperation;
 import projetoffre.noyaufonctionnel.RegionNoyauFonctionnel;
 import projetoffre.Offre;
 import projetoffre.Region;
+import projetoffre.noyaufonctionnel.ComptNoyauFonctionnel;
 
 /**
  *
@@ -42,6 +43,7 @@ import projetoffre.Region;
 public class PanelSaisie extends javax.swing.JPanel {
 
     private RegionNoyauFonctionnel m_regFonc;
+    private ComptNoyauFonctionnel m_compFonc;
     private EnregComp m_enregComp;
     boolean m_offreType;
     String m_titre;
@@ -60,7 +62,7 @@ public class PanelSaisie extends javax.swing.JPanel {
      */
     public PanelSaisie() {
         m_regFonc = new RegionNoyauFonctionnel();
-
+        m_compFonc = new ComptNoyauFonctionnel();
         initComponents();
         m_enregComp = new EnregComp();
         //m_lstcomps = new ArrayList();
@@ -77,26 +79,16 @@ public class PanelSaisie extends javax.swing.JPanel {
 
     private void initRegionList() {
 //        Vector comboBoxItems = new Vector();
-        Vector comboBoxItems = m_regFonc.getRegVecNom();
-
+        Vector comboBoxItems = m_regFonc.getRegVecNom();      
         DefaultComboBoxModel model = new DefaultComboBoxModel(comboBoxItems);
         cmbReg.setModel(model);
     }
+    
 
     private void initCompList() {
-        Vector comboBoxItems = new Vector();
-
-        try (BufferedReader br = new BufferedReader(new FileReader("data/complist.txt"))) {
-            String sCurrentLine;
-            while ((sCurrentLine = br.readLine()) != null) {
-                System.out.println(sCurrentLine);
-                comboBoxItems.add(sCurrentLine);
-            }
-            DefaultComboBoxModel model = new DefaultComboBoxModel(comboBoxItems);
-            cmbComp.setModel(model);
-        } catch (IOException ee) {
-            ee.printStackTrace();
-        }
+        Vector cmbCompItems = m_compFonc.getComptVecNom();       
+        DefaultComboBoxModel compModel = new DefaultComboBoxModel(cmbCompItems);
+        cmbComp.setModel(compModel);     
     }
 
     /**

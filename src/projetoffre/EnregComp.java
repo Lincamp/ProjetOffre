@@ -16,10 +16,9 @@ import javax.swing.table.DefaultTableModel;
 public class EnregComp {
     //attributs
     //private ArrayList<Competence> m_lstcomps;
-
     private HashMap<Competence, CompType> m_tblComps;
     private int m_size;
-
+    
 //    Object[][] m_compContent;
     /**
      * Constructeur forçant une initialisation aux valeurs par défaut.

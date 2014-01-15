@@ -460,7 +460,6 @@ public class PanelSaisie extends javax.swing.JPanel {
         jLabel1.setText("Titre :");
         jPanel5.add(jLabel1);
 
-        txtTitre.setText("jTextField1");
         txtTitre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtTitreActionPerformed(evt);
@@ -485,12 +484,17 @@ public class PanelSaisie extends javax.swing.JPanel {
 
         jPanel4.add(jPanel6);
 
-        jPanel7.setLayout(new java.awt.GridLayout());
+        jPanel7.setLayout(new java.awt.GridLayout(1, 0));
 
         jLabel3.setText("Expérience :");
         jPanel7.add(jLabel3);
 
-        txtExp.setText("jTextField3");
+        txtExp.setText("0");
+        txtExp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtExpActionPerformed(evt);
+            }
+        });
         jPanel7.add(txtExp);
 
         jPanel4.add(jPanel7);
@@ -500,7 +504,7 @@ public class PanelSaisie extends javax.swing.JPanel {
         jLabel5.setText("Salaire Min :");
         jPanel9.add(jLabel5);
 
-        txtSalmin.setText("jTextField4");
+        txtSalmin.setText("0");
         txtSalmin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtSalminActionPerformed(evt);
@@ -515,7 +519,7 @@ public class PanelSaisie extends javax.swing.JPanel {
         jLabel6.setText("Salaire Max :");
         jPanel10.add(jLabel6);
 
-        txtSalmax.setText("jTextField5");
+        txtSalmax.setText("0");
         jPanel10.add(txtSalmax);
 
         jPanel4.add(jPanel10);
@@ -772,6 +776,10 @@ public class PanelSaisie extends javax.swing.JPanel {
         // TODO add your handling code here:
 
     }//GEN-LAST:event_btnSupActionPerformed
+
+    private void txtExpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtExpActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtExpActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

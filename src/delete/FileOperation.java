@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package projetoffre;
+package delete;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -13,6 +13,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Iterator;
+import projetoffre.CompType;
+import projetoffre.Competence;
 
 /**
  *

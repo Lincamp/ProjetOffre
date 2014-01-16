@@ -16,8 +16,9 @@ import projetoffre.CompType;
 import projetoffre.Competence;
 import projetoffre.Emploi;
 import projetoffre.EnregComp;
-import projetoffre.FileOperation;
+import delete.FileOperation;
 import projetoffre.Offre;
+import projetoffre.Region;
 import projetoffre.Stage;
 import projetoffre.noyaufonctionnel.RegionNoyauFonctionnel;
 import projetoffre.noyaufonctionnel.ComptNoyauFonctionnel;
@@ -40,7 +41,8 @@ public class PanelSaisie extends javax.swing.JPanel implements View {
     private Offre m_offre;
     boolean m_offreType;
     String m_titre;
-    String m_region;
+    String m_regionStr;
+    Region m_region;
     int m_exp;
     String m_comp;
     boolean m_compType;
@@ -50,7 +52,8 @@ public class PanelSaisie extends javax.swing.JPanel implements View {
     HashMap<Competence, CompType> m_tblComps;
     Set<String> m_setComp;
 
-    private boolean m_enregistrerPossible;    
+    private boolean m_enregistrerPossible;
+
     /**
      * Creates new form PanelSaisie
      */
@@ -64,9 +67,9 @@ public class PanelSaisie extends javax.swing.JPanel implements View {
         //m_lstcomps = new ArrayList();
         this.m_tblComps = new HashMap();
         m_setComp = new HashSet<String>();
-        
-        Offre offre = new Emploi();
-      System.out.println("offreGetClass" + offre.getClass());
+
+//        Offre offre = new Emploi();
+//      System.out.println("offreGetClass" + offre.getClass());
 //        Region reg = new Region();
 //        DefaultComboBoxModel model = reg.getRegionListModel();
 //        cmbReg.setModel(model);
@@ -77,16 +80,15 @@ public class PanelSaisie extends javax.swing.JPanel implements View {
 
     private void initRegionList() {
 //        Vector comboBoxItems = new Vector();
-        Vector comboBoxItems = m_regFonc.getRegVecNom();      
+        Vector comboBoxItems = m_regFonc.getRegVecNom();
         DefaultComboBoxModel model = new DefaultComboBoxModel(comboBoxItems);
         cmbReg.setModel(model);
     }
-    
 
     private void initCompList() {
-        Vector cmbCompItems = m_compFonc.getComptVecNom();       
+        Vector cmbCompItems = m_compFonc.getComptVecNom();
         DefaultComboBoxModel compModel = new DefaultComboBoxModel(cmbCompItems);
-        cmbComp.setModel(compModel);     
+        cmbComp.setModel(compModel);
     }
 
     /**
@@ -696,7 +698,7 @@ public class PanelSaisie extends javax.swing.JPanel implements View {
     }// </editor-fold>//GEN-END:initComponents
 
     private void optEmploiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optEmploiActionPerformed
-        // TODO add your handling code here:
+        // TODO add your handling code here:     
     }//GEN-LAST:event_optEmploiActionPerformed
 
     private void optSouhActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optSouhActionPerformed
@@ -712,20 +714,24 @@ public class PanelSaisie extends javax.swing.JPanel implements View {
         if (optEmploi.isSelected() || optStage.isSelected()) {
             m_offreType = optEmploi.isSelected();
             m_titre = txtTitre.getText();
+            m_regionStr = cmbReg.getSelectedItem().toString();
+            m_region = m_regFonc.getTblRegions().get(m_regionStr);
+            m_exp = Integer.parseInt(txtExp.getText());
+            m_salMin = Integer.parseInt(txtSalmin.getText());
+            m_salMax = Integer.parseInt(txtSalmax.getText());            
+            
             if (m_offreType) {
-                m_offre = new Emploi();
-                m_region = cmbReg.getSelectedItem().toString();
-                m_exp = Integer.parseInt(txtExp.getText());
-                m_salMin = Integer.parseInt(txtSalmin.getText());
-                m_salMax = Integer.parseInt(txtSalmax.getText());
-
                 // Emploi emp = new Emploi(m_titre, m_region, m_exp, m_salMin, m_salMax, m_lstcomps);
-                FileOperation fileout = new FileOperation();
-                fileout.enrgOffre(m_titre, m_region, m_exp, m_salMin, m_salMax, m_tblComps);
+//                FileOperation fileout = new FileOperation();
+//                fileout.enrgOffre(m_titre, m_region, m_exp, m_salMin, m_salMax, m_tblComps);
+                m_offre = new Emploi(m_titre, m_region, m_exp, m_salMin, m_salMax, m_tblComps);                
             } else {
-                m_offre = new Stage();
+                m_offre = new Stage(m_titre, m_region, m_tblComps);
             }
-        } else {
+            
+            m_offre.enregistrer();
+        }
+        else {
             //TODO
         }
 
@@ -781,8 +787,9 @@ public class PanelSaisie extends javax.swing.JPanel implements View {
     private void btnAjouterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAjouterActionPerformed
         // TODO add your handling code here:
         afficherNoyauFonctionnel();
-        Offre offre = new Emploi();
-        System.out.println("offreGetClass" + offre.getClass());
+//        Offre offre = new Emploi();
+//        System.out.println("offreGetClass" + offre.getClass());
+//        System.out.println(offre instanceof Emploi);
     }//GEN-LAST:event_btnAjouterActionPerformed
 
     private void btnSupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSupActionPerformed
@@ -903,15 +910,11 @@ public class PanelSaisie extends javax.swing.JPanel implements View {
 
             Competence comp = new Competence(nomC);
             CompType compType = new CompType("souhaitee");
-            if(optOblig.isSelected())
-            {
+            if (optOblig.isSelected()) {
                 compType.setLibType("obligatoire");
             }
 
             m_enregComp.ajouterComp(comp, compType);
-            m_offre.ajouterComp(comp, compType);
-            
-            
         }
         System.out.println(m_enregComp.getSize());
         int compsSize = m_enregComp.getSize();
@@ -940,7 +943,7 @@ public class PanelSaisie extends javax.swing.JPanel implements View {
         DefaultTableModel model = new DefaultTableModel(m_compContent, columnNames);
         tblComp.setModel(model);
     }
-    
+
     public void activerEnregistrer(boolean b) {
         btnEnreg.setEnabled(b);
         m_enregistrerPossible = b;
@@ -949,6 +952,6 @@ public class PanelSaisie extends javax.swing.JPanel implements View {
 
     @Override
     public void modelChanged() {
-         //To change body of generated methods, choose Tools | Templates.
+        //To change body of generated methods, choose Tools | Templates.
     }
 }

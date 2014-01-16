@@ -12,6 +12,7 @@ import java.util.Vector;
 import javax.swing.DefaultComboBoxModel;
 import projetoffre.Competence;
 import projetoffre.Emploi;
+import projetoffre.Offre;
 import projetoffre.OffreType;
 import projetoffre.Region;
 import projetoffre.Stage;
@@ -23,25 +24,29 @@ import projetoffre.Stage;
 
 //Création de la classe NoyauFonctionnel
 public class NoyauFonctionnel {
-
+ArrayList<Offre> m_lstOffre;
 ArrayList<Emploi> m_lstEmplois;
 ArrayList<Stage> m_lstStages;
 ArrayList<Region> m_lstRegions;
 ArrayList<Competence> m_lstCompts;
 
-
-
-public Emploi enregistrerEmploi (int exp, int salaireMin, int salaireMax, String titre, Region region){
-    Emploi emploiCree = new Emploi(exp, salaireMin, salaireMax, titre, region); 
-    this.m_lstEmplois.add(emploiCree);
-    return  emploiCree;
+public void enregistrerOffre (Offre offre){
+//    Emploi emploiCree = new Emploi(exp, salaireMin, salaireMax, titre, region); 
+    this.m_lstOffre.add(offre);
+//    return  emploiCree;
 }
 
-public Stage enregistrerStage (String titre, Region region){
-    Stage stageCree = new Stage(titre, region);
-    this.m_lstStages.add(stageCree);
-    return stageCree;
-}
+//public Emploi enregistrerEmploi (int exp, int salaireMin, int salaireMax, String titre, Region region){
+//    Emploi emploiCree = new Emploi(exp, salaireMin, salaireMax, titre, region); 
+//    this.m_lstEmplois.add(emploiCree);
+//    return  emploiCree;
+//}
+//
+//public Stage enregistrerStage (String titre, Region region){
+//    Stage stageCree = new Stage(titre, region);
+//    this.m_lstStages.add(stageCree);
+//    return stageCree;
+//}
 
  public Object[][] rechercherStages(Region reg,ArrayList<Competence> lesComps){
         ArrayList<Stage> lesStages=new ArrayList();

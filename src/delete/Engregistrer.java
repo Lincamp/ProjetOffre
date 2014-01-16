@@ -10,14 +10,14 @@ package projetoffre;
  *
  * @author Doro
  */
-public class Engregistrer {
-    //attributs
-    boolean m_offretype;
-    String m_titre;
-    String m_region;
-    int m_exp;
-    String m_comp;
-    boolean m_comptype;
-    int m_salmin;
-    int m_salmax;    
-}
+//public class Engregistrer {
+//    //attributs
+//    boolean m_offretype;
+//    String m_titre;
+//    String m_region;
+//    int m_exp;
+//    String m_comp;
+//    boolean m_comptype;
+//    int m_salmin;
+//    int m_salmax;    
+//}

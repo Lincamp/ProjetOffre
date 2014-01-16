@@ -48,7 +48,8 @@ public class EnregistreurDeOffre {
     public void ajouterComp(Offre offre) {
 //        if(offre.getClass() == projetoffre.Emploi){
         System.out.println("offreGetClass" + offre.getClass());
-        m_offres.add(new Emploi());
+        // TODO
+//        m_offres.add(new Emploi());
         notifierView();
     }
 

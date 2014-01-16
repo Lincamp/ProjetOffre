@@ -26,9 +26,9 @@ public abstract class Offre {
     CompType ctoblig = new CompType("obligatoire");
     CompType ctsouh = new CompType("souhaitee");
     
-    static final char m_itemDelim = ';';
-    static final char m_compDelim = '|';
-    static final char m_compTypeDelim = ':';
+    static final String m_itemDelim = ";";
+    static final String m_compDelim = "|";
+    static final String m_compTypeDelim = ":";
     static final String m_offreList = "data/offrelist.txt";    
 
     //Création du constructeur Offre

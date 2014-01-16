@@ -132,7 +132,7 @@ public class FileOperation {
 
         results = str.split(delimiter, -1);
 
-        System.out.println("Separated values:" + results[6].indexOf("/") + "@" + results[6].substring(1 + results[6].indexOf("/")));
+        System.out.println("Separated values:" + results[6].indexOf("|") + "@" + results[6].substring(1 + results[6].indexOf("/")));
         for (String result : results) {
             System.out.println(result);
         }

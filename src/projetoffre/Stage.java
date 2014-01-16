@@ -77,8 +77,10 @@ public class Stage extends Offre {
             compstr += m_tblComps.get(key).getLibType() + m_compDelim;
         }
 
-        if (compstr.length() > 0 && compstr.charAt(compstr.length() - 1) == m_compDelim) {
-            compstr = compstr.substring(0, compstr.length() - 1);
+       
+           int tmplen = compstr.length();
+        if (tmplen > 0 && compstr.substring(tmplen - 1, tmplen) == m_compDelim) {
+            compstr = compstr.substring(0, tmplen - 1);
         }
 
         String content = m_titre + m_itemDelim

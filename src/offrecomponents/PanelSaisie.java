@@ -65,7 +65,7 @@ public class PanelSaisie extends javax.swing.JPanel implements View {
         initComponents();
         m_enregComp = new EnregComp();
         //m_lstcomps = new ArrayList();
-        this.m_tblComps = new HashMap();
+//        this.m_tblComps = new HashMap();
         m_setComp = new HashSet<String>();
 
 //        Offre offre = new Emploi();

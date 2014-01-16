@@ -18,3 +18,4 @@ Ironman;Paris;2;30000;40000;SI:obligatoire|WEB:obligatoire
 acmilan;Paris;1;4;6;Program:souhaitee|SI:souhaitee|WEB:obligatoire
 acmilan;Paris;1;4;6;Program:souhaitee|SI:souhaitee|WEB:obligatoire
 juventus;projetoffre.Region@3ef78672;-1;-1;-1;Program:souhaitee
+RealMadrid;Paris;-1;-1;-1;Program:souhaitee|SI:obligatoire

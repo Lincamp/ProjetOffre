@@ -103,7 +103,7 @@ public class Emploi extends Offre {
     //( en fonction de la région, du salaire espéré, et des compétences choisis)
     public double scoreTotal(OffreType offreType) {
        //To change body of generated methods, choose Tools | Templates.       
-        // On initialise scoreEmploi à 0
+       // On initialise scoreEmploi à 0
         double scoreEmploi;           
         scoreEmploi = this.scoreGeographique(offreType) + this.scoreSalaire(offreType) + this.scoreCompetencesHash(offreType.getLstComps());
         return scoreEmploi;  

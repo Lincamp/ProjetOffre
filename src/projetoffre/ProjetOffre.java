@@ -60,17 +60,6 @@ public class ProjetOffre {
         Competence c1 = new Competence("Programmation");
         Competence c2 = new Competence("SI");
         Competence c3 = new Competence("web");
-
-
-        // On crée les types de compétences (obligatoire et souhaité)
-        CompType ctoblig = new CompType("obligatoire");
-        CompType ctsouh = new CompType("souhaitee");
-        // ArrayList<Competence> lstComp;
-//        lstComp = new ArrayList();
-//        lstComp.add(c3);
-//        lstComp.add(c2);
-//        lstComp.add(c1);
-
         //On associe des mots clefs à des compétences 
         c1.m_lstmots.add(m2);
         c1.m_lstmots.add(m1);
@@ -79,8 +68,19 @@ public class ProjetOffre {
         c2.m_lstmots.add(m6);
         c3.m_lstmots.add(m4);
         c3.m_lstmots.add(m7);
-
-
+        
+        // On crée les types de compétences (obligatoire et souhaité)
+        CompType ctoblig = new CompType("obligatoire");
+        CompType ctsouh = new CompType("souhaitee");
+        
+        //Région
+        Region r1 = new Region("Midi-Pyrénnées");
+        
+     
+    //  Emploi e1= new Emploi("Chef de projet", r1,3, 30000, 35000);
+   //   e1.ajouterComp(c1, ctsouh);
+   //   e1.ajouterComp(c2, ctoblig);
+     
         // On crée 2 emplois 
 //        Emploi e1 = new Emploi(5, 20000, 25000, "blabla", "blablaLand");
     //    Emploi e2 = new Emploi(5, 21110, 27000, "blablas", "blablaLands");
@@ -94,19 +94,30 @@ public class ProjetOffre {
 
 //        CompType ctoblig = new CompType("obligeatoire");
 //        CompType ctsouh = new CompType("souhaitee"); 
-
-        ArrayList lstEmp, lstCherche;
+         ArrayList lstEmp, lstCherche;
         lstEmp = new ArrayList();
         lstCherche = new ArrayList();
 //        lstEmp.add(e1);
         //lstEmp.add(e2);
         lstCherche.add(c1);
         lstCherche.add(c2);
+        
+        
+      OffreType o1 = new OffreType(r1,40000);
+      o1.m_lstComps.add(c1);
+      o1.m_lstComps.add(c2);
+    // System.out.println("score Geo : " +e1.scoreGeographique(o1)); 
+    // System.out.println("score Salaire : " +e1.scoreSalaire(o1));
+    // System.out.println("score Total : " +  e1.scoreTotal(o1));
+    // System.out.println("score Competence : " +  e1.scoreCompetencesHash(o1.getLstComps()));
+       
+      
+     
 
 //        System.out.println("score CompetenceHash : " + e1.scoreCompetencesHash(e1,lstCherche ));
         //System.out.println("score Competence : " + e1.scoreCompetences(lstEmp, lstCherche));
 
-
+  
 
     }
 }

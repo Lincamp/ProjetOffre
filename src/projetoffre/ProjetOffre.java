@@ -82,12 +82,12 @@ public class ProjetOffre {
 
 
         // On crée 2 emplois 
-        Emploi e1 = new Emploi(5, 20000, 25000, "blabla", "blablaLand");
-        Emploi e2 = new Emploi(5, 21110, 27000, "blablas", "blablaLands");
+//        Emploi e1 = new Emploi(5, 20000, 25000, "blabla", "blablaLand");
+    //    Emploi e2 = new Emploi(5, 21110, 27000, "blablas", "blablaLands");
         // On associe des compétences et des types de compétences aux 2 emplois créés
-        e1.m_tblComps.put(c1, ctoblig);
-        e1.m_tblComps.put(c2, ctsouh);
-        e1.m_tblComps.put(c3, ctoblig);
+      //  e1.m_tblComps.put(c1, ctoblig);
+      //  e1.m_tblComps.put(c2, ctsouh);
+       // e1.m_tblComps.put(c3, ctoblig);
         // e2.m_tblComps.put(c2, ctoblig); 
         // e2.m_tblComps.put(c3, ctsouh);
 //        e1.scoreSalaire(20000);
@@ -98,7 +98,7 @@ public class ProjetOffre {
         ArrayList lstEmp, lstCherche;
         lstEmp = new ArrayList();
         lstCherche = new ArrayList();
-        lstEmp.add(e1);
+//        lstEmp.add(e1);
         //lstEmp.add(e2);
         lstCherche.add(c1);
         lstCherche.add(c2);

@@ -37,15 +37,22 @@ public class Emploi extends Offre {
         super();
     }
     
+    
+    
 //        public void ajouterComp(Competence comp, CompType compType) {       
 //        m_tblComps.put(comp, compType);      
 //    }
+//
+    @Override
+    public HashMap<Competence, CompType> getTblComps() {
+        return super.getTblComps(); //To change body of generated methods, choose Tools | Templates.
+    }
 
 
     
     
     // Création du constructeur Emploi
-    public Emploi(int m_experience, int m_salairemin, int m_salairemax, String titre, String region) {
+    public Emploi(int m_experience, int m_salairemin, int m_salairemax, String titre, Region region) {
         //On définit une nouvelle expérience, un nouveau salaireMin, un nouveau salaireMax ainsi qu'un titre et une région
         super(titre, region);
         this.m_experience = m_experience;
@@ -57,11 +64,19 @@ public class Emploi extends Offre {
     //Création d'une méthode pour pouvoir calculer le score du Salaire
     public double scoreSalaire(OffreType offreType) {
        //On initialise le scoreSalaire à 0
-        double scoreSalaire = 0;        
-            scoreSalaire = 5 - ((offreType.getSalaireEspere() - this.getSalairemax()) / 1000);
-            System.out.println("score Salaire1 : " + scoreSalaire);
-            return scoreSalaire;       
-        
+        double scoreSalaire;        
+        if(offreType.getSalaireEspere()>= this.getSalairemax()){
+             scoreSalaire = 5 - ((offreType.getSalaireEspere() - this.getSalairemax()) / 1000);
+             if(scoreSalaire<0){
+                 return 0;
+             }
+             else{
+                 return scoreSalaire;
+             }
+        }
+        else{
+            return 5;
+        }       
     }
     
    //Création d'une méthode pour pouvoir calculer le score total
@@ -88,7 +103,7 @@ public class Emploi extends Offre {
     public double scoreTotal(OffreType offreType) {
        //To change body of generated methods, choose Tools | Templates.       
         // On initialise scoreEmploi à 0
-        double scoreEmploi = 0;           
+        double scoreEmploi;           
         scoreEmploi = this.scoreGeographique(offreType) + this.scoreSalaire(offreType) + this.scoreCompetencesHash(offreType.getLstComps());
         return scoreEmploi;  
     }

@@ -19,7 +19,7 @@ import java.util.Set;
 public  abstract class Offre {
     //Création des attributs
     String m_titre;
-    String m_region;   
+    Region m_reg;   
     // Création de HashMap (Compétence est la cléf et CompType représente la valeur)
     HashMap<Competence, CompType> m_tblComps;
     // Création des 2 types de compétences (obligatoire ou souhaitée)
@@ -28,22 +28,31 @@ public  abstract class Offre {
     
 
    //Création du constructeur Offre
-    public Offre(String titre, String region) {
+    public Offre(String titre, Region offReg) {
         // On définit un nouveau titre, une nouvelle région et les compétences demandées ainisi que le type de compétence
         this.m_titre = titre;
-        this.m_region = region;
+        this.m_reg = offReg;
         this.m_tblComps = new HashMap();
 
     }
 
     // Création des méthodes get (on récupère la région et le titre de l'offre)
-    public String getRegion() {
-        return m_region;
+    public Region getReg() {
+        return m_reg;
     }
+   
 
-    public String getM_titre() {
+    public String getTitre() {
         return m_titre;
     }
+
+    public HashMap<Competence, CompType> getTblComps() {
+        return m_tblComps;
+    }
+    
+    
+    
+    
     
    public abstract double scoreTotal(OffreType offreType);
     
@@ -63,8 +72,8 @@ public  abstract class Offre {
         Set setComps = this.m_tblComps.keySet();     
         Competence setIterComps;
         sommePoids = 0;       
-        System.out.println("HashMap size: " + this.m_tblComps.size());
-        System.out.println("Competence nombre cherche : " + lstCompsCherche.size());
+//        System.out.println("HashMap size: " + this.m_tblComps.size());
+//        System.out.println("Competence nombre cherche : " + lstCompsCherche.size());
         for (int p = 0; p < lstCompsCherche.size(); p++) {
              poidsMotClef = 0;
             System.out.println("Competence chercher nom : " + lstCompsCherche.get(p).getNomComp());          
@@ -117,18 +126,19 @@ public  abstract class Offre {
         }
         return nbMotClefTrouve;
     }
+         
       
     public int scoreGeographique(OffreType offreType) {
         int scoreGeographique;
         boolean r;
             scoreGeographique = 0;
-            if (this.getRegion().equals(offreType.getReg().getRegnom())) {
+            if (this.m_reg == offreType.getReg()) {
                 scoreGeographique = 10;
             } else {
                 int j = 0;
                 r=true;
                 while(j < offreType.getReg().m_regassocie.size() && r == true) {
-                    if (this.getRegion().equals(offreType.getReg().m_regassocie.toString())) {
+                    if (this.m_reg.getRegnom().equals(offreType.getReg().m_regassocie.toString())) {
                         scoreGeographique = 5;
                         r = false;
                     } else {
@@ -176,4 +186,5 @@ public  abstract class Offre {
 //        return scoreCompetences;
 //    }
 //   public abstract double score(); /!\   on doit regarder le cour avec l'exemple du loto pour le gagnant !!!! à finir !!!!
+    
 }

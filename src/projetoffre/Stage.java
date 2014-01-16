@@ -5,6 +5,8 @@
  */
 package projetoffre;
 
+import java.util.HashMap;
+
 /**
  *
  * @author Doro
@@ -20,7 +22,7 @@ public class Stage extends Offre {
 
     
     // Création 
-    public Stage(String titre, String region) {
+    public Stage(String titre, Region region) {
         super(titre, region);
     }
 
@@ -30,23 +32,34 @@ public class Stage extends Offre {
         public void ajouterComp(Competence comp, CompType compType) {       
         m_tblComps.put(comp, compType);      
     }
-    
-    
 
-    //héritage
-//    public double scoreStage(double scoreCompetences, int scoreGeographique) {
-//        double scoreStage = 0;
-//        scoreStage = scoreCompetences + scoreGeographique;
-//        return scoreStage;
-//    }
-
+    @Override
+    public HashMap<Competence, CompType> getTblComps() {
+        return super.getTblComps(); //To change body of generated methods, choose Tools | Templates.
+    }
+    
     @Override
     // Ici on a l'héritage de la classe parente (offre), qui nous permet de calculer le score total pour un stage selon les données sasies par lutilisateur
     //( en fonction de la région et des compétences choisis)
     public double scoreTotal(OffreType offreType) {
         //To change body of generated methods, choose Tools | Templates.
-        double scoreStage = 0;      
+        double scoreStage;      
         scoreStage = this.scoreCompetencesHash(offreType.getLstComps()) + this.scoreGeographique(offreType);
         return scoreStage;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        //To change body of generated methods, choose Tools | Templates.
+          boolean egale=false;
+        if(this.getTitre().equals(((Stage)obj).getTitre())){
+            if(this.getReg().equals(((Stage)obj).getReg())){
+                egale=true;
+            }
+        }
+        return egale; 
+    }
+    
+    
+    
 }

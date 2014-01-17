@@ -35,6 +35,23 @@ public class Emploi extends Offre {
         this.m_salairemax = salairemax;
     }
 
+    public Emploi(String fileStr) {
+        super(fileStr);
+        
+        String[] results;
+
+        results = fileStr.split(Constant.m_itemDelim, -1);
+
+        System.out.println("Separated values:" + results[6].indexOf("|") + "@" + results[6].substring(1 + results[6].indexOf("/")) + "(Emploi.java)");
+        for (String result : results) {
+            System.out.println(result);
+        }
+        System.out.println("");
+        
+        m_titre = results[0];
+       // m_region =         
+    }    
+    
     //Création des methodes get (pour récupérer l'expérience, le salaireMin et le salaireMax pour un emploi)
     public int getExperience() {
         return m_experience;

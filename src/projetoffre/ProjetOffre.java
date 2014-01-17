@@ -13,10 +13,10 @@ import offrecomponents.OffreFrame;
  * @author Doro
  */
 public class ProjetOffre {
-    static final String m_itemDelim = ";";
-    static final String m_compDelim = "|";
-    static final String m_compTypeDelim = ":";
-    static final String m_offreList = "data/offrelist.txt"; 
+//    public static final String m_itemDelim = ";";
+//    public static final String m_compDelim = "|";
+//    public static final String m_compTypeDelim = ":";
+//    public static final String m_offreList = "data/offrelist.txt"; 
     /**
      * @param args the command line arguments
      */

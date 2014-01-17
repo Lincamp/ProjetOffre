@@ -16,6 +16,7 @@ import java.util.Set;
  */
 // Création de la classe Offre
 public abstract class Offre {
+
     //Création des attributs
     String m_titre;
     Region m_region;
@@ -25,13 +26,16 @@ public abstract class Offre {
     // Création des 2 types de compétences (obligatoire ou souhaitée)
     CompType ctoblig = new CompType("obligatoire");
     CompType ctsouh = new CompType("souhaitee");
-    
+
     static final String m_itemDelim = ";";
     static final String m_compDelim = "|";
     static final String m_compTypeDelim = ":";
-    static final String m_offreList = "data/offrelist.txt";    
+    static final String m_offreList = "data/offrelist.txt";
 
     //Création du constructeur Offre
+    public Offre(String fileStr) {
+    }
+
     public Offre(String titre, Region offReg, HashMap<Competence, CompType> tblComps) {
         // On définit un nouveau titre, une nouvelle région et les compétences demandées ainisi que le type de compétence
         this.m_titre = titre;
@@ -57,8 +61,8 @@ public abstract class Offre {
     // Création des méthodes abstraites scoreTotal et enregistrer qui seront utiliser pour calculer le score total et enregistrer une offre
     public abstract double scoreTotal(OffreType offreType);
 
-    public abstract void enregistrer();    
-    
+    public abstract void enregistrer();
+
     // Création de la méthode ajouterComp, qui permet d'ajouter une compétence à une offre
     public void ajouterComp(Competence comp, CompType compType) {
         m_tblComps.put(comp, compType);
@@ -67,7 +71,6 @@ public abstract class Offre {
 //    public Offre() {
 //        this.m_tblComps = new HashMap();
 //    }
-
     // Création de la méthodde scroreCompetence
     public double scoreCompetencesHash(ArrayList<Competence> lstCompsCherche) {
         // On initialise scoreCompetences à 0
@@ -79,7 +82,7 @@ public abstract class Offre {
         Competence setIterComps;
         // On initialise sommePoids à 0
         sommePoids = 0;
-        
+
 //        System.out.println("HashMap size: " + this.m_tblComps.size());
 //        System.out.println("Competence nombre cherche : " + lstCompsCherche.size());
         // Pour toutes les compétences cherhcés on réalise les vérifications suivantes 
@@ -89,48 +92,47 @@ public abstract class Offre {
             //System.out.println("Competence chercher nom : " + lstCompsCherche.get(p).getNomComp());
             // On crée un iterator pour pouvoir parcourir la liste des compétences 
             Iterator itrComps = setComps.iterator();
-           // System.out.println("hasNext : " + itrComps.hasNext());
+            // System.out.println("hasNext : " + itrComps.hasNext());
             // tant que l'on trouve des compétences associées à cette offre on réalise les étapes suivantes
             while (itrComps.hasNext()) {
                 //On récupère chaques compétences 
                 setIterComps = (Competence) itrComps.next();
-             
+
                 //   System.out.println("Competence trouve nom : " + setIterComps.getNomComp());
-               // System.out.println("Competence egale : " + (setIterComps == lstCompsCherche.get(p)));
-                
+                // System.out.println("Competence egale : " + (setIterComps == lstCompsCherche.get(p)));
                 // On vérifie que la compétence saisie soit la même que la compétence cherchée
                 if (setIterComps == lstCompsCherche.get(p)) {
-                    
+
                     // Si la compétence cherchée est une compétence obligatoire alors on multiplie par 1 tous les mots cléfs associés à cette compétence
                     if (this.m_tblComps.get(lstCompsCherche.get(p)).getLibType().equals(ctoblig.getLibType())) {
                         poidsMotClef = setIterComps.nbMotClef() * 1;
                        // System.out.println(this.m_tblComps.get(lstCompsCherche.get(p)).getLibType());
-                      //  System.out.println(setIterComps.nbMotClef());
-                      //  System.out.println("v1_poidsMotClef : " + poidsMotClef);
+                        //  System.out.println(setIterComps.nbMotClef());
+                        //  System.out.println("v1_poidsMotClef : " + poidsMotClef);
                     } else {
                         // Sinon on multiplie par 0.5 tous les mots cléfs associés à cette compétence
                         poidsMotClef = setIterComps.nbMotClef() * 0.5;
                       //  System.out.println(this.m_tblComps.get(lstCompsCherche.get(p)).getLibType());
-                      //  System.out.println(setIterComps.nbMotClef());
-                      //  System.out.println("v0.5_poidsMotClef : " + poidsMotClef);
+                        //  System.out.println(setIterComps.nbMotClef());
+                        //  System.out.println("v0.5_poidsMotClef : " + poidsMotClef);
                     }
                 }
             }
           //  System.out.println(" chaque v_poidsMotClef : " + poidsMotClef);
-            
+
             // la somme des poids des mots clef est égale à sommePoids + le poid des mots cléfs calculés précédement
             sommePoids = sommePoids + poidsMotClef;
-          //  System.out.println(" chaque v_sommePoids : " + sommePoids);
+            //  System.out.println(" chaque v_sommePoids : " + sommePoids);
         }
-        
+
         // le nombre de mot clef total trouvé est égale au nombre de mot clef trouvé
         int nbMotClefTrouveTotal = nbMotClefTrouve(this);
        // System.out.println("v_sommePoids : " + sommePoids);
-       // System.out.println("v_nbMotClefTrouveTotal : " + nbMotClefTrouveTotal);
-        
+        // System.out.println("v_nbMotClefTrouveTotal : " + nbMotClefTrouveTotal);
+
         // le score de Competence est égale à la somme des poids calculé précédement / par le nombre de mot clef total
         scoreCompetences = sommePoids / nbMotClefTrouveTotal;
-       // System.out.println("v_scoreCompetencesHash : " + scoreCompetences);
+        // System.out.println("v_scoreCompetencesHash : " + scoreCompetences);
 
         return scoreCompetences;
     }
@@ -155,6 +157,7 @@ public abstract class Offre {
         }
         return nbMotClefTrouve;
     }
+
     // Création de la méthode scoreGeographique
     public int scoreGeographique(OffreType offreType) {
         int scoreGeographique;

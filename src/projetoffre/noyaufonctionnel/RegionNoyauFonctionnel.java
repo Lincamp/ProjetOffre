@@ -72,8 +72,8 @@ public class RegionNoyauFonctionnel {
                     }
                     m_tblRegions.put(regnom, reg);
 
-                    System.out.println("regTbl size:" + m_tblRegions.size() + " (Noyau)");
-                    System.out.println("regVec size:" + m_regVecNom.size() + " (Noyau)");
+                    System.out.println("regTbl size:" + m_tblRegions.size() + " (NoyauReg)");
+                    System.out.println("regVec size:" + m_regVecNom.size() + " (NoyauReg)");
                 }
                 m_regInit = true;
                 //DefaultComboBoxModel model = new DefaultComboBoxModel(m_regVecNom);
@@ -82,7 +82,7 @@ public class RegionNoyauFonctionnel {
                 ee.printStackTrace();
             }
 
-            System.out.println("region map:" + m_tblRegions + " (Noyau)");
+            System.out.println("region map:" + m_tblRegions + " (NoyauReg)");
         }
     }
 //    public Jour creerJour(int annee, int noJour) {

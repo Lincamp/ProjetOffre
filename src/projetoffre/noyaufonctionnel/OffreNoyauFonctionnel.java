@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Vector;
+import projetoffre.Constant;
 import projetoffre.Emploi;
 import projetoffre.Region;
 import projetoffre.Stage;
@@ -21,8 +22,8 @@ import projetoffre.Stage;
  */
 public class OffreNoyauFonctionnel {
 
-    private static final HashMap<String, ArrayList<Emploi>> m_tblEmplois;
-    private static final HashMap<String, ArrayList<Stage>> m_tblStages;
+    private static HashMap<String, ArrayList<Emploi>> m_tblEmplois;
+    private static HashMap<String, ArrayList<Stage>> m_tblStages;
     private static boolean m_offInit;
     static final String m_stageDelim = "-1";
 
@@ -35,7 +36,6 @@ public class OffreNoyauFonctionnel {
 //    static final String m_compDelim = "|";
 //    static final String m_compTypeDelim = ":";
 //    static final String m_offreList = "data/offrelist.txt"; 
-   
     static {
         m_offInit = false;
         m_tblEmplois = new HashMap<>();
@@ -47,8 +47,7 @@ public class OffreNoyauFonctionnel {
     }
 
     private void init() {
-        creerTblEmploi();
-
+        creerTblOffre();
     }
 
     public static HashMap<String, ArrayList<Emploi>> getTblEmplois() {
@@ -59,23 +58,32 @@ public class OffreNoyauFonctionnel {
         return m_tblStages;
     }
 
-    private void creerTblEmploi() {
+    private void creerTblOffre() {
         if (!m_offInit) {
-            try (BufferedReader br = new BufferedReader(new FileReader("data/offrelist.txt"))) {
+            try (BufferedReader br = new BufferedReader(new FileReader(Constant.m_offreList))) {
                 String sCurrentLine;
-                m_tblEmplois.clear();              
+                m_tblEmplois.clear();
                 String[] results;
-                
+
                 while ((sCurrentLine = br.readLine()) != null) {
                     System.out.println("#####" + sCurrentLine + "\t#####line from offrelist.txt (Nayau)");
-                    results = sCurrentLine.split(m_itemDelim, -1);
-                    if(results[2] == "-1"){
-                    //    m_regnom = results[1];
-                   //     this.getTblEmplois().
+//                    results = sCurrentLine.split(m_itemDelim, -1);
+
+                    results = sCurrentLine.split(Constant.m_itemDelim, -1);
+
+                    // Stage has experience -1
+                    if (results[2] == "-1") {
+
+                    } else {
+                        Emploi tmpEmploi = new Emploi(sCurrentLine);
+                        String tmpRegStr = tmpEmploi.getReg().getRegnom();
+
+                        ArrayList<Emploi> lstEmploi = m_tblEmplois.get(tmpRegStr);
+                        if (lstEmploi == null) {
+                            m_tblEmplois.put(tmpRegStr, lstEmploi = new ArrayList<Emploi>());
+                        }
+                        lstEmploi.add(tmpEmploi);
                     }
-                   // titre = results[0];
-                  //  compstr = 
-//                    this.m_tblEmplois.add(Emploi(sCurrentLine));
                 }
                 Region reg = new Region(sCurrentLine);
                 String regnom = reg.getRegnom();
@@ -86,8 +94,8 @@ public class OffreNoyauFonctionnel {
                 }
 //                m_tblEmplois.put(regnom, reg);
 
-                System.out.println("regTbl size:" + m_tblEmplois.size() + " (Noyau)");
-                //System.out.println("regVec size:" + m_regVecNom.size() + " (Noyau)");
+                System.out.println("regTbl size:" + m_tblEmplois.size() + " (NoyauOffre)");
+                //System.out.println("regVec size:" + m_regVecNom.size() + " (NoyauOffre)");
 
                 m_offInit = true;
                 //DefaultComboBoxModel model = new DefaultComboBoxModel(m_regVecNom);
@@ -96,7 +104,7 @@ public class OffreNoyauFonctionnel {
                 ee.printStackTrace();
             }
 
-            System.out.println("region map:" + m_tblEmplois + " (Noyau)");
+            System.out.println("region map:" + m_tblEmplois + " (NoyauOffre)");
         }
     }
 }

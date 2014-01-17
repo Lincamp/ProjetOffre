@@ -69,7 +69,7 @@ public class ComptNoyauFonctionnel {
             } catch (IOException ee) {
                 ee.printStackTrace();
             }
-            System.out.println("motclef list:" + m_lstMotClefs + " (Noyau)");
+            System.out.println("motclef list:" + m_lstMotClefs + " (NoyauComp)");
         }
     }
 
@@ -91,8 +91,8 @@ public class ComptNoyauFonctionnel {
                     }
                     m_tblCompts.put(compnom, comp);
 
-                    System.out.println("compTbl size:" + m_tblCompts.size() + " (Noyau)");
-                    System.out.println("compVec size:" + m_comptVecNom.size() + " (Noyau)");
+                    System.out.println("compTbl size:" + m_tblCompts.size() + " (NoyauComp)");
+                    System.out.println("compVec size:" + m_comptVecNom.size() + " (NoyauComp)");
                 }
                 m_comptInit = true;
                 //DefaultComboBoxModel model = new DefaultComboBoxModel(m_comptVecNom);
@@ -101,7 +101,7 @@ public class ComptNoyauFonctionnel {
                 ee.printStackTrace();
             }
 
-            System.out.println("competence map:" + m_tblCompts + " (Noyau)");
+            System.out.println("competence map:" + m_tblCompts + " (NoyauComp)");
         }
     }
 }

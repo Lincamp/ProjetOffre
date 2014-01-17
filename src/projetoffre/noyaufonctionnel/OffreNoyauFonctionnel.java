@@ -66,7 +66,7 @@ public class OffreNoyauFonctionnel {
                 String[] results;
 
                 while ((sCurrentLine = br.readLine()) != null) {
-                    System.out.println("#####" + sCurrentLine + "\t#####line from offrelist.txt (NoyauOffre)");
+                    System.out.println("22222#####" + sCurrentLine + "\t#####line from offrelist.txt (NoyauOffre)");
 //                    results = sCurrentLine.split(m_itemDelim, -1);
 
                     results = sCurrentLine.split(Constant.m_itemDelim, -1);
@@ -82,8 +82,11 @@ public class OffreNoyauFonctionnel {
                         if (lstEmploi == null) {
                             m_tblEmplois.put(tmpRegStr, lstEmploi = new ArrayList<Emploi>());
                         }
-                        System.out.println(tmpEmploi.toString() + "!!!!!!!!! NoyauOffre");
+                        System.out.println(tmpEmploi.toString() + "!!!!!!!!!before add emploi (NoyauOffre)");
                         lstEmploi.add(tmpEmploi);
+                        tmpEmploi.print();
+                        System.out.println("lstEmploi size+++++:" + lstEmploi.size() + " (NoyauOffre)");
+                        System.out.println("tblEmplois size+++++:" + m_tblEmplois.size() + " (NoyauOffre)");
                     }
                 }
 

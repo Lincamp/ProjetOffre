@@ -66,6 +66,19 @@ public class Emploi extends Offre {
         System.out.println("");
     }
 
+    public void print()
+    {
+        System.out.println("===================================");
+        System.out.println("Print out of emploi:");
+        System.out.println(m_titre);
+        System.out.println(m_region);
+        System.out.println(m_experience);
+        System.out.println(m_salairemin);
+        System.out.println(m_salairemax);
+        System.out.println(m_tblComps);
+        System.out.println("===================================");
+    }
+    
     //Création des methodes get (pour récupérer l'expérience, le salaireMin et le salaireMax pour un emploi)
     public int getExperience() {
         return m_experience;

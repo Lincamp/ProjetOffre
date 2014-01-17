@@ -114,7 +114,7 @@ public class PanelSaisie extends javax.swing.JPanel implements View {
         ArrayList regionNomList = RegionNoyauFonctionnel.getRegVecNom();
         Vector comboBoxItems = new Vector();
         comboBoxItems.setSize(regionNomList.size());
-        System.out.println(regionNomList.size() + "|" + comboBoxItems.size() + " 1111111111111");
+//        System.out.println(regionNomList.size() + "|" + comboBoxItems.size() + " 1111111111111");
         Collections.copy(comboBoxItems, regionNomList);
          
         DefaultComboBoxModel model = new DefaultComboBoxModel(comboBoxItems);

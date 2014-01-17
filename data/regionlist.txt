@@ -1,5 +1,21 @@
-Paris:Tour;Reims
-Toulouse:Carcassonne
-Tour:
-Bordeux
-Toulouse:Carcassonne
+Midi-Pyrénées: Aquitaine; Languedoc-Roussillon; Limousin; Auvergne
+Languedoc-Roussillon: Midi-Pyrénéees; Auvergne; Provence-Aples Cote d'Azur; Rhône-Alpes
+Aquitaine: Midi-Pyrénées; Limousin; Poitou-Charentes
+Provence-Aples Cote d'Azur: Corse; Rhône-Alpes
+Corse: Provence-Aples Cote d'Azur
+Poitou-Charentes: Aquitaine; Limousin; Pays de la Loire; Centre
+Limousin: Poitou-Charentes; Auvergne; Aquitaine; Midi-Pyrénées; Centre
+Auvergne: Limousin; Midi-Pyrénées; Languedoc-Rousillon; Rhône-Alpes; Bourgogne; Centre
+Rhône-Alpes: Languedoc-Rousillon; Provence-Aples Cote d'Azur; Auvergne; Bourgogne; Franche-Compte
+Pays de la Loire: Poitou-Charentes; Centre; Basse-Normandie; Bretagne
+Centre: Poitou-Charentes; Limousin; Auvergne; Bourgongne; Ile de France; Haute-Normandie; Basse-Normandie; Pays de la Loire
+Bourgogne: Centre; Auvergne; Rhône-Alpes; Franche-Compte; Champagne-Ardenne; Ile de France
+Franche-Compte: Rhône-Alpes; Bourgogne; Champagne-Ardenne; Lorraine; Alsace
+Bretagne: Pays de la Loire; Basse-Normandie
+Basse-Normandie: Bretagne; Pay de la Loire; Centre; Haute-Normandie
+Haute-Normandie: Basse-Normandie; Centre; Ile de France; Picardie
+Ile de France: Haute-Normandie; Centre; Bourgogne; Champagne-Ardenne; Picardie
+Champagne-Ardenne: Ile de France; Bourgogne; Franche-Compte; Lorraine; Picardie; Nord pas de Calais
+Lorraine: Champagne-Ardenne; Franche-Compte; Alsace
+Picardie: Haute-Normandie; Ile de France; Champagne-Ardenne; Nord pas de Calais
+Nord pas de Calais: Picardie; Champagne-Ardenne

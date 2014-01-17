@@ -19,3 +19,15 @@ acmilan;Paris;1;4;6;Program:souhaitee|SI:souhaitee|WEB:obligatoire
 acmilan;Paris;1;4;6;Program:souhaitee|SI:souhaitee|WEB:obligatoire
 juventus;projetoffre.Region@3ef78672;-1;-1;-1;Program:souhaitee
 RealMadrid;Paris;-1;-1;-1;Program:souhaitee|SI:obligatoire
+Ingenieur Technique;Aquitaine;2;38000;50000;SI:souhaitee|Programmation:obligatoire|
+Directeur de Magasin;Ile de France;2;30000;45000;Communication:obligatoire|Redaction:souhaitee|Gestion:obligatoire|
+Chef de Projet;Corse;3;38000;50000;Communication:obligatoire|SI:souhaitee|Gestion:obligatoire|
+Responsable Bureau;Limousin;1;25000;35000;Communication:obligatoire|Redaction:souhaitee|
+Consultant SI;Auvergne;1;38000;52000;SI:obligatoire|Developpement:souhaitee|BI:obligatoire|
+Assistante RH;Poitou-Charentes;-1;-1;-1;Communication:obligatoire|Redaction:obligatoire|
+Direction RH;Aquitaine;-1;-1;-1;Communication:obligatoire|Redaction:souhaitee|Gestion:souhaitee|
+Commercial Junior;Bretagne;-1;-1;-1;Communication:obligatoire|
+Ingenieur technique;Aquitaine;2;38000;50000;SI:souhaitee|Programmation:obligatoire|Developpement:souhaitee|
+Ingenieur application;Aquitaine;2;30000;45000;Programmation:obligatoire|Developpement:obligatoire|
+Ingenieur developper;Aquitaine;1;35000;40000;SI:souhaitee|Programmation:obligatoire|Developpement:obligatoire|
+Consultant SI;Limousin;1;25000;35000;SI:obligatoire|Programmation:souhaitee|BI:obligatoire|

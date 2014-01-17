@@ -1,3 +1,7 @@
-Program:JAVA;VB;C
-SI:BD;ORACLE
-WEB:HTML;PHP
+BI:SAS;BO;SAP;OLAP
+Communication:CRM
+Developpement:Shell;Perl;Linux
+Gestion:ERP;Responsable;Organise
+Programmation:JAVA;VB;C;PHP;HADOOP
+Redaction:Dossier
+SI:BD;ORACLE;SQL

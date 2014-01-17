@@ -17,6 +17,7 @@ import projetoffre.Competence;
 import projetoffre.Emploi;
 import projetoffre.EnregComp;
 import delete.FileOperation;
+import projetoffre.EnregistreurDeOffre;
 import projetoffre.Offre;
 import projetoffre.Region;
 import projetoffre.Stage;
@@ -52,6 +53,7 @@ public class PanelSaisie extends javax.swing.JPanel implements View {
     HashMap<Competence, CompType> m_tblComps;
     Set<String> m_setComp;
 
+    private EnregistreurDeOffre m_offreEnreg;
     private boolean m_enregistrerPossible;
 
     /**
@@ -60,7 +62,8 @@ public class PanelSaisie extends javax.swing.JPanel implements View {
     public PanelSaisie() {
         m_regFonc = new RegionNoyauFonctionnel();
 //                m_regFonc1 = new RegionNoyauFonctionnel();
-
+        setOffreEnregistreur(new EnregistreurDeOffre());
+        
         m_compFonc = new ComptNoyauFonctionnel();
         initComponents();
         m_enregComp = new EnregComp();
@@ -76,6 +79,30 @@ public class PanelSaisie extends javax.swing.JPanel implements View {
         initRegionList();
 
         initCompList();
+    }
+
+    public void setOffreEnregistreur(EnregistreurDeOffre enregistreur) {
+        this.m_offreEnreg = enregistreur;
+        enregistreur.addView(this);
+  //      init();
+        //afficherNoyauFonctionnel();
+    }
+
+    private void init() {
+        optEmploi.setSelected(true);
+        optStage.setSelected(false);
+        this.txtTitre.setText("");
+        txtExp.setText("0");
+        txtSalmin.setText("0");
+        txtSalmax.setText("0");
+        optOblig.setSelected(false);
+        optSouh.setSelected(true);
+        //cmbReg.set
+        
+//        //            m_regionStr = cmbReg.getSelectedItem().toString();
+//        //            m_region = m_regFonc.getTblRegions().get(m_regionStr);
+//
+//        activerEnregistrer(false);
     }
 
     private void initRegionList() {
@@ -668,6 +695,11 @@ public class PanelSaisie extends javax.swing.JPanel implements View {
         jPanel12.add(btnEnreg);
 
         btnRAZ.setText("RAZ");
+        btnRAZ.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRAZActionPerformed(evt);
+            }
+        });
         jPanel12.add(btnRAZ);
 
         jPanel11.add(jPanel12);
@@ -718,20 +750,20 @@ public class PanelSaisie extends javax.swing.JPanel implements View {
             m_region = m_regFonc.getTblRegions().get(m_regionStr);
             m_exp = Integer.parseInt(txtExp.getText());
             m_salMin = Integer.parseInt(txtSalmin.getText());
-            m_salMax = Integer.parseInt(txtSalmax.getText());            
-            
+            m_salMax = Integer.parseInt(txtSalmax.getText());
+
             if (m_offreType) {
                 // Emploi emp = new Emploi(m_titre, m_region, m_exp, m_salMin, m_salMax, m_lstcomps);
 //                FileOperation fileout = new FileOperation();
 //                fileout.enrgOffre(m_titre, m_region, m_exp, m_salMin, m_salMax, m_tblComps);
-                m_offre = new Emploi(m_titre, m_region, m_exp, m_salMin, m_salMax, m_tblComps);                
+                m_offre = new Emploi(m_titre, m_region, m_exp, m_salMin, m_salMax, m_tblComps);
             } else {
                 m_offre = new Stage(m_titre, m_region, m_tblComps);
             }
-            
+
             m_offre.enregistrer();
-        }
-        else {
+            init();
+        } else {
             //TODO
         }
 
@@ -800,6 +832,12 @@ public class PanelSaisie extends javax.swing.JPanel implements View {
     private void txtExpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtExpActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtExpActionPerformed
+
+    private void btnRAZActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRAZActionPerformed
+        // TODO add your handling code here:
+        m_offreEnreg.remiseAZero();
+       init();
+    }//GEN-LAST:event_btnRAZActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

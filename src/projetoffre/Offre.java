@@ -30,7 +30,7 @@ public abstract class Offre {
     static final String m_itemDelim = ";";
     static final String m_compDelim = "|";
     static final String m_compTypeDelim = ":";
-    static final String m_offreList = "data/offrelist.txt";
+//    static final String m_offreList = "data/offrelist.txt";
 
     //Création du constructeur Offre
     public Offre(String fileStr) {

@@ -89,7 +89,7 @@ public class Stage extends Offre {
                 + "-1" + m_itemDelim
                 + "-1" + m_itemDelim + compstr;
         try {
-            File file = new File(m_offreList);
+            File file = new File(Constant.m_offreList);
             // if file doesnt exists, then create it
             if (!file.exists()) {
                 file.createNewFile();

@@ -18,7 +18,7 @@ public class Constant {
     public static final String m_regionDelim = ":";    
     // les ";" permettent de séparer les régions associées entre elles
     public static final String m_procheDelim = ";";
-    public static final String m_offreList = "data/offrelist.txt";
+    public static final String m_offreList = "data/offrelistcorrect.txt";
     public static final String m_regionList = "data/regionlist.txt";
     public static final String m_compList = "data/complist.txt";
     public static final String m_motClefList = "data/motcleflist.txt";

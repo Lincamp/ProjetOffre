@@ -23,6 +23,7 @@ import projetoffre.Region;
 import projetoffre.Stage;
 import projetoffre.noyaufonctionnel.RegionNoyauFonctionnel;
 import projetoffre.noyaufonctionnel.ComptNoyauFonctionnel;
+import projetoffre.noyaufonctionnel.OffreNoyauFonctionnel;
 import view.View;
 
 /**
@@ -36,7 +37,7 @@ import view.View;
 public class PanelSaisie extends javax.swing.JPanel implements View {
 
     private RegionNoyauFonctionnel m_regFonc;
-//    private RegionNoyauFonctionnel m_regFonc1;
+    private OffreNoyauFonctionnel m_offreFonc;
     private ComptNoyauFonctionnel m_compFonc;
     private EnregComp m_enregComp;
     private Offre m_offre;
@@ -61,10 +62,10 @@ public class PanelSaisie extends javax.swing.JPanel implements View {
      */
     public PanelSaisie() {
         m_regFonc = new RegionNoyauFonctionnel();
-//                m_regFonc1 = new RegionNoyauFonctionnel();
+        m_compFonc = new ComptNoyauFonctionnel();
+        m_offreFonc = new OffreNoyauFonctionnel();
         setOffreEnregistreur(new EnregistreurDeOffre());
         
-        m_compFonc = new ComptNoyauFonctionnel();
         initComponents();
         m_enregComp = new EnregComp();
         //m_lstcomps = new ArrayList();
@@ -107,7 +108,10 @@ public class PanelSaisie extends javax.swing.JPanel implements View {
 
     private void initRegionList() {
 //        Vector comboBoxItems = new Vector();
-        Vector comboBoxItems = m_regFonc.getRegVecNom();
+//        Vector comboBoxItems = m_regFonc.getRegVecNom();
+        Vector comboBoxItems = RegionNoyauFonctionnel.getRegVecNom();
+        
+        
         DefaultComboBoxModel model = new DefaultComboBoxModel(comboBoxItems);
         cmbReg.setModel(model);
     }
@@ -747,7 +751,9 @@ public class PanelSaisie extends javax.swing.JPanel implements View {
             m_offreType = optEmploi.isSelected();
             m_titre = txtTitre.getText();
             m_regionStr = cmbReg.getSelectedItem().toString();
-            m_region = m_regFonc.getTblRegions().get(m_regionStr);
+//            m_region = m_regFonc.getTblRegions().get(m_regionStr);
+            m_region = RegionNoyauFonctionnel.getTblRegions().get(m_regionStr);
+            
             m_exp = Integer.parseInt(txtExp.getText());
             m_salMin = Integer.parseInt(txtSalmin.getText());
             m_salMax = Integer.parseInt(txtSalmax.getText());

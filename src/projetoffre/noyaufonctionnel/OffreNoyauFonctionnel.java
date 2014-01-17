@@ -30,7 +30,7 @@ public class OffreNoyauFonctionnel {
     static final String m_itemDelim = ";";
     static final String m_compDelim = "|";
     static final String m_compTypeDelim = ":";
-    static final String m_offreList = "data/offrelist.txt";
+//    static final String m_offreList = "data/offrelist.txt";
 
 //     static final String m_itemDelim = ";";
 //    static final String m_compDelim = "|";
@@ -66,7 +66,7 @@ public class OffreNoyauFonctionnel {
                 String[] results;
 
                 while ((sCurrentLine = br.readLine()) != null) {
-                    System.out.println("#####" + sCurrentLine + "\t#####line from offrelist.txt (Nayau)");
+                    System.out.println("#####" + sCurrentLine + "\t#####line from offrelist.txt (NoyauOffre)");
 //                    results = sCurrentLine.split(m_itemDelim, -1);
 
                     results = sCurrentLine.split(Constant.m_itemDelim, -1);
@@ -86,8 +86,8 @@ public class OffreNoyauFonctionnel {
                     }
                 }
 
-                System.out.println("regTbl size:" + m_tblEmplois.size() + " (NoyauOffre)");
-                System.out.println("regTbl size:" + m_tblStages.size() + " (NoyauOffre)");
+                System.out.println("tblEmplois size:" + m_tblEmplois.size() + " (NoyauOffre)");
+                System.out.println("tblStages size:" + m_tblStages.size() + " (NoyauOffre)");
                 //System.out.println("regVec size:" + m_regVecNom.size() + " (NoyauOffre)");
 
                 m_offInit = true;

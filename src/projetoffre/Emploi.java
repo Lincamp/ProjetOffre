@@ -45,7 +45,9 @@ public class Emploi extends Offre {
 
         if (results.length == 6) {
             this.m_titre = results[0];
-            // m_region =                 
+            // m_region =          
+            System.out.println(results[1] + " ## " + RegionNoyauFonctionnel.getTblRegions());
+            System.out.println(results[1] + " ## " + RegionNoyauFonctionnel.getTblRegions().get(results[1]));
             this.m_region = RegionNoyauFonctionnel.getTblRegions().get(results[1]);
             this.m_experience = Integer.parseInt(results[2]);
             this.m_salairemin = Integer.parseInt(results[3]);
@@ -162,7 +164,7 @@ public class Emploi extends Offre {
                 + m_salairemin + m_itemDelim
                 + m_salairemax + m_itemDelim + compstr;
         try {
-            File file = new File(m_offreList);
+            File file = new File(Constant.m_offreList);
             // if file doesnt exists, then create it
             if (!file.exists()) {
                 file.createNewFile();

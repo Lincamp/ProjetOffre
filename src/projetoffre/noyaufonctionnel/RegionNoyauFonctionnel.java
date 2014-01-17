@@ -25,7 +25,6 @@ public class RegionNoyauFonctionnel {
     private static final HashMap<String, Region> m_tblRegions;
     private static boolean m_regInit;
 
-
     static {
         m_regInit = false;
         m_regVecNom = new Vector();
@@ -48,14 +47,14 @@ public class RegionNoyauFonctionnel {
     }
 
     public static HashMap<String, Region> getTblRegions() {
-        if(m_tblRegions != null) {
+//        if(m_tblRegions != null) {
             return m_tblRegions;
-        }
-        else
-        {
-            creerTblRegion();
-            return m_tblRegions;
-        }
+//        }
+//        else
+//        {
+//            creerTblRegion();
+//            return m_tblRegions;
+//        }
     }
 
     private static void creerTblRegion() {

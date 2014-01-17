@@ -26,9 +26,9 @@ public class Region {
 //    private static boolean m_inited;
 //    private static Vector m_comboBoxItems = new Vector();
     // les ":" permett de séparer la région définit des régions associées
-    static final char m_regionDelim = ':';
+//    static final char m_regionDelim = ':';
     // les ";" permettent de séparer les régions associées entre elles
-    static final String m_procheDelim = ";";
+//    static final String m_procheDelim = ";";
 
    
     // Création d
@@ -44,7 +44,7 @@ public class Region {
         // On vérifie si le nombre de carractère de cette ligne est suppérireur à 0
         if (fileStr.length() > 0) {
             // On trouve ou se situe les ":" 
-            pos = fileStr.indexOf(m_regionDelim);
+            pos = fileStr.indexOf(Constant.m_regionDelim);
             
             // Si on ne trouve pas les ":" on récupère tous les carractères se situant avant les ":" et on les met dans la variable "m_regnom"
             if (pos == -1) {
@@ -59,7 +59,7 @@ public class Region {
  
                 System.out.println("=====================================");
                 // On récupère tous les carractères séparés par les ";", puis on les place dans la variable "regProche". On réitère l'opération jusqu'a la fin de la ligne
-                for (String regProche: procheStr.split(m_procheDelim)){
+                for (String regProche: procheStr.split(Constant.m_procheDelim)){
                     System.out.println("proche of " + m_regnom + ":" + regProche + " (region.java)");
                     this.m_regassocie.add(regProche);
                 } 

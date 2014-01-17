@@ -9,6 +9,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Vector;
+import projetoffre.Constant;
 import projetoffre.Region;
 
 /**
@@ -23,8 +24,7 @@ public class RegionNoyauFonctionnel {
     private static final Vector m_regVecNom;
     private static final HashMap<String, Region> m_tblRegions;
     private static boolean m_regInit;
-    static final char m_regionDelim = ':';
-    static final String m_procheDelim = ";";
+
 
     static {
         m_regInit = false;
@@ -36,10 +36,6 @@ public class RegionNoyauFonctionnel {
         //this.m_regInit = false;
         //this.m_regVecNom = new Vector();
         //this.m_tblRegions = new HashMap<>();
-        
-//        this.lstActions = new ArrayList<>();
-//        this.lstJours = new ArrayList<>();
-//        this.lstPortefeuilles = new HashMap<>();
         init();
     }
 
@@ -52,17 +48,24 @@ public class RegionNoyauFonctionnel {
     }
 
     public static HashMap<String, Region> getTblRegions() {
-        return m_tblRegions;
+        if(m_tblRegions != null) {
+            return m_tblRegions;
+        }
+        else
+        {
+            creerTblRegion();
+            return m_tblRegions;
+        }
     }
 
-    private void creerTblRegion() {
+    private static void creerTblRegion() {
         if (!m_regInit) {
-            try (BufferedReader br = new BufferedReader(new FileReader("data/regionlist.txt"))) {
+            try (BufferedReader br = new BufferedReader(new FileReader(Constant.m_regionList))) {
                 String sCurrentLine;
                 m_regVecNom.clear();
                 m_tblRegions.clear();
                 while ((sCurrentLine = br.readLine()) != null) {
-                    System.out.println("#####" + sCurrentLine + "\t#####line from regionlist.txt (Nayau)");
+                    System.out.println("#####" + sCurrentLine + "\t#####line from regionlist.txt (NoyauReg)");
                     Region reg = new Region(sCurrentLine);
                     String regnom = reg.getRegnom();
 
@@ -82,36 +85,7 @@ public class RegionNoyauFonctionnel {
                 ee.printStackTrace();
             }
 
-            System.out.println("region map:" + m_tblRegions + " (NoyauReg)");
+//            System.out.println("region map:" + m_tblRegions + " (NoyauReg)");
         }
     }
-//    public Jour creerJour(int annee, int noJour) {
-//        Jour jourACreer;
-//
-//        jourACreer = new Jour(annee, noJour);
-//        if (this.lstJours.contains(jourACreer) == false) {
-//            this.lstJours.add(jourACreer);
-//        }
-//
-//        return jourACreer;
-//    }
-
-//    public Action creerAction(String nom) {
-//        Action actACreer;
-//
-//        actACreer = new Action(nom);
-//        if (this.lstActions.contains(actACreer) == false) {
-//            this.lstActions.add(actACreer);
-//        }
-//        return actACreer;
-//    }
-//    public Portefeuille creerPortefeuille(String nom) {
-//        Portefeuille porACreer;
-//
-//        porACreer = new Portefeuille(nom);
-//        if (this.lstPortefeuilles.containsKey(nom) == false) {
-//            this.lstPortefeuilles.put(nom, porACreer);
-//        }
-//        return porACreer;
-//    }
 }

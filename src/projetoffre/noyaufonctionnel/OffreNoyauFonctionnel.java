@@ -85,21 +85,12 @@ public class OffreNoyauFonctionnel {
                         lstEmploi.add(tmpEmploi);
                     }
                 }
-                Region reg = new Region(sCurrentLine);
-                String regnom = reg.getRegnom();
-
-                // avoid duplicates
-                if (!m_tblEmplois.containsKey(regnom)) {
-                    // m_regVecNom.add(regnom);
-                }
-//                m_tblEmplois.put(regnom, reg);
 
                 System.out.println("regTbl size:" + m_tblEmplois.size() + " (NoyauOffre)");
+                System.out.println("regTbl size:" + m_tblStages.size() + " (NoyauOffre)");
                 //System.out.println("regVec size:" + m_regVecNom.size() + " (NoyauOffre)");
 
                 m_offInit = true;
-                //DefaultComboBoxModel model = new DefaultComboBoxModel(m_regVecNom);
-                //cmbReg.setModel(model);
             } catch (IOException ee) {
                 ee.printStackTrace();
             }

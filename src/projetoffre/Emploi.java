@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
+import projetoffre.noyaufonctionnel.RegionNoyauFonctionnel;
 //import static delete.FileOperation.m_compTypeDelim;
 
 /**
@@ -37,21 +38,33 @@ public class Emploi extends Offre {
 
     public Emploi(String fileStr) {
         super(fileStr);
-        
+
         String[] results;
 
         results = fileStr.split(Constant.m_itemDelim, -1);
 
-        System.out.println("Separated values:" + results[6].indexOf("|") + "@" + results[6].substring(1 + results[6].indexOf("/")) + "(Emploi.java)");
+        if (results.length == 6) {
+            this.m_titre = results[0];
+            // m_region =                 
+            this.m_region = RegionNoyauFonctionnel.getTblRegions().get(results[1]);
+            this.m_experience = Integer.parseInt(results[2]);
+            this.m_salairemin = Integer.parseInt(results[3]);
+            this.m_salairemax = Integer.parseInt(results[4]);
+
+            String compStr = results[5];
+//            this.m_tblComps = new 
+        }
+        else
+        {
+            System.out.println("line in " + Constant.m_offreList + " does not have 6 fields (Emploi.java)");
+        }
+//        System.out.println("Separated values:" + results[6].indexOf("|") + "@" + results[6].substring(1 + results[6].indexOf("/")) + "(Emploi.java)");
         for (String result : results) {
             System.out.println(result);
         }
         System.out.println("");
-        
-        m_titre = results[0];
-       // m_region =         
-    }    
-    
+    }
+
     //Création des methodes get (pour récupérer l'expérience, le salaireMin et le salaireMax pour un emploi)
     public int getExperience() {
         return m_experience;
@@ -93,7 +106,7 @@ public class Emploi extends Offre {
         }
     }
 
-   //Création d'une méthode pour pouvoir calculer le score total
+    //Création d'une méthode pour pouvoir calculer le score total
 //   public double scoreEmploi(double scoreCompetences, int scoreGeographique, double scoreSalaire ){
 //       //On initialise le scoreEmploi à 0
 //        double scoreEmploi = 0;
@@ -114,7 +127,7 @@ public class Emploi extends Offre {
     // Ici on a l'héritage de la classe parente (offre), qui nous permet de calculer le score total d'emploi selon les données sasies par lutilisateur
     //( en fonction de la région, du salaire espéré, et des compétences choisis)
     public double scoreTotal(OffreType offreType) {
-       //To change body of generated methods, choose Tools | Templates.       
+        //To change body of generated methods, choose Tools | Templates.       
         // On initialise scoreEmploi à 0
         double scoreEmploi;
         scoreEmploi = this.scoreGeographique(offreType) + this.scoreSalaire(offreType) + this.scoreCompetencesHash(offreType.getLstComps());
@@ -125,7 +138,7 @@ public class Emploi extends Offre {
     public void enregistrer() {
         //String v_titre, String v_region, int v_exp, int v_salMin, int v_salMax, HashMap<Competence, CompType> tblComps
         int compsSize = m_tblComps.size();
-            //System.out.println("size" + m_tblComps.size());
+        //System.out.println("size" + m_tblComps.size());
         //System.out.println(m_tblComps);
         String compstr = "";
 

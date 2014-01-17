@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Vector;
 import projetoffre.Competence;
+import projetoffre.Constant;
 import projetoffre.MotClef;
 
 /**
@@ -25,16 +26,17 @@ public class ComptNoyauFonctionnel {
     public static ArrayList<MotClef> m_lstMotClefs;
     private static boolean m_comptInit;
     private static boolean m_motclefInit;
-    static final char m_regionDelim = ':';
-    static final String m_procheDelim = ";";
+
+    static {
+        m_comptVecNom = new Vector();
+        m_tblCompts = new HashMap<>();
+        m_lstMotClefs = new ArrayList();
+        m_comptInit = false;
+        m_motclefInit = false;
+    }
 
     public ComptNoyauFonctionnel() {
         // Needs correction, move to the declaration part.
-        this.m_comptInit = false;
-        this.m_motclefInit = false;
-        this.m_comptVecNom = new Vector();
-        this.m_tblCompts = new HashMap<>();
-        this.m_lstMotClefs = new ArrayList();
         init();
     }
 
@@ -56,12 +58,12 @@ public class ComptNoyauFonctionnel {
 
     private void creerMotClef() {
         if (!m_motclefInit) {
-            try (BufferedReader br = new BufferedReader(new FileReader("data/motcleflist.txt"))) {
+            try (BufferedReader br = new BufferedReader(new FileReader(Constant.m_motClefList))) {
                 String sCurrentLine;
                 m_lstMotClefs.clear();
 //                m_tblCompts.clear();
                 while ((sCurrentLine = br.readLine()) != null) {
-                    System.out.println("#####" + sCurrentLine + "\t#####line from motcleflist.txt (Nayau)");
+                    System.out.println("#####" + sCurrentLine + "\t#####line from motcleflist.txt (NoyauComp)");
                     MotClef mot = new MotClef(sCurrentLine);
                     m_lstMotClefs.add(mot);
                 }
@@ -75,15 +77,15 @@ public class ComptNoyauFonctionnel {
 
     private void creerTblCompetence() {
         if (!m_comptInit) {
-            try (BufferedReader br = new BufferedReader(new FileReader("data/complist.txt"))) {
+            try (BufferedReader br = new BufferedReader(new FileReader(Constant.m_compList))) {
                 String sCurrentLine;
                 m_comptVecNom.clear();
                 m_tblCompts.clear();
                 while ((sCurrentLine = br.readLine()) != null) {
-                    System.out.println("#####" + sCurrentLine + "\t#####line from complist.txt (Nayau)");
+                    System.out.println("#####" + sCurrentLine + "\t#####line from complist.txt (NoyauComp)");
                     Competence comp = new Competence(sCurrentLine);
                     String compnom = comp.getNomComp();
-                    System.out.println("##### comp.getNomcomp" + compnom + "\t#####line from complist.txt (Nayau)");
+                    System.out.println("##### comp.getNomcomp" + compnom + "\t#####line from complist.txt (NoyauComp)");
 
                     // avoid duplicates
                     if (!m_tblCompts.containsKey(compnom)) {

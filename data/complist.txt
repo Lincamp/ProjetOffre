@@ -1,7 +1,7 @@
 BI:SAS;BO;SAP;OLAP
 Communication:CRM
-Developpement:Shell;Perl;Linux
 Gestion:ERP;Responsable;Organise
+Developpement:Shell;Perl;Linux
 Programmation:JAVA;VB;C;PHP;HADOOP
 Redaction:Dossier
 SI:BD;ORACLE;SQL

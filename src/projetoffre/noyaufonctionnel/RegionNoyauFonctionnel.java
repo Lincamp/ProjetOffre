@@ -7,8 +7,9 @@ package projetoffre.noyaufonctionnel;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
-import java.util.Vector;
 import projetoffre.Constant;
 import projetoffre.Region;
 
@@ -21,19 +22,21 @@ public class RegionNoyauFonctionnel {
 //    private ArrayList<Jour> lstJours;
 //    private HashMap<String, Portefeuille> lstPortefeuilles;
 
-    private static final Vector m_regVecNom;
+//    private static final Vector m_lstRegNom;
+    private static final ArrayList m_lstRegNom;
     private static final HashMap<String, Region> m_tblRegions;
     private static boolean m_regInit;
 
     static {
         m_regInit = false;
-        m_regVecNom = new Vector();
+//        m_lstRegNom = new Vector();
+        m_lstRegNom = new ArrayList();
         m_tblRegions = new HashMap<>();        
     }
     
     public RegionNoyauFonctionnel() {
         //this.m_regInit = false;
-        //this.m_regVecNom = new Vector();
+        //this.m_lstRegNom = new Vector();
         //this.m_tblRegions = new HashMap<>();
         init();
     }
@@ -42,8 +45,9 @@ public class RegionNoyauFonctionnel {
         creerTblRegion();
     }
 
-    public static Vector getRegVecNom() {
-        return m_regVecNom;
+    public static ArrayList getRegVecNom() {
+//            public static Vector getRegVecNom() {
+        return m_lstRegNom;
     }
 
     public static HashMap<String, Region> getTblRegions() {
@@ -61,7 +65,7 @@ public class RegionNoyauFonctionnel {
         if (!m_regInit) {
             try (BufferedReader br = new BufferedReader(new FileReader(Constant.m_regionList))) {
                 String sCurrentLine;
-                m_regVecNom.clear();
+                m_lstRegNom.clear();
                 m_tblRegions.clear();
                 while ((sCurrentLine = br.readLine()) != null) {
                     System.out.println("#####" + sCurrentLine + "\t#####line from regionlist.txt (NoyauReg)");
@@ -70,15 +74,16 @@ public class RegionNoyauFonctionnel {
 
                     // avoid duplicates
                     if (!m_tblRegions.containsKey(regnom)) {
-                        m_regVecNom.add(regnom);
+                        m_lstRegNom.add(regnom);
                     }
                     m_tblRegions.put(regnom, reg);
 
                     System.out.println("regTbl size:" + m_tblRegions.size() + " (NoyauReg)");
-                    System.out.println("regVec size:" + m_regVecNom.size() + " (NoyauReg)");
+                    System.out.println("regVec size:" + m_lstRegNom.size() + " (NoyauReg)");
                 }
+                Collections.sort(m_lstRegNom);
                 m_regInit = true;
-                //DefaultComboBoxModel model = new DefaultComboBoxModel(m_regVecNom);
+                //DefaultComboBoxModel model = new DefaultComboBoxModel(m_lstRegNom);
                 //cmbReg.setModel(model);
             } catch (IOException ee) {
                 ee.printStackTrace();

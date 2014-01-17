@@ -7,6 +7,7 @@
 package offrecomponents;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -24,7 +25,7 @@ import view.View;
  * @author Doro
  */
 public class PanelRechercher extends javax.swing.JPanel implements View {
-    private RegionNoyauFonctionnel m_regFonc;
+//    private RegionNoyauFonctionnel m_regFonc;
     private ComptNoyauFonctionnel m_compFonc;
     Set<String> m_setComp;
     ArrayList<Competence> m_lstCompRechs;
@@ -36,7 +37,7 @@ public class PanelRechercher extends javax.swing.JPanel implements View {
      */
     public PanelRechercher() {
         initComponents();
-        m_regFonc = new RegionNoyauFonctionnel();
+//        m_regFonc = new RegionNoyauFonctionnel();
         m_compFonc = new ComptNoyauFonctionnel();
         m_lstCompRechs = new ArrayList();
          m_setComp = new HashSet<String>();
@@ -48,7 +49,12 @@ public class PanelRechercher extends javax.swing.JPanel implements View {
     
        private void initRegionList() {
 //        Vector comboBoxItems = new Vector();
-        Vector comboBoxItems = m_regFonc.getRegVecNom();       
+//        Vector comboBoxItems = m_regFonc.getRegVecNom();   
+        
+        ArrayList regionNomList = RegionNoyauFonctionnel.getRegVecNom();
+        Vector comboBoxItems = new Vector();
+        comboBoxItems.setSize(regionNomList.size());
+        Collections.copy(comboBoxItems, regionNomList);        
         DefaultComboBoxModel model = new DefaultComboBoxModel(comboBoxItems);
         cmbReg.setModel(model);
        

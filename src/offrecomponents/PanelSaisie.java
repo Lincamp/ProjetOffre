@@ -17,6 +17,8 @@ import projetoffre.Competence;
 import projetoffre.Emploi;
 import projetoffre.EnregComp;
 import delete.FileOperation;
+import java.util.ArrayList;
+import java.util.Collections;
 import projetoffre.EnregistreurDeOffre;
 import projetoffre.Offre;
 import projetoffre.Region;
@@ -109,9 +111,12 @@ public class PanelSaisie extends javax.swing.JPanel implements View {
     private void initRegionList() {
 //        Vector comboBoxItems = new Vector();
 //        Vector comboBoxItems = m_regFonc.getRegVecNom();
-        Vector comboBoxItems = RegionNoyauFonctionnel.getRegVecNom();
-        
-        
+        ArrayList regionNomList = RegionNoyauFonctionnel.getRegVecNom();
+        Vector comboBoxItems = new Vector();
+        comboBoxItems.setSize(regionNomList.size());
+        System.out.println(regionNomList.size() + "|" + comboBoxItems.size() + " 1111111111111");
+        Collections.copy(comboBoxItems, regionNomList);
+         
         DefaultComboBoxModel model = new DefaultComboBoxModel(comboBoxItems);
         cmbReg.setModel(model);
     }

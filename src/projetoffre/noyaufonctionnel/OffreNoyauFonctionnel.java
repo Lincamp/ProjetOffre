@@ -27,9 +27,9 @@ public class OffreNoyauFonctionnel {
     private static boolean m_offInit;
     static final String m_stageDelim = "-1";
 
-    static final String m_itemDelim = ";";
-    static final String m_compDelim = "|";
-    static final String m_compTypeDelim = ":";
+//    static final String m_itemDelim = ";";
+//    static final String m_compDelim = "|";
+//    static final String m_compTypeDelim = ":";
 //    static final String m_offreList = "data/offrelist.txt";
 
 //     static final String m_itemDelim = ";";
@@ -82,6 +82,7 @@ public class OffreNoyauFonctionnel {
                         if (lstEmploi == null) {
                             m_tblEmplois.put(tmpRegStr, lstEmploi = new ArrayList<Emploi>());
                         }
+                        System.out.println(tmpEmploi.toString() + "!!!!!!!!! NoyauOffre");
                         lstEmploi.add(tmpEmploi);
                     }
                 }

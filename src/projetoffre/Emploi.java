@@ -190,5 +190,14 @@ public class Emploi extends Offre {
             e.printStackTrace();
         }
     }
+    
+    public String scoreAdequation(OffreType offretype) {
+        String score;
+        //score parfait est 16=10+5+1
+        //la pourcentage : c'est pour garder 2 chiffres apres vircule 
+        score = String.format("%.2f", ((this.scoreTotal(offretype))/16)*100) + "%";
+        return score;
+    }
+    
 
 }

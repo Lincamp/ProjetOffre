@@ -60,6 +60,8 @@ public abstract class Offre {
 
     // Création des méthodes abstraites scoreTotal et enregistrer qui seront utiliser pour calculer le score total et enregistrer une offre
     public abstract double scoreTotal(OffreType offreType);
+    
+    public abstract String scoreAdequation(OffreType offretype);
 
     public abstract void enregistrer();
 

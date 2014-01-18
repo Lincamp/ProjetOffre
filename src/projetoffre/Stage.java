@@ -103,4 +103,13 @@ public class Stage extends Offre {
             e.printStackTrace();
         }
     }
+    
+        public String scoreAdequation(OffreType offretype) {
+        String score;
+        //score parfait est 11=10+1
+        //la pourcentage : c'est pour garder 2 chiffres apres vircule 
+        score = String.format("%.2f", ((this.scoreTotal(offretype))/11)*100) + "%";
+        return score;
+    }
+    
 }

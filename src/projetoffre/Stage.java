@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Iterator;
 import static projetoffre.Offre.m_compTypeDelim;
+import projetoffre.noyaufonctionnel.RegionNoyauFonctionnel;
 
 /**
  *
@@ -102,6 +103,39 @@ public class Stage extends Offre {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+    
+    
+    public Stage(String fileStr) {
+        super(fileStr);
+
+        String[] results, rescomps;
+
+        results = fileStr.split(Constant.m_itemDelim, -1);
+
+        if (results.length == 6) {
+            this.m_titre = results[0];
+            // m_region =          
+            System.out.println(results[1] + " ## " + RegionNoyauFonctionnel.getTblRegions());
+            System.out.println(results[1] + " ## " + RegionNoyauFonctionnel.getTblRegions().get(results[1]));
+            this.m_region = RegionNoyauFonctionnel.getTblRegions().get(results[1]);        
+            String compStr = results[5];
+            rescomps = fileStr.split(Constant.m_compDelim,-1);
+          //  for(String[] rescomp ; rescomps){
+                
+          //  }
+            
+//            this.m_tblComps = new 
+        }
+        else
+        {
+            System.out.println("line in " + Constant.m_offreList + " does not have 6 fields (Emploi.java)");
+        }
+//        System.out.println("Separated values:" + results[6].indexOf("|") + "@" + results[6].substring(1 + results[6].indexOf("/")) + "(Emploi.java)");
+        for (String result : results) {
+            System.out.println(result);
+        }
+        System.out.println("");
     }
     
         public String scoreAdequation(OffreType offretype) {

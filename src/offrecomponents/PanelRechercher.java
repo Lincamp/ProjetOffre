@@ -289,13 +289,13 @@ public class PanelRechercher extends javax.swing.JPanel implements View {
 
         tblComp.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "Titre", "Score Total", "Score Competence", "Score Salaire", "Region"
+                "Titre", "Score Total", "Adequation", "Region"
             }
         ));
         tblComp.setCellSelectionEnabled(true);

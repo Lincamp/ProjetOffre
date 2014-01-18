@@ -26,14 +26,15 @@ public abstract class Offre {
     // Création des 2 types de compétences (obligatoire ou souhaitée)
     CompType ctoblig = new CompType("obligatoire");
     CompType ctsouh = new CompType("souhaitee");
-
-    static final String m_itemDelim = ";";
-    static final String m_compDelim = "|";
-    static final String m_compTypeDelim = ":";
+//
+//    static final String m_itemDelim = ";";
+//    static final String m_compDelim = "|";
+//    static final String m_compTypeDelim = ":";
 //    static final String m_offreList = "data/offrelist.txt";
 
     //Création du constructeur Offre
     public Offre(String fileStr) {
+        this.m_tblComps = new HashMap();
     }
 
     public Offre(String titre, Region offReg, HashMap<Competence, CompType> tblComps) {

@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Vector;
+import projetoffre.CompType;
 import projetoffre.Competence;
 import projetoffre.Constant;
 import projetoffre.MotClef;
@@ -26,13 +27,25 @@ public class ComptNoyauFonctionnel {
     public static ArrayList<MotClef> m_lstMotClefs;
     private static boolean m_comptInit;
     private static boolean m_motclefInit;
+    private static CompType m_oblig;
+    private static CompType m_souh;
 
     static {
         m_comptVecNom = new Vector();
         m_tblCompts = new HashMap<>();
+        m_oblig = new CompType("obligatoire");
+        m_souh = new CompType("souhaitee");
         m_lstMotClefs = new ArrayList();
         m_comptInit = false;
         m_motclefInit = false;
+    }
+
+    public static CompType getOblig() {
+        return m_oblig;
+    }
+
+    public static CompType getSouh() {
+        return m_souh;
     }
 
     public ComptNoyauFonctionnel() {
@@ -106,4 +119,5 @@ public class ComptNoyauFonctionnel {
             System.out.println("competence map:" + m_tblCompts + " (NoyauComp)");
         }
     }
+
 }

@@ -11,7 +11,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Iterator;
-import static projetoffre.Offre.m_compTypeDelim;
+
+import projetoffre.noyaufonctionnel.ComptNoyauFonctionnel;
 import projetoffre.noyaufonctionnel.RegionNoyauFonctionnel;
 
 /**
@@ -72,23 +73,22 @@ public class Stage extends Offre {
         Iterator iter = m_tblComps.keySet().iterator();
         while (iter.hasNext()) {
             Competence key = (Competence) iter.next();
-            compstr += key.getNomComp() + m_compTypeDelim;
+            compstr += key.getNomComp() + Constant.m_compTypeDelim;
             System.out.println("saved compstr :" + compstr);
 
-            compstr += m_tblComps.get(key).getLibType() + m_compDelim;
+            compstr += m_tblComps.get(key).getLibType() + Constant.m_compDelim;
         }
 
-       
-           int tmplen = compstr.length();
-        if (tmplen > 0 && compstr.substring(tmplen - 1, tmplen) == m_compDelim) {
+        int tmplen = compstr.length();
+        if (tmplen > 0 && compstr.substring(tmplen - 1, tmplen) == Constant.m_compDelim) {
             compstr = compstr.substring(0, tmplen - 1);
         }
 
-        String content = m_titre + m_itemDelim
-                + m_region.getRegnom() + m_itemDelim
-                + "-1" + m_itemDelim
-                + "-1" + m_itemDelim
-                + "-1" + m_itemDelim + compstr;
+        String content = m_titre + Constant.m_itemDelim
+                + m_region.getRegnom() + Constant.m_itemDelim
+                + "-1" + Constant.m_itemDelim
+                + "-1" + Constant.m_itemDelim
+                + "-1" + Constant.m_itemDelim + compstr;
         try {
             File file = new File(Constant.m_offreList);
             // if file doesnt exists, then create it
@@ -104,12 +104,14 @@ public class Stage extends Offre {
             e.printStackTrace();
         }
     }
-    
-    
+
     public Stage(String fileStr) {
         super(fileStr);
+        Competence comp;
+        CompType compType;
 
-        String[] results, rescomps;
+        String[] results, resComps;
+        int pos;
 
         results = fileStr.split(Constant.m_itemDelim, -1);
 
@@ -118,18 +120,34 @@ public class Stage extends Offre {
             // m_region =          
             System.out.println(results[1] + " ## " + RegionNoyauFonctionnel.getTblRegions());
             System.out.println(results[1] + " ## " + RegionNoyauFonctionnel.getTblRegions().get(results[1]));
-            this.m_region = RegionNoyauFonctionnel.getTblRegions().get(results[1]);        
-            String compStr = results[5];
-            rescomps = fileStr.split(Constant.m_compDelim,-1);
-          //  for(String[] rescomp ; rescomps){
-                
-          //  }
+            this.m_region = RegionNoyauFonctionnel.getTblRegions().get(results[1]);
+            String compStr = new String();
+            // TODO pourquoi
+            compStr = results[5];   
+            resComps = compStr.split(Constant.m_compDelim, -1);
+            System.out.println("tttttttttttttttttttttttttttttttttttttttttttttttt"+compStr + "rrr"  + compStr.length()+ "rrr" + resComps.length);
             
+            
+            for (String resComp : resComps) {
+                System.out.println("rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr"+resComp);
+                pos = resComp.indexOf(Constant.m_compTypeDelim);
+                String compNom = new String(resComp.substring(0, pos));
+                  System.out.println("pppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppp" + resComp.substring(0, pos));
+                comp = ComptNoyauFonctionnel.getTblCompetences().get(resComp.substring(0, pos));
+                compStr = fileStr.substring(pos + 1);
+                if ("obligatoire".equals(compStr)) {
+                   compType = ComptNoyauFonctionnel.getOblig();
+                } else {
+                    compType = ComptNoyauFonctionnel.getSouh();
+                }
+                  System.out.println("pppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppp" + ComptNoyauFonctionnel.getTblCompetences().size() + comp + "@" + compType);
+                
+                this.ajouterComp(comp, compType);
+            }
+
 //            this.m_tblComps = new 
-        }
-        else
-        {
-            System.out.println("line in " + Constant.m_offreList + " does not have 6 fields (Emploi.java)");
+        } else {
+            System.out.println("line in " + Constant.m_offreList + " does not have 6 fields (Stage.java)");
         }
 //        System.out.println("Separated values:" + results[6].indexOf("|") + "@" + results[6].substring(1 + results[6].indexOf("/")) + "(Emploi.java)");
         for (String result : results) {
@@ -137,13 +155,22 @@ public class Stage extends Offre {
         }
         System.out.println("");
     }
-    
-        public String scoreAdequation(OffreType offretype) {
+
+    public String scoreAdequation(OffreType offretype) {
         String score;
         //score parfait est 11=10+1
         //la pourcentage : c'est pour garder 2 chiffres apres vircule 
-        score = String.format("%.2f", ((this.scoreTotal(offretype))/11)*100) + "%";
+        score = String.format("%.2f", ((this.scoreTotal(offretype)) / 11) * 100) + "%";
         return score;
     }
-    
+
+    public void printOut() {
+        System.out.println("===================================");
+        System.out.println("Print out of stage:");
+        System.out.println(m_titre);
+        System.out.println(m_region);
+        System.out.println(m_tblComps);
+        System.out.println("===================================");
+    }
+
 }

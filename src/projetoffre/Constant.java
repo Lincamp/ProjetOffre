@@ -12,7 +12,7 @@ package projetoffre;
 public class Constant {
 
     public static final String m_itemDelim = ";";
-    public static final String m_compDelim = "|";
+    public static final String m_compDelim = "-";  //TODO 
     public static final String m_compTypeDelim = ":";
     // les ":" permett de séparer la région définit des régions associées
     public static final String m_regionDelim = ":";    

@@ -159,22 +159,22 @@ public class Emploi extends Offre {
         Iterator iter = m_tblComps.keySet().iterator();
         while (iter.hasNext()) {
             Competence key = (Competence) iter.next();
-            compstr += key.getNomComp() + m_compTypeDelim;
+            compstr += key.getNomComp() + Constant.m_compTypeDelim;
             System.out.println("saved compstr :" + compstr);
 
-            compstr += m_tblComps.get(key).getLibType() + m_compDelim;
+            compstr += m_tblComps.get(key).getLibType() + Constant.m_compDelim;
         }
 
         int tmplen = compstr.length();
-        if (tmplen > 0 && compstr.substring(tmplen - 1, tmplen) == m_compDelim) {
+        if (tmplen > 0 && compstr.substring(tmplen - 1, tmplen) == Constant.m_compDelim) {
             compstr = compstr.substring(0, tmplen - 1);
         }
 
-        String content = m_titre + m_itemDelim
-                + m_region.getRegnom() + m_itemDelim
-                + m_experience + m_itemDelim
-                + m_salairemin + m_itemDelim
-                + m_salairemax + m_itemDelim + compstr;
+        String content = m_titre + Constant.m_itemDelim
+                + m_region.getRegnom() + Constant.m_itemDelim
+                + m_experience + Constant.m_itemDelim
+                + m_salairemin + Constant.m_itemDelim
+                + m_salairemax + Constant.m_itemDelim + compstr;
         try {
             File file = new File(Constant.m_offreList);
             // if file doesnt exists, then create it

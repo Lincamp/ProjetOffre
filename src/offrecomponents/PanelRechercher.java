@@ -426,7 +426,16 @@ public class PanelRechercher extends javax.swing.JPanel implements View {
 
     private void btnRAZActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRAZActionPerformed
         // TODO add your handling code here:
-        afficherScoreTotalStage();
+        if(optEmploi.isSelected())
+        {
+            afficherScoreTotalEmploi();
+        }
+        else
+        {
+            afficherScoreTotalStage();         
+        }         
+        
+        
     }//GEN-LAST:event_btnRAZActionPerformed
 
 

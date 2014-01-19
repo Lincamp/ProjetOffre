@@ -609,4 +609,59 @@ public class PanelRechercher extends javax.swing.JPanel implements View {
         DefaultTableModel model = new DefaultTableModel(m_scoreContent, columnNames);
         tblComp.setModel(model);
     }
+     
+       private void afficherScoreTotalEmploi() {
+        String regionStr = cmbReg.getSelectedItem().toString();
+        int salaire = Integer.parseInt(txtSalmin.getText());
+        Region region = RegionNoyauFonctionnel.getTblRegions().get(regionStr);
+        NoyauFonctionnel noyauFonc = new NoyauFonctionnel();
+        
+        OffreType offretype = new OffreType(region, salaire, m_enregCompRech.getLstCompRech());
+//        m_enregCompRech 
+        
+        Object[][] m_scoreContent = noyauFonc.recheStagesOffreType(offretype);          
+                
+//        nomC = cmbComp.getSelectedItem().toString();
+//
+//        if (!m_setComp.contains(nomC)) {
+//            m_setComp.add(nomC);
+//            System.out.println("m_setComp :" + m_setComp);
+//            System.out.println("m_setComp size :" + m_setComp.size());
+//
+//            Competence comp = new Competence(nomC);
+//            CompType compType = new CompType("souhaitee");
+//            if (optOblig.isSelected()) {
+//                compType.setLibType("obligatoire");
+//            }
+//
+//            m_enregComp.ajouterComp(comp, compType);
+//        }
+//        System.out.println(m_enregComp.getSize());
+//        int compsSize = m_enregComp.getSize();
+//        m_tblComps = m_enregComp.getComps();
+//
+//        Object[][] m_compContent = new Object[compsSize][2];
+//
+//        int i = 0;
+//
+//        Iterator iter = m_tblComps.keySet().iterator();
+//        while (iter.hasNext()) {
+//            Competence key = (Competence) iter.next();
+//            m_compContent[i][0] = key.getNomComp();
+//            m_compContent[i][1] = m_tblComps.get(key).getLibType();
+//            System.out.println("key,val: " + m_compContent[i][0] + "," + m_compContent[i][1]);
+//            i++;
+//        }
+
+//        for (int i = 0; i < compsSize; i++) {
+//            m_compContent[i][0] = m_tblComps.get(i).getNomComp();
+//            m_compContent[i][1] = m_lstcomps.get(i).isObligatoire();
+//        }
+        //m_lstcomps = enregComp.getComps();      
+        String[] columnNames = {Constant.m_titre, Constant.m_scoreTotal, Constant.m_adequation, Constant.m_region};
+
+        DefaultTableModel model = new DefaultTableModel(m_scoreContent, columnNames);
+        tblComp.setModel(model);
+    }
+     
 }

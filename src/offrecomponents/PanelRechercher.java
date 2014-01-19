@@ -47,7 +47,7 @@ public class PanelRechercher extends javax.swing.JPanel implements View {
 //        m_regFonc = new RegionNoyauFonctionnel();
         m_compFonc = new ComptNoyauFonctionnel();
 //        m_lstCompRechs = new ArrayList();
-        m_setComp = new HashSet<String>();
+        m_setComp = new HashSet<>();
         m_enregCompRech = new EnregCompRech();
         listModel = new DefaultListModel();
         initRegionList();

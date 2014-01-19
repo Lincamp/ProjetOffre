@@ -53,13 +53,14 @@ public class Region {
             else
             {
                 // Si on trouve les ":" alors on récupère tous les carractères se situant avant les ":" et on les met dans la variable "m_regnom"
-                this.m_regnom = fileStr.substring(0, pos);
+                this.m_regnom = fileStr.substring(0, pos).trim();
                 // Tous les carractères se situant apres les ":" représentent les régions proches, ils sont mit dans la variable "procheStr"
                 procheStr = fileStr.substring(pos + 1);
  
                 System.out.println("=====================================");
                 // On récupère tous les carractères séparés par les ";", puis on les place dans la variable "regProche". On réitère l'opération jusqu'a la fin de la ligne
                 for (String regProche: procheStr.split(Constant.m_procheDelim)){
+                    regProche = regProche.trim();
                     System.out.println("proche of " + m_regnom + ":" + regProche + " (region.java)");
                     this.m_regassocie.add(regProche);
                 } 
@@ -73,6 +74,10 @@ public class Region {
     // Création de la méthode get (récupère le nom de la région)
     public String getRegnom() {
         return m_regnom;
+    }
+
+    public Set<String> getRegassocie() {
+        return m_regassocie;
     }
 
     public Region(String regnom, Set<String> regassocie) {

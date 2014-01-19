@@ -9,6 +9,8 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Iterator;
+import java.util.Set;
 import java.util.Vector;
 import javax.swing.DefaultComboBoxModel;
 import projetoffre.Competence;
@@ -53,7 +55,7 @@ public class NoyauFonctionnel {
         Object[][] resultat;
 
         ArrayList<Stage> lstStages = OffreNoyauFonctionnel.getTblStages().get(reg.getRegnom());
-System.out.println(lstStages + "|" + lstStages + "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++NF.java");
+        System.out.println(lstStages + "|" + lstStages + "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++NF.java");
 
         for (Stage stage : lstStages) {
             boolean hasComp = false;
@@ -102,26 +104,60 @@ System.out.println(lstStages + "|" + lstStages + "++++++++++++++++++++++++++++++
         Object[][] resultat;
 
         ArrayList<Stage> lstStages = OffreNoyauFonctionnel.getTblStages().get(ot.getReg().getRegnom());
-System.out.println(lstStages + "|" + lstStages + "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++NF.java");
+        System.out.println(lstStages + "|" + lstStages + "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++NF.java");
 
-        for (Stage stage : lstStages) {
-            boolean hasComp = false;
-            for (Competence comp : lesComps) {
-                // seulement ajouter une fois
-                if (!hasComp) {
-                    if (stage.getTblComps().containsKey(comp)) {
-                        OffreAffiche ofrAffiche = new OffreAffiche();
-                        ofrAffiche.setTitre(stage.getTitre());
-                        System.out.println(stage.scoreTotal(ot));
-                        ofrAffiche.setScoreTotal(stage.scoreTotal(ot));
-                        // TODO
-                        double score = stage.scoreCompetencesHash(lesComps);
-                        String scoreAd = String.format("%.2f", (score / 1) * 100) + "%";
-                        ofrAffiche.setAdquation(scoreAd);
-                        ofrAffiche.setAdquation("0");
-                        ofrAffiche.setRegion(stage.getReg().getRegnom());
-                        lesOfrAffiche.add(ofrAffiche);
-                        hasComp = true;
+        if (lstStages != null) {
+            for (Stage stage : lstStages) {
+                boolean hasComp = false;
+                for (Competence comp : lesComps) {
+                    // seulement ajouter une fois
+                    if (!hasComp) {
+                        if (stage.getTblComps().containsKey(comp)) {
+                            OffreAffiche ofrAffiche = new OffreAffiche();
+                            ofrAffiche.setTitre(stage.getTitre());
+                            System.out.println(stage.scoreTotal(ot));
+                            ofrAffiche.setScoreTotal(stage.scoreTotal(ot));
+                            // TODO
+                            ofrAffiche.setAdquation("0");
+                            ofrAffiche.setRegion(stage.getReg().getRegnom());
+                            lesOfrAffiche.add(ofrAffiche);
+                            hasComp = true;
+                        }
+                    }
+                }
+            }
+        }
+
+        Set<String> regsProche = ot.getReg().getRegassocie();
+
+//        ArrayList<Stage> tmpStages = new ArrayList();
+        for (String regProche : regsProche) {
+            System.out.println(regProche + "|" + "jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjNF.java");
+
+            lstStages = OffreNoyauFonctionnel.getTblStages().get(regProche);
+            if (lstStages != null) {
+                System.out.println(lstStages.size() + "|" + lstStages + "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++NF.java");
+            } else {
+                System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++NF.java");
+            }
+            if (lstStages != null) {
+                for (Stage stage : lstStages) {
+                    boolean hasComp = false;
+                    for (Competence comp : lesComps) {
+                        // seulement ajouter une fois
+                        if (!hasComp) {
+                            if (stage.getTblComps().containsKey(comp)) {
+                                OffreAffiche ofrAffiche = new OffreAffiche();
+                                ofrAffiche.setTitre(stage.getTitre());
+//System.out.println(stage.scoreTotal(ot) + "scoreeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeNF.java");
+//                                ofrAffiche.setScoreTotal(stage.scoreTotal(ot));
+                                // TODO
+                                ofrAffiche.setAdquation("0");
+                                ofrAffiche.setRegion(regProche);
+                                lesOfrAffiche.add(ofrAffiche);
+                                hasComp = true;
+                            }
+                        }
                     }
                 }
             }
@@ -138,7 +174,7 @@ System.out.println(lstStages + "|" + lstStages + "++++++++++++++++++++++++++++++
 //                    max = lesStages.get(j + 1);
 //                }
 //            }
-           
+
             resultat[i][0] = lesOfrAffiche.get(i).getTitre();
             resultat[i][1] = lesOfrAffiche.get(i).getScoreTotal();
             resultat[i][2] = lesOfrAffiche.get(i).getAdquation();
@@ -147,14 +183,14 @@ System.out.println(lstStages + "|" + lstStages + "++++++++++++++++++++++++++++++
         }
         return resultat;
     }
-        
+
     public Object[][] rechercherEmplois(Region reg, ArrayList<Competence> lesComps) {
         ArrayList<OffreAffiche> lesOfrAffiche = new ArrayList();
         Object[][] resultat;
- 
+
         ArrayList<Emploi> lstEmplois = OffreNoyauFonctionnel.getTblEmplois().get(reg.getRegnom());
         System.out.println(OffreNoyauFonctionnel.getTblEmplois().size() + "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++NF.java");
-System.out.println(lstEmplois + "|" + lstEmplois + "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++NF.java");
+        System.out.println(lstEmplois + "|" + lstEmplois + "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++NF.java");
 
         for (Emploi emploi : lstEmplois) {
             boolean hasComp = false;
@@ -195,9 +231,9 @@ System.out.println(lstEmplois + "|" + lstEmplois + "++++++++++++++++++++++++++++
             resultat[i][3] = lesOfrAffiche.get(i).getRegion();
 //            lesEmplois.remove(i);
         }
-        return resultat;        
+        return resultat;
     }
-    
+
     public Object[][] recheEmploisOffreType(OffreType ot) {
 //        ArrayList<Emploi> lesEmplois = new ArrayList();
         ArrayList<OffreAffiche> lesOfrAffiche = new ArrayList();
@@ -205,7 +241,7 @@ System.out.println(lstEmplois + "|" + lstEmplois + "++++++++++++++++++++++++++++
         Object[][] resultat;
 
         ArrayList<Emploi> lstEmplois = OffreNoyauFonctionnel.getTblEmplois().get(ot.getReg().getRegnom());
-System.out.println(lstEmplois + "|" + lstEmplois + "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++NF.java");
+        System.out.println(lstEmplois + "|" + lstEmplois + "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++NF.java");
 
         for (Emploi emploi : lstEmplois) {
             boolean hasComp = false;
@@ -238,15 +274,15 @@ System.out.println(lstEmplois + "|" + lstEmplois + "++++++++++++++++++++++++++++
 //                    max = lesEmplois.get(j + 1);
 //                }
 //            }
-           
+
             resultat[i][0] = lesOfrAffiche.get(i).getTitre();
             resultat[i][1] = lesOfrAffiche.get(i).getScoreTotal();
             resultat[i][2] = lesOfrAffiche.get(i).getAdquation();
             resultat[i][3] = lesOfrAffiche.get(i).getRegion();
         }
         return resultat;
-    }    
-    
+    }
+
 }
 
 // class created for sorting and displaying

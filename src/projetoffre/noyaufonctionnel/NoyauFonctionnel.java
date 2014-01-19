@@ -149,8 +149,8 @@ public class NoyauFonctionnel {
                             if (stage.getTblComps().containsKey(comp)) {
                                 OffreAffiche ofrAffiche = new OffreAffiche();
                                 ofrAffiche.setTitre(stage.getTitre());
-System.out.println(stage.scoreTotal(ot) + "scoreeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeNF.java");
-                               ofrAffiche.setScoreTotal(stage.scoreTotal(ot));
+                                System.out.println(stage.scoreTotal(ot) + "scoreeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeNF.java");
+                                ofrAffiche.setScoreTotal(stage.scoreTotal(ot));
                                 // TODO
                                 ofrAffiche.setAdquation("0");
                                 ofrAffiche.setRegion(regProche);
@@ -243,21 +243,58 @@ System.out.println(stage.scoreTotal(ot) + "scoreeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
         ArrayList<Emploi> lstEmplois = OffreNoyauFonctionnel.getTblEmplois().get(ot.getReg().getRegnom());
         System.out.println(lstEmplois + "|" + lstEmplois + "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++NF.java");
 
-        for (Emploi emploi : lstEmplois) {
-            boolean hasComp = false;
-            for (Competence comp : lesComps) {
-                // seulement ajouter une fois
-                if (!hasComp) {
-                    if (emploi.getTblComps().containsKey(comp)) {
-                        OffreAffiche ofrAffiche = new OffreAffiche();
-                        ofrAffiche.setTitre(emploi.getTitre());
-                        System.out.println(emploi.scoreTotal(ot));
-                        ofrAffiche.setScoreTotal(emploi.scoreTotal(ot));
-                        // TODO
-                        ofrAffiche.setAdquation(emploi.scoreAdequation(ot));
-                        ofrAffiche.setRegion(emploi.getReg().getRegnom());
-                        lesOfrAffiche.add(ofrAffiche);
-                        hasComp = true;
+        if (lstEmplois != null) {
+            for (Emploi emploi : lstEmplois) {
+                boolean hasComp = false;
+                for (Competence comp : lesComps) {
+                    // seulement ajouter une fois
+                    if (!hasComp) {
+                        if (emploi.getTblComps().containsKey(comp)) {
+                            OffreAffiche ofrAffiche = new OffreAffiche();
+                            ofrAffiche.setTitre(emploi.getTitre());
+                            System.out.println(emploi.scoreTotal(ot));
+                            ofrAffiche.setScoreTotal(emploi.scoreTotal(ot));
+                            // TODO
+                            ofrAffiche.setAdquation(emploi.scoreAdequation(ot));
+                            ofrAffiche.setRegion(emploi.getReg().getRegnom());
+                            lesOfrAffiche.add(ofrAffiche);
+                            hasComp = true;
+                        }
+                    }
+                }
+            }
+        }
+
+        Set<String> regsProche = ot.getReg().getRegassocie();
+
+//        ArrayList<Emploi> tmpEmplois = new ArrayList();
+        for (String regProche : regsProche) {
+            System.out.println(regProche + "|" + "jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjNF.java");
+
+            lstEmplois = OffreNoyauFonctionnel.getTblEmplois().get(regProche);
+            if (lstEmplois != null) {
+                System.out.println(lstEmplois.size() + "|" + lstEmplois + "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++NF.java");
+            } else {
+                System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++NF.java");
+            }
+            if (lstEmplois != null) {
+                for (Emploi emploi : lstEmplois) {
+                    boolean hasComp = false;
+                    for (Competence comp : lesComps) {
+                        // seulement ajouter une fois
+                        if (!hasComp) {
+                            if (emploi.getTblComps().containsKey(comp)) {
+                                OffreAffiche ofrAffiche = new OffreAffiche();
+                                ofrAffiche.setTitre(emploi.getTitre());
+                                System.out.println(emploi.scoreTotal(ot) + "scoreeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeNF.java");
+                                ofrAffiche.setScoreTotal(emploi.scoreTotal(ot));
+                                // TODO
+                                ofrAffiche.setAdquation(emploi.scoreAdequation(ot));
+                                ofrAffiche.setRegion(regProche);
+                                lesOfrAffiche.add(ofrAffiche);
+                                hasComp = true;
+                            }
+                        }
                     }
                 }
             }

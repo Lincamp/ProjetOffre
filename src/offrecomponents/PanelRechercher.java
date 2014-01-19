@@ -628,7 +628,7 @@ public class PanelRechercher extends javax.swing.JPanel implements View {
         OffreType offretype = new OffreType(region, salaire, m_enregCompRech.getLstCompRech());
 //        m_enregCompRech 
         
-        Object[][] m_scoreContent = noyauFonc.recheStagesOffreType(offretype);          
+        Object[][] m_scoreContent = noyauFonc.recheEmploisOffreType(offretype);          
                 
 //        nomC = cmbComp.getSelectedItem().toString();
 //

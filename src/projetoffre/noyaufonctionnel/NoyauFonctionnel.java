@@ -88,7 +88,7 @@ public class NoyauFonctionnel {
 //            }
             resultat[i][0] = lesOfrAffiche.get(i).getTitre();
             resultat[i][1] = lesOfrAffiche.get(i).getScoreTotal();
-            resultat[i][2] = lesOfrAffiche.get(i).getScoreTotal();
+            resultat[i][2] = lesOfrAffiche.get(i).getScoreTotal();//adequation?
             resultat[i][3] = lesOfrAffiche.get(i).getRegion();
 //            lesStages.remove(i);
         }

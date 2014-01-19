@@ -97,6 +97,60 @@ System.out.println(lstStages + "|" + lstStages + "++++++++++++++++++++++++++++++
         return resultat;
     }
 
+    public Object[][] recheStagesOffreType(OffreType ot) {
+//        ArrayList<Stage> lesStages = new ArrayList();
+        ArrayList<OffreAffiche> lesOfrAffiche = new ArrayList();
+        ArrayList<Competence> lesComps = ot.getLstComps();
+        Object[][] resultat;
+        Stage max;
+
+        ArrayList<Stage> lstStages = OffreNoyauFonctionnel.getTblStages().get(ot.getReg().getRegnom());
+System.out.println(lstStages + "|" + lstStages + "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++NF.java");
+
+        for (Stage stage : lstStages) {
+            boolean hasComp = false;
+            for (Competence comp : lesComps) {
+                // seulement ajouter une fois
+                if (!hasComp) {
+                    if (stage.getTblComps().containsKey(comp)) {
+                        OffreAffiche ofrAffiche = new OffreAffiche();
+                        ofrAffiche.setTitre(stage.getTitre());
+                        System.out.println(stage.scoreTotal(ot));
+                        ofrAffiche.setScoreTotal(stage.scoreTotal(ot));
+                        // TODO
+                        ofrAffiche.setAdquation(0);
+                        ofrAffiche.setRegion(stage.getReg().getRegnom());
+                        lesOfrAffiche.add(ofrAffiche);
+                        hasComp = true;
+                    }
+                }
+            }
+        }
+
+        Collections.sort(lesOfrAffiche);
+
+        int afficheSize = lesOfrAffiche.size();
+        resultat = new Object[afficheSize][4];
+        for (int i = 0; i < afficheSize; i++) {
+//            for (int j = 0; j < lesStages.size(); j++) {
+//                max = lesStages.get(0);
+//                if ((lesStages.get(j).scoreCompetencesHash(lesComps)) < (lesStages.get(j + 1).scoreCompetencesHash(lesComps))) {
+//                    max = lesStages.get(j + 1);
+//                }
+//            }
+            resultat[i][0] = lesOfrAffiche.get(i).getTitre();
+            resultat[i][1] = lesOfrAffiche.get(i).getScoreTotal();
+            resultat[i][2] = lesOfrAffiche.get(i).getAdquation();
+            resultat[i][3] = lesOfrAffiche.get(i).getRegion();
+//            lesStages.remove(i);
+        }
+        return resultat;
+    }
+    
+    
+    
+    
+    
     public Object[][] rechercherEmplois(Region reg, ArrayList<Competence> lesComps) {
         ArrayList<Emploi> lesEmplois = new ArrayList();
         Object[][] resultat;

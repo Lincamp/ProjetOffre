@@ -102,9 +102,9 @@ public class ProjetOffre {
         lstCherche.add(c2);
         
         
-      OffreType o1 = new OffreType(r1,40000);
-      o1.m_lstComps.add(c1);
-      o1.m_lstComps.add(c2);
+//      OffreType o1 = new OffreType(r1,40000);
+      //o1.m_lstComps.add(c1);
+      //o1.m_lstComps.add(c2);
     // System.out.println("score Geo : " +e1.scoreGeographique(o1)); 
     // System.out.println("score Salaire : " +e1.scoreSalaire(o1));
     // System.out.println("score Total : " +  e1.scoreTotal(o1));

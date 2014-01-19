@@ -39,12 +39,11 @@ public class Emploi extends Offre {
 
     public Emploi(String fileStr) {
         super(fileStr);
-           Competence comp;
+        Competence comp;
         CompType compType;
 
         String[] results, resComps;
-     int pos;
-     
+        int pos;
 
         results = fileStr.split(Constant.m_itemDelim, -1);
 
@@ -57,34 +56,30 @@ public class Emploi extends Offre {
             this.m_experience = Integer.parseInt(results[2]);
             this.m_salairemin = Integer.parseInt(results[3]);
             this.m_salairemax = Integer.parseInt(results[4]);
-
-            String compStr = results[5];
-//            this.m_tblComps = new 
+            String compStr = new String();
+            compStr = results[5];
             resComps = compStr.split(Constant.m_compDelim, -1);
-            System.out.println("tttttttttttttttttttttttttttttttttttttttttttttttt"+compStr + "rrr"  + compStr.length()+ "rrr" + resComps.length);
-          
-            
+            System.out.println("tttttttttttttttttttttttttttttttttttttttttttttttt" + compStr + "rrr" + compStr.length() + "rrr" + resComps.length);
+
             for (String resComp : resComps) {
-                System.out.println("rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr"+resComp);
+                System.out.println("rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr" + resComp);
                 pos = resComp.indexOf(Constant.m_compTypeDelim);
                 String compNom = new String(resComp.substring(0, pos));
-                  System.out.println("pppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppp" + resComp.substring(0, pos));
+                System.out.println("pppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppp" + resComp.substring(0, pos));
                 comp = ComptNoyauFonctionnel.getTblCompetences().get(resComp.substring(0, pos));
                 compStr = resComp.substring(pos + 1);
-System.out.println("obliggggggggggggggggggggggggggggg"+compStr);
+                System.out.println("obliggggggggggggggggggggggggggggg" + compStr);
                 if ("obligatoire".equals(compStr)) {
-                   compType = ComptNoyauFonctionnel.getOblig();
+                    compType = ComptNoyauFonctionnel.getOblig();
                 } else {
                     compType = ComptNoyauFonctionnel.getSouh();
                 }
-                  System.out.println("pppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppp" + ComptNoyauFonctionnel.getTblCompetences().size() + comp + "@" + compType);
-                
+                System.out.println("pppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppp" + ComptNoyauFonctionnel.getTblCompetences().size() + comp + "@" + compType);
+
                 this.ajouterComp(comp, compType);
             }
-            
-        }
-        else
-        {
+
+        } else {
             System.out.println("line in " + Constant.m_offreList + " does not have 6 fields (Emploi.java)");
         }
 //        System.out.println("Separated values:" + results[6].indexOf("|") + "@" + results[6].substring(1 + results[6].indexOf("/")) + "(Emploi.java)");
@@ -94,8 +89,7 @@ System.out.println("obliggggggggggggggggggggggggggggg"+compStr);
         System.out.println("");
     }
 
-    public void printOut()
-    {
+    public void printOut() {
         System.out.println("===================================");
         System.out.println("Print of emploi:");
         System.out.println(m_titre);
@@ -103,18 +97,18 @@ System.out.println("obliggggggggggggggggggggggggggggg"+compStr);
         System.out.println(m_experience);
         System.out.println(m_salairemin);
         System.out.println(m_salairemax);
-            Set setComps = this.m_tblComps.keySet();
+        Set setComps = this.m_tblComps.keySet();
         Competence setIterComps;
-       Iterator itrComps = setComps.iterator();
-       while (itrComps.hasNext()) {
-      setIterComps = (Competence) itrComps.next();
-      System.out.print(setIterComps.getNomComp() + ":"); 
-      System.out.println(m_tblComps.get(setIterComps).getLibType() ); 
-    }
+        Iterator itrComps = setComps.iterator();
+        while (itrComps.hasNext()) {
+            setIterComps = (Competence) itrComps.next();
+            System.out.print(setIterComps.getNomComp() + ":");
+            System.out.println(m_tblComps.get(setIterComps).getLibType());
+        }
         //System.out.println(m_tblComps);
         System.out.println("===================================");
     }
-    
+
     //Création des methodes get (pour récupérer l'expérience, le salaireMin et le salaireMax pour un emploi)
     public int getExperience() {
         return m_experience;
@@ -226,14 +220,13 @@ System.out.println("obliggggggggggggggggggggggggggggg"+compStr);
             e.printStackTrace();
         }
     }
-    
+
     public String scoreAdequation(OffreType offretype) {
         String score;
         //score parfait est 16=10+5+1
         //la pourcentage : c'est pour garder 2 chiffres apres vircule 
-        score = String.format("%.2f", ((this.scoreTotal(offretype))/16)*100) + "%";
+        score = String.format("%.2f", ((this.scoreTotal(offretype)) / 16) * 100) + "%";
         return score;
     }
-    
 
 }

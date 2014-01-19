@@ -30,10 +30,10 @@ public int getSalaireEspere() {
     }
 
     // Création du constructeur OffreType
-    public OffreType(Region m_reg,  int salaireEspere) {
+    public OffreType(Region m_reg,  int salaireEspere, ArrayList<Competence> lstComps) {
         //On définit une nouvelle région, une nouvelle liste de compétence et un nouveau salaire espéré 
         this.m_reg = m_reg;
-        this.m_lstComps = new ArrayList();
+        this.m_lstComps = lstComps;
         this.salaireEspere = salaireEspere;
     }   
     

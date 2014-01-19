@@ -124,26 +124,25 @@ public class Stage extends Offre {
             this.m_region = RegionNoyauFonctionnel.getTblRegions().get(results[1]);
             String compStr = new String();
             // TODO pourquoi
-            compStr = results[5];   
+            compStr = results[5];
             resComps = compStr.split(Constant.m_compDelim, -1);
-            System.out.println("tttttttttttttttttttttttttttttttttttttttttttttttt"+compStr + "rrr"  + compStr.length()+ "rrr" + resComps.length);
-            
-            
+            System.out.println("tttttttttttttttttttttttttttttttttttttttttttttttt" + compStr + "rrr" + compStr.length() + "rrr" + resComps.length);
+
             for (String resComp : resComps) {
-                System.out.println("rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr"+resComp);
+                System.out.println("rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr" + resComp);
                 pos = resComp.indexOf(Constant.m_compTypeDelim);
                 String compNom = new String(resComp.substring(0, pos));
-                  System.out.println("pppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppp" + resComp.substring(0, pos));
+                System.out.println("pppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppp" + resComp.substring(0, pos));
                 comp = ComptNoyauFonctionnel.getTblCompetences().get(resComp.substring(0, pos));
                 compStr = resComp.substring(pos + 1);
-System.out.println("obliggggggggggggggggggggggggggggg"+compStr);
+                System.out.println("obliggggggggggggggggggggggggggggg" + compStr);
                 if ("obligatoire".equals(compStr)) {
-                   compType = ComptNoyauFonctionnel.getOblig();
+                    compType = ComptNoyauFonctionnel.getOblig();
                 } else {
                     compType = ComptNoyauFonctionnel.getSouh();
                 }
-                  System.out.println("pppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppp" + ComptNoyauFonctionnel.getTblCompetences().size() + comp + "@" + compType);
-                
+                System.out.println("pppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppp" + ComptNoyauFonctionnel.getTblCompetences().size() + comp + "@" + compType);
+
                 this.ajouterComp(comp, compType);
             }
 
@@ -173,18 +172,17 @@ System.out.println("obliggggggggggggggggggggggggggggg"+compStr);
         System.out.println(m_region);
         Set setComps = this.m_tblComps.keySet();
         Competence setIterComps;
-       Iterator itrComps = setComps.iterator();
-       while (itrComps.hasNext()) {
-      setIterComps = (Competence) itrComps.next();
-      System.out.print(setIterComps.getNomComp() + ":"); 
-      System.out.println(m_tblComps.get(setIterComps).getLibType() ); 
-    }
-  
-               
-          System.out.println(m_tblComps.size() ); 
+        Iterator itrComps = setComps.iterator();
+        while (itrComps.hasNext()) {
+            setIterComps = (Competence) itrComps.next();
+            System.out.print(setIterComps.getNomComp() + ":");
+            System.out.println(m_tblComps.get(setIterComps).getLibType());
+        }
+
+        System.out.println(m_tblComps.size());
          //  System.out.println(m_tblComps.containsValue(ComptNoyauFonctionnel.getOblig()));  
         //}
-       
+
         System.out.println("===================================");
     }
 

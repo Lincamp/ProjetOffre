@@ -1,7 +1,8 @@
-Batman1;Aquitaine;2;4000;4500;Gestion:obligatoire
-hellokitty2;Aquitaine;2;2000;8000;Programmation:obligatoir
-hellokitty1;Aquitaine;2;2000;8000;Programmation:obligatoir-BI:obligatoire-SI:obligatoire
-Batman2;Aquitaine;-1;-1;-1;BI:obligatoire-SI:obligatoire
-Simba;Aquitaine;2;4000;5000;BI:souhaitee-Communication:obligatoire-Developpement:souhaitee
-Spiderman;Aquitaine;3;5000;6000;Gestion:obligatoire-Communication:souhaitee-BI:souhaitee
-iron;Aquitaine;0;0;0;BI:souhaitee
+﻿Ingenieur Technique ;Aquitaine;2;3800;5000;SI:souhaitee-Programmation:obligatoire-Developpement:souhaitee
+Ingenieur Application ;Aquitaine;2;3000;4500;Programmation:obligatoire-Developpement:obligatoire
+Ingenieur Developper;Aquitaine;1;3500;4000;SI:souhaitee-Programmation:obligatoire-Developpement:obligatoire
+Consultant SI ;Limousin;1;2500;3500;SI:obligatoire-Programmation:souhaitee-BI:obligatoire
+Stagiaire IT ;Auvergne;-1;-1;-1;SI:souhaitee-Programmation:obligatoire-Developpement:souhaitee
+Stagiaire Developpeur ;Auvergne;-1;-1;-1;Programmation:obligatoire-Developpement:obligatoire
+Stagiaire BI ;Midi-Pyrenees;-1;-1;-1;Programmation:souhaitee-SI:obligatoire-BI:obligatoire
+Stagiaire SI ;Auvergne;-1;-1;-1;SI:souhaitee-Programmation:obligatoire-Developpement:obligatoire

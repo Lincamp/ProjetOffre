@@ -49,7 +49,7 @@ public class Stage extends Offre {
     public double scoreTotal(OffreType offreType) {
         //To change body of generated methods, choose Tools | Templates.
         double scoreStage;
-        scoreStage = this.scoreCompetencesHash(offreType.getLstComps()) + this.scoreGeographique(offreType);
+       scoreStage = this.scoreCompetencesHash(offreType.getLstComps()) + this.scoreGeographique(offreType);
         return scoreStage;
     }
 

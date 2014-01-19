@@ -149,8 +149,8 @@ public class NoyauFonctionnel {
                             if (stage.getTblComps().containsKey(comp)) {
                                 OffreAffiche ofrAffiche = new OffreAffiche();
                                 ofrAffiche.setTitre(stage.getTitre());
-//System.out.println(stage.scoreTotal(ot) + "scoreeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeNF.java");
-//                                ofrAffiche.setScoreTotal(stage.scoreTotal(ot));
+System.out.println(stage.scoreTotal(ot) + "scoreeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeNF.java");
+                               ofrAffiche.setScoreTotal(stage.scoreTotal(ot));
                                 // TODO
                                 ofrAffiche.setAdquation("0");
                                 ofrAffiche.setRegion(regProche);

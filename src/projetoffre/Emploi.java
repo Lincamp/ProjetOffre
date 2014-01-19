@@ -48,16 +48,16 @@ public class Emploi extends Offre {
         results = fileStr.split(Constant.m_itemDelim, -1);
 
         if (results.length == 6) {
-            this.m_titre = results[0];
+            this.m_titre = results[0].trim();
             // m_region =          
             System.out.println(results[1] + " ## " + RegionNoyauFonctionnel.getTblRegions());
             System.out.println(results[1] + " ## " + RegionNoyauFonctionnel.getTblRegions().get(results[1]));
-            this.m_region = RegionNoyauFonctionnel.getTblRegions().get(results[1]);
-            this.m_experience = Integer.parseInt(results[2]);
-            this.m_salairemin = Integer.parseInt(results[3]);
-            this.m_salairemax = Integer.parseInt(results[4]);
+            this.m_region = RegionNoyauFonctionnel.getTblRegions().get(results[1].trim());
+            this.m_experience = Integer.parseInt(results[2].trim());
+            this.m_salairemin = Integer.parseInt(results[3].trim());
+            this.m_salairemax = Integer.parseInt(results[4].trim());
             String compStr = new String();
-            compStr = results[5];
+            compStr = results[5].trim();
             resComps = compStr.split(Constant.m_compDelim, -1);
             System.out.println("tttttttttttttttttttttttttttttttttttttttttttttttt" + compStr + "rrr" + compStr.length() + "rrr" + resComps.length);
 

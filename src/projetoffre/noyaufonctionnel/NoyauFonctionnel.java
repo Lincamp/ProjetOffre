@@ -66,7 +66,7 @@ System.out.println(lstStages + "|" + lstStages + "++++++++++++++++++++++++++++++
                         System.out.println(stage.scoreCompetencesHash(lesComps));
                         ofrAffiche.setScoreTotal(stage.scoreCompetencesHash(lesComps));
                         // TODO
-                        ofrAffiche.setAdquation(0);
+                        ofrAffiche.setAdquation("0");
                         ofrAffiche.setRegion(stage.getReg().getRegnom());
                         lesOfrAffiche.add(ofrAffiche);
                         hasComp = true;
@@ -115,7 +115,7 @@ System.out.println(lstStages + "|" + lstStages + "++++++++++++++++++++++++++++++
                         System.out.println(stage.scoreTotal(ot));
                         ofrAffiche.setScoreTotal(stage.scoreTotal(ot));
                         // TODO
-                        ofrAffiche.setAdquation(0);
+                        ofrAffiche.setAdquation("0");
                         ofrAffiche.setRegion(stage.getReg().getRegnom());
                         lesOfrAffiche.add(ofrAffiche);
                         hasComp = true;
@@ -164,7 +164,7 @@ System.out.println(lstEmplois + "|" + lstEmplois + "++++++++++++++++++++++++++++
                         System.out.println(emploi.scoreCompetencesHash(lesComps));
                         ofrAffiche.setScoreTotal(emploi.scoreCompetencesHash(lesComps));
                         // TODO
-                        ofrAffiche.setAdquation(0);
+                        ofrAffiche.setAdquation("0");
                         ofrAffiche.setRegion(emploi.getReg().getRegnom());
                         lesOfrAffiche.add(ofrAffiche);
                         hasComp = true;
@@ -213,7 +213,7 @@ System.out.println(lstEmplois + "|" + lstEmplois + "++++++++++++++++++++++++++++
                         System.out.println(emploi.scoreTotal(ot));
                         ofrAffiche.setScoreTotal(emploi.scoreTotal(ot));
                         // TODO
-                        ofrAffiche.setAdquation(0);
+                        ofrAffiche.setAdquation(emploi.scoreAdequation(ot));
                         ofrAffiche.setRegion(emploi.getReg().getRegnom());
                         lesOfrAffiche.add(ofrAffiche);
                         hasComp = true;
@@ -249,7 +249,7 @@ class OffreAffiche implements Comparable<OffreAffiche> {
 
     private String m_titre;
     private double m_scoreTotal;
-    private double m_adquation;
+    private String m_adquation;
     private String m_region;
 
     public void setTitre(String titre) {
@@ -260,7 +260,7 @@ class OffreAffiche implements Comparable<OffreAffiche> {
         this.m_scoreTotal = scoreTotal;
     }
 
-    public void setAdquation(double adquation) {
+    public void setAdquation(String adquation) {
         this.m_adquation = adquation;
     }
 
@@ -276,7 +276,7 @@ class OffreAffiche implements Comparable<OffreAffiche> {
         return m_scoreTotal;
     }
 
-    public double getAdquation() {
+    public String getAdquation() {
         return m_adquation;
     }
 

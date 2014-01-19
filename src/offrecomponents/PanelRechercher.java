@@ -501,12 +501,18 @@ public class PanelRechercher extends javax.swing.JPanel implements View {
         String regionStr = cmbReg.getSelectedItem().toString();
         Region region = RegionNoyauFonctionnel.getTblRegions().get(regionStr);
         NoyauFonctionnel noyauFonc = new NoyauFonctionnel();
-        
-        
+ 
 //        m_enregCompRech 
         
-        Object[][] m_scoreContent = noyauFonc.rechercherStages(region, m_enregCompRech.getLstCompRech());          
-                
+        Object[][] m_scoreContent;
+        if(optEmploi.isSelected())
+        {
+            m_scoreContent= noyauFonc.rechercherEmplois(region, m_enregCompRech.getLstCompRech());
+        }
+        else
+        {
+            m_scoreContent= noyauFonc.rechercherStages(region, m_enregCompRech.getLstCompRech());          
+        }       
 //        nomC = cmbComp.getSelectedItem().toString();
 //
 //        if (!m_setComp.contains(nomC)) {
@@ -549,8 +555,6 @@ public class PanelRechercher extends javax.swing.JPanel implements View {
         DefaultTableModel model = new DefaultTableModel(m_scoreContent, columnNames);
         tblComp.setModel(model);
     }
-    
-    
     
      private void afficherScoreTotalStage() {
         String regionStr = cmbReg.getSelectedItem().toString();

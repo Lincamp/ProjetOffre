@@ -3,3 +3,4 @@ hellokitty2;Aquitaine;2;2000;8000;Programmation:obligatoir
 hellokitty1;Aquitaine;2;2000;8000;Programmation:obligatoir-BI:obligatoire-SI:obligatoire
 Batman2;Aquitaine;-1;-1;-1;BI:obligatoire-SI:obligatoire
 Simba;Aquitaine;2;4000;5000;BI:souhaitee-Communication:obligatoire-Developpement:souhaitee
+Spiderman;Aquitaine;3;5000;6000;Gestion:obligatoire-Communication:souhaitee-BI:souhaitee

@@ -81,7 +81,7 @@ public class Stage extends Offre {
         }
 
         int tmplen = compstr.length();
-        if (tmplen > 0 && compstr.substring(tmplen - 1, tmplen) == Constant.m_compDelim) {
+        if (tmplen > 0 && (compstr.substring(tmplen - 1, tmplen) == null ? Constant.m_compDelim == null : compstr.substring(tmplen - 1, tmplen).equals(Constant.m_compDelim))) {
             compstr = compstr.substring(0, tmplen - 1);
         }
 

@@ -115,6 +115,9 @@ System.out.println(lstStages + "|" + lstStages + "++++++++++++++++++++++++++++++
                         System.out.println(stage.scoreTotal(ot));
                         ofrAffiche.setScoreTotal(stage.scoreTotal(ot));
                         // TODO
+                        double score = stage.scoreCompetencesHash(lesComps);
+                        String scoreAd = String.format("%.2f", (score / 1) * 100) + "%";
+                        ofrAffiche.setAdquation(scoreAd);
                         ofrAffiche.setAdquation("0");
                         ofrAffiche.setRegion(stage.getReg().getRegnom());
                         lesOfrAffiche.add(ofrAffiche);
@@ -164,7 +167,9 @@ System.out.println(lstEmplois + "|" + lstEmplois + "++++++++++++++++++++++++++++
                         System.out.println(emploi.scoreCompetencesHash(lesComps));
                         ofrAffiche.setScoreTotal(emploi.scoreCompetencesHash(lesComps));
                         // TODO
-                        ofrAffiche.setAdquation("0");
+                        double score = emploi.scoreCompetencesHash(lesComps);
+                        String scoreAd = String.format("%.2f", (score / 1) * 100) + "%";
+                        ofrAffiche.setAdquation(scoreAd);
                         ofrAffiche.setRegion(emploi.getReg().getRegnom());
                         lesOfrAffiche.add(ofrAffiche);
                         hasComp = true;

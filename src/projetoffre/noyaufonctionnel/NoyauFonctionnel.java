@@ -138,6 +138,7 @@ System.out.println(lstStages + "|" + lstStages + "++++++++++++++++++++++++++++++
 //                    max = lesStages.get(j + 1);
 //                }
 //            }
+           
             resultat[i][0] = lesOfrAffiche.get(i).getTitre();
             resultat[i][1] = lesOfrAffiche.get(i).getScoreTotal();
             resultat[i][2] = lesOfrAffiche.get(i).getAdquation();

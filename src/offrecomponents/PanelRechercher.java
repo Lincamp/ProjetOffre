@@ -82,6 +82,7 @@ public class PanelRechercher extends javax.swing.JPanel implements View {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        btngrp = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         optEmploi = new javax.swing.JRadioButton();
@@ -128,6 +129,7 @@ public class PanelRechercher extends javax.swing.JPanel implements View {
 
         jPanel2.setLayout(new java.awt.GridLayout(1, 0, 50, 0));
 
+        btngrp.add(optEmploi);
         optEmploi.setSelected(true);
         optEmploi.setText("Emploi");
         optEmploi.setToolTipText("");
@@ -138,6 +140,7 @@ public class PanelRechercher extends javax.swing.JPanel implements View {
         });
         jPanel2.add(optEmploi);
 
+        btngrp.add(optStage);
         optStage.setText("Stage");
         jPanel2.add(optStage);
 
@@ -423,7 +426,7 @@ public class PanelRechercher extends javax.swing.JPanel implements View {
 
     private void btnRAZActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRAZActionPerformed
         // TODO add your handling code here:
-        afficherScoreTotal();
+        afficherScoreTotalStage();
     }//GEN-LAST:event_btnRAZActionPerformed
 
 
@@ -432,6 +435,7 @@ public class PanelRechercher extends javax.swing.JPanel implements View {
     private javax.swing.JButton btnRAZ;
     private javax.swing.JButton btnRech;
     private javax.swing.JButton btnSup;
+    private javax.swing.ButtonGroup btngrp;
     private javax.swing.JComboBox cmbComp;
     private javax.swing.JComboBox cmbReg;
     private javax.swing.JCheckBox jCheckBox1;
@@ -548,9 +552,9 @@ public class PanelRechercher extends javax.swing.JPanel implements View {
     
     
     
-     private void afficherScoreTotal() {
+     private void afficherScoreTotalStage() {
         String regionStr = cmbReg.getSelectedItem().toString();
-        int salaire = Integer.parseInt(txtSalmin.getText());
+        int salaire = 0;
         Region region = RegionNoyauFonctionnel.getTblRegions().get(regionStr);
         NoyauFonctionnel noyauFonc = new NoyauFonctionnel();
         

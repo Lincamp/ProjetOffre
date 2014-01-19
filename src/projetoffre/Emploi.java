@@ -11,6 +11,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.Set;
+import projetoffre.noyaufonctionnel.ComptNoyauFonctionnel;
 import projetoffre.noyaufonctionnel.RegionNoyauFonctionnel;
 //import static delete.FileOperation.m_compTypeDelim;
 
@@ -37,8 +39,12 @@ public class Emploi extends Offre {
 
     public Emploi(String fileStr) {
         super(fileStr);
+           Competence comp;
+        CompType compType;
 
-        String[] results;
+        String[] results, resComps;
+     int pos;
+     
 
         results = fileStr.split(Constant.m_itemDelim, -1);
 
@@ -54,6 +60,28 @@ public class Emploi extends Offre {
 
             String compStr = results[5];
 //            this.m_tblComps = new 
+            resComps = compStr.split(Constant.m_compDelim, -1);
+            System.out.println("tttttttttttttttttttttttttttttttttttttttttttttttt"+compStr + "rrr"  + compStr.length()+ "rrr" + resComps.length);
+          
+            
+            for (String resComp : resComps) {
+                System.out.println("rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr"+resComp);
+                pos = resComp.indexOf(Constant.m_compTypeDelim);
+                String compNom = new String(resComp.substring(0, pos));
+                  System.out.println("pppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppp" + resComp.substring(0, pos));
+                comp = ComptNoyauFonctionnel.getTblCompetences().get(resComp.substring(0, pos));
+                compStr = resComp.substring(pos + 1);
+System.out.println("obliggggggggggggggggggggggggggggg"+compStr);
+                if ("obligatoire".equals(compStr)) {
+                   compType = ComptNoyauFonctionnel.getOblig();
+                } else {
+                    compType = ComptNoyauFonctionnel.getSouh();
+                }
+                  System.out.println("pppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppp" + ComptNoyauFonctionnel.getTblCompetences().size() + comp + "@" + compType);
+                
+                this.ajouterComp(comp, compType);
+            }
+            
         }
         else
         {
@@ -66,16 +94,24 @@ public class Emploi extends Offre {
         System.out.println("");
     }
 
-    public void print()
+    public void printOut()
     {
         System.out.println("===================================");
-        System.out.println("Print out of emploi:");
+        System.out.println("Print of emploi:");
         System.out.println(m_titre);
         System.out.println(m_region);
         System.out.println(m_experience);
         System.out.println(m_salairemin);
         System.out.println(m_salairemax);
-        System.out.println(m_tblComps);
+            Set setComps = this.m_tblComps.keySet();
+        Competence setIterComps;
+       Iterator itrComps = setComps.iterator();
+       while (itrComps.hasNext()) {
+      setIterComps = (Competence) itrComps.next();
+      System.out.print(setIterComps.getNomComp() + ":"); 
+      System.out.println(m_tblComps.get(setIterComps).getLibType() ); 
+    }
+        //System.out.println(m_tblComps);
         System.out.println("===================================");
     }
     

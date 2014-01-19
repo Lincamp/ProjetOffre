@@ -96,7 +96,7 @@ public class OffreNoyauFonctionnel {
                         }
                         System.out.println(tmpEmploi.toString() + "!!!!!!!!!before add emploi (NoyauOffre)");
                         lstEmploi.add(tmpEmploi);
-                        tmpEmploi.print();
+                        tmpEmploi.printOut();
                         System.out.println("lstEmploi size+++++:" + lstEmploi.size() + " (NoyauOffre)");
                         System.out.println("tblEmplois size+++++:" + m_tblEmplois.size() + " (NoyauOffre)");
                     }

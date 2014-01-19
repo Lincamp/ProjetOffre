@@ -11,6 +11,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.Set;
 
 import projetoffre.noyaufonctionnel.ComptNoyauFonctionnel;
 import projetoffre.noyaufonctionnel.RegionNoyauFonctionnel;
@@ -134,7 +135,8 @@ public class Stage extends Offre {
                 String compNom = new String(resComp.substring(0, pos));
                   System.out.println("pppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppp" + resComp.substring(0, pos));
                 comp = ComptNoyauFonctionnel.getTblCompetences().get(resComp.substring(0, pos));
-                compStr = fileStr.substring(pos + 1);
+                compStr = resComp.substring(pos + 1);
+System.out.println("obliggggggggggggggggggggggggggggg"+compStr);
                 if ("obligatoire".equals(compStr)) {
                    compType = ComptNoyauFonctionnel.getOblig();
                 } else {
@@ -166,10 +168,23 @@ public class Stage extends Offre {
 
     public void printOut() {
         System.out.println("===================================");
-        System.out.println("Print out of stage:");
+        System.out.println("Print out of stage: stage.java");
         System.out.println(m_titre);
         System.out.println(m_region);
-        System.out.println(m_tblComps);
+        Set setComps = this.m_tblComps.keySet();
+        Competence setIterComps;
+       Iterator itrComps = setComps.iterator();
+       while (itrComps.hasNext()) {
+      setIterComps = (Competence) itrComps.next();
+      System.out.print(setIterComps.getNomComp() + ":"); 
+      System.out.println(m_tblComps.get(setIterComps).getLibType() ); 
+    }
+  
+               
+          System.out.println(m_tblComps.size() ); 
+         //  System.out.println(m_tblComps.containsValue(ComptNoyauFonctionnel.getOblig()));  
+        //}
+       
         System.out.println("===================================");
     }
 

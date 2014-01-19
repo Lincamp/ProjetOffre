@@ -118,7 +118,7 @@ public class NoyauFonctionnel {
                             System.out.println(stage.scoreTotal(ot));
                             ofrAffiche.setScoreTotal(stage.scoreTotal(ot));
                             // TODO
-                            ofrAffiche.setAdquation("0");
+                           ofrAffiche.setAdquation(stage.scoreAdequation(ot));
                             ofrAffiche.setRegion(stage.getReg().getRegnom());
                             lesOfrAffiche.add(ofrAffiche);
                             hasComp = true;
@@ -152,7 +152,8 @@ public class NoyauFonctionnel {
                                 System.out.println(stage.scoreTotal(ot) + "scoreeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeNF.java");
                                 ofrAffiche.setScoreTotal(stage.scoreTotal(ot));
                                 // TODO
-                                ofrAffiche.setAdquation("0");
+                                
+                                ofrAffiche.setAdquation(stage.scoreAdequation(ot));
                                 ofrAffiche.setRegion(regProche);
                                 lesOfrAffiche.add(ofrAffiche);
                                 hasComp = true;

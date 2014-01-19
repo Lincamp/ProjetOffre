@@ -121,5 +121,4 @@ public class ComptNoyauFonctionnel {
             System.out.println("competence map:" + m_tblCompts + " (NoyauComp)");
         }
     }
-
 }

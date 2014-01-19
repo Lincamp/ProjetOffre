@@ -67,6 +67,10 @@ public class Emploi extends Offre {
                 String compNom = new String(resComp.substring(0, pos));
                 System.out.println("pppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppp" + resComp.substring(0, pos));
                 comp = ComptNoyauFonctionnel.getTblCompetences().get(resComp.substring(0, pos));
+                if(comp == null)
+                {
+                    System.out.println("ERROR: competence is null, Emploi.java");
+                }
                 compStr = resComp.substring(pos + 1);
                 System.out.println("obliggggggggggggggggggggggggggggg" + compStr);
                 if ("obligatoire".equals(compStr)) {
@@ -74,9 +78,10 @@ public class Emploi extends Offre {
                 } else {
                     compType = ComptNoyauFonctionnel.getSouh();
                 }
-                System.out.println("pppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppp" + ComptNoyauFonctionnel.getTblCompetences().size() + comp + "@" + compType);
+                System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" + ComptNoyauFonctionnel.getTblCompetences().size() + comp + "@" + compType);
 
                 this.ajouterComp(comp, compType);
+                this.printOut();
             }
 
         } else {
@@ -93,11 +98,12 @@ public class Emploi extends Offre {
         System.out.println("===================================");
         System.out.println("Print of emploi:");
         System.out.println(m_titre);
-        System.out.println(m_region);
+        System.out.println(m_region.getRegnom());
         System.out.println(m_experience);
         System.out.println(m_salairemin);
         System.out.println(m_salairemax);
         Set setComps = this.m_tblComps.keySet();
+System.out.println(":" + this.m_tblComps.size());        
         Competence setIterComps;
         Iterator itrComps = setComps.iterator();
         while (itrComps.hasNext()) {

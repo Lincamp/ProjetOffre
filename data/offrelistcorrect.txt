@@ -1,4 +1,4 @@
-hellokitty;Lorraine;2;2000;8000;Program:obligatoir-BD:obligatoir
-hellokitty;Lorraine;2;2000;8000;Program:obligatoir-BD:obligatoir
-Batman;Corse;2;40000;45000;BD:obligatoire
+hellokitty;Lorraine;2;2000;8000;Programmation:obligatoir-BI:obligatoire
+hellokitty;Lorraine;2;2000;8000;Programmation:obligatoir-BI:obligatoire
+Batman;Corse;2;40000;45000;Gestion:obligatoire
 Batman;Aquitaine;-1;-1;-1;BI:obligatoire-SI:obligatoire

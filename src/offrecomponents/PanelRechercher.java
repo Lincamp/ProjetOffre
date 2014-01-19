@@ -3,20 +3,25 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package offrecomponents;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 import java.util.Vector;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
+import javax.swing.table.DefaultTableModel;
+import projetoffre.CompType;
 import projetoffre.Competence;
+import projetoffre.Constant;
 import projetoffre.EnregCompRech;
+import projetoffre.Region;
 import projetoffre.noyaufonctionnel.ComptNoyauFonctionnel;
+import projetoffre.noyaufonctionnel.NoyauFonctionnel;
 import projetoffre.noyaufonctionnel.RegionNoyauFonctionnel;
 import view.View;
 
@@ -26,12 +31,13 @@ import view.View;
  */
 public class PanelRechercher extends javax.swing.JPanel implements View {
 //    private RegionNoyauFonctionnel m_regFonc;
+
     private ComptNoyauFonctionnel m_compFonc;
     Set<String> m_setComp;
-    ArrayList<Competence> m_lstCompRechs;
+//    ArrayList<Competence> m_lstCompRechs;
     EnregCompRech m_enregCompRech;
-       DefaultListModel listModel;
-    
+    DefaultListModel listModel;
+
     /**
      * Creates new form PanelRechercher
      */
@@ -39,35 +45,32 @@ public class PanelRechercher extends javax.swing.JPanel implements View {
         initComponents();
 //        m_regFonc = new RegionNoyauFonctionnel();
         m_compFonc = new ComptNoyauFonctionnel();
-        m_lstCompRechs = new ArrayList();
-         m_setComp = new HashSet<String>();
-         m_enregCompRech = new EnregCompRech();
-         listModel = new DefaultListModel();
-          initRegionList();
+//        m_lstCompRechs = new ArrayList();
+        m_setComp = new HashSet<String>();
+        m_enregCompRech = new EnregCompRech();
+        listModel = new DefaultListModel();
+        initRegionList();
         initCompList();
     }
-    
-       private void initRegionList() {
+
+    private void initRegionList() {
 //        Vector comboBoxItems = new Vector();
 //        Vector comboBoxItems = m_regFonc.getRegVecNom();   
-        
+
         ArrayList regionNomList = RegionNoyauFonctionnel.getRegVecNom();
         Vector comboBoxItems = new Vector();
         comboBoxItems.setSize(regionNomList.size());
-        Collections.copy(comboBoxItems, regionNomList);        
+        Collections.copy(comboBoxItems, regionNomList);
         DefaultComboBoxModel model = new DefaultComboBoxModel(comboBoxItems);
         cmbReg.setModel(model);
-       
+
     }
-    
 
     private void initCompList() {
-        Vector cmbCompItems = m_compFonc.getComptVecNom();       
+        Vector cmbCompItems = m_compFonc.getComptVecNom();
         DefaultComboBoxModel compModel = new DefaultComboBoxModel(cmbCompItems);
-        cmbComp.setModel(compModel);     
+        cmbComp.setModel(compModel);
     }
-    
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -395,12 +398,12 @@ public class PanelRechercher extends javax.swing.JPanel implements View {
 
     private void btnAjouterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAjouterActionPerformed
         // TODO add your handling code here:
-       afficherCompChercher();
+        afficherCompChercher();
     }//GEN-LAST:event_btnAjouterActionPerformed
 
     private void btnRechActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRechActionPerformed
         // TODO add your handling code here:
-
+        afficherScoreTable();
     }//GEN-LAST:event_btnRechActionPerformed
 
     private void btnSupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSupActionPerformed
@@ -409,7 +412,7 @@ public class PanelRechercher extends javax.swing.JPanel implements View {
 //       for(Competence comp:lstComps){
 //          m_enregCompRech.retirerComp(comp);        
 //       }
-        
+
     }//GEN-LAST:event_btnSupActionPerformed
 
 
@@ -460,20 +463,18 @@ public class PanelRechercher extends javax.swing.JPanel implements View {
     // End of variables declaration//GEN-END:variables
 
     private void afficherCompChercher() {
-        String nomC;        
-        nomC = cmbComp.getSelectedItem().toString();    
-        
+        String nomC;
+        nomC = cmbComp.getSelectedItem().toString();
+
         if (!m_setComp.contains(nomC)) {
             m_setComp.add(nomC);
             System.out.println("m_setComp chercher :" + m_setComp + "(PanelRechercher)");
             System.out.println("m_setComp size :" + m_setComp.size() + "(PanelRechercher)");
-           // m_lstCompRechs.add(m_compFonc.m_tblCompts.get(nomC));
-            m_enregCompRech.ajouterComp(m_compFonc.m_tblCompts.get(nomC));        
+            // m_lstCompRechs.add(m_compFonc.m_tblCompts.get(nomC));
+            m_enregCompRech.ajouterComp(m_compFonc.m_tblCompts.get(nomC));
             listModel.addElement(nomC);
-            jlstCompRech.setModel(listModel);           
-                
+            jlstCompRech.setModel(listModel);
         }
-
     }
 
     @Override
@@ -481,6 +482,56 @@ public class PanelRechercher extends javax.swing.JPanel implements View {
         //To change body of generated methods, choose Tools | Templates.
     }
 
+    private void afficherScoreTable() {
+        String regionStr = cmbReg.getSelectedItem().toString();
+        Region region = RegionNoyauFonctionnel.getTblRegions().get(regionStr);
+        NoyauFonctionnel noyauFonc = new NoyauFonctionnel();
+        
+        
+//        m_enregCompRech 
+        
+        Object[][] m_scoreContent = noyauFonc.rechercherStages(region, m_enregCompRech.getLstCompRech());          
+                
+//        nomC = cmbComp.getSelectedItem().toString();
+//
+//        if (!m_setComp.contains(nomC)) {
+//            m_setComp.add(nomC);
+//            System.out.println("m_setComp :" + m_setComp);
+//            System.out.println("m_setComp size :" + m_setComp.size());
+//
+//            Competence comp = new Competence(nomC);
+//            CompType compType = new CompType("souhaitee");
+//            if (optOblig.isSelected()) {
+//                compType.setLibType("obligatoire");
+//            }
+//
+//            m_enregComp.ajouterComp(comp, compType);
+//        }
+//        System.out.println(m_enregComp.getSize());
+//        int compsSize = m_enregComp.getSize();
+//        m_tblComps = m_enregComp.getComps();
+//
+//        Object[][] m_compContent = new Object[compsSize][2];
+//
+//        int i = 0;
+//
+//        Iterator iter = m_tblComps.keySet().iterator();
+//        while (iter.hasNext()) {
+//            Competence key = (Competence) iter.next();
+//            m_compContent[i][0] = key.getNomComp();
+//            m_compContent[i][1] = m_tblComps.get(key).getLibType();
+//            System.out.println("key,val: " + m_compContent[i][0] + "," + m_compContent[i][1]);
+//            i++;
+//        }
 
+//        for (int i = 0; i < compsSize; i++) {
+//            m_compContent[i][0] = m_tblComps.get(i).getNomComp();
+//            m_compContent[i][1] = m_lstcomps.get(i).isObligatoire();
+//        }
+        //m_lstcomps = enregComp.getComps();      
+        String[] columnNames = {Constant.m_titre, Constant.m_scoreTotal, Constant.m_adequation, Constant.m_region};
 
+        DefaultTableModel model = new DefaultTableModel(m_scoreContent, columnNames);
+        tblComp.setModel(model);
+    }
 }

@@ -22,4 +22,9 @@ public class Constant {
     public static final String m_regionList = "data/regionlist.txt";
     public static final String m_compList = "data/complist.txt";
     public static final String m_motClefList = "data/motcleflist.txt";
+    
+    public static final String m_titre = "Titre";
+    public static final String m_scoreTotal = "Score Total";
+    public static final String m_adequation = "Adequation";
+    public static final String m_region = "Region";
 }

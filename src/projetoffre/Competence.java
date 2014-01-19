@@ -69,7 +69,7 @@ public class Competence {
     public Competence(String fileStr) {
         this.m_lstmots = new ArrayList();
         int pos;
-        String compStr;
+        String motClefsStr;
         // On vérifie si le nombre de carractère de cette ligne est suppérireur à 0
         if (fileStr.length() > 0) {
             // On trouve ou se situe les ":" 
@@ -82,17 +82,20 @@ public class Competence {
                 // Si on trouve les ":" alors on récupère tous les carractères se situant avant les ":" et on les met dans la variable "m_regnom"
                 this.m_nomComp = fileStr.substring(0, pos);
                 // Tous les carractères se situant apres les ":" représentent les régions proches, ils sont mit dans la variable "compStr"
-                compStr = fileStr.substring(pos + 1);
+                motClefsStr = fileStr.substring(pos + 1);
 
-                System.out.println("=====================================");
+                System.out.println("=====================================" + ComptNoyauFonctionnel.getLstMotClefs().size());
                 // On récupère tous les carractères séparés par les ";", puis on les place dans la variable "regProche". On réitère l'opération jusqu'a la fin de la ligne
-                for (String motClefs : compStr.split(m_motclefDelim)) {
-                    for (int i = 0; i < m_comptFonc.getLstMotClefs().size(); i++) {
-                        if (motClefs == m_comptFonc.getLstMotClefs().get(i).getLibelle()) {
-                            this.m_lstmots.add(m_comptFonc.getLstMotClefs().get(i));
+                for (String motClef : motClefsStr.split(m_motclefDelim)) {
+                   
+                    for (int i = 0; i < ComptNoyauFonctionnel.getLstMotClefs().size(); i++) {
+System.out.println(motClef + "|" + ComptNoyauFonctionnel.getLstMotClefs().get(i).getLibelle() + "|" + motClef.equals(ComptNoyauFonctionnel.getLstMotClefs().get(i).getLibelle()) + " (ppppppppppppppppppcompetence.java)");                          
+                        if (motClef.equals(ComptNoyauFonctionnel.getLstMotClefs().get(i).getLibelle())) {
+                            this.m_lstmots.add(ComptNoyauFonctionnel.getLstMotClefs().get(i));  
+System.out.println(m_lstmots.size() + " (ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccompetence.java)");                            
                         }
                     }
-                    System.out.println("motclef " + m_nomComp + ":" + motClefs + " (competence.java)");
+                    System.out.println("motclef " + m_nomComp + ":" + motClef + " (ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccompetence.java)");
                 }
                 System.out.println("=====================================");
             }

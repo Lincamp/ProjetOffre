@@ -13,7 +13,6 @@ import java.util.HashMap;
 import java.util.Vector;
 import projetoffre.Constant;
 import projetoffre.Emploi;
-import projetoffre.Region;
 import projetoffre.Stage;
 
 /**
@@ -31,7 +30,6 @@ public class OffreNoyauFonctionnel {
 //    static final String m_compDelim = "|";
 //    static final String m_compTypeDelim = ":";
 //    static final String m_offreList = "data/offrelist.txt";
-
 //     static final String m_itemDelim = ";";
 //    static final String m_compDelim = "|";
 //    static final String m_compTypeDelim = ":";
@@ -55,6 +53,7 @@ public class OffreNoyauFonctionnel {
     }
 
     public static HashMap<String, ArrayList<Stage>> getTblStages() {
+        System.out.println(m_tblStages + "|" + m_tblStages + "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ONF.java");
         return m_tblStages;
     }
 
@@ -64,7 +63,7 @@ public class OffreNoyauFonctionnel {
                 String sCurrentLine;
                 m_tblEmplois.clear();
                 String[] results;
-int i = 0;
+                int i = 0;
                 while ((sCurrentLine = br.readLine()) != null) {
                     System.out.println("22222#####" + sCurrentLine + "\t#####line from offrelist.txt (NoyauOffre)");
 //                    results = sCurrentLine.split(m_itemDelim, -1);
@@ -73,8 +72,8 @@ int i = 0;
 
                     // Stage has experience -1
                     if ("-1".equals(results[2])) {
-System.out.println(i + "ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss");
-   Stage tmpStage = new Stage(sCurrentLine);
+//System.out.println(i + "ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss");
+                        Stage tmpStage = new Stage(sCurrentLine);
                         String tmpRegStr = tmpStage.getReg().getRegnom();
 
                         ArrayList<Stage> lstStage = m_tblStages.get(tmpRegStr);
@@ -87,7 +86,7 @@ System.out.println(i + "ssssssssssssssssssssssssssssssssssssssssssssssssssssssss
                         System.out.println("lstStage size+++++:" + lstStage.size() + " (NoyauOffre)");
                         System.out.println("tblStages size+++++:" + m_tblStages.size() + " (NoyauOffre)");
                     } else {
-System.out.println(i + "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee" + results[2]);
+//System.out.println(i + "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee" + results[2]);
                         Emploi tmpEmploi = new Emploi(sCurrentLine);
                         String tmpRegStr = tmpEmploi.getReg().getRegnom();
 
@@ -101,7 +100,7 @@ System.out.println(i + "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
                         System.out.println("lstEmploi size+++++:" + lstEmploi.size() + " (NoyauOffre)");
                         System.out.println("tblEmplois size+++++:" + m_tblEmplois.size() + " (NoyauOffre)");
                     }
-i++;                    
+                    i++;
                 }
 
                 System.out.println("tblEmplois size:" + m_tblEmplois.size() + " (NoyauOffre)");
@@ -113,7 +112,8 @@ i++;
                 ee.printStackTrace();
             }
 
-            System.out.println("region map:" + m_tblEmplois + " (NoyauOffre)");
+            System.out.println("region map emplois:" + m_tblEmplois + " (NoyauOffre)");
+            System.out.println("region map stages:" + m_tblStages + m_tblStages.get("Corse") + " (NoyauOffre)");
         }
     }
 }

@@ -54,7 +54,8 @@ public class NoyauFonctionnel {
         Object[][] resultat;
         Stage max;
 
-        ArrayList<Stage> lstStages = OffreNoyauFonctionnel.getTblStages().get(reg);
+        ArrayList<Stage> lstStages = OffreNoyauFonctionnel.getTblStages().get(reg.getRegnom());
+System.out.println(lstStages + "|" + lstStages + "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++NF.java");
 
         for (Stage stage : lstStages) {
             boolean hasComp = false;
@@ -64,6 +65,7 @@ public class NoyauFonctionnel {
                     if (stage.getTblComps().containsKey(comp)) {
                         OffreAffiche ofrAffiche = new OffreAffiche();
                         ofrAffiche.setTitre(stage.getTitre());
+                        System.out.println(stage.scoreCompetencesHash(lesComps));
                         ofrAffiche.setScoreTotal(stage.scoreCompetencesHash(lesComps));
                         // TODO
                         ofrAffiche.setAdquation(0);
@@ -88,7 +90,7 @@ public class NoyauFonctionnel {
 //            }
             resultat[i][0] = lesOfrAffiche.get(i).getTitre();
             resultat[i][1] = lesOfrAffiche.get(i).getScoreTotal();
-            resultat[i][2] = lesOfrAffiche.get(i).getScoreTotal();//adequation?
+            resultat[i][2] = lesOfrAffiche.get(i).getAdquation();
             resultat[i][3] = lesOfrAffiche.get(i).getRegion();
 //            lesStages.remove(i);
         }

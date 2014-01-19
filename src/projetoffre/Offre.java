@@ -85,7 +85,7 @@ public abstract class Offre {
         Competence setIterComps;
         // On initialise sommePoids à 0
         sommePoids = 0;
-
+System.out.println(scoreCompetences + "OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOffre.java");
 //        System.out.println("HashMap size: " + this.m_tblComps.size());
 //        System.out.println("Competence nombre cherche : " + lstCompsCherche.size());
         // Pour toutes les compétences cherhcés on réalise les vérifications suivantes 
@@ -136,7 +136,7 @@ public abstract class Offre {
         // le score de Competence est égale à la somme des poids calculé précédement / par le nombre de mot clef total
         scoreCompetences = sommePoids / nbMotClefTrouveTotal;
         // System.out.println("v_scoreCompetencesHash : " + scoreCompetences);
-
+System.out.println(scoreCompetences + "OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOffre.java");
         return scoreCompetences;
     }
 

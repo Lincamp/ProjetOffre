@@ -58,6 +58,7 @@ public class ComptNoyauFonctionnel {
     }
 
     private void init() {
+        creerMotClef();        
         creerTblCompetence();
     }
 
@@ -70,13 +71,14 @@ public class ComptNoyauFonctionnel {
     }
 
     private void creerMotClef() {
+//System.out.println(m_motclefInit + "mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmotcleflist.txt (NoyauComp)");        
         if (!m_motclefInit) {
             try (BufferedReader br = new BufferedReader(new FileReader(Constant.m_motClefList))) {
                 String sCurrentLine;
                 m_lstMotClefs.clear();
 //                m_tblCompts.clear();
                 while ((sCurrentLine = br.readLine()) != null) {
-                    System.out.println("#####" + sCurrentLine + "\t#####line from motcleflist.txt (NoyauComp)");
+                    System.out.println(sCurrentLine + "mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmotcleflist.txt (NoyauComp)");
                     MotClef mot = new MotClef(sCurrentLine);
                     m_lstMotClefs.add(mot);
                 }
@@ -84,7 +86,7 @@ public class ComptNoyauFonctionnel {
             } catch (IOException ee) {
                 ee.printStackTrace();
             }
-            System.out.println("motclef list:" + m_lstMotClefs + " (NoyauComp)");
+            System.out.println("motclef list:" + m_lstMotClefs + "size:" + m_lstMotClefs.size() + "mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm (NoyauComp)");
         }
     }
 

@@ -244,8 +244,6 @@ System.out.println(lstEmplois + "|" + lstEmplois + "++++++++++++++++++++++++++++
     
 }
 
-
-
 // class created for sorting and displaying
 class OffreAffiche implements Comparable<OffreAffiche> {
 
@@ -288,7 +286,7 @@ class OffreAffiche implements Comparable<OffreAffiche> {
 
     @Override
     public int compareTo(OffreAffiche other) {
-        int compare = (int) Math.ceil(other.m_scoreTotal - this.m_scoreTotal);
+        int compare = (int) (1000 * (other.m_scoreTotal - this.m_scoreTotal));
 //    if(compare == 0) {
 //        compare = other.flower - this.flower;
 //    }

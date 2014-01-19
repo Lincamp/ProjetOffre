@@ -957,10 +957,19 @@ public class PanelSaisie extends javax.swing.JPanel implements View {
             System.out.println("m_setComp :" + m_setComp);
             System.out.println("m_setComp size :" + m_setComp.size());
 
-            Competence comp = new Competence(nomC);
-            CompType compType = new CompType("souhaitee");
+//            Competence comp = new Competence(nomC);
+//            CompType compType = new CompType("souhaitee");
+            
+            Competence comp = ComptNoyauFonctionnel.getTblCompetences().get(nomC);
+            CompType compType = ComptNoyauFonctionnel.getSouh();
+                    
+//            CompType compType = new CompType("souhaitee");
+            
             if (optOblig.isSelected()) {
-                compType.setLibType("obligatoire");
+                compType = ComptNoyauFonctionnel.getOblig();
+            }
+            else if (optOblig.isSelected()) {
+                compType = ComptNoyauFonctionnel.getSouh();
             }
 
             m_enregComp.ajouterComp(comp, compType);

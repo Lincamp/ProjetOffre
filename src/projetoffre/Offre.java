@@ -42,7 +42,6 @@ public abstract class Offre {
         // On définit un nouveau titre, une nouvelle région et les compétences demandées ainisi que le type de compétence
         this.m_titre = titre;
         this.m_region = offReg;
-//        this.m_tblComps = new HashMap();
         this.m_tblComps = tblComps;
     }
 
@@ -86,40 +85,40 @@ public abstract class Offre {
         Competence setIterComps;
         // On initialise sommePoids à 0
         sommePoids = 0;
-        System.out.println(scoreCompetences + "OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOffre.java");
-        System.out.println("HashMap size: " + this.m_tblComps.size());
-        System.out.println("Competence nombre cherche : " + lstCompsCherche.size());
+//        System.out.println(scoreCompetences + "OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOffre.java");
+//        System.out.println("HashMap size: " + this.m_tblComps.size());
+//        System.out.println("Competence nombre cherche : " + lstCompsCherche.size());
         // Pour toutes les compétences cherhcés on réalise les vérifications suivantes 
         for (int p = 0; p < lstCompsCherche.size(); p++) {
             // On initialise le poidsMotClef à 0
             poidsMotClef = 0;
-            System.out.println("Competence chercher nom : " + lstCompsCherche.get(p).getNomComp());
+//            System.out.println("Competence chercher nom : " + lstCompsCherche.get(p).getNomComp());
             // On crée un iterator pour pouvoir parcourir la liste des compétences 
             Iterator itrComps = setComps.iterator();
-            System.out.println("hasNext : " + itrComps.hasNext());
+//            System.out.println("hasNext : " + itrComps.hasNext());
             // tant que l'on trouve des compétences associées à cette offre on réalise les étapes suivantes
             while (itrComps.hasNext()) {
                 //On récupère chaques compétences 
                 setIterComps = (Competence) itrComps.next();
 
-                System.out.println("Competence trouve nom : " + setIterComps.getNomComp());
-                System.out.println("Competence egale : " + (setIterComps == lstCompsCherche.get(p)));
+//                System.out.println("Competence trouve nom : " + setIterComps.getNomComp());
+//                System.out.println("Competence egale : " + (setIterComps == lstCompsCherche.get(p)));
                 // On vérifie que la compétence saisie soit la même que la compétence cherchée
                 if (setIterComps.getNomComp() == lstCompsCherche.get(p).getNomComp()) {
-                    System.out.println("fffffffffffffffffffffffffffffffffffffffffffff" + this.m_tblComps.get(lstCompsCherche.get(p)).getLibType());
+//                    System.out.println("fffffffffffffffffffffffffffffffffffffffffffff" + this.m_tblComps.get(lstCompsCherche.get(p)).getLibType());
                     // Si la compétence cherchée est une compétence obligatoire alors on multiplie par 1 tous les mots cléfs associés à cette compétence
                     if (this.m_tblComps.get(lstCompsCherche.get(p)).getLibType().equals(ComptNoyauFonctionnel.getOblig().getLibType())) {
                         poidsMotClef = setIterComps.nbMotClef() * 1;
-                        System.out.println("fffffffffffffffffffffff" + this.m_tblComps.get(lstCompsCherche.get(p)).getLibType());
-                        System.out.println("fffffffffffffffffffffff" + this.m_tblComps.get(lstCompsCherche.get(p)).getLibType());
-                        System.out.println("fffffffffffffffff" + setIterComps.nbMotClef());
-                        System.out.println("v1_poidsMotClef : " + poidsMotClef);
+//                        System.out.println("fffffffffffffffffffffff" + this.m_tblComps.get(lstCompsCherche.get(p)).getLibType());
+//                        System.out.println("fffffffffffffffffffffff" + this.m_tblComps.get(lstCompsCherche.get(p)).getLibType());
+//                        System.out.println("fffffffffffffffff" + setIterComps.nbMotClef());
+//                        System.out.println("v1_poidsMotClef : " + poidsMotClef);
                     } else {
                         // Sinon on multiplie par 0.5 tous les mots cléfs associés à cette compétence
                         poidsMotClef = setIterComps.nbMotClef() * 0.5;
-                        System.out.println("else" + this.m_tblComps.get(lstCompsCherche.get(p)).getLibType());
-                        System.out.println(setIterComps.nbMotClef());
-                        System.out.println("v0.5_poidsMotClef : " + poidsMotClef);
+//                        System.out.println("else" + this.m_tblComps.get(lstCompsCherche.get(p)).getLibType());
+//                        System.out.println(setIterComps.nbMotClef());
+//                        System.out.println("v0.5_poidsMotClef : " + poidsMotClef);
                     }
                 }
             }
@@ -127,7 +126,7 @@ public abstract class Offre {
 
             // la somme des poids des mots clef est égale à sommePoids + le poid des mots cléfs calculés précédement
             sommePoids = sommePoids + poidsMotClef;
-            System.out.println(" chaque v_sommePoids : " + sommePoids);
+//            System.out.println(" chaque v_sommePoids : " + sommePoids);
         }
 
         // le nombre de mot clef total trouvé est égale au nombre de mot clef trouvé
@@ -138,7 +137,7 @@ public abstract class Offre {
         // le score de Competence est égale à la somme des poids calculé précédement / par le nombre de mot clef total
         scoreCompetences = sommePoids / nbMotClefTrouveTotal;
         // System.out.println("v_scoreCompetencesHash : " + scoreCompetences);
-        System.out.println(nbMotClefTrouveTotal + "OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOffre.java");
+//        System.out.println(nbMotClefTrouveTotal + "OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOffre.java");
         return scoreCompetences;
     }
 

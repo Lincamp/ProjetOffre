@@ -954,8 +954,8 @@ public class PanelSaisie extends javax.swing.JPanel implements View {
 
         if (!m_setComp.contains(nomC)) {
             m_setComp.add(nomC);
-            System.out.println("m_setComp :" + m_setComp);
-            System.out.println("m_setComp size :" + m_setComp.size());
+//            System.out.println("m_setComp :" + m_setComp);
+//            System.out.println("m_setComp size :" + m_setComp.size());
 
 //            Competence comp = new Competence(nomC);
 //            CompType compType = new CompType("souhaitee");
@@ -974,7 +974,7 @@ public class PanelSaisie extends javax.swing.JPanel implements View {
 
             m_enregComp.ajouterComp(comp, compType);
         }
-        System.out.println(m_enregComp.getSize());
+//        System.out.println(m_enregComp.getSize());
         int compsSize = m_enregComp.getSize();
         m_tblComps = m_enregComp.getComps();
 
@@ -987,7 +987,7 @@ public class PanelSaisie extends javax.swing.JPanel implements View {
             Competence key = (Competence) iter.next();
             m_compContent[i][0] = key.getNomComp();
             m_compContent[i][1] = m_tblComps.get(key).getLibType();
-            System.out.println("key,val: " + m_compContent[i][0] + "," + m_compContent[i][1]);
+//            System.out.println("key,val: " + m_compContent[i][0] + "," + m_compContent[i][1]);
             i++;
         }
 

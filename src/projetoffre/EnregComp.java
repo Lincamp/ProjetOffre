@@ -70,7 +70,7 @@ public class EnregComp {
 //        return m_compContent;
 //    }
     public int getSize() {
-        System.out.println("Size of Competence Map: " + m_tblComps.size());
+//        System.out.println("Size of Competence Map: " + m_tblComps.size());
         return m_tblComps.size();
         //return m_size;
     }

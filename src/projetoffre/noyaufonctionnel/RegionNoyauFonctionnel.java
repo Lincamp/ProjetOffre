@@ -68,7 +68,7 @@ public class RegionNoyauFonctionnel {
                 m_lstRegNom.clear();
                 m_tblRegions.clear();
                 while ((sCurrentLine = br.readLine()) != null) {
-                    System.out.println("#####" + sCurrentLine + "\t#####line from regionlist.txt (NoyauReg)");
+//                    System.out.println("#####" + sCurrentLine + "\t#####line from regionlist.txt (NoyauReg)");
                     Region reg = new Region(sCurrentLine);
                     String regnom = reg.getRegnom();
 
@@ -78,8 +78,8 @@ public class RegionNoyauFonctionnel {
                     }
                     m_tblRegions.put(regnom, reg);
 
-                    System.out.println("regTbl size:" + m_tblRegions.size() + " (NoyauReg)");
-                    System.out.println("regVec size:" + m_lstRegNom.size() + " (NoyauReg)");
+//                    System.out.println("regTbl size:" + m_tblRegions.size() + " (NoyauReg)");
+//                    System.out.println("regVec size:" + m_lstRegNom.size() + " (NoyauReg)");
                 }
                 Collections.sort(m_lstRegNom);
                 m_regInit = true;

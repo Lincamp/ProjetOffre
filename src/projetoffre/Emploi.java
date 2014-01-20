@@ -50,8 +50,8 @@ public class Emploi extends Offre {
         if (results.length == 6) {
             this.m_titre = results[0].trim();
             // m_region =          
-            System.out.println(results[1] + " ## " + RegionNoyauFonctionnel.getTblRegions());
-            System.out.println(results[1] + " ## " + RegionNoyauFonctionnel.getTblRegions().get(results[1]));
+//            System.out.println(results[1] + " ## " + RegionNoyauFonctionnel.getTblRegions());
+//            System.out.println(results[1] + " ## " + RegionNoyauFonctionnel.getTblRegions().get(results[1]));
             this.m_region = RegionNoyauFonctionnel.getTblRegions().get(results[1].trim());
             this.m_experience = Integer.parseInt(results[2].trim());
             this.m_salairemin = Integer.parseInt(results[3].trim());
@@ -59,39 +59,38 @@ public class Emploi extends Offre {
             String compStr = new String();
             compStr = results[5].trim();
             resComps = compStr.split(Constant.m_compDelim, -1);
-            System.out.println("tttttttttttttttttttttttttttttttttttttttttttttttt" + compStr + "rrr" + compStr.length() + "rrr" + resComps.length);
+//            System.out.println("tttttttttttttttttttttttttttttttttttttttttttttttt" + compStr + "rrr" + compStr.length() + "rrr" + resComps.length);
 
             for (String resComp : resComps) {
-                System.out.println("rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr" + resComp);
+//                System.out.println("rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr" + resComp);
                 pos = resComp.indexOf(Constant.m_compTypeDelim);
                 String compNom = new String(resComp.substring(0, pos));
-                System.out.println("pppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppp" + resComp.substring(0, pos));
+//                System.out.println("pppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppp" + resComp.substring(0, pos));
                 comp = ComptNoyauFonctionnel.getTblCompetences().get(resComp.substring(0, pos));
-                if(comp == null)
-                {
-                    System.out.println("ERROR: competence is null, Emploi.java");
+                if (comp == null) {
+//                    System.out.println("ERROR: competence is null, Emploi.java");
                 }
                 compStr = resComp.substring(pos + 1);
-                System.out.println("obliggggggggggggggggggggggggggggg" + compStr);
+//                System.out.println("obliggggggggggggggggggggggggggggg" + compStr);
                 if ("obligatoire".equals(compStr)) {
                     compType = ComptNoyauFonctionnel.getOblig();
                 } else {
                     compType = ComptNoyauFonctionnel.getSouh();
                 }
-                System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" + ComptNoyauFonctionnel.getTblCompetences().size() + comp + "@" + compType);
+//                System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" + ComptNoyauFonctionnel.getTblCompetences().size() + comp + "@" + compType);
 
                 this.ajouterComp(comp, compType);
                 this.printOut();
             }
 
         } else {
-            System.out.println("line in " + Constant.m_offreList + " does not have 6 fields (Emploi.java)");
+//            System.out.println("line in " + Constant.m_offreList + " does not have 6 fields (Emploi.java)");
         }
 //        System.out.println("Separated values:" + results[6].indexOf("|") + "@" + results[6].substring(1 + results[6].indexOf("/")) + "(Emploi.java)");
-        for (String result : results) {
-            System.out.println(result);
-        }
-        System.out.println("");
+//        for (String result : results) {
+////            System.out.println(result);
+//        }
+//        System.out.println("");
     }
 
     public void printOut() {
@@ -103,7 +102,7 @@ public class Emploi extends Offre {
         System.out.println(m_salairemin);
         System.out.println(m_salairemax);
         Set setComps = this.m_tblComps.keySet();
-System.out.println(":" + this.m_tblComps.size());        
+        System.out.println(":" + this.m_tblComps.size());
         Competence setIterComps;
         Iterator itrComps = setComps.iterator();
         while (itrComps.hasNext()) {
@@ -196,7 +195,7 @@ System.out.println(":" + this.m_tblComps.size());
         while (iter.hasNext()) {
             Competence key = (Competence) iter.next();
             compstr += key.getNomComp() + Constant.m_compTypeDelim;
-            System.out.println("saved compstr :" + compstr);
+//            System.out.println("saved compstr :" + compstr);
 
             compstr += m_tblComps.get(key).getLibType() + Constant.m_compDelim;
         }

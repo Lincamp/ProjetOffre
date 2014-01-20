@@ -53,7 +53,7 @@ public class OffreNoyauFonctionnel {
     }
 
     public static HashMap<String, ArrayList<Stage>> getTblStages() {
-        System.out.println(m_tblStages + "|" + m_tblStages + "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ONF.java");
+//        System.out.println(m_tblStages + "|" + m_tblStages + "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ONF.java");
         return m_tblStages;
     }
 
@@ -65,7 +65,7 @@ public class OffreNoyauFonctionnel {
                 String[] results;
                 int i = 0;
                 while ((sCurrentLine = br.readLine()) != null) {
-                    System.out.println("22222#####" + sCurrentLine + "\t#####line from offrelist.txt (NoyauOffre)");
+//                    System.out.println("22222#####" + sCurrentLine + "\t#####line from offrelist.txt (NoyauOffre)");
 //                    results = sCurrentLine.split(m_itemDelim, -1);
 
                     results = sCurrentLine.split(Constant.m_itemDelim, -1);
@@ -80,11 +80,11 @@ public class OffreNoyauFonctionnel {
                         if (lstStage == null) {
                             m_tblStages.put(tmpRegStr, lstStage = new ArrayList<Stage>());
                         }
-                        System.out.println(tmpStage.toString() + "!!!!!!!!!before add emploi (NoyauOffre)");
+//                        System.out.println(tmpStage.toString() + "!!!!!!!!!before add emploi (NoyauOffre)");
                         lstStage.add(tmpStage);
                         tmpStage.printOut();
-                        System.out.println("lstStage size+++++:" + lstStage.size() + " (NoyauOffre)");
-                        System.out.println("tblStages size+++++:" + m_tblStages.size() + " (NoyauOffre)");
+//                        System.out.println("lstStage size+++++:" + lstStage.size() + " (NoyauOffre)");
+//                        System.out.println("tblStages size+++++:" + m_tblStages.size() + " (NoyauOffre)");
                     } else {
 //System.out.println(i + "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee" + results[2]);
                         Emploi tmpEmploi = new Emploi(sCurrentLine);
@@ -94,17 +94,17 @@ public class OffreNoyauFonctionnel {
                         if (lstEmploi == null) {
                             m_tblEmplois.put(tmpRegStr, lstEmploi = new ArrayList<Emploi>());
                         }
-                        System.out.println(tmpEmploi.toString() + "!!!!!!!!!before add emploi (NoyauOffre)");
+//                        System.out.println(tmpEmploi.toString() + "!!!!!!!!!before add emploi (NoyauOffre)");
                         lstEmploi.add(tmpEmploi);
                         tmpEmploi.printOut();
-                        System.out.println("lstEmploi size+++++:" + lstEmploi.size() + " (NoyauOffre)");
-                        System.out.println("tblEmplois size+++++:" + m_tblEmplois.size() + " (NoyauOffre)");
+//                        System.out.println("lstEmploi size+++++:" + lstEmploi.size() + " (NoyauOffre)");
+//                        System.out.println("tblEmplois size+++++:" + m_tblEmplois.size() + " (NoyauOffre)");
                     }
                     i++;
                 }
 
-                System.out.println("tblEmplois size:" + m_tblEmplois.size() + " (NoyauOffre)");
-                System.out.println("tblStages size:" + m_tblStages.size() + " (NoyauOffre)");
+//                System.out.println("tblEmplois size:" + m_tblEmplois.size() + " (NoyauOffre)");
+//                System.out.println("tblStages size:" + m_tblStages.size() + " (NoyauOffre)");
                 //System.out.println("regVec size:" + m_regVecNom.size() + " (NoyauOffre)");
 
                 m_offInit = true;
@@ -112,8 +112,8 @@ public class OffreNoyauFonctionnel {
                 ee.printStackTrace();
             }
 
-            System.out.println("region map emplois:" + m_tblEmplois + " (NoyauOffre)");
-            System.out.println("region map stages:" + m_tblStages + m_tblStages.get("Corse") + " (NoyauOffre)");
+//            System.out.println("region map emplois:" + m_tblEmplois + " (NoyauOffre)");
+//            System.out.println("region map stages:" + m_tblStages + m_tblStages.get("Corse") + " (NoyauOffre)");
         }
     }
 }

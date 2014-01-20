@@ -84,20 +84,20 @@ public class Competence {
                 // Tous les carractères se situant apres les ":" représentent les régions proches, ils sont mit dans la variable "compStr"
                 motClefsStr = fileStr.substring(pos + 1);
 
-                System.out.println("=====================================" + ComptNoyauFonctionnel.getLstMotClefs().size());
+//                System.out.println("=====================================" + ComptNoyauFonctionnel.getLstMotClefs().size());
                 // On récupère tous les carractères séparés par les ";", puis on les place dans la variable "regProche". On réitère l'opération jusqu'a la fin de la ligne
                 for (String motClef : motClefsStr.split(m_motclefDelim)) {
                    
                     for (int i = 0; i < ComptNoyauFonctionnel.getLstMotClefs().size(); i++) {
-System.out.println(motClef + "|" + ComptNoyauFonctionnel.getLstMotClefs().get(i).getLibelle() + "|" + motClef.equals(ComptNoyauFonctionnel.getLstMotClefs().get(i).getLibelle()) + " (ppppppppppppppppppcompetence.java)");                          
+//System.out.println(motClef + "|" + ComptNoyauFonctionnel.getLstMotClefs().get(i).getLibelle() + "|" + motClef.equals(ComptNoyauFonctionnel.getLstMotClefs().get(i).getLibelle()) + " (ppppppppppppppppppcompetence.java)");                          
                         if (motClef.equals(ComptNoyauFonctionnel.getLstMotClefs().get(i).getLibelle())) {
                             this.m_lstmots.add(ComptNoyauFonctionnel.getLstMotClefs().get(i));  
-System.out.println(m_lstmots.size() + " (ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccompetence.java)");                            
+//System.out.println(m_lstmots.size() + " (ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccompetence.java)");                            
                         }
                     }
-                    System.out.println("motclef " + m_nomComp + ":" + motClef + " (ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccompetence.java)");
+//                    System.out.println("motclef " + m_nomComp + ":" + motClef + " (ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccompetence.java)");
                 }
-                System.out.println("=====================================");
+//                System.out.println("=====================================");
             }
         } else {
         }

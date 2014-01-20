@@ -78,7 +78,7 @@ public class ComptNoyauFonctionnel {
                 m_lstMotClefs.clear();
 //                m_tblCompts.clear();
                 while ((sCurrentLine = br.readLine()) != null) {
-                    System.out.println(sCurrentLine + "mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmotcleflist.txt (NoyauComp)");
+//                    System.out.println(sCurrentLine + "mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmotcleflist.txt (NoyauComp)");
                     MotClef mot = new MotClef(sCurrentLine);
                     m_lstMotClefs.add(mot);
                 }
@@ -86,7 +86,7 @@ public class ComptNoyauFonctionnel {
             } catch (IOException ee) {
                 ee.printStackTrace();
             }
-            System.out.println("motclef list:" + m_lstMotClefs + "size:" + m_lstMotClefs.size() + "mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm (NoyauComp)");
+//            System.out.println("motclef list:" + m_lstMotClefs + "size:" + m_lstMotClefs.size() + "mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm (NoyauComp)");
         }
     }
 
@@ -97,10 +97,10 @@ public class ComptNoyauFonctionnel {
                 m_comptVecNom.clear();
                 m_tblCompts.clear();
                 while ((sCurrentLine = br.readLine()) != null) {
-                    System.out.println("#####" + sCurrentLine + "\t#####line from complist.txt (NoyauComp)");
+//                    System.out.println("#####" + sCurrentLine + "\t#####line from complist.txt (NoyauComp)");
                     Competence comp = new Competence(sCurrentLine);
                     String compnom = comp.getNomComp();
-                    System.out.println("##### comp.getNomcomp" + compnom + "\t#####line from complist.txt (NoyauComp)");
+//                    System.out.println("##### comp.getNomcomp" + compnom + "\t#####line from complist.txt (NoyauComp)");
 
                     // avoid duplicates
                     if (!m_tblCompts.containsKey(compnom)) {
@@ -108,8 +108,8 @@ public class ComptNoyauFonctionnel {
                     }
                     m_tblCompts.put(compnom, comp);
 
-                    System.out.println("compTbl size:" + m_tblCompts.size() + " (NoyauComp)");
-                    System.out.println("compVec size:" + m_comptVecNom.size() + " (NoyauComp)");
+//                    System.out.println("compTbl size:" + m_tblCompts.size() + " (NoyauComp)");
+//                    System.out.println("compVec size:" + m_comptVecNom.size() + " (NoyauComp)");
                 }
                 m_comptInit = true;
                 //DefaultComboBoxModel model = new DefaultComboBoxModel(m_comptVecNom);
@@ -118,7 +118,7 @@ public class ComptNoyauFonctionnel {
                 ee.printStackTrace();
             }
 
-            System.out.println("competence map:" + m_tblCompts + " (NoyauComp)");
+//            System.out.println("competence map:" + m_tblCompts + " (NoyauComp)");
         }
     }
 }

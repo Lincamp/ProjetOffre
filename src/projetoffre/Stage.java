@@ -49,7 +49,7 @@ public class Stage extends Offre {
     public double scoreTotal(OffreType offreType) {
         //To change body of generated methods, choose Tools | Templates.
         double scoreStage;
-       scoreStage = this.scoreCompetencesHash(offreType.getLstComps()) + this.scoreGeographique(offreType);
+        scoreStage = this.scoreCompetencesHash(offreType.getLstComps()) + this.scoreGeographique(offreType);
         return scoreStage;
     }
 
@@ -119,42 +119,42 @@ public class Stage extends Offre {
         if (results.length == 6) {
             this.m_titre = results[0].trim();
             // m_region =          
-            System.out.println(results[1] + " ## " + RegionNoyauFonctionnel.getTblRegions());
-            System.out.println(results[1] + " ## " + RegionNoyauFonctionnel.getTblRegions().get(results[1]));
+//            System.out.println(results[1] + " ## " + RegionNoyauFonctionnel.getTblRegions());
+//            System.out.println(results[1] + " ## " + RegionNoyauFonctionnel.getTblRegions().get(results[1]));
             this.m_region = RegionNoyauFonctionnel.getTblRegions().get(results[1].trim());
             String compStr = new String();
             // TODO pourquoi
             compStr = results[5].trim();
             resComps = compStr.split(Constant.m_compDelim, -1);
-            System.out.println("tttttttttttttttttttttttttttttttttttttttttttttttt" + compStr + "rrr" + compStr.length() + "rrr" + resComps.length);
+//            System.out.println("tttttttttttttttttttttttttttttttttttttttttttttttt" + compStr + "rrr" + compStr.length() + "rrr" + resComps.length);
 
             for (String resComp : resComps) {
-                System.out.println("rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr" + resComp);
+//                System.out.println("rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr" + resComp);
                 pos = resComp.indexOf(Constant.m_compTypeDelim);
                 String compNom = new String(resComp.substring(0, pos));
-                System.out.println("pppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppp" + resComp.substring(0, pos));
+//                System.out.println("pppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppp" + resComp.substring(0, pos));
                 comp = ComptNoyauFonctionnel.getTblCompetences().get(resComp.substring(0, pos));
                 compStr = resComp.substring(pos + 1);
-                System.out.println("obliggggggggggggggggggggggggggggg" + compStr);
+//                System.out.println("obliggggggggggggggggggggggggggggg" + compStr);
                 if ("obligatoire".equals(compStr)) {
                     compType = ComptNoyauFonctionnel.getOblig();
                 } else {
                     compType = ComptNoyauFonctionnel.getSouh();
                 }
-                System.out.println("pppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppp" + ComptNoyauFonctionnel.getTblCompetences().size() + comp + "@" + compType);
+//                System.out.println("pppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppp" + ComptNoyauFonctionnel.getTblCompetences().size() + comp + "@" + compType);
 
                 this.ajouterComp(comp, compType);
             }
 
 //            this.m_tblComps = new 
         } else {
-            System.out.println("line in " + Constant.m_offreList + " does not have 6 fields (Stage.java)");
+//            System.out.println("line in " + Constant.m_offreList + " does not have 6 fields (Stage.java)");
         }
 //        System.out.println("Separated values:" + results[6].indexOf("|") + "@" + results[6].substring(1 + results[6].indexOf("/")) + "(Emploi.java)");
         for (String result : results) {
-            System.out.println(result);
+//            System.out.println(result);
         }
-        System.out.println("");
+//        System.out.println("");
     }
 
     public String scoreAdequation(OffreType offretype) {
@@ -180,10 +180,9 @@ public class Stage extends Offre {
         }
 
         System.out.println(m_tblComps.size());
-         //  System.out.println(m_tblComps.containsValue(ComptNoyauFonctionnel.getOblig()));  
+        //  System.out.println(m_tblComps.containsValue(ComptNoyauFonctionnel.getOblig()));  
         //}
 
         System.out.println("===================================");
     }
-
 }

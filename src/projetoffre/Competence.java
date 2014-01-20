@@ -20,9 +20,9 @@ public class Competence {
     String m_nomComp;
     // l'arrayList contient tous les mots clefs pour une compétence
     ArrayList<MotClef> m_lstmots;
-    static final char m_compDelim = ':';
+//    static final char m_compMotClefDelim = ':';
     // les ";" permettent de séparer les régions associées entre elles
-    static final String m_motclefDelim = ";";
+//    static final String m_motclefDelim = ";";
 
     //On récupère le m_nomComp (qui contient le nom de la compétence)
     public String getNomComp() {
@@ -73,7 +73,7 @@ public class Competence {
         // On vérifie si le nombre de carractère de cette ligne est suppérireur à 0
         if (fileStr.length() > 0) {
             // On trouve ou se situe les ":" 
-            pos = fileStr.indexOf(m_compDelim);
+            pos = fileStr.indexOf(Constant.m_compMotClefDelim);
 
             // Si on ne trouve pas les ":" on récupère tous les carractères se situant avant les ":" et on les met dans la variable "m_regnom"
             if (pos == -1) {
@@ -86,7 +86,7 @@ public class Competence {
 
 //                System.out.println("=====================================" + ComptNoyauFonctionnel.getLstMotClefs().size());
                 // On récupère tous les carractères séparés par les ";", puis on les place dans la variable "regProche". On réitère l'opération jusqu'a la fin de la ligne
-                for (String motClef : motClefsStr.split(m_motclefDelim)) {
+                for (String motClef : motClefsStr.split(Constant.m_motClefDelim)) {
                    
                     for (int i = 0; i < ComptNoyauFonctionnel.getLstMotClefs().size(); i++) {
 //System.out.println(motClef + "|" + ComptNoyauFonctionnel.getLstMotClefs().get(i).getLibelle() + "|" + motClef.equals(ComptNoyauFonctionnel.getLstMotClefs().get(i).getLibelle()) + " (ppppppppppppppppppcompetence.java)");                          

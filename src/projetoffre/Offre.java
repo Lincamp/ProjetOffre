@@ -104,7 +104,7 @@ public abstract class Offre {
 //                System.out.println("Competence trouve nom : " + setIterComps.getNomComp());
 //                System.out.println("Competence egale : " + (setIterComps == lstCompsCherche.get(p)));
                 // On vérifie que la compétence saisie soit la même que la compétence cherchée
-                if (setIterComps.getNomComp() == lstCompsCherche.get(p).getNomComp()) {
+                if (setIterComps.getNomComp().equals(lstCompsCherche.get(p).getNomComp())) {
 //                    System.out.println("fffffffffffffffffffffffffffffffffffffffffffff" + this.m_tblComps.get(lstCompsCherche.get(p)).getLibType());
                     // Si la compétence cherchée est une compétence obligatoire alors on multiplie par 1 tous les mots cléfs associés à cette compétence
                     if (this.m_tblComps.get(lstCompsCherche.get(p)).getLibType().equals(ComptNoyauFonctionnel.getOblig().getLibType())) {

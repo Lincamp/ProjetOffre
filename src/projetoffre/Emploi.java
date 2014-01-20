@@ -58,9 +58,10 @@ public class Emploi extends Offre {
             this.m_salairemax = Integer.parseInt(results[4].trim());
             String compStr = new String();
             compStr = results[5].trim();
-            resComps = compStr.split(Constant.m_compDelim, -1);
-//            System.out.println("tttttttttttttttttttttttttttttttttttttttttttttttt" + compStr + "rrr" + compStr.length() + "rrr" + resComps.length);
-
+            resComps = compStr.split("\\" + Constant.m_compDelim, -1);
+            System.out.println(compStr);
+            System.out.println("Size of splited Competences: " + resComps.length);
+            
             for (String resComp : resComps) {
 //                System.out.println("rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr" + resComp);
                 pos = resComp.indexOf(Constant.m_compTypeDelim);
@@ -95,7 +96,7 @@ public class Emploi extends Offre {
 
     public void printOut() {
         System.out.println("===================================");
-        System.out.println("Print of emploi:");
+        System.out.println("Emploi: Emploi.java");
         System.out.println(m_titre);
         System.out.println(m_region.getRegnom());
         System.out.println(m_experience);

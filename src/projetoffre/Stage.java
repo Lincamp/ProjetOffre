@@ -34,6 +34,7 @@ public class Stage extends Offre {
 
 //    public Stage() {
 //    }
+    @Override
     public void ajouterComp(Competence comp, CompType compType) {
         m_tblComps.put(comp, compType);
     }
@@ -125,8 +126,9 @@ public class Stage extends Offre {
             String compStr = new String();
             // TODO pourquoi
             compStr = results[5].trim();
-            resComps = compStr.split(Constant.m_compDelim, -1);
-//            System.out.println("tttttttttttttttttttttttttttttttttttttttttttttttt" + compStr + "rrr" + compStr.length() + "rrr" + resComps.length);
+            resComps = compStr.split("\\" + Constant.m_compDelim, -1);
+            System.out.println(compStr);
+            System.out.println("Size of splited Competences: " + resComps.length);
 
             for (String resComp : resComps) {
 //                System.out.println("rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr" + resComp);
@@ -167,9 +169,9 @@ public class Stage extends Offre {
 
     public void printOut() {
         System.out.println("===================================");
-        System.out.println("Print out of stage: stage.java");
+        System.out.println("Stage: stage.java");
         System.out.println(m_titre);
-        System.out.println(m_region);
+        System.out.println(m_region.getRegnom());
         Set setComps = this.m_tblComps.keySet();
         Competence setIterComps;
         Iterator itrComps = setComps.iterator();

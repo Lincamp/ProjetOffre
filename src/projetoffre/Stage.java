@@ -127,8 +127,8 @@ public class Stage extends Offre {
             // TODO pourquoi
             compStr = results[5].trim();
             resComps = compStr.split("\\" + Constant.m_compDelim, -1);
-            System.out.println(compStr);
-            System.out.println("Size of splited Competences: " + resComps.length);
+//            System.out.println(compStr);
+//            System.out.println("Size of splited Competences: " + resComps.length);
 
             for (String resComp : resComps) {
 //                System.out.println("rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr" + resComp);
@@ -175,15 +175,12 @@ public class Stage extends Offre {
         Set setComps = this.m_tblComps.keySet();
         Competence setIterComps;
         Iterator itrComps = setComps.iterator();
+        System.out.println("Size of competences:" + this.m_tblComps.size());
         while (itrComps.hasNext()) {
             setIterComps = (Competence) itrComps.next();
             System.out.print(setIterComps.getNomComp() + ":");
             System.out.println(m_tblComps.get(setIterComps).getLibType());
         }
-
-        System.out.println(m_tblComps.size());
-        //  System.out.println(m_tblComps.containsValue(ComptNoyauFonctionnel.getOblig()));  
-        //}
 
         System.out.println("===================================");
     }

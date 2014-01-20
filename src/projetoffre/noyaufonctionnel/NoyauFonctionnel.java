@@ -165,13 +165,6 @@ public class NoyauFonctionnel {
         int afficheSize = lesOfrAffiche.size();
         resultat = new Object[afficheSize][4];
         for (int i = 0; i < afficheSize; i++) {
-//            for (int j = 0; j < lesStages.size(); j++) {
-//                max = lesStages.get(0);
-//                if ((lesStages.get(j).scoreCompetencesHash(lesComps)) < (lesStages.get(j + 1).scoreCompetencesHash(lesComps))) {
-//                    max = lesStages.get(j + 1);
-//                }
-//            }
-
             resultat[i][0] = lesOfrAffiche.get(i).getTitre();
             resultat[i][1] = lesOfrAffiche.get(i).getScoreTotal();
             resultat[i][2] = lesOfrAffiche.get(i).getAdquation();

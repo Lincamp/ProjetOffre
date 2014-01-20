@@ -1,0 +1,8 @@
+﻿Ingenieur Technique ;Aquitaine;2;3800;5000;SI:souhaitee|Programmation:obligatoire|Developpement:souhaitee
+Ingenieur Application ;Aquitaine;2;3000;4500;Programmation:obligatoire|Developpement:obligatoire
+Ingenieur Developper;Aquitaine;1;3500;4000;SI:souhaitee|Programmation:obligatoire|Developpement:obligatoire
+Consultant SI ;Limousin;1;2500;3500;SI:obligatoire|Programmation:souhaitee|BI:obligatoire
+Stagiaire IT ;Auvergne;-1;-1;-1;SI:souhaitee|Programmation:obligatoire|Developpement:souhaitee
+Stagiaire Developpeur ;Auvergne;-1;-1;-1;Programmation:obligatoire|Developpement:obligatoire
+Stagiaire BI ;Midi-Pyrenees;-1;-1;-1;Programmation:souhaitee|SI:obligatoire|BI:obligatoire
+Stagiaire SI ;Auvergne;-1;-1;-1;SI:souhaitee|Programmation:obligatoire|Developpement:obligatoire

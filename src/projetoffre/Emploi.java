@@ -59,8 +59,8 @@ public class Emploi extends Offre {
             String compStr = new String();
             compStr = results[5].trim();
             resComps = compStr.split("\\" + Constant.m_compDelim, -1);
-            System.out.println(compStr);
-            System.out.println("Size of splited Competences: " + resComps.length);
+//            System.out.println(compStr);
+//            System.out.println("Size of splited Competences: " + resComps.length);
             
             for (String resComp : resComps) {
 //                System.out.println("rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr" + resComp);
@@ -103,7 +103,7 @@ public class Emploi extends Offre {
         System.out.println(m_salairemin);
         System.out.println(m_salairemax);
         Set setComps = this.m_tblComps.keySet();
-        System.out.println(":" + this.m_tblComps.size());
+        System.out.println("Size of competences:" + this.m_tblComps.size());
         Competence setIterComps;
         Iterator itrComps = setComps.iterator();
         while (itrComps.hasNext()) {

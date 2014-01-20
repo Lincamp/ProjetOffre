@@ -87,7 +87,7 @@ public class PanelSaisie extends javax.swing.JPanel implements View {
     public void setOffreEnregistreur(EnregistreurDeOffre enregistreur) {
         this.m_offreEnreg = enregistreur;
         enregistreur.addView(this);
-  //      init();
+//        init();
         //afficherNoyauFonctionnel();
     }
 
@@ -105,7 +105,7 @@ public class PanelSaisie extends javax.swing.JPanel implements View {
 //        //            m_regionStr = cmbReg.getSelectedItem().toString();
 //        //            m_region = m_regFonc.getTblRegions().get(m_regionStr);
 //
-//        activerEnregistrer(false);
+        activerEnregistrer(false);
     }
 
     private void initRegionList() {
@@ -847,7 +847,7 @@ public class PanelSaisie extends javax.swing.JPanel implements View {
     private void btnRAZActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRAZActionPerformed
         // TODO add your handling code here:
         m_offreEnreg.remiseAZero();
-       init();
+        init();
     }//GEN-LAST:event_btnRAZActionPerformed
 
 

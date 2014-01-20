@@ -19,11 +19,11 @@ import projetoffre.noyaufonctionnel.ComptNoyauFonctionnel;
 public abstract class Offre {
 
     //Création des attributs
-    String m_titre;
-    Region m_region;
+    protected String m_titre;
+    protected Region m_region;
     //String m_region;
     // Création de HashMap (Compétence est la cléf et CompType représente la valeur)
-    HashMap<Competence, CompType> m_tblComps;
+    protected HashMap<Competence, CompType> m_tblComps;
     // Création des 2 types de compétences (obligatoire ou souhaitée)
 //    CompType ctoblig = new CompType("obligatoire");
 //    CompType ctsouh = new CompType("souhaitee");

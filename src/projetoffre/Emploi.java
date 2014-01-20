@@ -24,9 +24,9 @@ import projetoffre.noyaufonctionnel.RegionNoyauFonctionnel;
 public class Emploi extends Offre {
 
     //Création des attributs
-    int m_experience;
-    int m_salairemin;
-    int m_salairemax;
+    private int m_experience;
+    private int m_salairemin;
+    private int m_salairemax;
 
     // Création du constructeur Emploi
     public Emploi(String titre, Region region, int experience, int salairemin, int salairemax, HashMap<Competence, CompType> tblComps) {

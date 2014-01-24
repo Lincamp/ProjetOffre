@@ -23,8 +23,8 @@ import projetoffre.MotClef;
 public class ComptNoyauFonctionnel {
 
     private static Vector m_comptVecNom;
-    public static HashMap<String, Competence> m_tblCompts;
-    public static ArrayList<MotClef> m_lstMotClefs;
+    private static HashMap<String, Competence> m_tblCompts;
+    private static ArrayList<MotClef> m_lstMotClefs;
     private static boolean m_comptInit;
     private static boolean m_motclefInit;
     private static CompType m_oblig;

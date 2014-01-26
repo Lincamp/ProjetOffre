@@ -67,11 +67,11 @@ public class PanelSaisie extends javax.swing.JPanel implements View {
         m_compFonc = new ComptNoyauFonctionnel();
         m_offreFonc = new OffreNoyauFonctionnel();
         setOffreEnregistreur(new EnregistreurDeOffre());
-        
+
         initComponents();
-        
-        txtTitre.getDocument().addDocumentListener(new MonDocumentListener(this));
-        
+
+        initDocumentProperties();
+
         m_enregComp = new EnregComp();
         //m_lstcomps = new ArrayList();
 //        this.m_tblComps = new HashMap();
@@ -105,11 +105,25 @@ public class PanelSaisie extends javax.swing.JPanel implements View {
         optOblig.setSelected(false);
         optSouh.setSelected(true);
         //cmbReg.set
-        
+
 //        //            m_regionStr = cmbReg.getSelectedItem().toString();
 //        //            m_region = m_regFonc.getTblRegions().get(m_regionStr);
 //
         activerEnregistrer(false);
+    }
+
+    private void initDocumentProperties() {
+        txtTitre.getDocument().addDocumentListener(new MonDocumentListener(this));
+        txtTitre.getDocument().putProperty("source", txtTitre);
+        txtTitre.putClientProperty("id", "txtTitre");
+        
+        txtSalmin.getDocument().addDocumentListener(new MonDocumentListener(this));      
+        txtSalmin.getDocument().putProperty("source", txtSalmin); 
+        txtSalmin.putClientProperty("id", "txtSalmin");
+        
+        txtSalmax.getDocument().addDocumentListener(new MonDocumentListener(this));      
+        txtSalmax.getDocument().putProperty("source", txtSalmax); 
+        txtSalmax.putClientProperty("id", "txtSalmax");        
     }
 
     private void initRegionList() {
@@ -120,7 +134,7 @@ public class PanelSaisie extends javax.swing.JPanel implements View {
         comboBoxItems.setSize(regionNomList.size());
 //        System.out.println(regionNomList.size() + "|" + comboBoxItems.size() + " 1111111111111");
         Collections.copy(comboBoxItems, regionNomList);
-         
+
         DefaultComboBoxModel model = new DefaultComboBoxModel(comboBoxItems);
         cmbReg.setModel(model);
     }
@@ -762,7 +776,7 @@ public class PanelSaisie extends javax.swing.JPanel implements View {
             m_regionStr = cmbReg.getSelectedItem().toString();
 //            m_region = m_regFonc.getTblRegions().get(m_regionStr);
             m_region = RegionNoyauFonctionnel.getTblRegions().get(m_regionStr);
-            
+
             m_exp = Integer.parseInt(txtExp.getText());
             m_salMin = Integer.parseInt(txtSalmin.getText());
             m_salMax = Integer.parseInt(txtSalmax.getText());
@@ -963,16 +977,13 @@ public class PanelSaisie extends javax.swing.JPanel implements View {
 
 //            Competence comp = new Competence(nomC);
 //            CompType compType = new CompType("souhaitee");
-            
             Competence comp = ComptNoyauFonctionnel.getTblCompetences().get(nomC);
             CompType compType = ComptNoyauFonctionnel.getSouh();
-                    
+
 //            CompType compType = new CompType("souhaitee");
-            
             if (optOblig.isSelected()) {
                 compType = ComptNoyauFonctionnel.getOblig();
-            }
-            else if (optOblig.isSelected()) {
+            } else if (optOblig.isSelected()) {
                 compType = ComptNoyauFonctionnel.getSouh();
             }
 

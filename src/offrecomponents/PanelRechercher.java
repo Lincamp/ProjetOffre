@@ -30,7 +30,7 @@ import view.View;
 public class PanelRechercher extends javax.swing.JPanel implements View {
 //    private RegionNoyauFonctionnel m_regFonc;
 
-    private ComptNoyauFonctionnel m_compFonc;
+ //   private ComptNoyauFonctionnel m_compFonc;
     Set<String> m_setComp;
 //    ArrayList<Competence> m_lstCompRechs;
     EnregCompRech m_enregCompRech;
@@ -42,7 +42,7 @@ public class PanelRechercher extends javax.swing.JPanel implements View {
     public PanelRechercher() {
         initComponents();
 //        m_regFonc = new RegionNoyauFonctionnel();
-        m_compFonc = new ComptNoyauFonctionnel();
+ //       m_compFonc = new ComptNoyauFonctionnel();
 //        m_lstCompRechs = new ArrayList();
         m_setComp = new HashSet<>();
         m_enregCompRech = new EnregCompRech();
@@ -65,7 +65,7 @@ public class PanelRechercher extends javax.swing.JPanel implements View {
     }
 
     private void initCompList() {
-        Vector cmbCompItems = m_compFonc.getComptVecNom();
+        Vector cmbCompItems = ComptNoyauFonctionnel.getComptVecNom();
         DefaultComboBoxModel compModel = new DefaultComboBoxModel(cmbCompItems);
         cmbComp.setModel(compModel);
     }
@@ -489,7 +489,7 @@ public class PanelRechercher extends javax.swing.JPanel implements View {
 //            System.out.println("m_setComp chercher :" + m_setComp + "(PanelRechercher)");
 //            System.out.println("m_setComp size :" + m_setComp.size() + "(PanelRechercher)");
             // m_lstCompRechs.add(m_compFonc.m_tblCompts.get(nomC));
-            m_enregCompRech.ajouterComp(m_compFonc.m_tblCompts.get(nomC));
+            m_enregCompRech.ajouterComp(ComptNoyauFonctionnel.getTblCompetences().get(nomC));
             listModel.addElement(nomC);
             jlstCompRech.setModel(listModel);
         }

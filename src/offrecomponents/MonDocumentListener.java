@@ -43,22 +43,29 @@ public class MonDocumentListener implements DocumentListener {
         try {
             final Document document = e.getDocument();
             final int length = document.getLength();
-            final String textExperience = document.getText(0, length);
+//            final String textExperience = document.getText(0, length);
+            final String textTitre = document.getText(0, length);
 
-            if (textExperience.isEmpty()) {
+            System.out.println("textTitre:" + textTitre + "|length" + length);
+            if (textTitre.isEmpty()) {
                 //Texte vide => Désactiver le bouton
                 fenetre.activerEnregistrer(false);
-            } else {
+            } 
+            else {
                 try {
-                    int value = Integer.parseInt(textExperience);
-                    if (value > 0) {
-                        //Texte nombre >0   => Activer le bouton
+//                    int value = Integer.parseInt(textExperience);
+//                    if
+//                            (value > 0) {
+//                        //Texte nombre >0   => Activer le bouton
                         fenetre.activerEnregistrer(true);
-                    } else {
+//                    } 
+//                    else 
+//                    {
                         //Texte nombre <=0    => Désactiver le bouton
-                        fenetre.activerEnregistrer(false);
-                    }
-                } catch (NumberFormatException numberFormatException) {
+//                        fenetre.activerEnregistrer(false);
+//                    }
+                } 
+                catch (NumberFormatException numberFormatException) {
                     //Texte pas un nombre => Désactiver le bouton
                     fenetre.activerEnregistrer(false);
                 }

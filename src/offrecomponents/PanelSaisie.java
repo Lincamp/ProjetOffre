@@ -69,6 +69,9 @@ public class PanelSaisie extends javax.swing.JPanel implements View {
         setOffreEnregistreur(new EnregistreurDeOffre());
         
         initComponents();
+        
+        txtTitre.getDocument().addDocumentListener(new MonDocumentListener(this));
+        
         m_enregComp = new EnregComp();
         //m_lstcomps = new ArrayList();
 //        this.m_tblComps = new HashMap();
@@ -82,6 +85,7 @@ public class PanelSaisie extends javax.swing.JPanel implements View {
         initRegionList();
 
         initCompList();
+        init();
     }
 
     public void setOffreEnregistreur(EnregistreurDeOffre enregistreur) {

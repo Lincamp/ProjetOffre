@@ -47,14 +47,14 @@ public class MonDocumentListener implements DocumentListener {
             final JTextField source = (JTextField) (e.getDocument().getProperty("source"));
             final String sourceId = (String) source.getClientProperty("id");
 
-            System.out.println("sourceeeeeeeeeeeeeee  " + sourceId);
+//            System.out.println("sourceeeeeeeeeeeeeee  " + sourceId);
 
             final Document document = e.getDocument();
             final int length = document.getLength();
 //            final String textExperience = document.getText(0, length);
             final String text = document.getText(0, length);
 
-            System.out.println("textTitre:" + text + "|length" + length);
+//            System.out.println("textTitre:" + text + "|length" + length);
             if (text.isEmpty()) {
                 //Texte vide => Désactiver le bouton
                 fenetre.activerEnregistrer(false);

@@ -117,6 +117,10 @@ public class PanelSaisie extends javax.swing.JPanel implements View {
         txtTitre.getDocument().putProperty("source", txtTitre);
         txtTitre.putClientProperty("id", "txtTitre");
         
+        txtExp.getDocument().addDocumentListener(new MonDocumentListener(this));      
+        txtExp.getDocument().putProperty("source", txtExp); 
+        txtExp.putClientProperty("id", "txtExp");        
+        
         txtSalmin.getDocument().addDocumentListener(new MonDocumentListener(this));      
         txtSalmin.getDocument().putProperty("source", txtSalmin); 
         txtSalmin.putClientProperty("id", "txtSalmin");

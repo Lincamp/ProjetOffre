@@ -14,8 +14,10 @@ import java.util.Vector;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
 import javax.swing.table.DefaultTableModel;
+import projetoffre.Competence;
 import projetoffre.Constant;
 import projetoffre.EnregCompRech;
+import projetoffre.EnregistreurDeComp;
 import projetoffre.OffreType;
 import projetoffre.Region;
 import projetoffre.noyaufonctionnel.ComptNoyauFonctionnel;
@@ -35,6 +37,7 @@ public class PanelRechercher extends javax.swing.JPanel implements View {
 //    ArrayList<Competence> m_lstCompRechs;
     EnregCompRech m_enregCompRech;
     DefaultListModel listModel;
+    private EnregistreurDeComp m_enregistreurDeComp;
 
     /**
      * Creates new form PanelRechercher
@@ -49,8 +52,16 @@ public class PanelRechercher extends javax.swing.JPanel implements View {
         listModel = new DefaultListModel();
         initRegionList();
         initCompList();
+        
+        setEnregistreur(new EnregistreurDeComp());
     }
 
+    public void setEnregistreur(EnregistreurDeComp enregistreurDeComp) {
+        this.m_enregistreurDeComp = enregistreurDeComp;
+        m_enregistreurDeComp.addView(this);
+        init();
+    }
+    
     private void initRegionList() {
 //        Vector comboBoxItems = new Vector();
 //        Vector comboBoxItems = m_regFonc.getRegVecNom();   
@@ -61,7 +72,6 @@ public class PanelRechercher extends javax.swing.JPanel implements View {
         Collections.copy(comboBoxItems, regionNomList);
         DefaultComboBoxModel model = new DefaultComboBoxModel(comboBoxItems);
         cmbReg.setModel(model);
-
     }
 
     private void initCompList() {
@@ -404,7 +414,7 @@ public class PanelRechercher extends javax.swing.JPanel implements View {
 
     private void btnAjouterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAjouterActionPerformed
         // TODO add your handling code here:
-        afficherCompChercher();
+        afficherCompChercher();      
     }//GEN-LAST:event_btnAjouterActionPerformed
 
     private void btnRechActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRechActionPerformed
@@ -414,6 +424,15 @@ public class PanelRechercher extends javax.swing.JPanel implements View {
 
     private void btnSupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSupActionPerformed
         // TODO add your handling code here:
+       List<String> lstCompsStr = jlstCompRech.getSelectedValuesList();
+System.out.println(lstCompsStr.size() + "|" + lstCompsStr + "PanelRechercherrrrrrrrrrrrr.java");
+
+System.out.println(m_enregistreurDeComp.getCompetences().size() + "|" + m_enregistreurDeComp.getCompetences() + "##PanelRechercher.java");   
+       for(String compStr:lstCompsStr){
+           m_enregistreurDeComp.retirerCompetence(ComptNoyauFonctionnel.getTblCompetences().get(compStr));
+       }
+       
+System.out.println(m_enregistreurDeComp.getCompetences().size() + "|" + m_enregistreurDeComp.getCompetences() + "###PanelRechercher.java");       
 //       List<Competence> lstComps = jlstCompRech.getSelectedValuesList();
 //       for(Competence comp:lstComps){
 //          m_enregCompRech.retirerComp(comp);        
@@ -428,8 +447,6 @@ public class PanelRechercher extends javax.swing.JPanel implements View {
         } else {
             afficherScoreTotalStage();
         }
-
-
     }//GEN-LAST:event_btnRAZActionPerformed
 
 
@@ -480,6 +497,24 @@ public class PanelRechercher extends javax.swing.JPanel implements View {
     private javax.swing.JTextField txtSalmin;
     // End of variables declaration//GEN-END:variables
 
+
+    private void init() {
+//        ArrayList<Competence> comps = enregistreur.getCompetences();
+        Set<Competence> comps = m_enregistreurDeComp.getCompetences();
+System.out.println(  comps.size() + "++++++++++++++++++++++++++++++ PanelRechercher.java" + m_setComp.toArray());
+//        jlstCompRech.setListData(m_setComp.toArray());
+        jlstCompRech.setListData(m_enregistreurDeComp.getCompNoms().toArray());
+//        jlstCompRech.setListData(comps.toArray());
+        
+        // TODO
+//        btnSupprimer.setEnabled(!comps.isEmpty());
+    }
+
+    @Override
+    public void modelChanged() {
+        init(); //To change body of generated methods, choose Tools | Templates.
+    }    
+    
     private void afficherCompChercher() {
         String nomC;
         nomC = cmbComp.getSelectedItem().toString();
@@ -489,16 +524,14 @@ public class PanelRechercher extends javax.swing.JPanel implements View {
 //            System.out.println("m_setComp chercher :" + m_setComp + "(PanelRechercher)");
 //            System.out.println("m_setComp size :" + m_setComp.size() + "(PanelRechercher)");
             // m_lstCompRechs.add(m_compFonc.m_tblCompts.get(nomC));
-            m_enregCompRech.ajouterComp(ComptNoyauFonctionnel.getTblCompetences().get(nomC));
-            listModel.addElement(nomC);
-            jlstCompRech.setModel(listModel);
-        }
+           m_enregistreurDeComp.ajouterCompetence(ComptNoyauFonctionnel.getTblCompetences().get(nomC));            
+            
+//            m_enregCompRech.ajouterComp(ComptNoyauFonctionnel.getTblCompetences().get(nomC));
+//            listModel.addElement(nomC);
+//            jlstCompRech.setModel(listModel);
+        }     
     }
 
-    @Override
-    public void modelChanged() {
-        //To change body of generated methods, choose Tools | Templates.
-    }
 
     private void afficherScoreTable() {
         String regionStr = cmbReg.getSelectedItem().toString();

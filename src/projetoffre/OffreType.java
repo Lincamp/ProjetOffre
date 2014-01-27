@@ -21,7 +21,8 @@ public class OffreType {
     public Region getReg() {
         return m_reg;
     }
-public int getSalaireEspere() {
+    
+    public int getSalaireEspere() {
         return salaireEspere;
     }
 
@@ -35,8 +36,5 @@ public int getSalaireEspere() {
         this.m_reg = m_reg;
         this.m_lstComps = lstComps;
         this.salaireEspere = salaireEspere;
-    }   
-    
-    
-    
+    }
 }

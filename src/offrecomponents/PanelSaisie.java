@@ -17,8 +17,12 @@ import projetoffre.Competence;
 import projetoffre.Emploi;
 import projetoffre.EnregComp;
 import delete.FileOperation;
+import java.awt.BorderLayout;
+import java.awt.Dimension;
 import java.util.ArrayList;
 import java.util.Collections;
+import javax.swing.JComboBox;
+import javax.swing.JTextField;
 import projetoffre.EnregistreurDeOffre;
 import projetoffre.Offre;
 import projetoffre.Region;
@@ -116,13 +120,13 @@ public class PanelSaisie extends javax.swing.JPanel implements View {
         txtTitre.getDocument().addDocumentListener(new MonDocumentListener(this));
         txtTitre.getDocument().putProperty("source", txtTitre);
         txtTitre.putClientProperty("id", "txtTitre");
-        
-        txtExp.getDocument().addDocumentListener(new MonDocumentListener(this));      
-        txtExp.getDocument().putProperty("source", txtExp); 
-        txtExp.putClientProperty("id", "txtExp");        
-        
-        txtSalmin.getDocument().addDocumentListener(new MonDocumentListener(this));      
-        txtSalmin.getDocument().putProperty("source", txtSalmin); 
+
+        txtExp.getDocument().addDocumentListener(new MonDocumentListener(this));
+        txtExp.getDocument().putProperty("source", txtExp);
+        txtExp.putClientProperty("id", "txtExp");
+
+        txtSalmin.getDocument().addDocumentListener(new MonDocumentListener(this));
+        txtSalmin.getDocument().putProperty("source", txtSalmin);
         txtSalmin.putClientProperty("id", "txtSalmin");
 
         txtSalmax.getDocument().addDocumentListener(new MonDocumentListener(this));
@@ -225,13 +229,13 @@ public class PanelSaisie extends javax.swing.JPanel implements View {
         jLabel2 = new javax.swing.JLabel();
         cmbReg = new javax.swing.JComboBox();
         jPanel7 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
+        lblExp = new javax.swing.JLabel();
         txtExp = new javax.swing.JTextField();
         jPanel9 = new javax.swing.JPanel();
-        jLabel5 = new javax.swing.JLabel();
+        lblSalmin = new javax.swing.JLabel();
         txtSalmin = new javax.swing.JTextField();
         jPanel10 = new javax.swing.JPanel();
-        jLabel6 = new javax.swing.JLabel();
+        lblSalmax = new javax.swing.JLabel();
         txtSalmax = new javax.swing.JTextField();
         jPanel15 = new javax.swing.JPanel();
         jPanel16 = new javax.swing.JPanel();
@@ -522,6 +526,11 @@ public class PanelSaisie extends javax.swing.JPanel implements View {
 
         grpOffreType.add(optStage);
         optStage.setText("Stage");
+        optStage.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                optStageActionPerformed(evt);
+            }
+        });
         jPanel2.add(optStage);
 
         jPanel1.add(jPanel2);
@@ -558,8 +567,8 @@ public class PanelSaisie extends javax.swing.JPanel implements View {
 
         jPanel7.setLayout(new java.awt.GridLayout(1, 0));
 
-        jLabel3.setText("Expérience :");
-        jPanel7.add(jLabel3);
+        lblExp.setText("Expérience :");
+        jPanel7.add(lblExp);
 
         txtExp.setText("0");
         txtExp.addActionListener(new java.awt.event.ActionListener() {
@@ -573,8 +582,8 @@ public class PanelSaisie extends javax.swing.JPanel implements View {
 
         jPanel9.setLayout(new java.awt.GridLayout(1, 0));
 
-        jLabel5.setText("Salaire Min :");
-        jPanel9.add(jLabel5);
+        lblSalmin.setText("Salaire Min :");
+        jPanel9.add(lblSalmin);
 
         txtSalmin.setText("0");
         txtSalmin.addActionListener(new java.awt.event.ActionListener() {
@@ -588,8 +597,8 @@ public class PanelSaisie extends javax.swing.JPanel implements View {
 
         jPanel10.setLayout(new java.awt.GridLayout(1, 0));
 
-        jLabel6.setText("Salaire Max :");
-        jPanel10.add(jLabel6);
+        lblSalmax.setText("Salaire Max :");
+        jPanel10.add(lblSalmax);
 
         txtSalmax.setText("0");
         jPanel10.add(txtSalmax);
@@ -764,7 +773,10 @@ public class PanelSaisie extends javax.swing.JPanel implements View {
     }// </editor-fold>//GEN-END:initComponents
 
     private void optEmploiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optEmploiActionPerformed
-        // TODO add your handling code here:     
+        // TODO add your handling code here:    
+        txtExp.setEnabled(true);
+        txtSalmax.setEnabled(true);
+        txtSalmin.setEnabled(true);
     }//GEN-LAST:event_optEmploiActionPerformed
 
     private void optSouhActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optSouhActionPerformed
@@ -822,6 +834,8 @@ public class PanelSaisie extends javax.swing.JPanel implements View {
 
     private void txtTitreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTitreActionPerformed
         // TODO add your handling code here:       
+
+
     }//GEN-LAST:event_txtTitreActionPerformed
 
     private void optEmploi1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optEmploi1ActionPerformed
@@ -875,6 +889,13 @@ public class PanelSaisie extends javax.swing.JPanel implements View {
         init();
     }//GEN-LAST:event_btnRAZActionPerformed
 
+    private void optStageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optStageActionPerformed
+        // TODO add your handling code here:
+        txtExp.setEnabled(false);
+        txtSalmax.setEnabled(false);
+        txtSalmin.setEnabled(false);
+    }//GEN-LAST:event_optStageActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAjouter;
@@ -900,9 +921,6 @@ public class PanelSaisie extends javax.swing.JPanel implements View {
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
@@ -953,6 +971,9 @@ public class PanelSaisie extends javax.swing.JPanel implements View {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTable jTable1;
+    private javax.swing.JLabel lblExp;
+    private javax.swing.JLabel lblSalmax;
+    private javax.swing.JLabel lblSalmin;
     private javax.swing.JRadioButton optEmploi;
     private javax.swing.JRadioButton optEmploi1;
     private javax.swing.JRadioButton optOblig;
@@ -1022,8 +1043,8 @@ public class PanelSaisie extends javax.swing.JPanel implements View {
         //Object[][] data = enregComp.getCompContent();
         DefaultTableModel model = new DefaultTableModel(m_compContent, columnNames);
         tblComp.setModel(model);
-        }
-         
+    }
+
     public void activerEnregistrer(boolean b) {
         btnEnreg.setEnabled(b);
         m_enregistrerPossible = b;

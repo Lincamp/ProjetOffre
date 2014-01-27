@@ -124,23 +124,27 @@ public class PanelSaisie extends javax.swing.JPanel implements View {
         txtSalmin.getDocument().addDocumentListener(new MonDocumentListener(this));      
         txtSalmin.getDocument().putProperty("source", txtSalmin); 
         txtSalmin.putClientProperty("id", "txtSalmin");
-        
-        txtSalmax.getDocument().addDocumentListener(new MonDocumentListener(this));      
-        txtSalmax.getDocument().putProperty("source", txtSalmax); 
-        txtSalmax.putClientProperty("id", "txtSalmax");        
+
+        txtSalmax.getDocument().addDocumentListener(new MonDocumentListener(this));
+        txtSalmax.getDocument().putProperty("source", txtSalmax);
+        txtSalmax.putClientProperty("id", "txtSalmax");
     }
 
     private void initRegionList() {
 //        Vector comboBoxItems = new Vector();
 //        Vector comboBoxItems = m_regFonc.getRegVecNom();
-        ArrayList regionNomList = RegionNoyauFonctionnel.getRegVecNom();
-        Vector comboBoxItems = new Vector();
-        comboBoxItems.setSize(regionNomList.size());
-//        System.out.println(regionNomList.size() + "|" + comboBoxItems.size() + " 1111111111111");
-        Collections.copy(comboBoxItems, regionNomList);
-
-        DefaultComboBoxModel model = new DefaultComboBoxModel(comboBoxItems);
-        cmbReg.setModel(model);
+        ArrayList<String> regionNomList = RegionNoyauFonctionnel.getRegVecNom();
+        //Vector comboBoxItems = new Vector();
+        //comboBoxItems.setSize(regionNomList.size());
+        // System.out.println(regionNomList.size() + "|" + comboBoxItems.size() + " 1111111111111");
+        // Collections.copy(comboBoxItems, regionNomList);
+        //DefaultComboBoxModel model = new DefaultComboBoxModel(comboBoxItems);       
+        // cmbReg.setModel(model);
+        cmbReg.addItem("--select Region--");  //if selected, set to null
+        for (String lst : regionNomList) {
+            cmbReg.addItem(lst);
+        }
+        cmbReg.setSelectedIndex(0);
     }
 
     private void initCompList() {
@@ -543,7 +547,6 @@ public class PanelSaisie extends javax.swing.JPanel implements View {
         jLabel2.setText("Region :");
         jPanel6.add(jLabel2);
 
-        cmbReg.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         cmbReg.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmbRegActionPerformed(evt);

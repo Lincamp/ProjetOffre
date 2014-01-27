@@ -5,6 +5,7 @@
 package projetoffre;
 
 import java.util.ArrayList;
+import java.util.Set;
 
 /**
  *
@@ -14,7 +15,7 @@ import java.util.ArrayList;
 // Création de la classe OffreType
 public class OffreType {
     Region m_reg;
-    ArrayList<Competence> m_lstComps;
+    Set<Competence> m_lstComps;
     int salaireEspere;
 
     // Création des méthodes get (pour récupérer la région saisie, le salaire espéré saisie ainsi que les compétences saisies)
@@ -26,12 +27,12 @@ public class OffreType {
         return salaireEspere;
     }
 
-    public ArrayList<Competence> getLstComps() {
+    public Set<Competence> getLstComps() {
         return m_lstComps;
     }
 
     // Création du constructeur OffreType
-    public OffreType(Region m_reg,  int salaireEspere, ArrayList<Competence> lstComps) {
+    public OffreType(Region m_reg,  int salaireEspere, Set<Competence> lstComps) {
         //On définit une nouvelle région, une nouvelle liste de compétence et un nouveau salaire espéré 
         this.m_reg = m_reg;
         this.m_lstComps = lstComps;

@@ -75,7 +75,7 @@ public abstract class Offre {
 //        this.m_tblComps = new HashMap();
 //    }
     // Création de la méthodde scroreCompetence
-    public double scoreCompetencesHash(ArrayList<Competence> lstCompsCherche) {
+    public double scoreCompetencesHash(Set<Competence> lstCompsCherche) {
         // On initialise scoreCompetences à 0
         double scoreCompetences = 0;
         double poidsMotClef;
@@ -89,7 +89,8 @@ public abstract class Offre {
 //        System.out.println("HashMap size: " + this.m_tblComps.size());
 //        System.out.println("Competence nombre cherche : " + lstCompsCherche.size());
         // Pour toutes les compétences cherhcés on réalise les vérifications suivantes 
-        for (int p = 0; p < lstCompsCherche.size(); p++) {
+       // for (int p = 0; p < lstCompsCherche.size(); p++) {
+             for (Competence comp:lstCompsCherche) {
             // On initialise le poidsMotClef à 0
             poidsMotClef = 0;
 //            System.out.println("Competence chercher nom : " + lstCompsCherche.get(p).getNomComp());
@@ -104,10 +105,12 @@ public abstract class Offre {
 //                System.out.println("Competence trouve nom : " + setIterComps.getNomComp());
 //                System.out.println("Competence egale : " + (setIterComps == lstCompsCherche.get(p)));
                 // On vérifie que la compétence saisie soit la même que la compétence cherchée
-                if (setIterComps.getNomComp().equals(lstCompsCherche.get(p).getNomComp())) {
+               // if (setIterComps.getNomComp().equals(lstCompsCherche.get(p).getNomComp())) {
+                if (this.m_tblComps.containsKey(comp)) {
 //                    System.out.println("fffffffffffffffffffffffffffffffffffffffffffff" + this.m_tblComps.get(lstCompsCherche.get(p)).getLibType());
                     // Si la compétence cherchée est une compétence obligatoire alors on multiplie par 1 tous les mots cléfs associés à cette compétence
-                    if (this.m_tblComps.get(lstCompsCherche.get(p)).getLibType().equals(ComptNoyauFonctionnel.getOblig().getLibType())) {
+                   // if (this.m_tblComps.get(lstCompsCherche.get(p)).getLibType().equals(ComptNoyauFonctionnel.getOblig().getLibType())) {
+                        if (this.m_tblComps.get(comp).getLibType().equals(ComptNoyauFonctionnel.getOblig().getLibType())) {
                         poidsMotClef = setIterComps.nbMotClef() * 1;
 //                        System.out.println("fffffffffffffffffffffff" + this.m_tblComps.get(lstCompsCherche.get(p)).getLibType());
 //                        System.out.println("fffffffffffffffffffffff" + this.m_tblComps.get(lstCompsCherche.get(p)).getLibType());

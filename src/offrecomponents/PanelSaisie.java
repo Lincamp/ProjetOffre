@@ -691,8 +691,8 @@ public class PanelSaisie extends javax.swing.JPanel implements View {
                 .addContainerGap(66, Short.MAX_VALUE)
                 .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel7)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 420, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(25, 25, 25))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 401, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(44, 44, 44))
         );
         jPanel17Layout.setVerticalGroup(
             jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1022,8 +1022,8 @@ public class PanelSaisie extends javax.swing.JPanel implements View {
         //Object[][] data = enregComp.getCompContent();
         DefaultTableModel model = new DefaultTableModel(m_compContent, columnNames);
         tblComp.setModel(model);
-    }
-
+        }
+         
     public void activerEnregistrer(boolean b) {
         btnEnreg.setEnabled(b);
         m_enregistrerPossible = b;

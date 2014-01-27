@@ -35,7 +35,7 @@ public class PanelRechercher extends javax.swing.JPanel implements View {
  //   private ComptNoyauFonctionnel m_compFonc;
     Set<String> m_setComp;
 //    ArrayList<Competence> m_lstCompRechs;
-    EnregCompRech m_enregCompRech;
+  //  EnregCompRech m_enregCompRech;
     DefaultListModel listModel;
     private EnregistreurDeComp m_enregistreurDeComp;
 
@@ -48,7 +48,7 @@ public class PanelRechercher extends javax.swing.JPanel implements View {
  //       m_compFonc = new ComptNoyauFonctionnel();
 //        m_lstCompRechs = new ArrayList();
         m_setComp = new HashSet<>();
-        m_enregCompRech = new EnregCompRech();
+       // m_enregCompRech = new EnregCompRech();
         listModel = new DefaultListModel();
         initRegionList();
         initCompList();
@@ -541,9 +541,9 @@ System.out.println(  comps.size() + "++++++++++++++++++++++++++++++ PanelRecherc
 //        m_enregCompRech 
         Object[][] m_scoreContent;
         if (optEmploi.isSelected()) {
-            m_scoreContent = noyauFonc.rechercherEmplois(region, m_enregCompRech.getLstCompRech());
+            m_scoreContent = noyauFonc.rechercherEmplois(region, m_enregistreurDeComp.getCompetences());
         } else {
-            m_scoreContent = noyauFonc.rechercherStages(region, m_enregCompRech.getLstCompRech());
+            m_scoreContent = noyauFonc.rechercherStages(region, m_enregistreurDeComp.getCompetences());
         }
 
         String[] columnNames = {Constant.m_titre, Constant.m_scoreTotal, Constant.m_adequation, Constant.m_region};
@@ -558,7 +558,7 @@ System.out.println(  comps.size() + "++++++++++++++++++++++++++++++ PanelRecherc
         Region region = RegionNoyauFonctionnel.getTblRegions().get(regionStr);
         NoyauFonctionnel noyauFonc = new NoyauFonctionnel();
 
-        OffreType offretype = new OffreType(region, salaire, m_enregCompRech.getLstCompRech());
+        OffreType offretype = new OffreType(region, salaire, m_enregistreurDeComp.getCompetences());
 //        m_enregCompRech 
 
         Object[][] m_scoreContent = noyauFonc.recheStagesOffreType(offretype);
@@ -580,7 +580,7 @@ System.out.println(  comps.size() + "++++++++++++++++++++++++++++++ PanelRecherc
         Region region = RegionNoyauFonctionnel.getTblRegions().get(regionStr);
         NoyauFonctionnel noyauFonc = new NoyauFonctionnel();
 
-        OffreType offretype = new OffreType(region, salaire, m_enregCompRech.getLstCompRech());
+        OffreType offretype = new OffreType(region, salaire, m_enregistreurDeComp.getCompetences());
 
         Object[][] m_scoreContent = noyauFonc.recheEmploisOffreType(offretype);
 

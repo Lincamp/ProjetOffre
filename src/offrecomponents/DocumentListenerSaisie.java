@@ -16,13 +16,13 @@ import javax.swing.text.Document;
  *
  * @author navarre
  */
-public class MonDocumentListener implements DocumentListener {
+public class DocumentListenerSaisie implements DocumentListener {
 
     private PanelSaisie fenetre;
     private static int m_minSal = 0;
     private static int m_maxSal = 0;
 
-    public MonDocumentListener(PanelSaisie fenetre) {
+    public DocumentListenerSaisie(PanelSaisie fenetre) {
         this.fenetre = fenetre;
     }
 
@@ -89,7 +89,7 @@ public class MonDocumentListener implements DocumentListener {
                 }
             }
         } catch (BadLocationException ex) {
-            Logger.getLogger(MonDocumentListener.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DocumentListenerSaisie.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 }

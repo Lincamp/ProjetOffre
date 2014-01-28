@@ -425,9 +425,9 @@ public class PanelRechercher extends javax.swing.JPanel implements View {
     private void btnSupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSupActionPerformed
         // TODO add your handling code here:
        List<String> lstCompsStr = jlstCompRech.getSelectedValuesList();
-System.out.println(lstCompsStr.size() + "|" + lstCompsStr + "PanelRechercherrrrrrrrrrrrr.java");
+//System.out.println(lstCompsStr.size() + "|" + lstCompsStr + "PanelRechercherrrrrrrrrrrrr.java");
 
-System.out.println(m_enregistreurDeComp.getCompetences().size() + "|" + m_enregistreurDeComp.getCompetences() + "##PanelRechercher.java");   
+//System.out.println(m_enregistreurDeComp.getCompetences().size() + "|" + m_enregistreurDeComp.getCompetences() + "##PanelRechercher.java");   
        for(String compStr:lstCompsStr){
            m_enregistreurDeComp.retirerCompetence(ComptNoyauFonctionnel.getTblCompetences().get(compStr));
        }
@@ -501,7 +501,8 @@ System.out.println(m_enregistreurDeComp.getCompetences().size() + "|" + m_enregi
     private void init() {
 //        ArrayList<Competence> comps = enregistreur.getCompetences();
         Set<Competence> comps = m_enregistreurDeComp.getCompetences();
-System.out.println(  comps.size() + "++++++++++++++++++++++++++++++ PanelRechercher.java" + m_setComp.toArray());
+//System.out.println(  comps.size() + "++++++++++++++++++++++++++++++ PanelRechercher.java" + m_setComp.toArray());
+        
 //        jlstCompRech.setListData(m_setComp.toArray());
         jlstCompRech.setListData(m_enregistreurDeComp.getCompNoms().toArray());
 //        jlstCompRech.setListData(comps.toArray());
@@ -589,5 +590,4 @@ System.out.println(  comps.size() + "++++++++++++++++++++++++++++++ PanelRecherc
         DefaultTableModel model = new DefaultTableModel(m_scoreContent, columnNames);
         tblComp.setModel(model);
     }
-
 }

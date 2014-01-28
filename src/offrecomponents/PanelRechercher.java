@@ -16,7 +16,7 @@ import javax.swing.DefaultListModel;
 import javax.swing.table.DefaultTableModel;
 import projetoffre.Competence;
 import projetoffre.Constant;
-import projetoffre.EnregCompRech;
+//import projetoffre.EnregCompRech;
 import projetoffre.EnregistreurDeComp;
 import projetoffre.OffreType;
 import projetoffre.Region;
@@ -39,6 +39,7 @@ public class PanelRechercher extends javax.swing.JPanel implements View {
     DefaultListModel listModel;
     private EnregistreurDeComp m_enregistreurDeComp;
 
+    Object[][] m_scoreContent;
     /**
      * Creates new form PanelRechercher
      */
@@ -438,7 +439,7 @@ public class PanelRechercher extends javax.swing.JPanel implements View {
            m_enregistreurDeComp.retirerCompetence(ComptNoyauFonctionnel.getTblCompetences().get(compStr));
        }
        
-System.out.println(m_enregistreurDeComp.getCompetences().size() + "|" + m_enregistreurDeComp.getCompetences() + "###PanelRechercher.java");       
+//System.out.println(m_enregistreurDeComp.getCompetences().size() + "|" + m_enregistreurDeComp.getCompetences() + "###PanelRechercher.java");       
 //       List<Competence> lstComps = jlstCompRech.getSelectedValuesList();
 //       for(Competence comp:lstComps){
 //          m_enregCompRech.retirerComp(comp);        
@@ -448,6 +449,11 @@ System.out.println(m_enregistreurDeComp.getCompetences().size() + "|" + m_enregi
 
     private void btnRAZActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRAZActionPerformed
         // TODO add your handling code here:
+        txtSalesp.setText("");
+        m_enregistreurDeComp.remiseAZero();
+        init();
+        
+        // TODO
         if (optEmploi.isSelected()) {
             afficherScoreTotalEmploi();
         } else {
@@ -531,7 +537,7 @@ System.out.println(m_enregistreurDeComp.getCompetences().size() + "|" + m_enregi
         String nomC;
         nomC = cmbComp.getSelectedItem().toString();
 
-        if (!m_setComp.contains(nomC)) {
+//        if (!m_setComp.contains(nomC)) {
             m_setComp.add(nomC);
 //            System.out.println("m_setComp chercher :" + m_setComp + "(PanelRechercher)");
 //            System.out.println("m_setComp size :" + m_setComp.size() + "(PanelRechercher)");
@@ -541,7 +547,7 @@ System.out.println(m_enregistreurDeComp.getCompetences().size() + "|" + m_enregi
 //            m_enregCompRech.ajouterComp(ComptNoyauFonctionnel.getTblCompetences().get(nomC));
 //            listModel.addElement(nomC);
 //            jlstCompRech.setModel(listModel);
-        }     
+//        }     
     }
 
 
@@ -550,8 +556,7 @@ System.out.println(m_enregistreurDeComp.getCompetences().size() + "|" + m_enregi
         Region region = RegionNoyauFonctionnel.getTblRegions().get(regionStr);
         NoyauFonctionnel noyauFonc = new NoyauFonctionnel();
 
-//        m_enregCompRech 
-        Object[][] m_scoreContent;
+//        Object[][] m_scoreContent;
         if (optEmploi.isSelected()) {
             m_scoreContent = noyauFonc.rechercherEmplois(region, m_enregistreurDeComp.getCompetences());
         } else {
@@ -572,8 +577,8 @@ System.out.println(m_enregistreurDeComp.getCompetences().size() + "|" + m_enregi
 
         OffreType offretype = new OffreType(region, salaire, m_enregistreurDeComp.getCompetences());
 //        m_enregCompRech 
-
-        Object[][] m_scoreContent = noyauFonc.recheStagesOffreType(offretype);
+//Object[][] 
+        m_scoreContent = noyauFonc.recheStagesOffreType(offretype);
 
         String[] columnNames = {Constant.m_titre, Constant.m_scoreTotal, Constant.m_adequation, Constant.m_region};
 
@@ -593,8 +598,8 @@ System.out.println(m_enregistreurDeComp.getCompetences().size() + "|" + m_enregi
         NoyauFonctionnel noyauFonc = new NoyauFonctionnel();
 
         OffreType offretype = new OffreType(region, salaire, m_enregistreurDeComp.getCompetences());
-
-        Object[][] m_scoreContent = noyauFonc.recheEmploisOffreType(offretype);
+//Object[][] 
+        m_scoreContent = noyauFonc.recheEmploisOffreType(offretype);
 
         String[] columnNames = {Constant.m_titre, Constant.m_scoreTotal, Constant.m_adequation, Constant.m_region};
 

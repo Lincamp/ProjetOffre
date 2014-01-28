@@ -35,7 +35,7 @@ public class PanelRechercher extends javax.swing.JPanel implements View {
  //   private ComptNoyauFonctionnel m_compFonc;
     Set<String> m_setComp;
 //    ArrayList<Competence> m_lstCompRechs;
-    EnregCompRech m_enregCompRech;
+  //  EnregCompRech m_enregCompRech;
     DefaultListModel listModel;
     private EnregistreurDeComp m_enregistreurDeComp;
 
@@ -48,7 +48,7 @@ public class PanelRechercher extends javax.swing.JPanel implements View {
  //       m_compFonc = new ComptNoyauFonctionnel();
 //        m_lstCompRechs = new ArrayList();
         m_setComp = new HashSet<>();
-        m_enregCompRech = new EnregCompRech();
+       // m_enregCompRech = new EnregCompRech();
         listModel = new DefaultListModel();
         initRegionList();
         initCompList();
@@ -104,7 +104,7 @@ public class PanelRechercher extends javax.swing.JPanel implements View {
         jCheckBox1 = new javax.swing.JCheckBox();
         jPanel9 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
-        txtSalmin = new javax.swing.JTextField();
+        txtSalesp = new javax.swing.JTextField();
         jPanel10 = new javax.swing.JPanel();
         jPanel15 = new javax.swing.JPanel();
         jPanel16 = new javax.swing.JPanel();
@@ -149,6 +149,11 @@ public class PanelRechercher extends javax.swing.JPanel implements View {
 
         btngrp.add(optStage);
         optStage.setText("Stage");
+        optStage.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                optStageActionPerformed(evt);
+            }
+        });
         jPanel2.add(optStage);
 
         jPanel1.add(jPanel2);
@@ -190,12 +195,12 @@ public class PanelRechercher extends javax.swing.JPanel implements View {
         jLabel5.setText("Salaire espéré :");
         jPanel9.add(jLabel5);
 
-        txtSalmin.addActionListener(new java.awt.event.ActionListener() {
+        txtSalesp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtSalminActionPerformed(evt);
+                txtSalespActionPerformed(evt);
             }
         });
-        jPanel9.add(txtSalmin);
+        jPanel9.add(txtSalesp);
 
         jPanel4.add(jPanel9);
 
@@ -398,15 +403,16 @@ public class PanelRechercher extends javax.swing.JPanel implements View {
 
     private void optEmploiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optEmploiActionPerformed
         // TODO add your handling code here:
+        txtSalesp.setEnabled(true);
     }//GEN-LAST:event_optEmploiActionPerformed
 
     private void cmbRegActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbRegActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cmbRegActionPerformed
 
-    private void txtSalminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSalminActionPerformed
+    private void txtSalespActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSalespActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtSalminActionPerformed
+    }//GEN-LAST:event_txtSalespActionPerformed
 
     private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
         // TODO add your handling code here:
@@ -448,6 +454,11 @@ System.out.println(m_enregistreurDeComp.getCompetences().size() + "|" + m_enregi
             afficherScoreTotalStage();
         }
     }//GEN-LAST:event_btnRAZActionPerformed
+
+    private void optStageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optStageActionPerformed
+        // TODO add your handling code here:
+        txtSalesp.setEnabled(false);
+    }//GEN-LAST:event_optStageActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -494,7 +505,7 @@ System.out.println(m_enregistreurDeComp.getCompetences().size() + "|" + m_enregi
     private javax.swing.JRadioButton optEmploi;
     private javax.swing.JRadioButton optStage;
     private javax.swing.JTable tblComp;
-    private javax.swing.JTextField txtSalmin;
+    private javax.swing.JTextField txtSalesp;
     // End of variables declaration//GEN-END:variables
 
 
@@ -542,9 +553,9 @@ System.out.println(m_enregistreurDeComp.getCompetences().size() + "|" + m_enregi
 //        m_enregCompRech 
         Object[][] m_scoreContent;
         if (optEmploi.isSelected()) {
-            m_scoreContent = noyauFonc.rechercherEmplois(region, m_enregCompRech.getLstCompRech());
+            m_scoreContent = noyauFonc.rechercherEmplois(region, m_enregistreurDeComp.getCompetences());
         } else {
-            m_scoreContent = noyauFonc.rechercherStages(region, m_enregCompRech.getLstCompRech());
+            m_scoreContent = noyauFonc.rechercherStages(region, m_enregistreurDeComp.getCompetences());
         }
 
         String[] columnNames = {Constant.m_titre, Constant.m_scoreTotal, Constant.m_adequation, Constant.m_region};
@@ -559,7 +570,7 @@ System.out.println(m_enregistreurDeComp.getCompetences().size() + "|" + m_enregi
         Region region = RegionNoyauFonctionnel.getTblRegions().get(regionStr);
         NoyauFonctionnel noyauFonc = new NoyauFonctionnel();
 
-        OffreType offretype = new OffreType(region, salaire, m_enregCompRech.getLstCompRech());
+        OffreType offretype = new OffreType(region, salaire, m_enregistreurDeComp.getCompetences());
 //        m_enregCompRech 
 
         Object[][] m_scoreContent = noyauFonc.recheStagesOffreType(offretype);
@@ -574,14 +585,14 @@ System.out.println(m_enregistreurDeComp.getCompetences().size() + "|" + m_enregi
         String regionStr = cmbReg.getSelectedItem().toString();
         
         int salaire = 0;
-        if (!"".equals(txtSalmin.getText())) {
-            salaire = Integer.parseInt(txtSalmin.getText());
+        if (!"".equals(txtSalesp.getText())) {
+            salaire = Integer.parseInt(txtSalesp.getText());
         }
 
         Region region = RegionNoyauFonctionnel.getTblRegions().get(regionStr);
         NoyauFonctionnel noyauFonc = new NoyauFonctionnel();
 
-        OffreType offretype = new OffreType(region, salaire, m_enregCompRech.getLstCompRech());
+        OffreType offretype = new OffreType(region, salaire, m_enregistreurDeComp.getCompetences());
 
         Object[][] m_scoreContent = noyauFonc.recheEmploisOffreType(offretype);
 

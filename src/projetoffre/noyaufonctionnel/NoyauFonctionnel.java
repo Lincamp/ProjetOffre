@@ -44,7 +44,7 @@ public class NoyauFonctionnel {
 //    this.m_lstStages.add(stageCree);
 //    return stageCree;
 //}
-    public Object[][] rechercherStages(Region reg, ArrayList<Competence> lesComps) {
+    public Object[][] rechercherStages(Region reg, Set<Competence> lesComps) {
         ArrayList<OffreAffiche> lesOfrAffiche = new ArrayList();
         Object[][] resultat;
 
@@ -96,7 +96,7 @@ public class NoyauFonctionnel {
     public Object[][] recheStagesOffreType(OffreType ot) {
 //        ArrayList<Stage> lesStages = new ArrayList();
         ArrayList<OffreAffiche> lesOfrAffiche = new ArrayList();
-        ArrayList<Competence> lesComps = ot.getLstComps();
+        Set<Competence> lesComps = ot.getLstComps();
         Object[][] resultat;
 
         ArrayList<Stage> lstStages = OffreNoyauFonctionnel.getTblStages().get(ot.getReg().getRegnom());
@@ -174,7 +174,7 @@ public class NoyauFonctionnel {
         return resultat;
     }
 
-    public Object[][] rechercherEmplois(Region reg, ArrayList<Competence> lesComps) {
+    public Object[][] rechercherEmplois(Region reg, Set<Competence> lesComps) {
         ArrayList<OffreAffiche> lesOfrAffiche = new ArrayList();
         Object[][] resultat;
 
@@ -229,7 +229,7 @@ public class NoyauFonctionnel {
     public Object[][] recheEmploisOffreType(OffreType ot) {
 //        ArrayList<Emploi> lesEmplois = new ArrayList();
         ArrayList<OffreAffiche> lesOfrAffiche = new ArrayList();
-        ArrayList<Competence> lesComps = ot.getLstComps();
+        Set<Competence> lesComps = ot.getLstComps();
         Object[][] resultat;
 
         ArrayList<Emploi> lstEmplois = OffreNoyauFonctionnel.getTblEmplois().get(ot.getReg().getRegnom());

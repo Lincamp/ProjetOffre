@@ -24,14 +24,13 @@ public abstract class Offre {
     //String m_region;
     // Création de HashMap (Compétence est la cléf et CompType représente la valeur)
     protected HashMap<Competence, CompType> m_tblComps;
-    // Création des 2 types de compétences (obligatoire ou souhaitée)
-//    CompType ctoblig = new CompType("obligatoire");
-//    CompType ctsouh = new CompType("souhaitee");
+
+//    public abstract void setTitre(String m_titre) {
+//    }
 //
-//    static final String m_itemDelim = ";";
-//    static final String m_compDelim = "|";
-//    static final String m_compTypeDelim = ":";
-//    static final String m_offreList = "data/offrelist.txt";
+//    public void setRegion(Region m_region) {
+//        this.m_region = m_region;
+//    }
 
     //Création du constructeur Offre
     public Offre(String fileStr) {

@@ -64,7 +64,7 @@ public class PanelSaisie extends javax.swing.JPanel implements View {
         m_regFonc = new RegionNoyauFonctionnel();
         m_compFonc = new ComptNoyauFonctionnel();
         m_offreFonc = new OffreNoyauFonctionnel();
-        setOffreEnregistreur(new EnregistreurDeOffre());
+        setOffreEnregistreur(new EnregistreurDeOffre(true));
 
         initComponents();
 

@@ -15,12 +15,14 @@ import view.View;
 public class EnregistreurDeOffre {
 
     private ArrayList<Offre> m_offres;
+    private Offre m_offre;
     private ArrayList<View> m_views;
 
     /**
      * Constructeur forçant une initialisation aux valeurs par défaut.
      */
-    public EnregistreurDeOffre() {
+    public EnregistreurDeOffre(boolean isEmploi) {
+        m_offre = new Emploi("");    
         m_offres = new ArrayList<>();
         m_views = new ArrayList<>();
         init();
@@ -30,6 +32,7 @@ public class EnregistreurDeOffre {
      * Méthode interne de remise à zéro.
      */
     private void init() {
+
         m_offres.clear();
         notifierView();
     }

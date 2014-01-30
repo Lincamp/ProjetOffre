@@ -14,6 +14,7 @@ import java.util.Iterator;
 import java.util.Set;
 
 import projetoffre.noyaufonctionnel.ComptNoyauFonctionnel;
+import projetoffre.noyaufonctionnel.OffreNoyauFonctionnel;
 import projetoffre.noyaufonctionnel.RegionNoyauFonctionnel;
 
 /**
@@ -114,6 +115,7 @@ public class Stage extends Offre {
             bw.write(content);
             bw.newLine();
             bw.close();
+            OffreNoyauFonctionnel.ajouterStage(this);
         } catch (IOException e) {
             e.printStackTrace();
         }

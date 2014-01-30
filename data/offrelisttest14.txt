@@ -1,0 +1,8 @@
+﻿Ingenieur Technique ;Aquitaine;2;3800;5000;SI:souhaitee|Programmation:obligatoire|Developpement:souhaitee
+Ingenieur Application ;Aquitaine;2;3000;4500;Programmation:obligatoire|Developpement:obligatoire
+stage test;Auvergne;-1;-1;-1;Gestion:obligatoire|Developpement:obligatoire|BI:souhaitee
+test emploi;Aquitaine;2;2345;4567;Gestion:obligatoire|Communication:obligatoire|Developpement:obligatoire|BI:souhaitee
+test emploi;Aquitaine;2;2345;3456;Gestion:souhaitee|Communication:souhaitee|Programmation:obligatoire
+test stage2;Auvergne;-1;-1;-1;BI:souhaitee|Gestion:souhaitee
+test s3;Basse-Normandie;-1;-1;-1;BI:souhaitee|Gestion:souhaitee|Programmation:souhaitee
+test emploi;Basse-Normandie;3;1234;2345;SI:souhaitee|Redaction:souhaitee|Developpement:souhaitee

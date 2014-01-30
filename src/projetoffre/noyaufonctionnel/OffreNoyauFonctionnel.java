@@ -57,13 +57,42 @@ public class OffreNoyauFonctionnel {
         return m_tblStages;
     }
 
+    public static void ajouterEmploi(Emploi emploi) {
+
+        String tmpRegStr = emploi.getReg().getRegnom();
+
+        ArrayList<Emploi> lstEmploi = m_tblEmplois.get(tmpRegStr);
+        if (lstEmploi == null) {
+            m_tblEmplois.put(tmpRegStr, lstEmploi = new ArrayList<Emploi>());
+        }
+       
+        lstEmploi.add(emploi);
+        emploi.printOut();
+        System.out.println("tblEmplois size after ajouter+++++:" + m_tblEmplois.size() + " (NoyauOffre)");
+        System.out.println("lstEmploi size after ajouter+++++:" + lstEmploi.size() + " (NoyauOffre)");
+    }
+
+    public static void ajouterStage(Stage stage) {     
+        String tmpRegStr = stage.getReg().getRegnom();
+
+        ArrayList<Stage> lstStage = m_tblStages.get(tmpRegStr);
+        if (lstStage == null) {
+            m_tblStages.put(tmpRegStr, lstStage = new ArrayList<Stage>());
+        }
+        
+        lstStage.add(stage);
+        stage.printOut();
+        System.out.println("tblStages size after ajouter+++++:" + m_tblStages.size() + " (NoyauOffre)");
+        System.out.println("lstStage size after ajouter+++++:" + lstStage.size() + " (NoyauOffre)");
+    }
+
     private void creerTblOffre() {
         if (!m_offInit) {
             try (BufferedReader br = new BufferedReader(new FileReader(Constant.m_offreList))) {
                 String sCurrentLine;
                 m_tblEmplois.clear();
                 String[] results;
-                int i = 0;
+//                int i = 0;
                 while ((sCurrentLine = br.readLine()) != null) {
 //                    System.out.println("22222#####" + sCurrentLine + "\t#####line from offrelist.txt (NoyauOffre)");
 //                    results = sCurrentLine.split(m_itemDelim, -1);
@@ -100,13 +129,12 @@ public class OffreNoyauFonctionnel {
 //                        System.out.println("lstEmploi size+++++:" + lstEmploi.size() + " (NoyauOffre)");
 //                        System.out.println("tblEmplois size+++++:" + m_tblEmplois.size() + " (NoyauOffre)");
                     }
-                    i++;
+//                    i++;
                 }
 
 //                System.out.println("tblEmplois size:" + m_tblEmplois.size() + " (NoyauOffre)");
 //                System.out.println("tblStages size:" + m_tblStages.size() + " (NoyauOffre)");
                 //System.out.println("regVec size:" + m_regVecNom.size() + " (NoyauOffre)");
-
                 m_offInit = true;
             } catch (IOException ee) {
                 ee.printStackTrace();

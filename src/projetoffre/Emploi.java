@@ -13,6 +13,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Set;
 import projetoffre.noyaufonctionnel.ComptNoyauFonctionnel;
+import projetoffre.noyaufonctionnel.OffreNoyauFonctionnel;
 import projetoffre.noyaufonctionnel.RegionNoyauFonctionnel;
 //import static delete.FileOperation.m_compTypeDelim;
 
@@ -207,7 +208,7 @@ public class Emploi extends Offre {
     @Override
     public void enregistrer() {
         //String v_titre, String v_region, int v_exp, int v_salMin, int v_salMax, HashMap<Competence, CompType> tblComps
-        int compsSize = m_tblComps.size();
+//        int compsSize = m_tblComps.size();
         //System.out.println("size" + m_tblComps.size());
         //System.out.println(m_tblComps);
         String compstr = "";
@@ -242,6 +243,8 @@ public class Emploi extends Offre {
             bw.write(content);
             bw.newLine();
             bw.close();
+            
+            OffreNoyauFonctionnel.ajouterEmploi(this);
         } catch (IOException e) {
             e.printStackTrace();
         }

@@ -22,7 +22,7 @@ public class Constant {
     // les ";" permettent de séparer les mots clefs associées entre elles
     static final String m_motClefDelim = ";";
 
-    public static final String m_offreList = "data/offrelisttest.txt";
+    public static final String m_offreList = "data/offrelisttest14.txt";
     public static final String m_regionList = "data/regionlist.txt";
     public static final String m_compList = "data/complist.txt";
     public static final String m_motClefList = "data/motcleflist.txt";

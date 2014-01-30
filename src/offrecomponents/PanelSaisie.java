@@ -92,7 +92,7 @@ public class PanelSaisie extends javax.swing.JPanel implements View {
         this.m_offreEnreg = enregistreur;
         enregistreur.addView(this);
         init();
-        //afficherNoyauFonctionnel();
+        afficherNoyauFonctionnel();
     }
 
     private void init() {
@@ -788,6 +788,8 @@ public class PanelSaisie extends javax.swing.JPanel implements View {
 
     private void btnEnregActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnregActionPerformed
         // TODO add your handling code here:
+        
+        // myTODO check region list seleted
         if (optEmploi.isSelected() || optStage.isSelected()) {
             m_offreType = optEmploi.isSelected();
             m_titre = txtTitre.getText();
@@ -809,7 +811,9 @@ public class PanelSaisie extends javax.swing.JPanel implements View {
             }
 
             m_offre.enregistrer();
+            m_offreEnreg.remiseAZero();
             init();
+            afficherNoyauFonctionnel();
         } else {
             //TODO
 //            if (optEmploi.isSelected() || optStage.isSelected()) {
@@ -828,6 +832,8 @@ public class PanelSaisie extends javax.swing.JPanel implements View {
 
     private void cmbRegActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbRegActionPerformed
         // TODO add your handling code here:
+        if(cmbReg.getSelectedIndex() == 0)
+            activerEnregistrer(false);
     }//GEN-LAST:event_cmbRegActionPerformed
 
     private void txtSalminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSalminActionPerformed
@@ -1000,6 +1006,11 @@ public class PanelSaisie extends javax.swing.JPanel implements View {
     private javax.swing.JTextField txtTitre1;
     // End of variables declaration//GEN-END:variables
 
+    public int getSelectedRegIndex()
+    {
+        return cmbReg.getSelectedIndex();
+    }
+    
     private void ajouterComp() {
         String nomC;
         nomC = cmbComp.getSelectedItem().toString();

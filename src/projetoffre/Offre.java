@@ -31,6 +31,14 @@ public abstract class Offre {
 //    public void setRegion(Region m_region) {
 //        this.m_region = m_region;
 //    }
+//    //Création du constructeur Offre
+//    public Offre() {
+//        this.m_tblComps = new HashMap();
+////        this.clear();  
+//                this.m_titre = "";
+//        this.m_region = null;
+//        this.m_tblComps.clear();
+//    }
 
     //Création du constructeur Offre
     public Offre(String fileStr) {
@@ -43,7 +51,22 @@ public abstract class Offre {
         this.m_region = offReg;
         this.m_tblComps = tblComps;
     }
+    
+    public abstract void clear();
+//    {
+////        this.m_titre = "";
+////        this.m_region = null;
+////        this.m_tblComps.clear();
+//    }
 
+    public void setTitre(String m_titre) {
+        this.m_titre = m_titre;
+    }
+
+    public void setRegion(Region m_region) {
+        this.m_region = m_region;
+    }
+    
     // Création des méthodes get (on récupère la région et le titre de l'offre)
     public Region getReg() {
         return m_region;
@@ -70,6 +93,12 @@ public abstract class Offre {
         m_tblComps.put(comp, compType);
     }
 
+    // Création de la méthode ajouterComp, qui permet d'ajouter une compétence à une offre
+    public void retirerComp(Competence comp) {
+//, CompType compType
+        m_tblComps.remove(comp);
+    }
+    
 //    public Offre() {
 //        this.m_tblComps = new HashMap();
 //    }
@@ -88,8 +117,8 @@ public abstract class Offre {
 //        System.out.println("HashMap size: " + this.m_tblComps.size());
 //        System.out.println("Competence nombre cherche : " + lstCompsCherche.size());
         // Pour toutes les compétences cherhcés on réalise les vérifications suivantes 
-       // for (int p = 0; p < lstCompsCherche.size(); p++) {
-             for (Competence comp:lstCompsCherche) {
+        // for (int p = 0; p < lstCompsCherche.size(); p++) {
+        for (Competence comp : lstCompsCherche) {
             // On initialise le poidsMotClef à 0
             poidsMotClef = 0;
 //            System.out.println("Competence chercher nom : " + lstCompsCherche.get(p).getNomComp());
@@ -104,12 +133,12 @@ public abstract class Offre {
 //                System.out.println("Competence trouve nom : " + setIterComps.getNomComp());
 //                System.out.println("Competence egale : " + (setIterComps == lstCompsCherche.get(p)));
                 // On vérifie que la compétence saisie soit la même que la compétence cherchée
-               // if (setIterComps.getNomComp().equals(lstCompsCherche.get(p).getNomComp())) {
+                // if (setIterComps.getNomComp().equals(lstCompsCherche.get(p).getNomComp())) {
                 if (this.m_tblComps.containsKey(comp)) {
 //                    System.out.println("fffffffffffffffffffffffffffffffffffffffffffff" + this.m_tblComps.get(lstCompsCherche.get(p)).getLibType());
                     // Si la compétence cherchée est une compétence obligatoire alors on multiplie par 1 tous les mots cléfs associés à cette compétence
-                   // if (this.m_tblComps.get(lstCompsCherche.get(p)).getLibType().equals(ComptNoyauFonctionnel.getOblig().getLibType())) {
-                        if (this.m_tblComps.get(comp).getLibType().equals(ComptNoyauFonctionnel.getOblig().getLibType())) {
+                    // if (this.m_tblComps.get(lstCompsCherche.get(p)).getLibType().equals(ComptNoyauFonctionnel.getOblig().getLibType())) {
+                    if (this.m_tblComps.get(comp).getLibType().equals(ComptNoyauFonctionnel.getOblig().getLibType())) {
                         poidsMotClef = setIterComps.nbMotClef() * 1;
 //                        System.out.println("fffffffffffffffffffffff" + this.m_tblComps.get(lstCompsCherche.get(p)).getLibType());
 //                        System.out.println("fffffffffffffffffffffff" + this.m_tblComps.get(lstCompsCherche.get(p)).getLibType());
@@ -173,8 +202,7 @@ public abstract class Offre {
         // Si la région cherchée est égale à la région de l'offre trouvé alors le score géographique est égale à 10
         if (this.m_region == offreType.getReg()) {
             scoreGeographique = 10;
-        } else if(offreType.getReg().getRegassocie().contains(this.m_region.getRegnom())) 
-        {
+        } else if (offreType.getReg().getRegassocie().contains(this.m_region.getRegnom())) {
             scoreGeographique = 5;
         }
         return scoreGeographique;

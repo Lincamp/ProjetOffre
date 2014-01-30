@@ -6,3 +6,8 @@ Stagiaire IT ;Auvergne;-1;-1;-1;SI:souhaitee|Programmation:obligatoire|Developpe
 Stagiaire Developpeur ;Auvergne;-1;-1;-1;Programmation:obligatoire|Developpement:obligatoire
 Stagiaire BI ;Midi-Pyrenees;-1;-1;-1;Programmation:souhaitee|SI:obligatoire|BI:obligatoire
 Stagiaire SI ;Auvergne;-1;-1;-1;SI:souhaitee|Programmation:obligatoire|Developpement:obligatoire
+test position;Aquitaine;0;3000;5000;SI:souhaitee|BI:souhaitee|Gestion:souhaitee
+test position;Aquitaine;2;3000;5000;BI:souhaitee|Gestion:obligatoire
+test position3;Auvergne;2;2000;4000;Gestion:souhaitee|Developpement:souhaitee|BI:souhaitee
+test position4;Auvergne;2;2345;4567;Developpement:souhaitee
+test stage;Auvergne;-1;-1;-1;Gestion:souhaitee|SI:souhaitee

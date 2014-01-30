@@ -6,6 +6,7 @@
 package projetoffre;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import view.View;
 
 /**
@@ -14,7 +15,7 @@ import view.View;
  */
 public class EnregistreurDeOffre {
 
-    private ArrayList<Offre> m_offres;
+//    private ArrayList<Offre> m_offres;
     private Offre m_offre;
     private ArrayList<View> m_views;
 
@@ -22,18 +23,22 @@ public class EnregistreurDeOffre {
      * Constructeur forçant une initialisation aux valeurs par défaut.
      */
     public EnregistreurDeOffre(boolean isEmploi) {
-        m_offre = new Emploi("");    
-        m_offres = new ArrayList<>();
+        if (isEmploi) {
+            // TODO new Emploi();
+            m_offre = new Emploi("");
+        } else {
+            m_offre = new Stage("");
+        }
+//        m_offres = new ArrayList<>();
         m_views = new ArrayList<>();
-        init();
+        this.init();
     }
 
     /**
      * Méthode interne de remise à zéro.
      */
     private void init() {
-
-        m_offres.clear();
+        m_offre.clear();
         notifierView();
     }
 
@@ -44,18 +49,37 @@ public class EnregistreurDeOffre {
         init();
     }
 
-    public ArrayList<Offre> getOffres() {
-        return m_offres;
+    public Offre getOffre() {
+        return m_offre;
     }
 
-    public void ajouterComp(Offre offre) {
-//        if(offre.getClass() == projetoffre.Emploi){
-//        System.out.println("offreGetClass" + offre.getClass());
-        // TODO
-//        m_offres.add(new Emploi());
+    public void setTitre(String titre)
+    {
+        m_offre.setTitre(titre);
         notifierView();
     }
-
+    
+    public void setRegion(Region reg)
+    {
+        m_offre.setRegion(reg);
+        notifierView();
+    }
+  
+    public HashMap<Competence, CompType> getComps() {
+        //return m_lstcomps;
+        return m_offre.getTblComps();
+    }
+    
+    public void ajouterComp(Competence comp, CompType compType) {
+        m_offre.ajouterComp(comp, compType);
+        notifierView();
+    }
+//, CompType compType
+    public void retirerComp(Competence comp) {
+        m_offre.retirerComp(comp);
+//, compType
+        notifierView();
+    }
 //        m_offres.add(new Stage());
     public void addView(View view) {
         m_views.add(view);
@@ -71,12 +95,11 @@ public class EnregistreurDeOffre {
         }
     }
 
-    //il n'y pas le supprimer Offre sur interface
-    public void retirerOffre(Offre offre) {
-
-        m_offres.remove(offre);
-
-        notifierView();
-    }
-
+//    //il n'y pas le supprimer Offre sur interface
+//    public void retirerOffre(Offre offre) {
+//
+//        m_offres.remove(offre);
+//
+//        notifierView();
+//    }
 }

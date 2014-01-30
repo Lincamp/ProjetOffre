@@ -30,12 +30,7 @@ import view.View;
  * @author Doro
  */
 public class PanelRechercher extends javax.swing.JPanel implements View {
-//    private RegionNoyauFonctionnel m_regFonc;
-
- //   private ComptNoyauFonctionnel m_compFonc;
     Set<String> m_setComp;
-//    ArrayList<Competence> m_lstCompRechs;
-  //  EnregCompRech m_enregCompRech;
     DefaultListModel listModel;
     private EnregistreurDeComp m_enregistreurDeComp;
 

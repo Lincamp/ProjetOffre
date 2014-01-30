@@ -17,6 +17,7 @@ import projetoffre.Competence;
 import projetoffre.Emploi;
 import projetoffre.EnregComp;
 import java.util.ArrayList;
+import java.util.List;
 import projetoffre.EnregistreurDeOffre;
 import projetoffre.Offre;
 import projetoffre.Region;
@@ -64,16 +65,15 @@ public class PanelSaisie extends javax.swing.JPanel implements View {
         m_regFonc = new RegionNoyauFonctionnel();
         m_compFonc = new ComptNoyauFonctionnel();
         m_offreFonc = new OffreNoyauFonctionnel();
-        setOffreEnregistreur(new EnregistreurDeOffre(true));
-
-        initComponents();
-
-        initDocumentProperties();
 
         m_enregComp = new EnregComp();
         //m_lstcomps = new ArrayList();
 //        this.m_tblComps = new HashMap();
         m_setComp = new HashSet<String>();
+        // TODO put all init in initUneFois
+        initComponents();
+
+        initDocumentProperties();
 
 //        Offre offre = new Emploi();
 //      System.out.println("offreGetClass" + offre.getClass());
@@ -84,12 +84,14 @@ public class PanelSaisie extends javax.swing.JPanel implements View {
 
         initCompList();
         init();
+
+        setOffreEnregistreur(new EnregistreurDeOffre(optEmploi.isSelected()));
     }
 
     public void setOffreEnregistreur(EnregistreurDeOffre enregistreur) {
         this.m_offreEnreg = enregistreur;
         enregistreur.addView(this);
-//        init();
+        init();
         //afficherNoyauFonctionnel();
     }
 
@@ -97,12 +99,15 @@ public class PanelSaisie extends javax.swing.JPanel implements View {
         optEmploi.setSelected(true);
         optStage.setSelected(false);
         this.txtTitre.setText("");
+        txtExp.setEnabled(true);
+        txtSalmax.setEnabled(true);
+        txtSalmin.setEnabled(true);
         txtExp.setText("0");
         txtSalmin.setText("0");
         txtSalmax.setText("0");
         optOblig.setSelected(false);
         optSouh.setSelected(true);
-        //cmbReg.set
+        cmbReg.setSelectedIndex(0);
 
 //        //            m_regionStr = cmbReg.getSelectedItem().toString();
 //        //            m_region = m_regFonc.getTblRegions().get(m_regionStr);
@@ -807,6 +812,9 @@ public class PanelSaisie extends javax.swing.JPanel implements View {
             init();
         } else {
             //TODO
+//            if (optEmploi.isSelected() || optStage.isSelected()) {
+//            btnAjouter.setEnabled(false);
+//            btnEnreg.setEnabled(false);
         }
 
 //            FileOperation fileout = new FileOperation();
@@ -862,7 +870,9 @@ public class PanelSaisie extends javax.swing.JPanel implements View {
 
     private void btnAjouterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAjouterActionPerformed
         // TODO add your handling code here:
+        this.ajouterComp();
         afficherNoyauFonctionnel();
+//        m_offreEnreg.ajouterComp(null, null);
 //        Offre offre = new Emploi();
 //        System.out.println("offreGetClass" + offre.getClass());
 //        System.out.println(offre instanceof Emploi);
@@ -870,7 +880,8 @@ public class PanelSaisie extends javax.swing.JPanel implements View {
 
     private void btnSupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSupActionPerformed
         // TODO add your handling code here:
-
+        retirerComp();
+        afficherNoyauFonctionnel();
     }//GEN-LAST:event_btnSupActionPerformed
 
     private void txtExpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtExpActionPerformed
@@ -881,6 +892,7 @@ public class PanelSaisie extends javax.swing.JPanel implements View {
         // TODO add your handling code here:
         m_offreEnreg.remiseAZero();
         init();
+        afficherNoyauFonctionnel();
     }//GEN-LAST:event_btnRAZActionPerformed
 
     private void optStageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optStageActionPerformed
@@ -988,7 +1000,7 @@ public class PanelSaisie extends javax.swing.JPanel implements View {
     private javax.swing.JTextField txtTitre1;
     // End of variables declaration//GEN-END:variables
 
-    private void afficherNoyauFonctionnel() {
+    private void ajouterComp() {
         String nomC;
         nomC = cmbComp.getSelectedItem().toString();
 
@@ -1009,11 +1021,59 @@ public class PanelSaisie extends javax.swing.JPanel implements View {
                 compType = ComptNoyauFonctionnel.getSouh();
             }
 
-            m_enregComp.ajouterComp(comp, compType);
+            m_offreEnreg.ajouterComp(comp, compType);
+//            m_enregComp.ajouterComp(comp, compType);
+//            System.out.println(nomC + "|" + m_enregComp.getSize() + "##|##" + m_offreEnreg.getComps().size() + "PS.java");
         }
+    }
+
+    private void retirerComp() {
+        tblComp.getSelectedRows();
+
+        int lstCompRows[] = tblComp.getSelectedRows();
+//System.out.println(lstCompsStr.size() + "|" + lstCompsStr + "PanelRechercherrrrrrrrrrrrr.java");
+
+//       m_offreEnreg.getComps.
+//System.out.println(m_enregistreurDeComp.getCompetences().size() + "|" + m_enregistreurDeComp.getCompetences() + "##PanelRechercher.java");   
+        String nomC;
+        ArrayList<String> lstCompNomsSup = new ArrayList<>();
+
+        for (int row : lstCompRows) {
+//            System.out.println(row + "|" + tblComp.getValueAt(row, 0) + "++row ++++++++++++++++PS.java");
+            nomC = (String) tblComp.getValueAt(row, 0); //   cmbComp.getSelectedItem().toString(); 
+            lstCompNomsSup.add(nomC);
+        }
+
+        for (String nomSup : lstCompNomsSup) {
+            if (m_setComp.contains(nomSup)) {
+                m_setComp.remove(nomSup);
+                Competence comp = ComptNoyauFonctionnel.getTblCompetences().get(nomSup);
+
+                m_offreEnreg.retirerComp(comp);
+//            m_enregComp.retirerComp(comp);
+//                System.out.println(nomSup + "|" + m_offreEnreg.getComps().size() + "##|##" + m_offreEnreg.getComps().size() + "PS.java");
+            }
+        }
+
+//                  m_offreEnreg.retirerCompetence(ComptNoyauFonctionnel.getTblCompetences().get());
+//System.out.println(nomC + tblComp.getSelectionModel().toString() +  "++nom ++++++++++++++++PS.java");
+//nomC = "BI";
+//        if (m_setComp.contains(nomC)) {
+//            m_setComp.remove(nomC);
+//            Competence comp = ComptNoyauFonctionnel.getTblCompetences().get(nomC);
+//           
+//m_offreEnreg.retirerComp(comp);
+////            m_enregComp.retirerComp(comp);
+//            System.out.println(nomC + "|" + m_offreEnreg.getComps().size() + "##|##" + m_offreEnreg.getComps().size() + "PS.java"); 
+//        }
+    }
+
+    private void afficherNoyauFonctionnel() {
 //        System.out.println(m_enregComp.getSize());
-        int compsSize = m_enregComp.getSize();
-        m_tblComps = m_enregComp.getComps();
+//        int compsSize = m_enregComp.getSize();
+        int compsSize = m_offreEnreg.getComps().size();
+//        System.out.println(compsSize + "##|##" + m_offreEnreg.getComps().size());
+        m_tblComps = m_offreEnreg.getComps();
 
         Object[][] m_compContent = new Object[compsSize][2];
 

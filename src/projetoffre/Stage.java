@@ -24,6 +24,10 @@ import projetoffre.noyaufonctionnel.RegionNoyauFonctionnel;
 public class Stage extends Offre {
     //attributs
 
+//    public Stage() {
+//        super();
+//    }
+
     //methodes
 //    public Stage() {
 //    }
@@ -32,6 +36,14 @@ public class Stage extends Offre {
         super(titre, region, tblComps);
     }
 
+    public void clear()
+    {
+        // TODO
+//        super.clear();
+        this.m_titre = "";
+        this.m_region = null;
+        this.m_tblComps.clear();
+    }
 //    public Stage() {
 //    }
     @Override
@@ -150,6 +162,7 @@ public class Stage extends Offre {
 
 //            this.m_tblComps = new 
         } else {
+            this.clear();
 //            System.out.println("line in " + Constant.m_offreList + " does not have 6 fields (Stage.java)");
         }
 //        System.out.println("Separated values:" + results[6].indexOf("|") + "@" + results[6].substring(1 + results[6].indexOf("/")) + "(Emploi.java)");

@@ -28,6 +28,25 @@ public class Emploi extends Offre {
     private int m_salairemin;
     private int m_salairemax;
 
+    public void clear()
+    {
+        // TODO
+//        super.clear();
+        this.m_titre = "";
+        this.m_region = null;
+        this.m_tblComps.clear();
+        this.m_experience = 0;
+        this.m_salairemin = 0;
+        this.m_salairemax = 0;        
+    }
+    
+//    // Création du constructeur Emploi
+//    public Emploi() {
+//        //On définit une nouvelle expérience, un nouveau salaireMin, un nouveau salaireMax ainsi qu'un titre et une région
+//        super();
+//        clear();
+//    }
+
     // Création du constructeur Emploi
     public Emploi(String titre, Region region, int experience, int salairemin, int salairemax, HashMap<Competence, CompType> tblComps) {
         //On définit une nouvelle expérience, un nouveau salaireMin, un nouveau salaireMax ainsi qu'un titre et une région
@@ -61,7 +80,7 @@ public class Emploi extends Offre {
             resComps = compStr.split("\\" + Constant.m_compDelim, -1);
 //            System.out.println(compStr);
 //            System.out.println("Size of splited Competences: " + resComps.length);
-            
+
             for (String resComp : resComps) {
 //                System.out.println("rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr" + resComp);
                 pos = resComp.indexOf(Constant.m_compTypeDelim);
@@ -85,6 +104,7 @@ public class Emploi extends Offre {
             }
 
         } else {
+            this.clear();
 //            System.out.println("line in " + Constant.m_offreList + " does not have 6 fields (Emploi.java)");
         }
 //        System.out.println("Separated values:" + results[6].indexOf("|") + "@" + results[6].substring(1 + results[6].indexOf("/")) + "(Emploi.java)");

@@ -56,6 +56,7 @@ public class OffreFrame extends javax.swing.JFrame {
     private void initComponents() {
 
         jButton1 = new javax.swing.JButton();
+        btngrpmenu = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         panelSaisie1 = new offrecomponents.PanelSaisie();
         panelRechercher1 = new offrecomponents.PanelRechercher();
@@ -74,6 +75,7 @@ public class OffreFrame extends javax.swing.JFrame {
 
         jMenu1.setText("Menu");
 
+        btngrpmenu.add(mnuoptSaisie);
         mnuoptSaisie.setSelected(true);
         mnuoptSaisie.setText("Saisie offre");
         mnuoptSaisie.addActionListener(new java.awt.event.ActionListener() {
@@ -83,6 +85,7 @@ public class OffreFrame extends javax.swing.JFrame {
         });
         jMenu1.add(mnuoptSaisie);
 
+        btngrpmenu.add(mnuoptRechercher);
         mnuoptRechercher.setText("Rechercher");
         mnuoptRechercher.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -160,6 +163,7 @@ public class OffreFrame extends javax.swing.JFrame {
 //    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.ButtonGroup btngrpmenu;
     private javax.swing.JButton jButton1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;

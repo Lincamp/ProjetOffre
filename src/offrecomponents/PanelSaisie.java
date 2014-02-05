@@ -74,7 +74,7 @@ public class PanelSaisie extends javax.swing.JPanel implements View {
         initComponents();
 
         initDocumentProperties();
-
+ 
 //        Offre offre = new Emploi();
 //      System.out.println("offreGetClass" + offre.getClass());
 //        Region reg = new Region();

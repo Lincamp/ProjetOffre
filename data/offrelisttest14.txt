@@ -6,3 +6,6 @@ test emploi;Aquitaine;2;2345;3456;Gestion:souhaitee|Communication:souhaitee|Prog
 test stage2;Auvergne;-1;-1;-1;BI:souhaitee|Gestion:souhaitee
 test s3;Basse-Normandie;-1;-1;-1;BI:souhaitee|Gestion:souhaitee|Programmation:souhaitee
 test emploi;Basse-Normandie;3;1234;2345;SI:souhaitee|Redaction:souhaitee|Developpement:souhaitee
+Chef;Midi-Pyrenees;3;4000;4500;Programmation:obligatoire|BI:souhaitee
+IT;Limousin;4;3000;3400;Programmation:obligatoire
+Ingenieurer;Midi-Pyrenees;2;3400;3600;Programmation:souhaitee

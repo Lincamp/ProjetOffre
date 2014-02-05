@@ -30,26 +30,29 @@ import view.View;
  * @author Doro
  */
 public class PanelRechercher extends javax.swing.JPanel implements View {
+
     Set<String> m_setComp;
     DefaultListModel listModel;
     private EnregistreurDeComp m_enregistreurDeComp;
 
     Object[][] m_scoreContent;
+    private boolean m_rechercherPossible;
     /**
      * Creates new form PanelRechercher
      */
     public PanelRechercher() {
         initComponents();
 //        m_regFonc = new RegionNoyauFonctionnel();
- //       m_compFonc = new ComptNoyauFonctionnel();
+        //       m_compFonc = new ComptNoyauFonctionnel();
 //        m_lstCompRechs = new ArrayList();
         m_setComp = new HashSet<>();
-       // m_enregCompRech = new EnregCompRech();
+        // m_enregCompRech = new EnregCompRech();
         listModel = new DefaultListModel();
         initRegionList();
         initCompList();
-        
         setEnregistreur(new EnregistreurDeComp());
+        initBtn();
+         txtSalesp.getDocument().addDocumentListener(new DocumentListenerRech(this));
     }
 
     public void setEnregistreur(EnregistreurDeComp enregistreurDeComp) {
@@ -57,7 +60,7 @@ public class PanelRechercher extends javax.swing.JPanel implements View {
         m_enregistreurDeComp.addView(this);
         init();
     }
-    
+
     private void initRegionList() {
 //        Vector comboBoxItems = new Vector();
 //        Vector comboBoxItems = m_regFonc.getRegVecNom();   
@@ -97,7 +100,7 @@ public class PanelRechercher extends javax.swing.JPanel implements View {
         cmbReg = new javax.swing.JComboBox();
         jPanel7 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
-        jCheckBox1 = new javax.swing.JCheckBox();
+        jckbprox = new javax.swing.JCheckBox();
         jPanel9 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         txtSalesp = new javax.swing.JTextField();
@@ -176,13 +179,13 @@ public class PanelRechercher extends javax.swing.JPanel implements View {
         jLabel3.setText("    ");
         jPanel7.add(jLabel3);
 
-        jCheckBox1.setText("région proximité inclus");
-        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
+        jckbprox.setText("région proximité inclus");
+        jckbprox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox1ActionPerformed(evt);
+                jckbproxActionPerformed(evt);
             }
         });
-        jPanel7.add(jCheckBox1);
+        jPanel7.add(jckbprox);
 
         jPanel4.add(jPanel7);
 
@@ -399,7 +402,8 @@ public class PanelRechercher extends javax.swing.JPanel implements View {
 
     private void optEmploiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optEmploiActionPerformed
         // TODO add your handling code here:
-        txtSalesp.setEnabled(true);
+        txtSalesp.setEnabled(false);
+
     }//GEN-LAST:event_optEmploiActionPerformed
 
     private void cmbRegActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbRegActionPerformed
@@ -410,30 +414,48 @@ public class PanelRechercher extends javax.swing.JPanel implements View {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtSalespActionPerformed
 
-    private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
+    private void jckbproxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jckbproxActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox1ActionPerformed
+        if(jckbprox.isSelected()){
+            txtSalesp.setEnabled(true);
+        }
+        else{
+            txtSalesp.setEnabled(false);
+        }
+    }//GEN-LAST:event_jckbproxActionPerformed
 
     private void btnAjouterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAjouterActionPerformed
         // TODO add your handling code here:
-        afficherCompChercher();      
+        afficherCompChercher();
+
+
     }//GEN-LAST:event_btnAjouterActionPerformed
 
     private void btnRechActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRechActionPerformed
         // TODO add your handling code here:
-        afficherScoreTable();
+        if (jckbprox.isSelected()) {
+            if (optEmploi.isSelected()) {
+                afficherScoreTotalEmploi();
+            } else {
+                afficherScoreTotalStage();
+            }
+        } else {
+            afficherScoreTable();
+        }
+
+
     }//GEN-LAST:event_btnRechActionPerformed
 
     private void btnSupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSupActionPerformed
         // TODO add your handling code here:
-       List<String> lstCompsStr = jlstCompRech.getSelectedValuesList();
+        List<String> lstCompsStr = jlstCompRech.getSelectedValuesList();
 //System.out.println(lstCompsStr.size() + "|" + lstCompsStr + "PanelRechercherrrrrrrrrrrrr.java");
 
 //System.out.println(m_enregistreurDeComp.getCompetences().size() + "|" + m_enregistreurDeComp.getCompetences() + "##PanelRechercher.java");   
-       for(String compStr:lstCompsStr){
-           m_enregistreurDeComp.retirerCompetence(ComptNoyauFonctionnel.getTblCompetences().get(compStr));
-       }
-       
+        for (String compStr : lstCompsStr) {
+            m_enregistreurDeComp.retirerCompetence(ComptNoyauFonctionnel.getTblCompetences().get(compStr));
+        }
+
 //System.out.println(m_enregistreurDeComp.getCompetences().size() + "|" + m_enregistreurDeComp.getCompetences() + "###PanelRechercher.java");       
 //       List<Competence> lstComps = jlstCompRech.getSelectedValuesList();
 //       for(Competence comp:lstComps){
@@ -447,13 +469,13 @@ public class PanelRechercher extends javax.swing.JPanel implements View {
         txtSalesp.setText("");
         m_enregistreurDeComp.remiseAZero();
         init();
-        
+
         // TODO
-        if (optEmploi.isSelected()) {
-            afficherScoreTotalEmploi();
-        } else {
-            afficherScoreTotalStage();
-        }
+//        if (optEmploi.isSelected()) {
+//            afficherScoreTotalEmploi();
+//        } else {
+//            afficherScoreTotalStage();
+//        }
     }//GEN-LAST:event_btnRAZActionPerformed
 
     private void optStageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optStageActionPerformed
@@ -470,7 +492,6 @@ public class PanelRechercher extends javax.swing.JPanel implements View {
     private javax.swing.ButtonGroup btngrp;
     private javax.swing.JComboBox cmbComp;
     private javax.swing.JComboBox cmbReg;
-    private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -502,6 +523,7 @@ public class PanelRechercher extends javax.swing.JPanel implements View {
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JCheckBox jckbprox;
     private javax.swing.JList jlstCompRech;
     private javax.swing.JRadioButton optEmploi;
     private javax.swing.JRadioButton optStage;
@@ -509,42 +531,57 @@ public class PanelRechercher extends javax.swing.JPanel implements View {
     private javax.swing.JTextField txtSalesp;
     // End of variables declaration//GEN-END:variables
 
-
     private void init() {
 //        ArrayList<Competence> comps = enregistreur.getCompetences();
         Set<Competence> comps = m_enregistreurDeComp.getCompetences();
 //System.out.println(  comps.size() + "++++++++++++++++++++++++++++++ PanelRechercher.java" + m_setComp.toArray());
-        
+
 //        jlstCompRech.setListData(m_setComp.toArray());
         jlstCompRech.setListData(m_enregistreurDeComp.getCompNoms().toArray());
 //        jlstCompRech.setListData(comps.toArray());
-        
+
         // TODO
 //        btnSupprimer.setEnabled(!comps.isEmpty());
     }
+    
+  public void activerRechercher(boolean b) {
+        btnRech.setEnabled(b);
+        m_rechercherPossible = b;
+//        lblErreur.setVisible(!b);
+    }     
 
     @Override
     public void modelChanged() {
         init(); //To change body of generated methods, choose Tools | Templates.
-    }    
+    }
     
+      private void initBtn() {          
+        optEmploi.setSelected(true);
+        optStage.setSelected(false);
+        this.txtSalesp.setEnabled(false);
+        txtSalesp.setText("0");
+        cmbReg.setSelectedIndex(0);
+        activerRechercher(false);
+    }
+    
+    
+
     private void afficherCompChercher() {
         String nomC;
         nomC = cmbComp.getSelectedItem().toString();
 
 //        if (!m_setComp.contains(nomC)) {
-            m_setComp.add(nomC);
+        m_setComp.add(nomC);
 //            System.out.println("m_setComp chercher :" + m_setComp + "(PanelRechercher)");
 //            System.out.println("m_setComp size :" + m_setComp.size() + "(PanelRechercher)");
-            // m_lstCompRechs.add(m_compFonc.m_tblCompts.get(nomC));
-           m_enregistreurDeComp.ajouterCompetence(ComptNoyauFonctionnel.getTblCompetences().get(nomC));            
-            
+        // m_lstCompRechs.add(m_compFonc.m_tblCompts.get(nomC));
+        m_enregistreurDeComp.ajouterCompetence(ComptNoyauFonctionnel.getTblCompetences().get(nomC));
+
 //            m_enregCompRech.ajouterComp(ComptNoyauFonctionnel.getTblCompetences().get(nomC));
 //            listModel.addElement(nomC);
 //            jlstCompRech.setModel(listModel);
 //        }     
     }
-
 
     private void afficherScoreTable() {
         String regionStr = cmbReg.getSelectedItem().toString();
@@ -583,7 +620,7 @@ public class PanelRechercher extends javax.swing.JPanel implements View {
 
     private void afficherScoreTotalEmploi() {
         String regionStr = cmbReg.getSelectedItem().toString();
-        
+
         int salaire = 0;
         if (!"".equals(txtSalesp.getText())) {
             salaire = Integer.parseInt(txtSalesp.getText());

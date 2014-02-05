@@ -148,12 +148,12 @@
                     <Property name="text" type="java.lang.String" value="    "/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JCheckBox" name="jCheckBox1">
+                <Component class="javax.swing.JCheckBox" name="jckbprox">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="r&#xe9;gion proximit&#xe9; inclus"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBox1ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jckbproxActionPerformed"/>
                   </Events>
                 </Component>
               </SubComponents>

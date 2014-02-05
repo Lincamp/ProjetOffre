@@ -63,7 +63,9 @@ public class NoyauFonctionnel {
 //                        System.out.println(stage.scoreCompetencesHash(lesComps));
                             ofrAffiche.setScoreTotal(stage.scoreCompetencesHash(lesComps));
                             // TODO
-                            ofrAffiche.setAdquation("0");
+                            double score = stage.scoreCompetencesHash(lesComps);
+                            String scoreAd = String.format("%.2f", (score / 1) * 100) + "%";
+                            ofrAffiche.setAdquation(scoreAd);
                             ofrAffiche.setRegion(stage.getReg().getRegnom());
                             lesOfrAffiche.add(ofrAffiche);
                             hasComp = true;

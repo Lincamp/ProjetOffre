@@ -60,7 +60,7 @@ public class DocumentListenerSaisie implements DocumentListener {
                 fenetre.activerEnregistrer(false);
             } else {
                 if ("txtTitre".equals(sourceId)) {
-                    if(fenetre.getSelectedRegIndex() != 0)
+//                    if(fenetre.getSelectedRegIndex() != 0)
                         fenetre.activerEnregistrer(true);
                 } else {
                     try {
@@ -75,10 +75,10 @@ public class DocumentListenerSaisie implements DocumentListener {
             System.out.println("min:" + m_minSal + "|max" + m_maxSal);                            
                             //Texte nombre >0 et min salaire <= max salaire  => Activer le bouton
                             if (m_minSal > 0 && m_minSal <= m_maxSal) {
-                                if(fenetre.getSelectedRegIndex() != 0)
+//                                if(fenetre.getSelectedRegIndex() != 0)
                                 fenetre.activerEnregistrer(true);
                             } else {
-                                if(fenetre.getSelectedRegIndex() != 0)
+//                                if(fenetre.getSelectedRegIndex() != 0)
                                 fenetre.activerEnregistrer(false);
                             }
                         } else {

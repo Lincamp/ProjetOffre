@@ -143,7 +143,7 @@ public class PanelSaisie extends javax.swing.JPanel implements View {
         // Collections.copy(comboBoxItems, regionNomList);
         //DefaultComboBoxModel model = new DefaultComboBoxModel(comboBoxItems);       
         // cmbReg.setModel(model);
-        cmbReg.addItem("--select Region--");  //if selected, set to null
+//        cmbReg.addItem("--select Region--");  //if selected, set to null
         for (String lst : regionNomList) {
             cmbReg.addItem(lst);
         }

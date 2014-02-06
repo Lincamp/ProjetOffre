@@ -427,8 +427,6 @@ public class PanelRechercher extends javax.swing.JPanel implements View {
     private void btnAjouterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAjouterActionPerformed
         // TODO add your handling code here:
         afficherCompChercher();
-
-
     }//GEN-LAST:event_btnAjouterActionPerformed
 
     private void btnRechActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRechActionPerformed

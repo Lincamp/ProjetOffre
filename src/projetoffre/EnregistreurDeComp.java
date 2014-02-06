@@ -70,7 +70,7 @@ public class EnregistreurDeComp {
      */
     public void ajouterCompetence(Competence comp) {
         m_comptences.add(comp);
-        System.out.println(m_comptences.size() + "|" + m_comptences);
+//        System.out.println(m_comptences.size() + "|" + m_comptences + "EnregistreurDeComp.java");
 //         recalculer(); 
         notifierView();
     }

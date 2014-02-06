@@ -54,7 +54,7 @@ public class Emploi extends Offre {
         super(titre, region, tblComps);
         this.m_experience = experience;
         this.m_salairemin = salairemin;
-        this.m_salairemax = salairemax;
+        this.m_salairemax = salairemax;        
     }
 
     public Emploi(String fileStr) {
@@ -244,7 +244,11 @@ public class Emploi extends Offre {
             bw.newLine();
             bw.close();
             
+            System.out.println("size before ajouter" + OffreNoyauFonctionnel.getTblEmplois().size() + "Emploi.java");
+            OffreNoyauFonctionnel.printOutOffres();
             OffreNoyauFonctionnel.ajouterEmploi(this);
+            System.out.println("size after ajouter" + OffreNoyauFonctionnel.getTblEmplois().size() + "Emploi.java");
+            OffreNoyauFonctionnel.printOutOffres();
         } catch (IOException e) {
             e.printStackTrace();
         }

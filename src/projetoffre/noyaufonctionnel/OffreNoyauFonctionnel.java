@@ -26,14 +26,6 @@ public class OffreNoyauFonctionnel {
     private static boolean m_offInit;
     static final String m_stageDelim = "-1";
 
-//    static final String m_itemDelim = ";";
-//    static final String m_compDelim = "|";
-//    static final String m_compTypeDelim = ":";
-//    static final String m_offreList = "data/offrelist.txt";
-//     static final String m_itemDelim = ";";
-//    static final String m_compDelim = "|";
-//    static final String m_compTypeDelim = ":";
-//    static final String m_offreList = "data/offrelist.txt"; 
     static {
         m_offInit = false;
         m_tblEmplois = new HashMap<>();
@@ -65,21 +57,21 @@ public class OffreNoyauFonctionnel {
         if (lstEmploi == null) {
             m_tblEmplois.put(tmpRegStr, lstEmploi = new ArrayList<Emploi>());
         }
-       
+
         lstEmploi.add(emploi);
         emploi.printOut();
         System.out.println("tblEmplois size after ajouter+++++:" + m_tblEmplois.size() + " (NoyauOffre)");
         System.out.println("lstEmploi size after ajouter+++++:" + lstEmploi.size() + " (NoyauOffre)");
     }
 
-    public static void ajouterStage(Stage stage) {     
+    public static void ajouterStage(Stage stage) {
         String tmpRegStr = stage.getReg().getRegnom();
 
         ArrayList<Stage> lstStage = m_tblStages.get(tmpRegStr);
         if (lstStage == null) {
             m_tblStages.put(tmpRegStr, lstStage = new ArrayList<Stage>());
         }
-        
+
         lstStage.add(stage);
         stage.printOut();
         System.out.println("tblStages size after ajouter+++++:" + m_tblStages.size() + " (NoyauOffre)");
@@ -143,5 +135,34 @@ public class OffreNoyauFonctionnel {
 //            System.out.println("region map emplois:" + m_tblEmplois + " (NoyauOffre)");
 //            System.out.println("region map stages:" + m_tblStages + m_tblStages.get("Corse") + " (NoyauOffre)");
         }
+    }
+
+    public static void printOutOffres() {
+
+        System.out.println("================================ONF.java");
+        
+        for (String region : m_tblEmplois.keySet()) {
+            System.out.println("Key : " + region +
+                               " Size : " + m_tblEmplois.get(region).size());
+            for(Emploi emploi:m_tblEmplois.get(region))
+            {
+                System.out.print("[" + emploi.getTitre() + "] ");
+                System.out.println();
+            }
+        }
+        
+        System.out.println("================================");
+
+        for (String region : m_tblStages.keySet()) {
+            System.out.println("Key : " + region +
+                               " Size : " + m_tblStages.get(region).size());
+            for(Stage stage:m_tblStages.get(region))
+            {
+                System.out.print("[" + stage.getTitre() + "] ");
+                System.out.println();
+            }
+        }
+        
+        System.out.println("================================");
     }
 }

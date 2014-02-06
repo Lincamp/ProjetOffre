@@ -39,7 +39,6 @@ public abstract class Offre {
 //        this.m_region = null;
 //        this.m_tblComps.clear();
 //    }
-
     //Création du constructeur Offre
     public Offre(String fileStr) {
         this.m_tblComps = new HashMap();
@@ -49,9 +48,15 @@ public abstract class Offre {
         // On définit un nouveau titre, une nouvelle région et les compétences demandées ainisi que le type de compétence
         this.m_titre = titre;
         this.m_region = offReg;
-        this.m_tblComps = tblComps;
+//        this.m_tblComps = tblComps;
+        this.m_tblComps = new HashMap();
+        for (Competence comp : tblComps.keySet()) {
+            System.out.println("Comp : " + comp.getNomComp() + " Type : "
+                    + tblComps.get(comp).getLibType() + "************************************offre.java");
+            this.ajouterComp(comp, tblComps.get(comp));
+        }
     }
-    
+
     public abstract void clear();
 //    {
 ////        this.m_titre = "";
@@ -66,7 +71,7 @@ public abstract class Offre {
     public void setRegion(Region m_region) {
         this.m_region = m_region;
     }
-    
+
     // Création des méthodes get (on récupère la région et le titre de l'offre)
     public Region getReg() {
         return m_region;
@@ -98,7 +103,7 @@ public abstract class Offre {
 //, CompType compType
         m_tblComps.remove(comp);
     }
-    
+
 //    public Offre() {
 //        this.m_tblComps = new HashMap();
 //    }

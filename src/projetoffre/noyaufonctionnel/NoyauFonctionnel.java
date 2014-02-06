@@ -180,20 +180,29 @@ public class NoyauFonctionnel {
         ArrayList<OffreAffiche> lesOfrAffiche = new ArrayList();
         Object[][] resultat;
 
+        OffreNoyauFonctionnel.printOutOffres();
+        
         ArrayList<Emploi> lstEmplois = OffreNoyauFonctionnel.getTblEmplois().get(reg.getRegnom());
 //        System.out.println(OffreNoyauFonctionnel.getTblEmplois().size() + "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++NF.java");
 //        System.out.println(lstEmplois + "|" + lstEmplois + "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++NF.java");
-
+//System.out.println("lstEmplois size: " + lstEmplois.size() + "+++++++++++++NF.java");
+        
         if (lstEmplois != null) {
             for (Emploi emploi : lstEmplois) {
+//System.out.println("Emploi titre: " + emploi.getTitre() + " NF.java");                 
                 boolean hasComp = false;
                 for (Competence comp : lesComps) {
+//System.out.print("#" + comp.getNomComp() + "#");
+//System.out.println("end#"); 
                     // seulement ajouter une fois
                     if (!hasComp) {
+//System.out.println("2#############################");
+//emploi.printOut();
                         if (emploi.getTblComps().containsKey(comp)) {
                             OffreAffiche ofrAffiche = new OffreAffiche();
                             ofrAffiche.setTitre(emploi.getTitre());
-//                        System.out.println(emploi.scoreCompetencesHash(lesComps));
+//System.out.println("emploi titre:" + emploi.getTitre() + "NF.java");                               
+                        System.out.println(emploi.scoreCompetencesHash(lesComps));
                             ofrAffiche.setScoreTotal(emploi.scoreCompetencesHash(lesComps));
                             // TODO
                             double score = emploi.scoreCompetencesHash(lesComps);

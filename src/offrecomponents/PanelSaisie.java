@@ -35,6 +35,7 @@ import view.View;
 // avoid duplicate when ajouter nouveau offre
 // comptence qu'une fois
 //exp, salaire int only
+// TODO disable supprimer
 public class PanelSaisie extends javax.swing.JPanel implements View {
 
     private RegionNoyauFonctionnel m_regFonc;

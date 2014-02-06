@@ -21,6 +21,8 @@ public class DocumentListenerSaisie implements DocumentListener {
     private PanelSaisie fenetre;
     private static int m_minSal = 0;
     private static int m_maxSal = 0;
+    private static boolean m_expValid = false;
+    private static boolean m_titreValid = false;
 
     public DocumentListenerSaisie(PanelSaisie fenetre) {
         this.fenetre = fenetre;
@@ -48,7 +50,6 @@ public class DocumentListenerSaisie implements DocumentListener {
             final String sourceId = (String) source.getClientProperty("id");
 
 //            System.out.println("sourceeeeeeeeeeeeeee  " + sourceId);
-
             final Document document = e.getDocument();
             final int length = document.getLength();
 //            final String textExperience = document.getText(0, length);
@@ -58,23 +59,31 @@ public class DocumentListenerSaisie implements DocumentListener {
             if (text.isEmpty()) {
                 //Texte vide => Désactiver le bouton
                 fenetre.activerEnregistrer(false);
+                if ("txtTitre".equals(sourceId)) {
+                    m_titreValid = false;
+                } else if ("txtExp".equals(sourceId)) {
+                    m_expValid = false;
+                }
             } else {
                 if ("txtTitre".equals(sourceId)) {
 //                    if(fenetre.getSelectedRegIndex() != 0)
-                        fenetre.activerEnregistrer(true);
+                    m_titreValid = true;
+//                    fenetre.activerEnregistrer(true);
                 } else {
                     try {
                         int value = Integer.parseInt(text);
 
-                        if (value > 0) {
+                        if (value >= 0) {
                             if ("txtSalmin".equals(sourceId)) {
                                 m_minSal = value;
                             } else if ("txtSalmax".equals(sourceId)) {
                                 m_maxSal = value;
+                            } else if ("txtExp".equals(sourceId)) {
+                                m_expValid = true;
                             }
-            System.out.println("min:" + m_minSal + "|max" + m_maxSal);                            
+                            System.out.println("min:" + m_minSal + "|max" + m_maxSal);
                             //Texte nombre >0 et min salaire <= max salaire  => Activer le bouton
-                            if (m_minSal > 0 && m_minSal <= m_maxSal) {
+                            if (m_titreValid && m_expValid && m_minSal > 0 && m_minSal <= m_maxSal) {
 //                                if(fenetre.getSelectedRegIndex() != 0)
                                 fenetre.activerEnregistrer(true);
                             } else {
@@ -82,6 +91,9 @@ public class DocumentListenerSaisie implements DocumentListener {
                                 fenetre.activerEnregistrer(false);
                             }
                         } else {
+                            if ("txtExp".equals(sourceId)) {
+                                m_expValid = false;
+                            }
                             //Texte nombre <=0    => Désactiver le bouton
                             fenetre.activerEnregistrer(false);
                         }

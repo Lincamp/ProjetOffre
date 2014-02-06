@@ -9,3 +9,17 @@ test emploi;Basse-Normandie;3;1234;2345;SI:souhaitee|Redaction:souhaitee|Develop
 Chef;Midi-Pyrenees;3;4000;4500;Programmation:obligatoire|BI:souhaitee
 IT;Limousin;4;3000;3400;Programmation:obligatoire
 Ingenieurer;Midi-Pyrenees;2;3400;3600;Programmation:souhaitee
+test;Basse-Normandie;2;2443;3445;Programmation:obligatoire|BI:souhaitee|Gestion:souhaitee
+test position4;Bourgogne;1;3242;4560;BI:souhaitee|Programmation:obligatoire|Gestion:souhaitee
+test3;Centre;2;2345;3456;Gestion:obligatoire|Developpement:obligatoire|Communication:souhaitee|BI:souhaitee
+test12;Limousin;2;2345;3456;Gestion:obligatoire|Developpement:obligatoire|Communication:obligatoire|BI:souhaitee
+test45;Pays-de-la-Loire;2;3204;4576;Gestion:obligatoire|Developpement:obligatoire|Communication:souhaitee|BI:souhaitee
+test45;Poitou-Charentes;2;3456;4564;BI:souhaitee|Communication:souhaitee|Developpement:obligatoire|Gestion:obligatoire
+test432;Lorraine;2;2345;3453;BI:souhaitee|Communication:obligatoire|Developpement:obligatoire|Gestion:obligatoire
+test768;Picardie;2;3453;4532;Developpement:obligatoire|Gestion:obligatoire|Communication:obligatoire|BI:souhaitee
+test785;Rhe-Alpes;2;3452;4523;BI:souhaitee|Gestion:obligatoire|Communication:obligatoire|Developpement:obligatoire
+test132;Provence-Aples-Cote-d'Azur;2;3242;4323;BI:souhaitee|Gestion:obligatoire|Communication:souhaitee|Developpement:obligatoire
+test546;Bretagne;2;2345;3423;BI:souhaitee|Communication:obligatoire|Developpement:obligatoire|Gestion:obligatoire
+test6666;Franche-Compte;2;3454;4321;Gestion:obligatoire|Developpement:obligatoire|Communication:obligatoire|BI:souhaitee
+test6;Basse-Normandie;4;3421;3456;Communication:obligatoire|BI:souhaitee|Developpement:obligatoire|Gestion:obligatoire
+test675;Auvergne;1;2344;4543;BI:souhaitee|Communication:obligatoire|Developpement:obligatoire|Gestion:obligatoire

@@ -595,7 +595,13 @@ public class PanelRechercher extends javax.swing.JPanel implements View {
 
         String[] columnNames = {Constant.m_titre, Constant.m_scoreTotal, Constant.m_adequation, Constant.m_region};
 
-        DefaultTableModel model = new DefaultTableModel(m_scoreContent, columnNames);
+        DefaultTableModel model = new DefaultTableModel(m_scoreContent, columnNames){
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                //all cells false
+                return false;
+            }
+        };
         tblComp.setModel(model);
     }
 
@@ -612,7 +618,13 @@ public class PanelRechercher extends javax.swing.JPanel implements View {
 
         String[] columnNames = {Constant.m_titre, Constant.m_scoreTotal, Constant.m_adequation, Constant.m_region};
 
-        DefaultTableModel model = new DefaultTableModel(m_scoreContent, columnNames);
+        DefaultTableModel model = new DefaultTableModel(m_scoreContent, columnNames){
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                //all cells false
+                return false;
+            }
+        };
         tblComp.setModel(model);
     }
 
@@ -633,7 +645,13 @@ public class PanelRechercher extends javax.swing.JPanel implements View {
 
         String[] columnNames = {Constant.m_titre, Constant.m_scoreTotal, Constant.m_adequation, Constant.m_region};
 
-        DefaultTableModel model = new DefaultTableModel(m_scoreContent, columnNames);
+        DefaultTableModel model = new DefaultTableModel(m_scoreContent, columnNames){
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                //all cells false
+                return false;
+            }
+        };
         tblComp.setModel(model);
     }
 }

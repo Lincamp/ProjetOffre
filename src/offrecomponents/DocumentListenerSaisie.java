@@ -89,17 +89,26 @@ public class DocumentListenerSaisie implements DocumentListener {
                             } else {
 //                                if(fenetre.getSelectedRegIndex() != 0)
                                 fenetre.activerEnregistrer(false);
+                                if(!m_titreValid) {
+                                    fenetre.setErrorMsg("Titre is Empty");
+                                }
+                                else if(!m_expValid) {
+                                    fenetre.setErrorMsg("Salmin or Salmax is not a valid number");
+                                }
                             }
                         } else {
                             if ("txtExp".equals(sourceId)) {
                                 m_expValid = false;
+                                fenetre.setErrorMsg("Experience is a negative number");
                             }
                             //Texte nombre <=0    => Désactiver le bouton
                             fenetre.activerEnregistrer(false);
+                            fenetre.setErrorMsg("Salmin or Salmax is a negative number");
                         }
                     } catch (NumberFormatException numberFormatException) {
                         //Texte pas un nombre => Désactiver le bouton
                         fenetre.activerEnregistrer(false);
+                        fenetre.setErrorMsg("Salmin or Salmax is not a valid number");
                     }
                 }
             }

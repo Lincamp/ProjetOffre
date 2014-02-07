@@ -903,7 +903,7 @@
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.DesignFlowLayout"/>
       <SubComponents>
-        <Component class="javax.swing.JLabel" name="jLabel3">
+        <Component class="javax.swing.JLabel" name="jLabelMsg">
           <Properties>
             <Property name="text" type="java.lang.String" value="Message Erreur"/>
           </Properties>

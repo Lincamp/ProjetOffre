@@ -75,7 +75,7 @@ public class PanelSaisie extends javax.swing.JPanel implements View {
         initComponents();
 
         initDocumentProperties();
- 
+
 //        Offre offre = new Emploi();
 //      System.out.println("offreGetClass" + offre.getClass());
 //        Region reg = new Region();
@@ -261,7 +261,7 @@ public class PanelSaisie extends javax.swing.JPanel implements View {
         btnEnreg = new javax.swing.JButton();
         btnRAZ = new javax.swing.JButton();
         jPanel44 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
+        jLabelMsg = new javax.swing.JLabel();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -749,8 +749,8 @@ public class PanelSaisie extends javax.swing.JPanel implements View {
 
         jPanel11.add(jPanel12);
 
-        jLabel3.setText("Message Erreur");
-        jPanel44.add(jLabel3);
+        jLabelMsg.setText("Message Erreur");
+        jPanel44.add(jLabelMsg);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -797,7 +797,7 @@ public class PanelSaisie extends javax.swing.JPanel implements View {
 
     private void btnEnregActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnregActionPerformed
         // TODO add your handling code here:
-        
+
         // myTODO check region list seleted
         if (optEmploi.isSelected() || optStage.isSelected()) {
             m_offreType = optEmploi.isSelected();
@@ -841,8 +841,9 @@ public class PanelSaisie extends javax.swing.JPanel implements View {
 
     private void cmbRegActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbRegActionPerformed
         // TODO add your handling code here:
-        if(cmbReg.getSelectedIndex() == 0)
+        if (cmbReg.getSelectedIndex() == 0) {
             activerEnregistrer(false);
+        }
     }//GEN-LAST:event_cmbRegActionPerformed
 
     private void txtSalminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSalminActionPerformed
@@ -942,10 +943,10 @@ public class PanelSaisie extends javax.swing.JPanel implements View {
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel jLabelMsg;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
@@ -1017,11 +1018,10 @@ public class PanelSaisie extends javax.swing.JPanel implements View {
     private javax.swing.JTextField txtTitre1;
     // End of variables declaration//GEN-END:variables
 
-    public int getSelectedRegIndex()
-    {
+    public int getSelectedRegIndex() {
         return cmbReg.getSelectedIndex();
     }
-    
+
     private void ajouterComp() {
         String nomC;
         nomC = cmbComp.getSelectedItem().toString();
@@ -1117,7 +1117,13 @@ public class PanelSaisie extends javax.swing.JPanel implements View {
         //m_lstcomps = enregComp.getComps();      
         String[] columnNames = {"Competence", "Type"};
         //Object[][] data = enregComp.getCompContent();
-        DefaultTableModel model = new DefaultTableModel(m_compContent, columnNames);
+        DefaultTableModel model = new DefaultTableModel(m_compContent, columnNames) {
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                //all cells false
+                return false;
+            }
+        };
         tblComp.setModel(model);
     }
 
@@ -1130,5 +1136,9 @@ public class PanelSaisie extends javax.swing.JPanel implements View {
     @Override
     public void modelChanged() {
         //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public void setErrorMsg(String msg) {
+        this.jLabelMsg.setText(msg);
     }
 }

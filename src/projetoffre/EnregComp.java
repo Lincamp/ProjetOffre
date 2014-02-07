@@ -7,7 +7,6 @@ package projetoffre;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import javax.swing.table.DefaultTableModel;
 
 /**
  *

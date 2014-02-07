@@ -466,9 +466,10 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Component id="jPanel1" max="32767" attributes="0"/>
           <Component id="jPanel3" alignment="0" max="32767" attributes="0"/>
-          <Component id="jPanel15" alignment="0" pref="541" max="32767" attributes="0"/>
+          <Component id="jPanel15" alignment="0" pref="633" max="32767" attributes="0"/>
           <Component id="jPanel13" alignment="1" max="32767" attributes="0"/>
           <Component id="jPanel11" alignment="1" max="32767" attributes="0"/>
+          <Component id="jPanel44" alignment="0" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
@@ -482,7 +483,9 @@
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jPanel13" min="-2" pref="202" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jPanel11" pref="41" max="32767" attributes="0"/>
+              <Component id="jPanel44" min="-2" pref="49" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jPanel11" min="-2" pref="49" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -894,6 +897,17 @@
             </Component>
           </SubComponents>
         </Container>
+      </SubComponents>
+    </Container>
+    <Container class="javax.swing.JPanel" name="jPanel44">
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.DesignFlowLayout"/>
+      <SubComponents>
+        <Component class="javax.swing.JLabel" name="jLabel3">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Message Erreur"/>
+          </Properties>
+        </Component>
       </SubComponents>
     </Container>
   </SubComponents>

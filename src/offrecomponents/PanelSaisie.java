@@ -262,6 +262,8 @@ public class PanelSaisie extends javax.swing.JPanel implements View {
         btnRAZ = new javax.swing.JButton();
         jPanel44 = new javax.swing.JPanel();
         jLabelMsg = new javax.swing.JLabel();
+        jPanel45 = new javax.swing.JPanel();
+        jLabelMsg1 = new javax.swing.JLabel();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -516,6 +518,7 @@ public class PanelSaisie extends javax.swing.JPanel implements View {
         jPanel2.setLayout(new java.awt.GridLayout(1, 0, 50, 0));
 
         grpOffreType.add(optEmploi);
+        optEmploi.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         optEmploi.setSelected(true);
         optEmploi.setText("Emploi");
         optEmploi.setToolTipText("");
@@ -527,6 +530,7 @@ public class PanelSaisie extends javax.swing.JPanel implements View {
         jPanel2.add(optEmploi);
 
         grpOffreType.add(optStage);
+        optStage.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         optStage.setText("Stage");
         optStage.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -541,6 +545,7 @@ public class PanelSaisie extends javax.swing.JPanel implements View {
 
         jPanel5.setLayout(new java.awt.GridLayout(1, 0));
 
+        jLabel1.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel1.setText("Titre :");
         jPanel5.add(jLabel1);
 
@@ -555,6 +560,7 @@ public class PanelSaisie extends javax.swing.JPanel implements View {
 
         jPanel6.setLayout(new java.awt.GridLayout(1, 0));
 
+        jLabel2.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel2.setText("Region :");
         jPanel6.add(jLabel2);
 
@@ -569,7 +575,9 @@ public class PanelSaisie extends javax.swing.JPanel implements View {
 
         jPanel7.setLayout(new java.awt.GridLayout(1, 0));
 
-        lblExp.setText("Expérience :");
+        lblExp.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        lblExp.setText("Année Expérience :");
+        lblExp.setToolTipText("");
         jPanel7.add(lblExp);
 
         txtExp.setText("0");
@@ -584,6 +592,7 @@ public class PanelSaisie extends javax.swing.JPanel implements View {
 
         jPanel9.setLayout(new java.awt.GridLayout(1, 0));
 
+        lblSalmin.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         lblSalmin.setText("Salaire Min :");
         jPanel9.add(lblSalmin);
 
@@ -599,6 +608,7 @@ public class PanelSaisie extends javax.swing.JPanel implements View {
 
         jPanel10.setLayout(new java.awt.GridLayout(1, 0));
 
+        lblSalmax.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         lblSalmax.setText("Salaire Max :");
         jPanel10.add(lblSalmax);
 
@@ -615,9 +625,11 @@ public class PanelSaisie extends javax.swing.JPanel implements View {
 
         jPanel19.setLayout(new java.awt.GridLayout(1, 0));
 
+        jLabel8.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel8.setText("Compétence :");
         jPanel19.add(jLabel8);
 
+        cmbComp.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         cmbComp.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Program", "Item 2", "Item 3", "Item 4" }));
         jPanel19.add(cmbComp);
 
@@ -626,6 +638,7 @@ public class PanelSaisie extends javax.swing.JPanel implements View {
         jPanel20.setLayout(new java.awt.GridLayout(2, 0));
 
         grpCompType.add(optOblig);
+        optOblig.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         optOblig.setText("obligatoire");
         optOblig.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -635,6 +648,7 @@ public class PanelSaisie extends javax.swing.JPanel implements View {
         jPanel20.add(optOblig);
 
         grpCompType.add(optSouh);
+        optSouh.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         optSouh.setSelected(true);
         optSouh.setText("souhaitée");
         optSouh.addActionListener(new java.awt.event.ActionListener() {
@@ -646,6 +660,7 @@ public class PanelSaisie extends javax.swing.JPanel implements View {
 
         jPanel18.add(jPanel20);
 
+        btnAjouter.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         btnAjouter.setText("Ajouter");
         btnAjouter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -677,8 +692,10 @@ public class PanelSaisie extends javax.swing.JPanel implements View {
 
         jPanel14.setLayout(new java.awt.GridLayout(2, 0));
 
-        jLabel7.setText("Compétence choisis :");
+        jLabel7.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel7.setText("Compétence choisies :");
 
+        tblComp.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         tblComp.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null},
@@ -717,6 +734,7 @@ public class PanelSaisie extends javax.swing.JPanel implements View {
 
         jPanel14.add(jPanel17);
 
+        btnSup.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         btnSup.setText("Supprimer");
         btnSup.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -731,6 +749,7 @@ public class PanelSaisie extends javax.swing.JPanel implements View {
 
         jPanel12.setLayout(new java.awt.GridLayout(1, 0, 50, 0));
 
+        btnEnreg.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         btnEnreg.setText("Enregistrer");
         btnEnreg.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -739,6 +758,7 @@ public class PanelSaisie extends javax.swing.JPanel implements View {
         });
         jPanel12.add(btnEnreg);
 
+        btnRAZ.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         btnRAZ.setText("RAZ");
         btnRAZ.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -752,31 +772,39 @@ public class PanelSaisie extends javax.swing.JPanel implements View {
         jLabelMsg.setText("Message Erreur");
         jPanel44.add(jLabelMsg);
 
+        jLabelMsg1.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
+        jLabelMsg1.setText("Publication des Offres");
+        jPanel45.add(jLabelMsg1);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanel15, javax.swing.GroupLayout.DEFAULT_SIZE, 633, Short.MAX_VALUE)
+            .addComponent(jPanel15, javax.swing.GroupLayout.DEFAULT_SIZE, 621, Short.MAX_VALUE)
             .addComponent(jPanel13, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jPanel11, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jPanel44, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel45, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel45, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel15, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel15, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel44, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel44, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jPanel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -916,6 +944,10 @@ public class PanelSaisie extends javax.swing.JPanel implements View {
         txtExp.setEnabled(false);
         txtSalmax.setEnabled(false);
         txtSalmin.setEnabled(false);
+//        txtExp.setText("0");
+//        txtSalmax.setText("0");
+//        txtSalmin.setText("0");               
+   
     }//GEN-LAST:event_optStageActionPerformed
 
 
@@ -947,6 +979,7 @@ public class PanelSaisie extends javax.swing.JPanel implements View {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel jLabelMsg;
+    private javax.swing.JLabel jLabelMsg1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
@@ -986,6 +1019,7 @@ public class PanelSaisie extends javax.swing.JPanel implements View {
     private javax.swing.JPanel jPanel42;
     private javax.swing.JPanel jPanel43;
     private javax.swing.JPanel jPanel44;
+    private javax.swing.JPanel jPanel45;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;

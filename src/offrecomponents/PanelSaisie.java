@@ -110,8 +110,9 @@ public class PanelSaisie extends javax.swing.JPanel implements View {
         optSouh.setSelected(true);
         cmbReg.setSelectedIndex(0);
 //        btnSup.setEnabled(false);
-        
+
         activerRAZ(false);
+        activerSupprimer(false);
 
 //        //            m_regionStr = cmbReg.getSelectedItem().toString();
 //        //            m_region = m_regFonc.getTblRegions().get(m_regionStr);
@@ -847,10 +848,10 @@ public class PanelSaisie extends javax.swing.JPanel implements View {
                 // Emploi emp = new Emploi(m_titre, m_region, m_exp, m_salMin, m_salMax, m_lstcomps);
 //                FileOperation fileout = new FileOperation();
 //                fileout.enrgOffre(m_titre, m_region, m_exp, m_salMin, m_salMax, m_tblComps);
-                 JOptionPane.showMessageDialog(null, "Votre offre a été bien enregistrée! ", "ACCUSE", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Votre offre a été bien enregistrée! ", "ACCUSE", JOptionPane.INFORMATION_MESSAGE);
                 m_offre = new Emploi(m_titre, m_region, m_exp, m_salMin, m_salMax, m_tblComps);
             } else {
-                 JOptionPane.showMessageDialog(null, "Votre offre a été bien enregistrée! ", "ACCUSE", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Votre offre a été bien enregistrée! ", "ACCUSE", JOptionPane.INFORMATION_MESSAGE);
                 m_offre = new Stage(m_titre, m_region, m_tblComps);
             }
 
@@ -949,10 +950,11 @@ public class PanelSaisie extends javax.swing.JPanel implements View {
         txtExp.setEnabled(false);
         txtSalmax.setEnabled(false);
         txtSalmin.setEnabled(false);
+        txtTitre.setText(txtTitre.getText());
 //        txtExp.setText("0");
 //        txtSalmax.setText("0");
 //        txtSalmin.setText("0");               
-   
+
     }//GEN-LAST:event_optStageActionPerformed
 
 
@@ -1133,6 +1135,11 @@ public class PanelSaisie extends javax.swing.JPanel implements View {
 //        System.out.println(m_enregComp.getSize());
 //        int compsSize = m_enregComp.getSize();
         int compsSize = m_offreEnreg.getComps().size();
+        if (compsSize > 0) {
+            activerSupprimer(true);
+        } else {
+            activerSupprimer(false);
+        }
 //        System.out.println(compsSize + "##|##" + m_offreEnreg.getComps().size());
         m_tblComps = m_offreEnreg.getComps();
 
@@ -1170,11 +1177,23 @@ public class PanelSaisie extends javax.swing.JPanel implements View {
         btnEnreg.setEnabled(b);
         m_enregistrerPossible = b;
     }
-    
+
+    public void activerSupprimer(boolean b) {
+        btnSup.setEnabled(b);
+    }
+
     public void activerRAZ(boolean b) {
         btnRAZ.setEnabled(b);
 //        m_enregistrerPossible = b;
-    }    
+    }
+
+    public boolean isEmploi() {
+        if (optEmploi.isSelected()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
     @Override
     public void modelChanged() {

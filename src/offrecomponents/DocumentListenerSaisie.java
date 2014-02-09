@@ -50,7 +50,7 @@ public class DocumentListenerSaisie implements DocumentListener {
             final String sourceId = (String) source.getClientProperty("id");
 
 //            System.out.println("sourceeeeeeeeeeeeeee  " + sourceId);
-            final Document document = (Document) e.getDocument();
+            final Document document = e.getDocument();
             final int length = document.getLength();
 //            final String textExperience = document.getText(0, length);
 //            final String text = document.getText(0, length);
@@ -64,6 +64,7 @@ public class DocumentListenerSaisie implements DocumentListener {
                 if ("txtTitre".equals(sourceId)) {
                     m_titreValid = false;
                     fenetre.setErrorMsg("Titre is Empty");
+                    fenetre.activerRAZ(false);
                 } else if ("txtExp".equals(sourceId)) {
                     m_expValid = false;
                     fenetre.setErrorMsg("Experience is Empty");
@@ -74,6 +75,7 @@ public class DocumentListenerSaisie implements DocumentListener {
                 if ("txtTitre".equals(sourceId)) {
 //                    if(fenetre.getSelectedRegIndex() != 0)
                     m_titreValid = true;
+                    fenetre.activerRAZ(true);
                     if (m_titreValid && m_expValid && m_minSal >= 0 && m_minSal <= m_maxSal) {
 //                                if(fenetre.getSelectedRegIndex() != 0)
                         fenetre.activerEnregistrer(true);
@@ -103,7 +105,6 @@ public class DocumentListenerSaisie implements DocumentListener {
                                 fenetre.activerEnregistrer(false);
                                 if (!m_titreValid) {
                                     fenetre.setErrorMsg("Titre is empty");
-//                                    System.out.println("------------------------------------");
                                 } else if (!m_expValid) {
                                     fenetre.setErrorMsg("Experience is not a valid number");
                                 } else if (m_minSal > m_maxSal) {

@@ -17,7 +17,6 @@ import projetoffre.Competence;
 import projetoffre.Emploi;
 import projetoffre.EnregComp;
 import java.util.ArrayList;
-import java.util.List;
 import projetoffre.EnregistreurDeOffre;
 import projetoffre.Offre;
 import projetoffre.Region;
@@ -70,7 +69,7 @@ public class PanelSaisie extends javax.swing.JPanel implements View {
         m_enregComp = new EnregComp();
         //m_lstcomps = new ArrayList();
 //        this.m_tblComps = new HashMap();
-        m_setComp = new HashSet<String>();
+        m_setComp = new HashSet<>();
         // TODO put all init in initUneFois
         initComponents();
 
@@ -109,6 +108,8 @@ public class PanelSaisie extends javax.swing.JPanel implements View {
         optOblig.setSelected(false);
         optSouh.setSelected(true);
         cmbReg.setSelectedIndex(0);
+        
+        activerRAZ(false);
 
 //        //            m_regionStr = cmbReg.getSelectedItem().toString();
 //        //            m_region = m_regFonc.getTblRegions().get(m_regionStr);
@@ -869,9 +870,9 @@ public class PanelSaisie extends javax.swing.JPanel implements View {
 
     private void cmbRegActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbRegActionPerformed
         // TODO add your handling code here:
-        if (cmbReg.getSelectedIndex() == 0) {
-            activerEnregistrer(false);
-        }
+//        if (cmbReg.getSelectedIndex() == 0) {
+//            activerEnregistrer(false);
+//        }
     }//GEN-LAST:event_cmbRegActionPerformed
 
     private void txtSalminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSalminActionPerformed
@@ -880,8 +881,6 @@ public class PanelSaisie extends javax.swing.JPanel implements View {
 
     private void txtTitreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTitreActionPerformed
         // TODO add your handling code here:       
-
-
     }//GEN-LAST:event_txtTitreActionPerformed
 
     private void optEmploi1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optEmploi1ActionPerformed
@@ -1164,8 +1163,12 @@ public class PanelSaisie extends javax.swing.JPanel implements View {
     public void activerEnregistrer(boolean b) {
         btnEnreg.setEnabled(b);
         m_enregistrerPossible = b;
-//        lblErreur.setVisible(!b);
     }
+    
+    public void activerRAZ(boolean b) {
+        btnRAZ.setEnabled(b);
+//        m_enregistrerPossible = b;
+    }    
 
     @Override
     public void modelChanged() {

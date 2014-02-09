@@ -50,24 +50,35 @@ public class DocumentListenerSaisie implements DocumentListener {
             final String sourceId = (String) source.getClientProperty("id");
 
 //            System.out.println("sourceeeeeeeeeeeeeee  " + sourceId);
-            final Document document = e.getDocument();
+            final Document document = (Document) e.getDocument();
             final int length = document.getLength();
 //            final String textExperience = document.getText(0, length);
+//            final String text = document.getText(0, length);
             final String text = document.getText(0, length);
 
 //            System.out.println("textTitre:" + text + "|length" + length);
             if (text.isEmpty()) {
+//                System.out.println("1+++++++++++++++++++++++++++++++++++++++++++++" + length);
                 //Texte vide => Désactiver le bouton
                 fenetre.activerEnregistrer(false);
                 if ("txtTitre".equals(sourceId)) {
                     m_titreValid = false;
+                    fenetre.setErrorMsg("Titre is Empty");
                 } else if ("txtExp".equals(sourceId)) {
                     m_expValid = false;
+                    fenetre.setErrorMsg("Experience is Empty");
                 }
             } else {
+                fenetre.setErrorMsg("Input is OK");
+//                System.out.println("2+++++++++++++++++++++++++++++++++++++++++++++" + length);
                 if ("txtTitre".equals(sourceId)) {
 //                    if(fenetre.getSelectedRegIndex() != 0)
                     m_titreValid = true;
+                    if (m_titreValid && m_expValid && m_minSal >= 0 && m_minSal <= m_maxSal) {
+//                                if(fenetre.getSelectedRegIndex() != 0)
+                        fenetre.activerEnregistrer(true);
+                        fenetre.setErrorMsg("Correct input, can be submitted");
+                    }
 //                    fenetre.activerEnregistrer(true);
                 } else {
                     try {
@@ -81,19 +92,22 @@ public class DocumentListenerSaisie implements DocumentListener {
                             } else if ("txtExp".equals(sourceId)) {
                                 m_expValid = true;
                             }
-                            System.out.println("min:" + m_minSal + "|max" + m_maxSal);
+//                            System.out.println("min:" + m_minSal + "|max" + m_maxSal);
                             //Texte nombre >0 et min salaire <= max salaire  => Activer le bouton
-                            if (m_titreValid && m_expValid && m_minSal > 0 && m_minSal <= m_maxSal) {
+                            if (m_titreValid && m_expValid && m_minSal >= 0 && m_minSal <= m_maxSal) {
 //                                if(fenetre.getSelectedRegIndex() != 0)
                                 fenetre.activerEnregistrer(true);
+                                fenetre.setErrorMsg("Correct input, can be submitted");
                             } else {
 //                                if(fenetre.getSelectedRegIndex() != 0)
                                 fenetre.activerEnregistrer(false);
-                                if(!m_titreValid) {
-                                    fenetre.setErrorMsg("Titre is Empty");
-                                }
-                                else if(!m_expValid) {
-                                    fenetre.setErrorMsg("Salmin or Salmax is not a valid number");
+                                if (!m_titreValid) {
+                                    fenetre.setErrorMsg("Titre is empty");
+//                                    System.out.println("------------------------------------");
+                                } else if (!m_expValid) {
+                                    fenetre.setErrorMsg("Experience is not a valid number");
+                                } else if (m_minSal > m_maxSal) {
+                                    fenetre.setErrorMsg("Salmin is bigger than Salmax");
                                 }
                             }
                         } else {
@@ -101,14 +115,23 @@ public class DocumentListenerSaisie implements DocumentListener {
                                 m_expValid = false;
                                 fenetre.setErrorMsg("Experience is a negative number");
                             }
+
+                            fenetre.setErrorMsg("Salmin or Salmax is a negative number");
                             //Texte nombre <=0    => Désactiver le bouton
                             fenetre.activerEnregistrer(false);
-                            fenetre.setErrorMsg("Salmin or Salmax is a negative number");
+
                         }
                     } catch (NumberFormatException numberFormatException) {
                         //Texte pas un nombre => Désactiver le bouton
                         fenetre.activerEnregistrer(false);
-                        fenetre.setErrorMsg("Salmin or Salmax is not a valid number");
+                        if ("txtExp".equals(sourceId)) {
+                            fenetre.setErrorMsg("Experience is not a valid number");
+                        } else if ("txtSalmax".equals(sourceId)) {
+                            fenetre.setErrorMsg("Salmax is not a valid number");
+                        } else if ("txtSalmin".equals(sourceId)) {
+                            fenetre.setErrorMsg("Salmin is not a valid number");
+                        }
+//                        fenetre.setErrorMsg("Salmin or Salmax is not a valid number");
                     }
                 }
             }

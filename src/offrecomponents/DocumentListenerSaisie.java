@@ -68,6 +68,10 @@ public class DocumentListenerSaisie implements DocumentListener {
                 } else if ("txtExp".equals(sourceId)) {
                     m_expValid = false;
                     fenetre.setErrorMsg("Vous n'avez pas saisi d'experience");
+                } else if ("txtSalmin".equals(sourceId)) {
+                    fenetre.setErrorMsg("Vous n'avez pas saisi de Salaire minimal");
+                } else if ("txtSalmax".equals(sourceId)) {
+                    fenetre.setErrorMsg("Vous n'avez pas saisi de Salaire maximal");
                 }
             } else {
                 fenetre.setErrorMsg("  ");
@@ -115,9 +119,14 @@ public class DocumentListenerSaisie implements DocumentListener {
                             if ("txtExp".equals(sourceId)) {
                                 m_expValid = false;
                                 fenetre.setErrorMsg("L'expérience doit être un chiffre supérieur à 0");
+                            } else if ("txtSalmax".equals(sourceId)) {
+                                m_expValid = false;
+                                fenetre.setErrorMsg("Le Salaire maxmal doit être un chiffre supérieur à 0");
+                            } else if ("txtSalmin".equals(sourceId)) {
+                                fenetre.setErrorMsg("Le Salaire Minimal doit être un chiffre supérieur à 0");
                             }
 
-                            fenetre.setErrorMsg("Le Salaire Min ou le Salaire Max est un chiffre inférieur à 0");
+//                            fenetre.setErrorMsg("Le Salaire Min ou le Salaire Max est un chiffre inférieur à 0");
                             //Texte nombre <=0    => Désactiver le bouton
                             fenetre.activerEnregistrer(false);
 

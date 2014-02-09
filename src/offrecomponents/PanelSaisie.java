@@ -109,7 +109,7 @@ public class PanelSaisie extends javax.swing.JPanel implements View {
         optOblig.setSelected(false);
         optSouh.setSelected(true);
         cmbReg.setSelectedIndex(0);
-        btnSup.setEnabled(false);
+//        btnSup.setEnabled(false);
         
         activerRAZ(false);
 

@@ -662,7 +662,8 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Arial" size="12" style="1"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="r&#xe9;gion &#xe0; proximit&#xe9; inclus"/>
+                    <Property name="text" type="java.lang.String" value="r&#xe9;gions &#xe0; proximit&#xe9; incluses"/>
+                    <Property name="actionCommand" type="java.lang.String" value="r&#xe9;gions &#xe0; proximit&#xe9; inclus"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jckbproxActionPerformed"/>

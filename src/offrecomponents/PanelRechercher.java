@@ -503,7 +503,8 @@ public class PanelRechercher extends javax.swing.JPanel implements View {
         jPanel7.add(jLabel3);
 
         jckbprox.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jckbprox.setText("région à proximité inclus");
+        jckbprox.setText("régions à proximité incluses");
+        jckbprox.setActionCommand("régions à proximité inclus");
         jckbprox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jckbproxActionPerformed(evt);

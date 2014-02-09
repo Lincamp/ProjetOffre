@@ -208,7 +208,7 @@ public class PanelRechercher extends javax.swing.JPanel implements View {
 
         jPanel28.setLayout(new java.awt.GridLayout(5, 0));
 
-        jPanel29.setLayout(new java.awt.GridLayout());
+        jPanel29.setLayout(new java.awt.GridLayout(1, 0));
 
         jLabel6.setText("Region :");
         jPanel29.add(jLabel6);
@@ -238,7 +238,7 @@ public class PanelRechercher extends javax.swing.JPanel implements View {
 
         jPanel28.add(jPanel30);
 
-        jPanel31.setLayout(new java.awt.GridLayout());
+        jPanel31.setLayout(new java.awt.GridLayout(1, 0));
 
         jLabel11.setText("Salaire espéré :");
         jPanel31.add(jLabel11);
@@ -252,7 +252,7 @@ public class PanelRechercher extends javax.swing.JPanel implements View {
 
         jPanel28.add(jPanel31);
 
-        jPanel32.setLayout(new java.awt.GridLayout());
+        jPanel32.setLayout(new java.awt.GridLayout(1, 0));
         jPanel28.add(jPanel32);
 
         jPanel27.add(jPanel28);
@@ -261,7 +261,7 @@ public class PanelRechercher extends javax.swing.JPanel implements View {
 
         jPanel35.setLayout(new java.awt.GridLayout(3, 0));
 
-        jPanel36.setLayout(new java.awt.GridLayout());
+        jPanel36.setLayout(new java.awt.GridLayout(1, 0));
 
         jLabel12.setText("Compétence :");
         jPanel36.add(jLabel12);
@@ -579,7 +579,7 @@ public class PanelRechercher extends javax.swing.JPanel implements View {
 
         jPanel15.add(jPanel16);
 
-        jPanel48.setLayout(new java.awt.GridLayout());
+        jPanel48.setLayout(new java.awt.GridLayout(1, 0));
 
         jLabel17.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
         jLabel17.setText("Consultation des Offres");
@@ -705,7 +705,9 @@ public class PanelRechercher extends javax.swing.JPanel implements View {
 
         jPanel11.add(jPanel12);
 
-        jLabel4.setText("Erreur");
+        jLabel4.setFont(new java.awt.Font("Arial", 2, 12)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(204, 102, 0));
+        jLabel4.setText("Message Erreur");
         jPanel8.add(jLabel4);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);

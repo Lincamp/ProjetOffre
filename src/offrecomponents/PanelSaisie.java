@@ -17,6 +17,7 @@ import projetoffre.Competence;
 import projetoffre.Emploi;
 import projetoffre.EnregComp;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import projetoffre.EnregistreurDeOffre;
 import projetoffre.Offre;
 import projetoffre.Region;
@@ -770,6 +771,8 @@ public class PanelSaisie extends javax.swing.JPanel implements View {
 
         jPanel11.add(jPanel12);
 
+        jLabelMsg.setFont(new java.awt.Font("Arial", 2, 12)); // NOI18N
+        jLabelMsg.setForeground(new java.awt.Color(204, 102, 0));
         jLabelMsg.setText("Message Erreur");
         jPanel44.add(jLabelMsg);
 
@@ -843,8 +846,10 @@ public class PanelSaisie extends javax.swing.JPanel implements View {
                 // Emploi emp = new Emploi(m_titre, m_region, m_exp, m_salMin, m_salMax, m_lstcomps);
 //                FileOperation fileout = new FileOperation();
 //                fileout.enrgOffre(m_titre, m_region, m_exp, m_salMin, m_salMax, m_tblComps);
+                 JOptionPane.showMessageDialog(null, "Votre offre a été bien enregistrée! ", "ACCUSE", JOptionPane.INFORMATION_MESSAGE);
                 m_offre = new Emploi(m_titre, m_region, m_exp, m_salMin, m_salMax, m_tblComps);
             } else {
+                 JOptionPane.showMessageDialog(null, "Votre offre a été bien enregistrée! ", "ACCUSE", JOptionPane.INFORMATION_MESSAGE);
                 m_offre = new Stage(m_titre, m_region, m_tblComps);
             }
 

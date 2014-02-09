@@ -63,14 +63,14 @@ public class DocumentListenerSaisie implements DocumentListener {
                 fenetre.activerEnregistrer(false);
                 if ("txtTitre".equals(sourceId)) {
                     m_titreValid = false;
-                    fenetre.setErrorMsg("Titre is Empty");
+                    fenetre.setErrorMsg("Vous n'avez pas saisi de titre");
                     fenetre.activerRAZ(false);
                 } else if ("txtExp".equals(sourceId)) {
                     m_expValid = false;
-                    fenetre.setErrorMsg("Experience is Empty");
+                    fenetre.setErrorMsg("Vous n'avez pas saisi d'experience");
                 }
             } else {
-                fenetre.setErrorMsg("Input is OK");
+                fenetre.setErrorMsg("  ");
 //                System.out.println("2+++++++++++++++++++++++++++++++++++++++++++++" + length);
                 if ("txtTitre".equals(sourceId)) {
 //                    if(fenetre.getSelectedRegIndex() != 0)
@@ -79,7 +79,7 @@ public class DocumentListenerSaisie implements DocumentListener {
                     if (m_titreValid && m_expValid && m_minSal >= 0 && m_minSal <= m_maxSal) {
 //                                if(fenetre.getSelectedRegIndex() != 0)
                         fenetre.activerEnregistrer(true);
-                        fenetre.setErrorMsg("Correct input, can be submitted");
+                        fenetre.setErrorMsg("  ");
                     }
 //                    fenetre.activerEnregistrer(true);
                 } else {
@@ -99,25 +99,25 @@ public class DocumentListenerSaisie implements DocumentListener {
                             if (m_titreValid && m_expValid && m_minSal >= 0 && m_minSal <= m_maxSal) {
 //                                if(fenetre.getSelectedRegIndex() != 0)
                                 fenetre.activerEnregistrer(true);
-                                fenetre.setErrorMsg("Correct input, can be submitted");
+                                fenetre.setErrorMsg("  ");
                             } else {
 //                                if(fenetre.getSelectedRegIndex() != 0)
                                 fenetre.activerEnregistrer(false);
                                 if (!m_titreValid) {
-                                    fenetre.setErrorMsg("Titre is empty");
+                                    fenetre.setErrorMsg("Vous n'avez pas saisi de titre");
                                 } else if (!m_expValid) {
-                                    fenetre.setErrorMsg("Experience is not a valid number");
+                                    fenetre.setErrorMsg("L'expérience n'est pas un nombre");
                                 } else if (m_minSal > m_maxSal) {
-                                    fenetre.setErrorMsg("Salmin is bigger than Salmax");
+                                    fenetre.setErrorMsg("Le Salaire Man doit être supérieur à le Salaire Min");
                                 }
                             }
                         } else {
                             if ("txtExp".equals(sourceId)) {
                                 m_expValid = false;
-                                fenetre.setErrorMsg("Experience is a negative number");
+                                fenetre.setErrorMsg("L'expérience doit être un chiffre supérieur à 0");
                             }
 
-                            fenetre.setErrorMsg("Salmin or Salmax is a negative number");
+                            fenetre.setErrorMsg("Le Salaire Min ou le Salaire Max est un chiffre inférieur à 0");
                             //Texte nombre <=0    => Désactiver le bouton
                             fenetre.activerEnregistrer(false);
 
@@ -126,11 +126,11 @@ public class DocumentListenerSaisie implements DocumentListener {
                         //Texte pas un nombre => Désactiver le bouton
                         fenetre.activerEnregistrer(false);
                         if ("txtExp".equals(sourceId)) {
-                            fenetre.setErrorMsg("Experience is not a valid number");
+                            fenetre.setErrorMsg("L'expérience n'est pas un nombre");
                         } else if ("txtSalmax".equals(sourceId)) {
-                            fenetre.setErrorMsg("Salmax is not a valid number");
+                            fenetre.setErrorMsg("Le Salaire Max n'est pas un nombre");
                         } else if ("txtSalmin".equals(sourceId)) {
-                            fenetre.setErrorMsg("Salmin is not a valid number");
+                            fenetre.setErrorMsg("Le Salaire Min n'est pas un nombre");
                         }
 //                        fenetre.setErrorMsg("Salmin or Salmax is not a valid number");
                     }

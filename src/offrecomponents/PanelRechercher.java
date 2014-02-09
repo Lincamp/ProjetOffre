@@ -707,7 +707,7 @@ public class PanelRechercher extends javax.swing.JPanel implements View {
 
         jLabel4.setFont(new java.awt.Font("Arial", 2, 12)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(204, 102, 0));
-        jLabel4.setText("Message Erreur");
+        jLabel4.setText("   ");
         jPanel8.add(jLabel4);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -990,6 +990,8 @@ public class PanelRechercher extends javax.swing.JPanel implements View {
         txtSalesp.setText("0");
         cmbReg.setSelectedIndex(0);
         activerRechercher(false);
+        btnRAZ.setEnabled(false);
+        btnSup.setEnabled(false);
     }
     
     

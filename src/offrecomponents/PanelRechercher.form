@@ -1065,7 +1065,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="66" red="cc" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Message Erreur"/>
+            <Property name="text" type="java.lang.String" value="   "/>
           </Properties>
         </Component>
       </SubComponents>

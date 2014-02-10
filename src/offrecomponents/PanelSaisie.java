@@ -1173,6 +1173,10 @@ public class PanelSaisie extends javax.swing.JPanel implements View {
         tblComp.setModel(model);
     }
 
+//    private int getCompsSize() {
+//        return m_offreEnreg.getComps().size();
+//    }
+
     public void activerEnregistrer(boolean b) {
         btnEnreg.setEnabled(b);
         m_enregistrerPossible = b;
@@ -1185,6 +1189,23 @@ public class PanelSaisie extends javax.swing.JPanel implements View {
     public void activerRAZ(boolean b) {
         btnRAZ.setEnabled(b);
 //        m_enregistrerPossible = b;
+    }
+
+    public void procBtnRAZ() {
+        int compsSize = m_offreEnreg.getComps().size();
+        if (!optEmploi.isSelected()
+                || !txtTitre.getText().isEmpty()
+                || cmbReg.getSelectedIndex() != 0
+                || !"0".equals(txtExp.getText())
+                || !"0".equals(txtSalmin.getText())
+                || !"0".equals(txtSalmax.getText())
+                || cmbComp.getSelectedIndex() != 0
+                || !optSouh.isSelected()
+                || compsSize > 0) {
+            activerRAZ(true);
+        } else {
+            activerRAZ(false);
+        }
     }
 
     public boolean isEmploi() {

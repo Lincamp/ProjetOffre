@@ -59,6 +59,7 @@ public class DocumentListenerSaisie implements DocumentListener {
 //            final String text = document.getText(0, length);
             final String text = document.getText(0, length);
 
+//            fenetre.procBtnRAZ();
             if (fenetre.isEmploi()) {
                 //            System.out.println("textTitre:" + text + "|length" + length);
                 if (text.isEmpty()) {

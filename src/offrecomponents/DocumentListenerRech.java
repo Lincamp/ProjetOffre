@@ -48,32 +48,32 @@ public class DocumentListenerRech implements DocumentListener {
 //            final String sourceId = (String) source.getClientProperty("id");
 
 //            System.out.println("sourceeeeeeeeeeeeeee  " + sourceId);
-
             final Document document = e.getDocument();
             final int length = document.getLength();
 //            final String textExperience = document.getText(0, length);
             final String text = document.getText(0, length);
 
 //            System.out.println("textTitre:" + text + "|length" + length);
-            if (text.isEmpty()) {
-                //Texte vide => Désactiver le bouton
-                fenetre.activerRechercher(false);
-            } else {
-                    try {
-                        int value = Integer.parseInt(text);
+//            if (text.isEmpty()) {
+//                //Texte vide => Désactiver le bouton
+//                fenetre.activerRechercher(false);
+//            } else {
+//                try {
+//                    int value = Integer.parseInt(text);
+//
+//                    if (value > 0) {
+//                        fenetre.activerRechercher(true);
+//                    } else {
+//                        //Texte nombre <=0    => Désactiver le bouton
+//                        fenetre.activerRechercher(false);
+//                    }
+//                } catch (NumberFormatException numberFormatException) {
+//                    //Texte pas un nombre => Désactiver le bouton
+//                    fenetre.activerRechercher(false);
+//                }
+//            }
+            fenetre.procBtnRech();
 
-                        if (value > 0) {
-                            fenetre.activerRechercher(true);
-                        } else {
-                            //Texte nombre <=0    => Désactiver le bouton
-                            fenetre.activerRechercher(false);
-                        }
-                    } catch (NumberFormatException numberFormatException) {
-                        //Texte pas un nombre => Désactiver le bouton
-                        fenetre.activerRechercher(false);
-                    }
-                }
-            
         } catch (BadLocationException ex) {
             Logger.getLogger(DocumentListenerRech.class.getName()).log(Level.SEVERE, null, ex);
         }

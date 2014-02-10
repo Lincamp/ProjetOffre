@@ -756,6 +756,7 @@ public class PanelRechercher extends javax.swing.JPanel implements View {
         // TODO add your handling code here:
 //        txtSalesp.setEnabled(false);
         procSalesp();
+        procBtnRech();
         procBtnRAZ();
     }//GEN-LAST:event_optEmploiActionPerformed
 
@@ -776,12 +777,14 @@ public class PanelRechercher extends javax.swing.JPanel implements View {
 //            txtSalesp.setEnabled(false);
 //        }
         procSalesp();
+        procBtnRech();
         procBtnRAZ();
     }//GEN-LAST:event_jckbproxActionPerformed
 
     private void btnAjouterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAjouterActionPerformed
         // TODO add your handling code here:
         afficherCompChercher();
+        procBtnRech();
     }//GEN-LAST:event_btnAjouterActionPerformed
 
     private void btnRechActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRechActionPerformed
@@ -814,7 +817,7 @@ public class PanelRechercher extends javax.swing.JPanel implements View {
 //       for(Competence comp:lstComps){
 //          m_enregCompRech.retirerComp(comp);        
 //       }
-
+        procBtnRech();
     }//GEN-LAST:event_btnSupActionPerformed
 
     private void btnRAZActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRAZActionPerformed
@@ -835,8 +838,9 @@ public class PanelRechercher extends javax.swing.JPanel implements View {
     private void optStageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optStageActionPerformed
         // TODO add your handling code here:
 //        txtSalesp.setEnabled(false);
-        btnRech.setEnabled(true);
+//        btnRech.setEnabled(true);
         procSalesp();
+        procBtnRech();
         procBtnRAZ();
     }//GEN-LAST:event_optStageActionPerformed
 
@@ -987,6 +991,7 @@ public class PanelRechercher extends javax.swing.JPanel implements View {
         jlstCompRech.setListData(m_enregistreurDeComp.getCompNoms().toArray());
 //        jlstCompRech.setListData(comps.toArray());
         procBtnRAZ();
+        procBtnRech();
         // TODO
 //        btnSupprimer.setEnabled(!comps.isEmpty());
     }
@@ -1015,6 +1020,12 @@ public class PanelRechercher extends javax.swing.JPanel implements View {
         } else {
             activerSupprimer(false);
         }
+    }
+
+    private int getCompsSize() {
+        int compsSize = m_enregistreurDeComp.getCompetences().size();
+
+        return compsSize;
     }
 
     private void initBtn() {
@@ -1049,6 +1060,50 @@ public class PanelRechercher extends javax.swing.JPanel implements View {
             activerRAZ(true);
         } else {
             activerRAZ(false);
+        }
+    }
+
+    public void procBtnRech() {
+        int compsSize = getCompsSize();
+
+        if (compsSize > 0) {
+            if (!jckbprox.isSelected()) {
+                activerRechercher(true);
+            } else {
+                final String text = txtSalesp.getText();
+
+//            System.out.println("textTitre:" + text + "|length" + length);
+                if (text.isEmpty()) {
+                    //Texte vide => Désactiver le bouton
+                    activerRechercher(false);
+                } else {
+                    try {
+                        int value = Integer.parseInt(text);
+
+                        if (value > 0) {
+                            activerRechercher(true);
+                        } else {
+                            //Texte nombre <=0    => Désactiver le bouton
+                            activerRechercher(false);
+                        }
+                    } catch (NumberFormatException numberFormatException) {
+                        //Texte pas un nombre => Désactiver le bouton
+                        activerRechercher(false);
+                    }
+                }
+            }
+        } else {
+            activerRechercher(false);
+        }
+
+        if (optEmploi.isSelected()) {
+
+        } else if (optStage.isSelected()) {
+            if (compsSize > 0) {
+                activerRechercher(true);
+            } else {
+                activerRechercher(false);
+            }
         }
     }
 

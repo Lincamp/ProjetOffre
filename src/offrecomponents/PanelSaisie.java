@@ -118,6 +118,7 @@ public class PanelSaisie extends javax.swing.JPanel implements View {
 //        //            m_region = m_regFonc.getTblRegions().get(m_regionStr);
 //
         activerEnregistrer(false);
+        setErrorMsg("Vous n'avez pas saisi de titre");
     }
 
     private void initDocumentProperties() {

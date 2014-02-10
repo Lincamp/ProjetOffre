@@ -37,6 +37,7 @@ public class PanelRechercher extends javax.swing.JPanel implements View {
 
     Object[][] m_scoreContent;
     private boolean m_rechercherPossible;
+
     /**
      * Creates new form PanelRechercher
      */
@@ -52,7 +53,7 @@ public class PanelRechercher extends javax.swing.JPanel implements View {
         initCompList();
         setEnregistreur(new EnregistreurDeComp());
         initBtn();
-         txtSalesp.getDocument().addDocumentListener(new DocumentListenerRech(this));
+        txtSalesp.getDocument().addDocumentListener(new DocumentListenerRech(this));
     }
 
     public void setEnregistreur(EnregistreurDeComp enregistreurDeComp) {
@@ -762,10 +763,9 @@ public class PanelRechercher extends javax.swing.JPanel implements View {
 
     private void jckbproxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jckbproxActionPerformed
         // TODO add your handling code here:
-        if(jckbprox.isSelected()){
+        if (jckbprox.isSelected()) {
             txtSalesp.setEnabled(true);
-        }
-        else{
+        } else {
             txtSalesp.setEnabled(false);
         }
     }//GEN-LAST:event_jckbproxActionPerformed
@@ -825,6 +825,7 @@ public class PanelRechercher extends javax.swing.JPanel implements View {
     private void optStageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optStageActionPerformed
         // TODO add your handling code here:
         txtSalesp.setEnabled(false);
+        btnRech.setEnabled(true);
     }//GEN-LAST:event_optStageActionPerformed
 
     private void optEmploi1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optEmploi1ActionPerformed
@@ -972,30 +973,42 @@ public class PanelRechercher extends javax.swing.JPanel implements View {
         // TODO
 //        btnSupprimer.setEnabled(!comps.isEmpty());
     }
-    
-  public void activerRechercher(boolean b) {
+
+    public void activerRechercher(boolean b) {
         btnRech.setEnabled(b);
         m_rechercherPossible = b;
 //        lblErreur.setVisible(!b);
-    }     
+    }
+    
+    public void activerSupprimer(boolean b) {
+        btnSup.setEnabled(b);
+    }
 
+    public void activerRAZ(boolean b) {
+        btnRAZ.setEnabled(b);
+    }
+    
     @Override
     public void modelChanged() {
         init(); //To change body of generated methods, choose Tools | Templates.
+        int compsSize = m_enregistreurDeComp.getCompetences().size();
+        if (compsSize > 0) {
+            activerSupprimer(true);
+        } else {
+            activerSupprimer(false);
+        }
     }
-    
-      private void initBtn() {          
+
+    private void initBtn() {
         optEmploi.setSelected(true);
         optStage.setSelected(false);
         this.txtSalesp.setEnabled(false);
         txtSalesp.setText("0");
         cmbReg.setSelectedIndex(0);
         activerRechercher(false);
-        btnRAZ.setEnabled(false);
+        btnRAZ.setEnabled(true);
         btnSup.setEnabled(false);
     }
-    
-    
 
     private void afficherCompChercher() {
         String nomC;
@@ -1028,7 +1041,7 @@ public class PanelRechercher extends javax.swing.JPanel implements View {
 
         String[] columnNames = {Constant.m_titre, Constant.m_scoreTotal, Constant.m_adequation, Constant.m_region};
 
-        DefaultTableModel model = new DefaultTableModel(m_scoreContent, columnNames){
+        DefaultTableModel model = new DefaultTableModel(m_scoreContent, columnNames) {
             @Override
             public boolean isCellEditable(int row, int column) {
                 //all cells false
@@ -1051,7 +1064,7 @@ public class PanelRechercher extends javax.swing.JPanel implements View {
 
         String[] columnNames = {Constant.m_titre, Constant.m_scoreTotal, Constant.m_adequation, Constant.m_region};
 
-        DefaultTableModel model = new DefaultTableModel(m_scoreContent, columnNames){
+        DefaultTableModel model = new DefaultTableModel(m_scoreContent, columnNames) {
             @Override
             public boolean isCellEditable(int row, int column) {
                 //all cells false
@@ -1078,7 +1091,7 @@ public class PanelRechercher extends javax.swing.JPanel implements View {
 
         String[] columnNames = {Constant.m_titre, Constant.m_scoreTotal, Constant.m_adequation, Constant.m_region};
 
-        DefaultTableModel model = new DefaultTableModel(m_scoreContent, columnNames){
+        DefaultTableModel model = new DefaultTableModel(m_scoreContent, columnNames) {
             @Override
             public boolean isCellEditable(int row, int column) {
                 //all cells false

@@ -21,6 +21,7 @@ public class DocumentListenerSaisie implements DocumentListener {
     private PanelSaisie fenetre;
     private static int m_salmin = 0;
     private static int m_salmax = 0;
+    private static int m_exp = 0;
     private static boolean m_expValid = false;
     private static boolean m_salminValid = false;
     private static boolean m_salmaxValid = false;
@@ -85,12 +86,14 @@ public class DocumentListenerSaisie implements DocumentListener {
 //                    if(fenetre.getSelectedRegIndex() != 0)
                         m_titreValid = true;
                         fenetre.activerRAZ(true);
-                        if (m_titreValid && m_expValid && m_salminValid && m_salmaxValid && m_salmin >= 0 && m_salmin <= m_salmax) {
+                        if (m_titreValid && m_expValid && m_salminValid && m_salmaxValid && m_salmin > 0 && m_salmin <= m_salmax) {
 //                                if(fenetre.getSelectedRegIndex() != 0)
                             fenetre.activerEnregistrer(true);
                             fenetre.setErrorMsg("  ");
                         } else if (!m_expValid) {
                             fenetre.setErrorMsg("L'expérience n'est pas un nombre");
+                        } else if (m_exp <= 0) {
+                            fenetre.setErrorMsg("L'expérience doit être un chiffre supérieur à 0");
                         } else if (!m_salminValid) {
                             fenetre.setErrorMsg("Le Salaire minimal n'est pas un nombre");
                         } else if (!m_salmaxValid) {
@@ -116,6 +119,7 @@ public class DocumentListenerSaisie implements DocumentListener {
                                     m_salmaxValid = true;
                                 } else if ("txtExp".equals(sourceId)) {
                                     m_expValid = true;
+                                    m_exp = value;
                                 }
                                 System.out.println("min:" + m_salmin + "|max" + m_salmax);
                                 //Texte nombre >0 et min salaire <= max salaire  => Activer le bouton
@@ -130,6 +134,8 @@ public class DocumentListenerSaisie implements DocumentListener {
                                         fenetre.setErrorMsg("Vous n'avez pas saisi de titre");
                                     } else if (!m_expValid) {
                                         fenetre.setErrorMsg("L'expérience n'est pas un nombre");
+                                    } else if (m_exp <= 0) {
+                                        fenetre.setErrorMsg("L'expérience doit être un chiffre supérieur à 0");
                                     } else if (!m_salminValid) {
                                         fenetre.setErrorMsg("Le Salaire minimal n'est pas un nombre");
                                     } else if (!m_salmaxValid) {
@@ -144,13 +150,13 @@ public class DocumentListenerSaisie implements DocumentListener {
                                 }
                             } else {
                                 if ("txtExp".equals(sourceId)) {
-                                    m_expValid = false;
+                                    m_expValid = true;
                                     fenetre.setErrorMsg("L'expérience doit être un chiffre supérieur à 0");
                                 } else if ("txtSalmin".equals(sourceId)) {
-                                    m_salminValid = false;
+                                    m_salminValid = true;
                                     fenetre.setErrorMsg("Le Salaire Minimal doit être un chiffre supérieur à 0");
                                 } else if ("txtSalmax".equals(sourceId)) {
-                                    m_salmaxValid = false;
+                                    m_salmaxValid = true;
                                     fenetre.setErrorMsg("Le Salaire maxmal doit être un chiffre supérieur à 0");
                                 }
 

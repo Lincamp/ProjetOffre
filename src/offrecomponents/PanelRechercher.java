@@ -1009,7 +1009,7 @@ public class PanelRechercher extends javax.swing.JPanel implements View {
     public void modelChanged() {
         init(); //To change body of generated methods, choose Tools | Templates.
         int compsSize = m_enregistreurDeComp.getCompetences().size();
-        System.out.println(compsSize + "++++++++++++");
+//        System.out.println(compsSize + "++++++++++++");
         if (compsSize > 0) {
             activerSupprimer(true);
         } else {

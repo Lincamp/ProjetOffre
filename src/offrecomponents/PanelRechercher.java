@@ -181,7 +181,7 @@ public class PanelRechercher extends javax.swing.JPanel implements View {
         btnRech = new javax.swing.JButton();
         btnRAZ = new javax.swing.JButton();
         jPanel8 = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
+        jLabelMsg = new javax.swing.JLabel();
 
         jPanel26.setLayout(new java.awt.GridLayout(1, 0, 50, 0));
 
@@ -712,10 +712,10 @@ public class PanelRechercher extends javax.swing.JPanel implements View {
 
         jPanel11.add(jPanel12);
 
-        jLabel4.setFont(new java.awt.Font("Arial", 2, 12)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(204, 102, 0));
-        jLabel4.setText("   ");
-        jPanel8.add(jLabel4);
+        jLabelMsg.setFont(new java.awt.Font("Arial", 2, 12)); // NOI18N
+        jLabelMsg.setForeground(new java.awt.Color(204, 102, 0));
+        jLabelMsg.setText("   ");
+        jPanel8.add(jLabelMsg);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -910,12 +910,12 @@ public class PanelRechercher extends javax.swing.JPanel implements View {
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel jLabelMsg;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
@@ -1066,9 +1066,11 @@ public class PanelRechercher extends javax.swing.JPanel implements View {
     public void procBtnRech() {
         int compsSize = getCompsSize();
 
+        if (optEmploi.isSelected()) {
         if (compsSize > 0) {
             if (!jckbprox.isSelected()) {
                 activerRechercher(true);
+                setErrorMsg("    ");
             } else {
                 final String text = txtSalesp.getText();
 
@@ -1076,19 +1078,23 @@ public class PanelRechercher extends javax.swing.JPanel implements View {
                 if (text.isEmpty()) {
                     //Texte vide => Désactiver le bouton
                     activerRechercher(false);
+                    setErrorMsg("Please input Salesp");
                 } else {
                     try {
                         int value = Integer.parseInt(text);
 
                         if (value > 0) {
                             activerRechercher(true);
+                            setErrorMsg("    ");
                         } else {
                             //Texte nombre <=0    => Désactiver le bouton
                             activerRechercher(false);
+                            setErrorMsg("Salesp should be bigger than 0");
                         }
                     } catch (NumberFormatException numberFormatException) {
                         //Texte pas un nombre => Désactiver le bouton
                         activerRechercher(false);
+                        setErrorMsg("Salesp is not a valid number");
                     }
                 }
             }
@@ -1096,15 +1102,21 @@ public class PanelRechercher extends javax.swing.JPanel implements View {
             activerRechercher(false);
         }
 
-        if (optEmploi.isSelected()) {
+        
 
         } else if (optStage.isSelected()) {
             if (compsSize > 0) {
                 activerRechercher(true);
+                setErrorMsg("    ");
             } else {
+                setErrorMsg("Please add competence");
                 activerRechercher(false);
             }
         }
+    }
+
+    public void setErrorMsg(String msg) {
+        this.jLabelMsg.setText(msg);
     }
 
     private void afficherCompChercher() {

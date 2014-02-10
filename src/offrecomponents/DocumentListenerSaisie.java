@@ -122,7 +122,7 @@ public class DocumentListenerSaisie implements DocumentListener {
                                     m_expValid = true;
                                     m_exp = value;
                                 }
-                                System.out.println("min:" + m_salmin + "|max" + m_salmax);
+//                                System.out.println("min:" + m_salmin + "|max" + m_salmax);
                                 //Texte nombre >0 et min salaire <= max salaire  => Activer le bouton
                                 if (m_titreValid && m_expValid && m_salminValid && m_salmaxValid && m_salmin > 0 && m_salmin <= m_salmax) {
 //                                if(fenetre.getSelectedRegIndex() != 0)

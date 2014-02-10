@@ -1078,7 +1078,7 @@ public class PanelRechercher extends javax.swing.JPanel implements View {
                 if (text.isEmpty()) {
                     //Texte vide => Désactiver le bouton
                     activerRechercher(false);
-                    setErrorMsg("Please input Salesp");
+                    setErrorMsg("Vous n'avez pas saisi de Salaire espéré");
                 } else {
                     try {
                         int value = Integer.parseInt(text);
@@ -1089,12 +1089,12 @@ public class PanelRechercher extends javax.swing.JPanel implements View {
                         } else {
                             //Texte nombre <=0    => Désactiver le bouton
                             activerRechercher(false);
-                            setErrorMsg("Salesp should be bigger than 0");
+                            setErrorMsg("Le salaire espéré doit être un chiffre supérieur à 0");
                         }
                     } catch (NumberFormatException numberFormatException) {
                         //Texte pas un nombre => Désactiver le bouton
                         activerRechercher(false);
-                        setErrorMsg("Salesp is not a valid number");
+                        setErrorMsg("Le salaire espéré n'est pas un nombre");
                     }
                 }
             }
@@ -1109,7 +1109,7 @@ public class PanelRechercher extends javax.swing.JPanel implements View {
                 activerRechercher(true);
                 setErrorMsg("    ");
             } else {
-                setErrorMsg("Please add competence");
+                setErrorMsg("Vous n'avez pas choisi de compétence");
                 activerRechercher(false);
             }
         }

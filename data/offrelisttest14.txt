@@ -25,3 +25,4 @@ test6;Basse-Normandie;4;3421;3456;Communication:obligatoire|BI:souhaitee|Develop
 test675;Auvergne;1;2344;4543;BI:souhaitee|Communication:obligatoire|Developpement:obligatoire|Gestion:obligatoire
 eiwo;Aquitaine;2;2000;3000;BI:obligatoire
 eere;Bretagne;-1;-1;-1;BI:obligatoire
+weoiw;Aquitaine;-1;-1;-1;BI:souhaitee

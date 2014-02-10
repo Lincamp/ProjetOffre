@@ -11,9 +11,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Vector;
-import projetoffre.Constant;
-import projetoffre.Emploi;
-import projetoffre.Stage;
+import ProjetOffre.metier.Constant;
+import ProjetOffre.metier.Emploi;
+import ProjetOffre.metier.Stage;
 
 /**
  *

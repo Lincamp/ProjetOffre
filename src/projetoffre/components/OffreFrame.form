@@ -88,14 +88,14 @@
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.DesignCardLayout"/>
       <SubComponents>
-        <Component class="offrecomponents.PanelSaisie" name="panelSaisie1">
+        <Component class="ProjetOffre.components.PanelSaisie" name="panelSaisie1">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
               <CardConstraints cardName="saisie"/>
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="offrecomponents.PanelRechercher" name="panelRechercher1">
+        <Component class="ProjetOffre.components.PanelRechercher" name="panelRechercher1">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
               <CardConstraints cardName="rechercher"/>

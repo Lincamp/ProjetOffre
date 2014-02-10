@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package offrecomponents;
+package ProjetOffre.components;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -14,16 +14,15 @@ import java.util.Vector;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
 import javax.swing.table.DefaultTableModel;
-import projetoffre.Competence;
-import projetoffre.Constant;
-//import projetoffre.EnregCompRech;
-import projetoffre.EnregistreurDeComp;
-import projetoffre.OffreType;
-import projetoffre.Region;
+import ProjetOffre.metier.Competence;
+import ProjetOffre.metier.Constant;
+import ProjetOffre.metier.EnregistreurDeComp;
+import ProjetOffre.metier.OffreType;
+import ProjetOffre.metier.Region;
 import projetoffre.noyaufonctionnel.ComptNoyauFonctionnel;
 import projetoffre.noyaufonctionnel.NoyauFonctionnel;
 import projetoffre.noyaufonctionnel.RegionNoyauFonctionnel;
-import view.View;
+import ProjetOffre.mvc.View;
 
 /**
  *

@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package offrecomponents;
+package ProjetOffre.components;
 
 import java.awt.CardLayout;
 
@@ -58,8 +58,8 @@ public class OffreFrame extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         btngrpmenu = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
-        panelSaisie1 = new offrecomponents.PanelSaisie();
-        panelRechercher1 = new offrecomponents.PanelRechercher();
+        panelSaisie1 = new ProjetOffre.components.PanelSaisie();
+        panelRechercher1 = new ProjetOffre.components.PanelRechercher();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         mnuoptSaisie = new javax.swing.JRadioButtonMenuItem();
@@ -170,7 +170,7 @@ public class OffreFrame extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JRadioButtonMenuItem mnuoptRechercher;
     private javax.swing.JRadioButtonMenuItem mnuoptSaisie;
-    private offrecomponents.PanelRechercher panelRechercher1;
-    private offrecomponents.PanelSaisie panelSaisie1;
+    private ProjetOffre.components.PanelRechercher panelRechercher1;
+    private ProjetOffre.components.PanelSaisie panelSaisie1;
     // End of variables declaration//GEN-END:variables
 }

@@ -11,10 +11,10 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Vector;
-import projetoffre.CompType;
-import projetoffre.Competence;
-import projetoffre.Constant;
-import projetoffre.MotClef;
+import ProjetOffre.metier.CompType;
+import ProjetOffre.metier.Competence;
+import ProjetOffre.metier.Constant;
+import ProjetOffre.metier.MotClef;
 
 /**
  *

@@ -10,8 +10,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
-import projetoffre.Constant;
-import projetoffre.Region;
+import ProjetOffre.metier.Constant;
+import ProjetOffre.metier.Region;
 
 /**
  *

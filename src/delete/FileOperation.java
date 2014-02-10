@@ -13,8 +13,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Iterator;
-import projetoffre.CompType;
-import projetoffre.Competence;
+import ProjetOffre.metier.CompType;
+import ProjetOffre.metier.Competence;
 
 /**
  *

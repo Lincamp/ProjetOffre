@@ -8,7 +8,7 @@ package delete;
 
 
 import java.util.ArrayList;
-import projetoffre.Competence;
+import ProjetOffre.metier.Competence;
 
 /**
  *

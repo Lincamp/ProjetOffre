@@ -2,12 +2,12 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package projetoffre;
+package ProjetOffre.metier;
 
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
-import view.View;
+import ProjetOffre.mvc.View;
 
 /**
  * Cette classe fournit des objets permettant le calcul et le stockage du prix

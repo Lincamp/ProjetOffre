@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package offrecomponents;
+package ProjetOffre.components;
 
 import java.util.HashMap;
 import java.util.HashSet;
@@ -12,20 +12,20 @@ import java.util.Set;
 import java.util.Vector;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.table.DefaultTableModel;
-import projetoffre.CompType;
-import projetoffre.Competence;
-import projetoffre.Emploi;
-import projetoffre.EnregComp;
+import ProjetOffre.metier.CompType;
+import ProjetOffre.metier.Competence;
+import ProjetOffre.metier.Emploi;
+import ProjetOffre.metier.EnregComp;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
-import projetoffre.EnregistreurDeOffre;
-import projetoffre.Offre;
-import projetoffre.Region;
-import projetoffre.Stage;
+import ProjetOffre.metier.EnregistreurDeOffre;
+import ProjetOffre.metier.Offre;
+import ProjetOffre.metier.Region;
+import ProjetOffre.metier.Stage;
 import projetoffre.noyaufonctionnel.RegionNoyauFonctionnel;
 import projetoffre.noyaufonctionnel.ComptNoyauFonctionnel;
 import projetoffre.noyaufonctionnel.OffreNoyauFonctionnel;
-import view.View;
+import ProjetOffre.mvc.View;
 
 /**
  *

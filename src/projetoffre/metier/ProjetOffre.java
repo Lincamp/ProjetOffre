@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package projetoffre;
+package ProjetOffre.metier;
 
 import java.util.ArrayList;
-import offrecomponents.OffreFrame;
+import ProjetOffre.components.OffreFrame;
 
 /**
  *

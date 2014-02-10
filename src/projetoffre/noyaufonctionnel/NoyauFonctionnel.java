@@ -7,12 +7,12 @@ package projetoffre.noyaufonctionnel;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Set;
-import projetoffre.Competence;
-import projetoffre.Emploi;
-import projetoffre.Offre;
-import projetoffre.OffreType;
-import projetoffre.Region;
-import projetoffre.Stage;
+import ProjetOffre.metier.Competence;
+import ProjetOffre.metier.Emploi;
+import ProjetOffre.metier.Offre;
+import ProjetOffre.metier.OffreType;
+import ProjetOffre.metier.Region;
+import ProjetOffre.metier.Stage;
 
 /**
  *

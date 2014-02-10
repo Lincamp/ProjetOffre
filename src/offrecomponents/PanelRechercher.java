@@ -547,6 +547,11 @@ public class PanelRechercher extends javax.swing.JPanel implements View {
 
         cmbComp.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         cmbComp.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Program", "Item 2", "Item 3", "Item 4" }));
+        cmbComp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbCompActionPerformed(evt);
+            }
+        });
         jPanel19.add(cmbComp);
 
         jPanel18.add(jPanel19);
@@ -749,12 +754,14 @@ public class PanelRechercher extends javax.swing.JPanel implements View {
 
     private void optEmploiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optEmploiActionPerformed
         // TODO add your handling code here:
-        txtSalesp.setEnabled(false);
-
+//        txtSalesp.setEnabled(false);
+        procSalesp();
+        procBtnRAZ();
     }//GEN-LAST:event_optEmploiActionPerformed
 
     private void cmbRegActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbRegActionPerformed
         // TODO add your handling code here:
+        procBtnRAZ();
     }//GEN-LAST:event_cmbRegActionPerformed
 
     private void txtSalespActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSalespActionPerformed
@@ -763,11 +770,13 @@ public class PanelRechercher extends javax.swing.JPanel implements View {
 
     private void jckbproxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jckbproxActionPerformed
         // TODO add your handling code here:
-        if (jckbprox.isSelected()) {
-            txtSalesp.setEnabled(true);
-        } else {
-            txtSalesp.setEnabled(false);
-        }
+//        if (jckbprox.isSelected()) {
+//            txtSalesp.setEnabled(true);
+//        } else {
+//            txtSalesp.setEnabled(false);
+//        }
+        procSalesp();
+        procBtnRAZ();
     }//GEN-LAST:event_jckbproxActionPerformed
 
     private void btnAjouterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAjouterActionPerformed
@@ -812,6 +821,7 @@ public class PanelRechercher extends javax.swing.JPanel implements View {
         // TODO add your handling code here:
         txtSalesp.setText("");
         m_enregistreurDeComp.remiseAZero();
+        initBtn();
         init();
 
         // TODO
@@ -824,8 +834,10 @@ public class PanelRechercher extends javax.swing.JPanel implements View {
 
     private void optStageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optStageActionPerformed
         // TODO add your handling code here:
-        txtSalesp.setEnabled(false);
+//        txtSalesp.setEnabled(false);
         btnRech.setEnabled(true);
+        procSalesp();
+        procBtnRAZ();
     }//GEN-LAST:event_optStageActionPerformed
 
     private void optEmploi1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optEmploi1ActionPerformed
@@ -863,6 +875,11 @@ public class PanelRechercher extends javax.swing.JPanel implements View {
     private void btnRAZ1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRAZ1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnRAZ1ActionPerformed
+
+    private void cmbCompActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbCompActionPerformed
+        // TODO add your handling code here:
+        procBtnRAZ();
+    }//GEN-LAST:event_cmbCompActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -969,7 +986,7 @@ public class PanelRechercher extends javax.swing.JPanel implements View {
 //        jlstCompRech.setListData(m_setComp.toArray());
         jlstCompRech.setListData(m_enregistreurDeComp.getCompNoms().toArray());
 //        jlstCompRech.setListData(comps.toArray());
-
+        procBtnRAZ();
         // TODO
 //        btnSupprimer.setEnabled(!comps.isEmpty());
     }
@@ -979,7 +996,7 @@ public class PanelRechercher extends javax.swing.JPanel implements View {
         m_rechercherPossible = b;
 //        lblErreur.setVisible(!b);
     }
-    
+
     public void activerSupprimer(boolean b) {
         btnSup.setEnabled(b);
     }
@@ -987,11 +1004,12 @@ public class PanelRechercher extends javax.swing.JPanel implements View {
     public void activerRAZ(boolean b) {
         btnRAZ.setEnabled(b);
     }
-    
+
     @Override
     public void modelChanged() {
         init(); //To change body of generated methods, choose Tools | Templates.
         int compsSize = m_enregistreurDeComp.getCompetences().size();
+        System.out.println(compsSize + "++++++++++++");
         if (compsSize > 0) {
             activerSupprimer(true);
         } else {
@@ -1003,11 +1021,35 @@ public class PanelRechercher extends javax.swing.JPanel implements View {
         optEmploi.setSelected(true);
         optStage.setSelected(false);
         this.txtSalesp.setEnabled(false);
+        jckbprox.setSelected(false);
         txtSalesp.setText("0");
         cmbReg.setSelectedIndex(0);
+        cmbComp.setSelectedIndex(0);
         activerRechercher(false);
-        btnRAZ.setEnabled(true);
-        btnSup.setEnabled(false);
+        activerSupprimer(false);
+        activerRAZ(false);
+    }
+
+    public void procSalesp() {
+        if (jckbprox.isSelected() && optEmploi.isSelected()) {
+            txtSalesp.setEnabled(true);
+        } else {
+            txtSalesp.setEnabled(false);
+        }
+    }
+
+    public void procBtnRAZ() {
+        int compsSize = m_enregistreurDeComp.getCompetences().size();
+        if (!optEmploi.isSelected()
+                || cmbReg.getSelectedIndex() != 0
+                || jckbprox.isSelected()
+                || !"0".equals(txtSalesp.getText())
+                || cmbComp.getSelectedIndex() != 0
+                || compsSize > 0) {
+            activerRAZ(true);
+        } else {
+            activerRAZ(false);
+        }
     }
 
     private void afficherCompChercher() {
